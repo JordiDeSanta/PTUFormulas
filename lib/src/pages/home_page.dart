@@ -27,9 +27,25 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 30.0),
-              _createMatTile('Matemática', Colors.blue[300]),
-              _createMatTile('Física', Colors.purple[300]),
-              _createMatTile('Química', Colors.green[300]),
+              _createMatTile(
+                context,
+                'Matemática',
+                Colors.blue[300],
+                'assets/img/matematica.png',
+                route: 'math',
+              ),
+              _createMatTile(
+                context,
+                'Física',
+                Colors.purple[300],
+                'assets/img/fisica.png',
+              ),
+              _createMatTile(
+                context,
+                'Química',
+                Colors.green[300],
+                'assets/img/quimica.png',
+              ),
             ],
           ),
         ),
@@ -37,11 +53,12 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _createMatTile(String title, Color color) {
+  Widget _createMatTile(
+      BuildContext c, String title, Color color, String imageRoute,
+      {String route}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
       child: ElevatedButton(
-        onPressed: () {},
         style: ButtonStyle(
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
@@ -52,11 +69,16 @@ class HomePage extends StatelessWidget {
         ),
         child: Row(
           children: [
-            //Icon(),
+            Image(
+              height: 80.0,
+              image: AssetImage(imageRoute),
+              fit: BoxFit.cover,
+            ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 40.0, horizontal: 30.0),
               child: Text(
-                'Física',
+                title,
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w100,
@@ -65,6 +87,9 @@ class HomePage extends StatelessWidget {
             )
           ],
         ),
+        onPressed: () {
+          Navigator.pushNamed(c, route);
+        },
       ),
     );
   }
