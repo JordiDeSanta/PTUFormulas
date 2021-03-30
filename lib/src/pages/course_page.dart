@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/tile_widget.dart';
 
-class PhysicsPage extends StatelessWidget {
+class CoursePage extends StatelessWidget {
+  final String courseTitle;
+
+  CoursePage(this.courseTitle);
+
   final styles = TextStyles();
 
   @override
@@ -11,7 +15,7 @@ class PhysicsPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('Física', style: styles.course),
+          title: Text(courseTitle, style: styles.course),
           centerTitle: true,
           backgroundColor: Colors.purple[300],
           elevation: 0.0,
@@ -41,9 +45,27 @@ class PhysicsPage extends StatelessWidget {
                 SizedBox(height: 30.0),
                 TileWidget(
                   'Ondas',
-                  Colors.purple[200],
+                  Colors.purple[100],
                   'assets/img/ondas.png',
-                  'math',
+                  'course',
+                ),
+                TileWidget(
+                  'Mecánica',
+                  Colors.purple[100],
+                  'assets/img/mecanica.png',
+                  'course',
+                ),
+                TileWidget(
+                  'Energía',
+                  Colors.purple[100],
+                  'assets/img/energia.png',
+                  'course',
+                ),
+                TileWidget(
+                  'Electridad y Magnetismo',
+                  Colors.purple[100],
+                  'assets/img/magneto.png',
+                  'course',
                 ),
               ],
             ),

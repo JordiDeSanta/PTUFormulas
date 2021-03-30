@@ -31,12 +31,15 @@ class TileWidget extends StatelessWidget {
               image: AssetImage(imageRoute),
               fit: BoxFit.cover,
             ),
-            Padding(
+            Container(
+              width: 220,
+              height: 120,
               padding:
                   const EdgeInsets.symmetric(vertical: 40.0, horizontal: 30.0),
               child: Text(
                 courseName,
                 style: styles.course,
+                overflow: TextOverflow.ellipsis,
               ),
             )
           ],
