@@ -6,7 +6,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+      ),
       body: Center(child: Text('Hello')),
+      backgroundColor: Colors.white,
     );
   }
 }
