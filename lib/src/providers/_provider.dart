@@ -5,14 +5,17 @@ class CourseArguments {
   Color color;
   ImageProvider img;
   String route;
+  List<ContentArguments> contents;
 
-  CourseArguments({this.title, this.color, this.img, this.route});
+  CourseArguments(
+      {this.title, this.color, this.img, this.route, this.contents});
 }
 
 class ContentArguments {
   String title;
   Color color;
   ImageProvider img;
+  String route;
 
-  ContentArguments({this.title, this.color, this.img});
+  ContentArguments({this.title, this.color, this.img, this.route});
 }

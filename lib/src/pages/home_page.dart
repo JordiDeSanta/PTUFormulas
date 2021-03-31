@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ptuformulas/src/providers/course_provider.dart';
+import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
 
@@ -28,26 +28,24 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 30.0),
               CourseTileWidget(
                 CourseArguments(
-                  color: Colors.blue[300],
-                  img: AssetImage('assets/img/matematica.png'),
-                  route: 'physics',
-                  title: 'Matemática',
-                ),
-              ),
-              CourseTileWidget(
-                CourseArguments(
-                  color: Colors.green[300],
-                  img: AssetImage('assets/img/quimica.png'),
-                  route: 'quimics',
-                  title: 'Química',
-                ),
-              ),
-              CourseTileWidget(
-                CourseArguments(
                   color: Colors.purple[300],
                   img: AssetImage('assets/img/fisica.png'),
                   route: 'physics',
                   title: 'Física',
+                  contents: [
+                    ContentArguments(
+                      color: Colors.purple[200],
+                      img: AssetImage('assets/img/ondas.png'),
+                      route: 'waves',
+                      title: 'Ondas',
+                    ),
+                    ContentArguments(
+                      color: Colors.purple[200],
+                      img: AssetImage('assets/img/mecanica.png'),
+                      route: 'mechanics',
+                      title: 'Mecánica',
+                    )
+                  ],
                 ),
               ),
             ],

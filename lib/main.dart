@@ -24,6 +24,8 @@ class MyApp extends StatelessWidget {
         'home': (BuildContext context) => HomePage(),
         'physics': (BuildContext context) => CoursePage(),
         'quimics': (BuildContext context) => CoursePage(),
+        'waves': (BuildContext context) => HomePage(),
+        'mechanics': (BuildContext context) => HomePage(),
       },
     );
   }

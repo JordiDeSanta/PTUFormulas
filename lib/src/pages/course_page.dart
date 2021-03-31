@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ptuformulas/src/providers/course_provider.dart';
+import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
-import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
+import 'package:ptuformulas/src/widgets/content_tile_widget.dart';
 
 class CoursePage extends StatelessWidget {
   final styles = TextStyles();
@@ -40,13 +40,25 @@ class CoursePage extends StatelessWidget {
         body: Container(
           child: SingleChildScrollView(
             child: Column(
-              children: [
-                SizedBox(height: 30.0),
-              ],
+              children: _createTiles(args),
             ),
           ),
         ),
       ),
     );
+  }
+
+  List<Widget> _createTiles(CourseArguments args) {
+    List<ContentTileWidget> contentTiles = [];
+
+    for (var content in args.contents) {
+      final tempTile = ContentTileWidget(
+        settings: content,
+      );
+
+      contentTiles.add(tempTile);
+    }
+
+    return contentTiles;
   }
 }
