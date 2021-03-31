@@ -28,7 +28,7 @@ class CoursePage extends StatelessWidget {
               child: Image(
                 width: 40,
                 image: args.img,
-                color: Colors.white,
+                //color: Colors.white,
               ),
               style: ButtonStyle(
                 shadowColor: MaterialStateProperty.all(Colors.transparent),
