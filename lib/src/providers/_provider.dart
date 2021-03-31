@@ -16,6 +16,8 @@ class ContentArguments {
   Color color;
   ImageProvider img;
   String route;
+  ImageProvider contentImg;
 
-  ContentArguments({this.title, this.color, this.img, this.route});
+  ContentArguments(
+      {this.title, this.color, this.img, this.route, this.contentImg});
 }

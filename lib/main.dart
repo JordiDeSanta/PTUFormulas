@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ptuformulas/src/pages/content_page.dart';
 import 'package:ptuformulas/src/pages/home_page.dart';
 import 'package:ptuformulas/src/pages/course_page.dart';
 
@@ -24,8 +25,10 @@ class MyApp extends StatelessWidget {
         'home': (BuildContext context) => HomePage(),
         'physics': (BuildContext context) => CoursePage(),
         'quimics': (BuildContext context) => CoursePage(),
-        'waves': (BuildContext context) => HomePage(),
-        'mechanics': (BuildContext context) => HomePage(),
+        'waves': (BuildContext context) => ContentPage(),
+        'mechanics': (BuildContext context) => ContentPage(),
+        'energy': (BuildContext context) => ContentPage(),
+        'eandm': (BuildContext context) => ContentPage(),
       },
     );
   }
