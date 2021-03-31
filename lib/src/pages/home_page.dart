@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/course_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
-import 'package:ptuformulas/src/widgets/tile_widget.dart';
+import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key key}) : super(key: key);
@@ -26,12 +26,30 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 30.0),
-              TileWidget(CourseArguments(
-                color: Colors.purple[300],
-                img: AssetImage('assets/img/fisica.png'),
-                route: 'physics',
-                title: 'Física',
-              )),
+              CourseTileWidget(
+                CourseArguments(
+                  color: Colors.blue[300],
+                  img: AssetImage('assets/img/matematica.png'),
+                  route: 'physics',
+                  title: 'Matemática',
+                ),
+              ),
+              CourseTileWidget(
+                CourseArguments(
+                  color: Colors.green[300],
+                  img: AssetImage('assets/img/quimica.png'),
+                  route: 'quimics',
+                  title: 'Química',
+                ),
+              ),
+              CourseTileWidget(
+                CourseArguments(
+                  color: Colors.purple[300],
+                  img: AssetImage('assets/img/fisica.png'),
+                  route: 'physics',
+                  title: 'Física',
+                ),
+              ),
             ],
           ),
         ),

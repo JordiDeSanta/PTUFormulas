@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/course_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
-import 'package:ptuformulas/src/widgets/tile_widget.dart';
+import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
 
 class CoursePage extends StatelessWidget {
   final styles = TextStyles();

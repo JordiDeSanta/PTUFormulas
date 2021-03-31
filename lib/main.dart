@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         'home': (BuildContext context) => HomePage(),
-        'course': (BuildContext context) => CoursePage(),
+        'physics': (BuildContext context) => CoursePage(),
+        'quimics': (BuildContext context) => CoursePage(),
       },
     );
   }

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/course_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 
-class TileWidget extends StatelessWidget {
+class CourseTileWidget extends StatelessWidget {
   final CourseArguments settings;
 
-  TileWidget(this.settings);
+  CourseTileWidget(this.settings);
 
   final styles = TextStyles();
 
