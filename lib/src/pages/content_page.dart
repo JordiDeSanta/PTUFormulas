@@ -39,7 +39,7 @@ class ContentPage extends StatelessWidget {
           ],
         ),
         body: Container(
-          padding: EdgeInsets.all(30.0),
+          padding: EdgeInsets.all(20.0),
           child: SingleChildScrollView(
             child: Image(
               image: args.contentImg,
