@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:ptuformulas/src/providers/course_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/tile_widget.dart';
 
 class CoursePage extends StatelessWidget {
-  final String courseTitle;
-
-  CoursePage(this.courseTitle);
-
   final styles = TextStyles();
 
   @override
   Widget build(BuildContext context) {
+    final CourseArguments args = ModalRoute.of(context).settings.arguments;
+
     return Container(
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text(courseTitle, style: styles.course),
+          title: Text(args.title, style: styles.course),
           centerTitle: true,
-          backgroundColor: Colors.purple[300],
+          backgroundColor: args.color,
           elevation: 0.0,
           toolbarHeight: 80.0,
           shape: RoundedRectangleBorder(
@@ -28,7 +27,7 @@ class CoursePage extends StatelessWidget {
               onPressed: () {},
               child: Image(
                 width: 40,
-                image: AssetImage('assets/img/fisica.png'),
+                image: args.img,
                 color: Colors.white,
               ),
               style: ButtonStyle(
@@ -43,30 +42,6 @@ class CoursePage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 30.0),
-                TileWidget(
-                  'Ondas',
-                  Colors.purple[100],
-                  'assets/img/ondas.png',
-                  'course',
-                ),
-                TileWidget(
-                  'Mecánica',
-                  Colors.purple[100],
-                  'assets/img/mecanica.png',
-                  'course',
-                ),
-                TileWidget(
-                  'Energía',
-                  Colors.purple[100],
-                  'assets/img/energia.png',
-                  'course',
-                ),
-                TileWidget(
-                  'Electridad y Magnetismo',
-                  Colors.purple[100],
-                  'assets/img/magneto.png',
-                  'course',
-                ),
               ],
             ),
           ),

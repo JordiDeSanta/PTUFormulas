@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ptuformulas/src/providers/course_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 
 class TileWidget extends StatelessWidget {
-  final String courseName;
-  final Color color;
-  final String imageRoute;
-  final String route;
+  final CourseArguments settings;
 
-  TileWidget(this.courseName, this.color, this.imageRoute, this.route);
+  TileWidget(this.settings);
 
   final styles = TextStyles();
 
@@ -22,13 +20,13 @@ class TileWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.0),
             ),
           ),
-          backgroundColor: MaterialStateProperty.all(color),
+          backgroundColor: MaterialStateProperty.all(settings.color),
         ),
         child: Row(
           children: [
             Image(
               height: 80.0,
-              image: AssetImage(imageRoute),
+              image: settings.img,
               fit: BoxFit.cover,
             ),
             Container(
@@ -37,7 +35,7 @@ class TileWidget extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(vertical: 40.0, horizontal: 30.0),
               child: Text(
-                courseName,
+                settings.title,
                 style: styles.course,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -45,7 +43,7 @@ class TileWidget extends StatelessWidget {
           ],
         ),
         onPressed: () {
-          Navigator.pushNamed(context, route);
+          Navigator.pushNamed(context, settings.route, arguments: settings);
         },
       ),
     );
