@@ -44,6 +44,18 @@ class HomePage extends StatelessWidget {
                       img: AssetImage('assets/img/mecanica.png'),
                       route: 'mechanics',
                       title: 'Mecánica',
+                    ),
+                    ContentArguments(
+                      color: Colors.purple[200],
+                      img: AssetImage('assets/img/energia.png'),
+                      route: 'energy',
+                      title: 'Energía',
+                    ),
+                    ContentArguments(
+                      color: Colors.purple[200],
+                      img: AssetImage('assets/img/magneto.png'),
+                      route: 'eandm',
+                      title: 'Electricidad y Magnetismo',
                     )
                   ],
                 ),
