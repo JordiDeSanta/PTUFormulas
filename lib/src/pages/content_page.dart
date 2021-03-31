@@ -30,7 +30,6 @@ class ContentPage extends StatelessWidget {
               child: Image(
                 width: 40,
                 image: args.img,
-                //color: Colors.white,
               ),
               style: ButtonStyle(
                 shadowColor: MaterialStateProperty.all(Colors.transparent),
@@ -40,10 +39,11 @@ class ContentPage extends StatelessWidget {
           ],
         ),
         body: Container(
+          padding: EdgeInsets.all(30.0),
           child: SingleChildScrollView(
             child: Image(
               image: args.contentImg,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
         ),
