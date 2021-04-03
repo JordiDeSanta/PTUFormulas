@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PTU Formulas',
       initialRoute: 'home',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
       routes: {
         'home': (BuildContext context) => HomePage(),
         'physics': (BuildContext context) => CoursePage(),

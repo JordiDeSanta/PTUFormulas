@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
                       img: AssetImage('assets/img/energia.png'),
                       route: 'energy',
                       title: 'Energía',
-                      contentImg: AssetImage('assets/img/ondascontenido.png'),
+                      contentImg: AssetImage('assets/img/energiacontenido.png'),
                     ),
                     ContentArguments(
                       color: Colors.purple[200],
