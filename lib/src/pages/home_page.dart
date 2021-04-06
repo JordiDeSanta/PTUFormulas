@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
                       img: AssetImage('assets/img/magneto.png'),
                       route: 'eandm',
                       title: 'Electricidad y Magnetismo',
-                      contentImg: AssetImage('assets/img/ondascontenido.png'),
+                      contentImg: AssetImage('assets/img/eym.png'),
                     )
                   ],
                 ),
