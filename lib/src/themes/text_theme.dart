@@ -6,4 +6,7 @@ class TextStyles {
 
   final TextStyle course =
       TextStyle(fontSize: 30.0, fontWeight: FontWeight.w100);
+
+  final TextStyle expansionTile =
+      TextStyle(fontSize: 22.0, fontWeight: FontWeight.w200);
 }

@@ -50,8 +50,8 @@ class ContentPage extends StatelessWidget {
 
     args.formulas.formulas.forEach((key, value) {
       final tempTile = FormulaTileWidget(
-        image: value,
         title: key,
+        image: value,
       );
 
       contentTiles.add(tempTile);
