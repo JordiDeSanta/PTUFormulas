@@ -16,8 +16,14 @@ class ContentArguments {
   Color color;
   ImageProvider img;
   String route;
-  ImageProvider contentImg;
+  FormulaArguments formulas;
 
   ContentArguments(
-      {this.title, this.color, this.img, this.route, this.contentImg});
+      {this.title, this.color, this.img, this.route, this.formulas});
+}
+
+class FormulaArguments {
+  Map<String, ImageProvider> formulas;
+
+  FormulaArguments({this.formulas});
 }

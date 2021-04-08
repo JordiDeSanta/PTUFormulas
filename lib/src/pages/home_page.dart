@@ -17,18 +17,15 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         toolbarHeight: 80.0,
         backgroundColor: Colors.black12,
-        shape: RoundedRectangleBorder(
+        /* shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
-        ),
+        ),*/
       ),
       body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 30.0),
-              createPhysics(),
-            ],
-          ),
+        child: Stack(
+          children: [
+            createPhysics(),
+          ],
         ),
       ),
     );
@@ -43,33 +40,18 @@ class HomePage extends StatelessWidget {
         title: 'Física',
         contents: [
           ContentArguments(
-            color: Colors.purple[200],
-            img: AssetImage('assets/img/ondas.png'),
-            route: 'waves',
-            title: 'Ondas',
-            contentImg: AssetImage('assets/img/ondascontenido.png'),
-          ),
-          ContentArguments(
-            color: Colors.purple[200],
-            img: AssetImage('assets/img/mecanica.png'),
-            route: 'mechanics',
-            title: 'Mecánica',
-            contentImg: AssetImage('assets/img/mecanicacontenido.png'),
-          ),
-          ContentArguments(
-            color: Colors.purple[200],
-            img: AssetImage('assets/img/energia.png'),
-            route: 'energy',
-            title: 'Energía',
-            contentImg: AssetImage('assets/img/energiacontenido.png'),
-          ),
-          ContentArguments(
-            color: Colors.purple[200],
-            img: AssetImage('assets/img/magneto.png'),
-            route: 'eandm',
-            title: 'Electricidad y Magnetismo',
-            contentImg: AssetImage('assets/img/eym.png'),
-          )
+              color: Colors.purple[200],
+              img: AssetImage('assets/img/ondas.png'),
+              route: 'waves',
+              title: 'Ondas',
+              formulas: FormulaArguments(
+                formulaTitles: [
+                  'Velocidad',
+                ],
+                formulaImgs: [
+                  AssetImage('assets/img/ondas.png'),
+                ],
+              )),
         ],
       ),
     );
