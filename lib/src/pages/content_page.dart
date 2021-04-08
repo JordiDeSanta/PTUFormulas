@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
+import 'package:ptuformulas/src/widgets/formula_tile_widget.dart';
 
 class ContentPage extends StatelessWidget {
   final styles = TextStyles();
@@ -37,12 +38,8 @@ class ContentPage extends StatelessWidget {
             ),
           ],
         ),
-        body: Container(
-          padding: EdgeInsets.all(20.0),
-          child: ListWheelScrollView(
-            itemExtent: args.contentImgs.length.toDouble(),
-            children: createFormulas(),
-          ),
+        body: ListView(
+          children: createFormulas(args),
         ),
       ),
     );
@@ -51,11 +48,14 @@ class ContentPage extends StatelessWidget {
   List<Widget> createFormulas(ContentArguments args) {
     List<Widget> contentTiles = [SizedBox(height: 10.0)];
 
-    for (var content in args.contentImgs) {
-      final tempTile = ExpansionTile();
+    args.formulas.formulas.forEach((key, value) {
+      final tempTile = FormulaTileWidget(
+        image: value,
+        title: key,
+      );
 
       contentTiles.add(tempTile);
-    }
+    });
 
     return contentTiles;
   }

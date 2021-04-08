@@ -22,8 +22,9 @@ class HomePage extends StatelessWidget {
         ),*/
       ),
       body: Container(
-        child: Stack(
+        child: Column(
           children: [
+            SizedBox(height: 10.0),
             createPhysics(),
           ],
         ),
@@ -45,12 +46,10 @@ class HomePage extends StatelessWidget {
               route: 'waves',
               title: 'Ondas',
               formulas: FormulaArguments(
-                formulaTitles: [
-                  'Velocidad',
-                ],
-                formulaImgs: [
-                  AssetImage('assets/img/ondas.png'),
-                ],
+                formulas: {
+                  'Velocidad': AssetImage('assets/img/ondas.png'),
+                  'Rapidez': AssetImage('assets/img/mecanica.png'),
+                },
               )),
         ],
       ),
