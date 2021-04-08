@@ -26,48 +26,51 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 30.0),
-              CourseTileWidget(
-                CourseArguments(
-                  color: Colors.purple[300],
-                  img: AssetImage('assets/img/fisica.png'),
-                  route: 'physics',
-                  title: 'Física',
-                  contents: [
-                    ContentArguments(
-                      color: Colors.purple[200],
-                      img: AssetImage('assets/img/ondas.png'),
-                      route: 'waves',
-                      title: 'Ondas',
-                      contentImg: AssetImage('assets/img/ondascontenido.png'),
-                    ),
-                    ContentArguments(
-                      color: Colors.purple[200],
-                      img: AssetImage('assets/img/mecanica.png'),
-                      route: 'mechanics',
-                      title: 'Mecánica',
-                      contentImg:
-                          AssetImage('assets/img/mecanicacontenido.png'),
-                    ),
-                    ContentArguments(
-                      color: Colors.purple[200],
-                      img: AssetImage('assets/img/energia.png'),
-                      route: 'energy',
-                      title: 'Energía',
-                      contentImg: AssetImage('assets/img/energiacontenido.png'),
-                    ),
-                    ContentArguments(
-                      color: Colors.purple[200],
-                      img: AssetImage('assets/img/magneto.png'),
-                      route: 'eandm',
-                      title: 'Electricidad y Magnetismo',
-                      contentImg: AssetImage('assets/img/eym.png'),
-                    )
-                  ],
-                ),
-              ),
+              createPhysics(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget createPhysics() {
+    return CourseTileWidget(
+      CourseArguments(
+        color: Colors.purple[300],
+        img: AssetImage('assets/img/fisica.png'),
+        route: 'physics',
+        title: 'Física',
+        contents: [
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/ondas.png'),
+            route: 'waves',
+            title: 'Ondas',
+            contentImg: AssetImage('assets/img/ondascontenido.png'),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/mecanica.png'),
+            route: 'mechanics',
+            title: 'Mecánica',
+            contentImg: AssetImage('assets/img/mecanicacontenido.png'),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/energia.png'),
+            route: 'energy',
+            title: 'Energía',
+            contentImg: AssetImage('assets/img/energiacontenido.png'),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/magneto.png'),
+            route: 'eandm',
+            title: 'Electricidad y Magnetismo',
+            contentImg: AssetImage('assets/img/eym.png'),
+          )
+        ],
       ),
     );
   }
