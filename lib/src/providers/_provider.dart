@@ -24,6 +24,7 @@ class ContentArguments {
 
 class FormulaArguments {
   Map<String, ImageProvider> formulas;
+  Color cardColor;
 
-  FormulaArguments({this.formulas});
+  FormulaArguments({this.formulas, this.cardColor});
 }

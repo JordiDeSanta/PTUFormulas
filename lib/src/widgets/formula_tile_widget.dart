@@ -5,9 +5,9 @@ import 'package:ptuformulas/src/themes/text_theme.dart';
 class FormulaTileWidget extends StatelessWidget {
   final ImageProvider image;
   final String title;
-  final Color textColor;
+  final Color cardColor;
 
-  FormulaTileWidget({this.image, this.title, this.textColor});
+  FormulaTileWidget({this.image, this.title, this.cardColor});
 
   final styles = TextStyles();
 
@@ -15,9 +15,12 @@ class FormulaTileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: ExpansionTile(
-        title: Text(title, style: styles.expansionTile),
-        children: [Image(image: image)],
+      child: Card(
+        color: cardColor,
+        child: ExpansionTile(
+          title: Text(title, style: styles.expansionTile),
+          children: [Image(image: image)],
+        ),
       ),
     );
   }

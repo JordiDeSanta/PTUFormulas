@@ -41,16 +41,28 @@ class HomePage extends StatelessWidget {
         title: 'Física',
         contents: [
           ContentArguments(
-              color: Colors.purple[200],
-              img: AssetImage('assets/img/ondas.png'),
-              route: 'waves',
-              title: 'Ondas',
-              formulas: FormulaArguments(
-                formulas: {
-                  'Velocidad': AssetImage('assets/img/ondas.png'),
-                  'Rapidez': AssetImage('assets/img/mecanica.png'),
-                },
-              )),
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/ondas.png'),
+            route: 'waves',
+            title: 'Ondas',
+            formulas: FormulaArguments(
+              formulas: {
+                'Velocidad': AssetImage('assets/img/ondas.png'),
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/magneto.png'),
+            route: 'eandm',
+            title: 'Electricidad y Magnetismo',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Ley de Coulomb': AssetImage('assets/img/ondas.png'),
+              },
+            ),
+          ),
         ],
       ),
     );
