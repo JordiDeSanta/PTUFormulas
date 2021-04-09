@@ -46,8 +46,9 @@ class HomePage extends StatelessWidget {
             route: 'waves',
             title: 'Ondas',
             formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
               formulas: {
-                'Velocidad': AssetImage('assets/img/ondas.png'),
+                'Per': AssetImage('assets/img/ondas.png'),
               },
             ),
           ),
@@ -59,7 +60,15 @@ class HomePage extends StatelessWidget {
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
-                'Ley de Coulomb': AssetImage('assets/img/ondas.png'),
+                'Ley de Coulomb': AssetImage('assets/img/formulas/Coulomb.PNG'),
+                'Campo Eléctrico':
+                    AssetImage('assets/img/formulas/CampoElectrico.PNG'),
+                'Ley de Ohm': AssetImage('assets/img/formulas/Ohm.PNG'),
+                'Circuitos en Serie':
+                    AssetImage('assets/img/formulas/EnSerie.PNG'),
+                'Circuitos en Paralelo':
+                    AssetImage('assets/img/formulas/EnParalelo.PNG'),
+                'Ley de Watt': AssetImage('assets/img/formulas/Watt.PNG'),
               },
             ),
           ),

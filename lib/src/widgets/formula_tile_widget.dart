@@ -14,12 +14,27 @@ class FormulaTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.only(bottom: 10.0, left: 8.0, right: 8.0),
       child: Card(
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         color: cardColor,
-        child: ExpansionTile(
-          title: Text(title, style: styles.expansionTile),
-          children: [Image(image: image)],
+        child: Padding(
+          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
+          child: ExpansionTile(
+            childrenPadding: EdgeInsets.all(5.0),
+            title: Text(title, style: styles.expansionTile),
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: Image(
+                  image: image,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

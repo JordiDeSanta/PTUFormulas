@@ -46,7 +46,7 @@ class ContentPage extends StatelessWidget {
   }
 
   List<Widget> createFormulas(ContentArguments args) {
-    List<Widget> contentTiles = [SizedBox(height: 10.0)];
+    List<Widget> contentTiles = [SizedBox(height: 15.0)];
 
     args.formulas.formulas.forEach((key, value) {
       final tempTile = FormulaTileWidget(
