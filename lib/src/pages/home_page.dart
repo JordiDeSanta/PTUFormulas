@@ -67,6 +67,18 @@ class HomePage extends StatelessWidget {
               formulas: {
                 'Desplazamiento':
                     AssetImage('assets/img/formulas/Desplazamiento.PNG'),
+                'MRU: Rapidez':
+                    AssetImage('assets/img/formulas/RapidezMRU.PNG'),
+                'MRU: Velocidad':
+                    AssetImage('assets/img/formulas/VelocidadMRU.PNG'),
+                'MRU: Posición':
+                    AssetImage('assets/img/formulas/PosicionMRU.PNG'),
+                'MRUV: Aceleración':
+                    AssetImage('assets/img/formulas/AceleracionMRUV.PNG'),
+                'MRUV: Velocidad':
+                    AssetImage('assets/img/formulas/VelocidadMRUV.PNG'),
+                'MRUV: Posición':
+                    AssetImage('assets/img/formulas/PosicionMRUV.PNG'),
               },
             ),
           ),
