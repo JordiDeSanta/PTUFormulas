@@ -48,7 +48,25 @@ class HomePage extends StatelessWidget {
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
-                'Per': AssetImage('assets/img/ondas.png'),
+                'Periódo y Frecuencia':
+                    AssetImage('assets/img/formulas/PyT.PNG'),
+                'Longitud de Onda':
+                    AssetImage('assets/img/formulas/LdeOnda.PNG'),
+                'Velocidad de Propagación':
+                    AssetImage('assets/img/formulas/VeldeProp.PNG'),
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/mecanica.png'),
+            route: 'mechanics',
+            title: 'Mecánica',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Desplazamiento':
+                    AssetImage('assets/img/formulas/Desplazamiento.PNG'),
               },
             ),
           ),
