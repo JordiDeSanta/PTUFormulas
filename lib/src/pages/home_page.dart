@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
           children: [
             SizedBox(height: 10.0),
             createPhysics(),
+            createQuimics(),
           ],
         ),
       ),
@@ -140,6 +141,24 @@ class HomePage extends StatelessWidget {
                     AssetImage('assets/img/formulas/Cinetica.PNG'),
                 'Energía Potencial':
                     AssetImage('assets/img/formulas/Potencial.PNG'),
+                'Energía Mecánica':
+                    AssetImage('assets/img/formulas/Mecanica.PNG'),
+                'Conservación de Energía':
+                    AssetImage('assets/img/formulas/ConservacionEnergia.PNG'),
+                'Fuerza Disipativa':
+                    AssetImage('assets/img/formulas/Disipativa.PNG'),
+                'Trabajo y Potencia': AssetImage('assets/img/formulas/TyP.PNG'),
+                'Cantidad de Calor':
+                    AssetImage('assets/img/formulas/CantidadCalor.PNG'),
+                'Capacidad Térmica':
+                    AssetImage('assets/img/formulas/CapacidadTermica.PNG'),
+                'Calor Específico':
+                    AssetImage('assets/img/formulas/CalorEspecifico.PNG'),
+                'Dilatación Térmica':
+                    AssetImage('assets/img/formulas/Dilatacion.PNG'),
+                'Equilibrio Térmico':
+                    AssetImage('assets/img/formulas/EqTer.PNG'),
+                'Calor Latente': AssetImage('assets/img/formulas/Latente.PNG'),
               },
             ),
           ),
@@ -164,6 +183,17 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget createQuimics() {
+    return CourseTileWidget(
+      CourseArguments(
+        color: Colors.green[300],
+        img: AssetImage('assets/img/quimica.png'),
+        route: 'quimics',
+        title: 'Química',
       ),
     );
   }
