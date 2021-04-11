@@ -8,5 +8,5 @@ class TextStyles {
       TextStyle(fontSize: 30.0, fontWeight: FontWeight.w100);
 
   final TextStyle expansionTile =
-      TextStyle(fontSize: 22.0, fontWeight: FontWeight.w200);
+      TextStyle(fontSize: 20.0, fontWeight: FontWeight.w200);
 }

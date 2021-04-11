@@ -73,12 +73,73 @@ class HomePage extends StatelessWidget {
                     AssetImage('assets/img/formulas/VelocidadMRU.PNG'),
                 'MRU: Posición':
                     AssetImage('assets/img/formulas/PosicionMRU.PNG'),
-                'MRUV: Aceleración':
+                'MRUVH: Aceleración':
                     AssetImage('assets/img/formulas/AceleracionMRUV.PNG'),
-                'MRUV: Velocidad':
+                'MRUVH: Velocidad':
                     AssetImage('assets/img/formulas/VelocidadMRUV.PNG'),
-                'MRUV: Posición':
+                'MRUVH: Posición':
                     AssetImage('assets/img/formulas/PosicionMRUV.PNG'),
+                'MRUVV: Velocidad':
+                    AssetImage('assets/img/formulas/VelocidadMRUVV.PNG'),
+                'MRUVV: Altura':
+                    AssetImage('assets/img/formulas/AlturaMRUVV.PNG'),
+                'MRUVV: Tiempo':
+                    AssetImage('assets/img/formulas/TiempoMRUVV.PNG'),
+                'MRUVV: Arriba':
+                    AssetImage('assets/img/formulas/ArribaMRUVV.PNG'),
+                'Fuerza': AssetImage('assets/img/formulas/Fuerza.PNG'),
+                'Peso y Normal':
+                    AssetImage('assets/img/formulas/PesoNormal.PNG'),
+                'Fricción': AssetImage('assets/img/formulas/Friccion.PNG'),
+                'Fuerza Elástica':
+                    AssetImage('assets/img/formulas/Elastica.PNG'),
+                'Gravitación Universal':
+                    AssetImage('assets/img/formulas/Gravitacion.PNG'),
+                'Leyes de Kepler': AssetImage('assets/img/formulas/Kepler.PNG'),
+                'Momentum Lineal':
+                    AssetImage('assets/img/formulas/MomentumLineal.PNG'),
+                'Impulso': AssetImage('assets/img/formulas/Impulso.PNG'),
+                'Conservación Momentum':
+                    AssetImage('assets/img/formulas/ConservacionMomentum.PNG'),
+                'MCU: Periódo y Frecuencia':
+                    AssetImage('assets/img/formulas/PyT.PNG'),
+                'MCU: Velocidad Angular':
+                    AssetImage('assets/img/formulas/VelocidadAMCU.PNG'),
+                'MCU: Velocidad Tangencial':
+                    AssetImage('assets/img/formulas/VelocidadTMCU.PNG'),
+                'MCU: Aceleración Centrípeta':
+                    AssetImage('assets/img/formulas/AceleracionMCU.PNG'),
+                'MCU: Fuerza Centrípeta':
+                    AssetImage('assets/img/formulas/FuerzaMCU.PNG'),
+                'MCU: Posición':
+                    AssetImage('assets/img/formulas/PosicionMCU.PNG'),
+                'Torque': AssetImage('assets/img/formulas/Torque.PNG'),
+                'Equilibrio Rotacional':
+                    AssetImage('assets/img/formulas/EqRot.PNG'),
+                'Momento Angular':
+                    AssetImage('assets/img/formulas/MomentoAngular.PNG'),
+                'Presión': AssetImage('assets/img/formulas/Presion.PNG'),
+                'Presión Hidrostática':
+                    AssetImage('assets/img/formulas/Hidrostatica.PNG'),
+                'Presión Absoluta':
+                    AssetImage('assets/img/formulas/PresionAbs.PNG'),
+                'Pascal': AssetImage('assets/img/formulas/Pascal.PNG'),
+                'Arquímedes': AssetImage('assets/img/formulas/Arquimedes.PNG'),
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/energia.png'),
+            route: 'energy',
+            title: 'Energía',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Energía Cinética':
+                    AssetImage('assets/img/formulas/Cinetica.PNG'),
+                'Energía Potencial':
+                    AssetImage('assets/img/formulas/Potencial.PNG'),
               },
             ),
           ),
