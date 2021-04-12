@@ -64,6 +64,34 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/mru.png'),
+            route: 'mechanics',
+            title: 'MRU',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Desplazamiento': [
+                  AssetImage('assets/img/formulas/Desplazamiento.PNG'),
+                  AssetImage('assets/img/params/VeldeProp.PNG'),
+                ],
+                'Rapidez': [
+                  AssetImage('assets/img/formulas/RapidezMRU.PNG'),
+                  AssetImage('assets/img/params/VeldeProp.PNG'),
+                ],
+                'Velocidad': [
+                  AssetImage('assets/img/formulas/VelocidadMRU.PNG'),
+                  AssetImage('assets/img/params/VeldeProp.PNG'),
+                ],
+                'Posición': [
+                  AssetImage('assets/img/formulas/PosicionMRU.PNG'),
+                  AssetImage('assets/img/params/VeldeProp.PNG'),
+                ],
+              },
+            ),
+          ),
+
           /*
           ContentArguments(
             color: Colors.purple[200],
@@ -73,18 +101,7 @@ class HomePage extends StatelessWidget {
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
-                'Desplazamiento': [
-                  AssetImage('assets/img/formulas/Desplazamiento.PNG')
-                ],
-                'MRU: Rapidez': [
-                  AssetImage('assets/img/formulas/RapidezMRU.PNG')
-                ],
-                'MRU: Velocidad': [
-                  AssetImage('assets/img/formulas/VelocidadMRU.PNG')
-                ],
-                'MRU: Posición': [
-                  AssetImage('assets/img/formulas/PosicionMRU.PNG')
-                ],
+               
                 'MRUVH: Aceleración': [
                   AssetImage('assets/img/formulas/AceleracionMRUV.PNG')
                 ],
