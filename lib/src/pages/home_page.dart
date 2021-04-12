@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
             color: Colors.purple[200],
             img: AssetImage('assets/img/mruvh.png'),
             route: 'mechanics',
-            title: 'MRUVH',
+            title: 'MRUV',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
@@ -118,7 +118,7 @@ class HomePage extends StatelessWidget {
             color: Colors.purple[200],
             img: AssetImage('assets/img/mruvv.png'),
             route: 'mechanics',
-            title: 'MRUVV',
+            title: 'Caida Libre',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
@@ -134,7 +134,18 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/formulas/TiempoMRUVV.PNG'),
                   AssetImage('assets/img/params/PosicionMRUV.PNG'),
                 ],
-                'Solo hacia Arriba': [
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/vert.png'),
+            route: 'mechanics',
+            title: 'Tiro Vertical',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Velocidad': [
                   AssetImage('assets/img/formulas/ArribaMRUVV.PNG'),
                   AssetImage('assets/img/params/PosicionMRUV.PNG'),
                 ],
