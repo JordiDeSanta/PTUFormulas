@@ -51,15 +51,15 @@ class HomePage extends StatelessWidget {
               formulas: {
                 'Periódo y Frecuencia': [
                   AssetImage('assets/img/formulas/PyT.PNG'),
-                  AssetImage('assets/img/formulas/PyT.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
                 ],
                 'Longitud de Onda': [
                   AssetImage('assets/img/formulas/LdeOnda.PNG'),
-                  AssetImage('assets/img/formulas/PyT.PNG'),
+                  AssetImage('assets/img/params/LdeOnda.PNG'),
                 ],
                 'Velocidad de Propagación': [
                   AssetImage('assets/img/formulas/VeldeProp.PNG'),
-                  AssetImage('assets/img/formulas/PyT.PNG'),
+                  AssetImage('assets/img/params/VeldeProp.PNG'),
                 ],
               },
             ),

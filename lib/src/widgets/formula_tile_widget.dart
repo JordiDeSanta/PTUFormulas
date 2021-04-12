@@ -33,6 +33,7 @@ class FormulaTileWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     Image(image: image),
+                    SizedBox(height: 5.0),
                     Image(image: params),
                   ],
                 ),
