@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
               formulas: {
                 'Desplazamiento': [
                   AssetImage('assets/img/formulas/Desplazamiento.PNG'),
-                  AssetImage('assets/img/params/VeldeProp.PNG'),
+                  AssetImage('assets/img/params/Desplazamiento.PNG'),
                 ],
                 'Rapidez': [
                   AssetImage('assets/img/formulas/RapidezMRU.PNG'),
@@ -82,11 +82,34 @@ class HomePage extends StatelessWidget {
                 ],
                 'Velocidad': [
                   AssetImage('assets/img/formulas/VelocidadMRU.PNG'),
-                  AssetImage('assets/img/params/VeldeProp.PNG'),
+                  AssetImage('assets/img/params/VelocidadMRU.PNG'),
                 ],
                 'Posición': [
                   AssetImage('assets/img/formulas/PosicionMRU.PNG'),
-                  AssetImage('assets/img/params/VeldeProp.PNG'),
+                  AssetImage('assets/img/params/PosicionMRU.PNG'),
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/mruvh.png'),
+            route: 'mechanics',
+            title: 'MRUVH',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Aceleración': [
+                  AssetImage('assets/img/formulas/AceleracionMRUV.PNG'),
+                  AssetImage('assets/img/params/PosicionMRU.PNG'),
+                ],
+                'Velocidad': [
+                  AssetImage('assets/img/formulas/VelocidadMRUV.PNG'),
+                  AssetImage('assets/img/params/PosicionMRU.PNG'),
+                ],
+                'Posición': [
+                  AssetImage('assets/img/formulas/PosicionMRUV.PNG'),
+                  AssetImage('assets/img/params/PosicionMRU.PNG'),
                 ],
               },
             ),
@@ -102,15 +125,7 @@ class HomePage extends StatelessWidget {
               cardColor: Colors.purple[100],
               formulas: {
                
-                'MRUVH: Aceleración': [
-                  AssetImage('assets/img/formulas/AceleracionMRUV.PNG')
-                ],
-                'MRUVH: Velocidad': [
-                  AssetImage('assets/img/formulas/VelocidadMRUV.PNG')
-                ],
-                'MRUVH: Posición': [
-                  AssetImage('assets/img/formulas/PosicionMRUV.PNG')
-                ],
+               
                 'MRUVV: Velocidad': [
                   AssetImage('assets/img/formulas/VelocidadMRUVV.PNG')
                 ],
