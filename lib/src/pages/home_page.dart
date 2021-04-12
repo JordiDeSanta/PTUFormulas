@@ -50,17 +50,21 @@ class HomePage extends StatelessWidget {
               cardColor: Colors.purple[100],
               formulas: {
                 'Periódo y Frecuencia': [
-                  AssetImage('assets/img/formulas/PyT.PNG')
+                  AssetImage('assets/img/formulas/PyT.PNG'),
+                  AssetImage('assets/img/formulas/PyT.PNG'),
                 ],
                 'Longitud de Onda': [
-                  AssetImage('assets/img/formulas/LdeOnda.PNG')
+                  AssetImage('assets/img/formulas/LdeOnda.PNG'),
+                  AssetImage('assets/img/formulas/PyT.PNG'),
                 ],
                 'Velocidad de Propagación': [
-                  AssetImage('assets/img/formulas/VeldeProp.PNG')
+                  AssetImage('assets/img/formulas/VeldeProp.PNG'),
+                  AssetImage('assets/img/formulas/PyT.PNG'),
                 ],
               },
             ),
           ),
+          /*
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/mecanica.png'),
@@ -234,6 +238,7 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
+          */
         ],
       ),
     );
