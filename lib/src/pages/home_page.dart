@@ -101,15 +101,15 @@ class HomePage extends StatelessWidget {
               formulas: {
                 'Aceleración': [
                   AssetImage('assets/img/formulas/AceleracionMRUV.PNG'),
-                  AssetImage('assets/img/params/PosicionMRU.PNG'),
+                  AssetImage('assets/img/params/AceleracionMRUV.PNG'),
                 ],
                 'Velocidad': [
                   AssetImage('assets/img/formulas/VelocidadMRUV.PNG'),
-                  AssetImage('assets/img/params/PosicionMRU.PNG'),
+                  AssetImage('assets/img/params/VelocidadMRUV.PNG'),
                 ],
                 'Posición': [
                   AssetImage('assets/img/formulas/PosicionMRUV.PNG'),
-                  AssetImage('assets/img/params/PosicionMRU.PNG'),
+                  AssetImage('assets/img/params/PosicionMRUV.PNG'),
                 ],
               },
             ),
