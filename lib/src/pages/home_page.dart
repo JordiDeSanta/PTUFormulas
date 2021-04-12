@@ -146,8 +146,24 @@ class HomePage extends StatelessWidget {
               cardColor: Colors.purple[100],
               formulas: {
                 'Velocidad': [
-                  AssetImage('assets/img/formulas/ArribaMRUVV.PNG'),
-                  AssetImage('assets/img/params/PosicionMRUV.PNG'),
+                  AssetImage('assets/img/formulas/VelocidadUP.PNG'),
+                  AssetImage('assets/img/params/VelocidadMRUVV.PNG'),
+                ],
+                'Altura': [
+                  AssetImage('assets/img/formulas/AlturaUP.PNG'),
+                  AssetImage('assets/img/params/AlturaMRUVV.PNG'),
+                ],
+                'Velocidad Inicial': [
+                  AssetImage('assets/img/formulas/Velocidad0UP.PNG'),
+                  AssetImage('assets/img/params/Velocidad0UP.PNG'),
+                ],
+                'Altura Máxima': [
+                  AssetImage('assets/img/formulas/AlturaMAX.PNG'),
+                  AssetImage('assets/img/params/AlturaMAX.PNG'),
+                ],
+                'Tiempo': [
+                  AssetImage('assets/img/formulas/TiempoUP.PNG'),
+                  AssetImage('assets/img/params/TiempoUP.PNG'),
                 ],
               },
             ),
