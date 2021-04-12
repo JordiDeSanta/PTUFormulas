@@ -114,6 +114,33 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/mruvv.png'),
+            route: 'mechanics',
+            title: 'MRUVV',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Velocidad': [
+                  AssetImage('assets/img/formulas/VelocidadMRUVV.PNG'),
+                  AssetImage('assets/img/params/PosicionMRUV.PNG'),
+                ],
+                'Altura': [
+                  AssetImage('assets/img/formulas/AlturaMRUVV.PNG'),
+                  AssetImage('assets/img/params/PosicionMRUV.PNG'),
+                ],
+                'Tiempo': [
+                  AssetImage('assets/img/formulas/TiempoMRUVV.PNG'),
+                  AssetImage('assets/img/params/PosicionMRUV.PNG'),
+                ],
+                'Solo hacia Arriba': [
+                  AssetImage('assets/img/formulas/ArribaMRUVV.PNG'),
+                  AssetImage('assets/img/params/PosicionMRUV.PNG'),
+                ],
+              },
+            ),
+          ),
 
           /*
           ContentArguments(
@@ -126,18 +153,7 @@ class HomePage extends StatelessWidget {
               formulas: {
                
                
-                'MRUVV: Velocidad': [
-                  AssetImage('assets/img/formulas/VelocidadMRUVV.PNG')
-                ],
-                'MRUVV: Altura': [
-                  AssetImage('assets/img/formulas/AlturaMRUVV.PNG')
-                ],
-                'MRUVV: Tiempo': [
-                  AssetImage('assets/img/formulas/TiempoMRUVV.PNG')
-                ],
-                'MRUVV: Arriba': [
-                  AssetImage('assets/img/formulas/ArribaMRUVV.PNG')
-                ],
+                
                 'Fuerza': [AssetImage('assets/img/formulas/Fuerza.PNG')],
                 'Peso y Normal': [
                   AssetImage('assets/img/formulas/PesoNormal.PNG')
