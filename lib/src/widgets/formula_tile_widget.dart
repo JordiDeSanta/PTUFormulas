@@ -4,10 +4,11 @@ import 'package:ptuformulas/src/themes/text_theme.dart';
 
 class FormulaTileWidget extends StatelessWidget {
   final ImageProvider image;
+  final ImageProvider params;
   final String title;
   final Color cardColor;
 
-  FormulaTileWidget({this.image, this.title, this.cardColor});
+  FormulaTileWidget({this.image, this.title, this.cardColor, this.params});
 
   final styles = TextStyles();
 
@@ -29,8 +30,11 @@ class FormulaTileWidget extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),
-                child: Image(
-                  image: image,
+                child: Column(
+                  children: [
+                    Image(image: image),
+                    Image(image: params),
+                  ],
                 ),
               ),
             ],
