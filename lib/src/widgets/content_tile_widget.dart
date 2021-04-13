@@ -33,7 +33,7 @@ class ContentTileWidget extends StatelessWidget {
               width: 220,
               height: 120,
               padding:
-                  const EdgeInsets.symmetric(vertical: 40.0, horizontal: 30.0),
+                  const EdgeInsets.symmetric(vertical: 40.0, horizontal: 15.0),
               child: Text(
                 settings.title,
                 style: styles.course,

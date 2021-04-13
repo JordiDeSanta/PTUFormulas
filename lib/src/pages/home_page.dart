@@ -272,43 +272,65 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
-          /*
           ContentArguments(
             color: Colors.purple[200],
-            img: AssetImage('assets/img/mecanica.png'),
+            img: AssetImage('assets/img/presion.png'),
             route: 'mechanics',
-            title: 'Mecánica',
+            title: 'Presión',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
-               
-               
-                
-                
-               
-                
-               
-                'Torque': [AssetImage('assets/img/formulas/Torque.PNG')],
-                'Equilibrio Rotacional': [
-                  AssetImage('assets/img/formulas/EqRot.PNG')
+                'Presión': [
+                  AssetImage('assets/img/formulas/Presion.PNG'),
+                  AssetImage('assets/img/params/Presion.PNG'),
                 ],
-                'Momento Angular': [
-                  AssetImage('assets/img/formulas/MomentoAngular.PNG')
-                ],
-                'Presión': [AssetImage('assets/img/formulas/Presion.PNG')],
                 'Presión Hidrostática': [
-                  AssetImage('assets/img/formulas/Hidrostatica.PNG')
+                  AssetImage('assets/img/formulas/Hidrostatica.PNG'),
+                  AssetImage('assets/img/params/Hidrostatica.PNG'),
                 ],
                 'Presión Absoluta': [
-                  AssetImage('assets/img/formulas/PresionAbs.PNG')
+                  AssetImage('assets/img/formulas/PresionAbs.PNG'),
+                  AssetImage('assets/img/params/PresionAbs.PNG'),
                 ],
-                'Pascal': [AssetImage('assets/img/formulas/Pascal.PNG')],
+                'Pascal': [
+                  AssetImage('assets/img/formulas/Pascal.PNG'),
+                  AssetImage('assets/img/params/Pascal.PNG'),
+                ],
                 'Arquímedes': [
-                  AssetImage('assets/img/formulas/Arquimedes.PNG')
+                  AssetImage('assets/img/formulas/Arquimedes.PNG'),
+                  AssetImage('assets/img/params/Arquimedes.PNG'),
                 ],
               },
             ),
           ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/energia.png'),
+            route: 'energy',
+            title: 'Energías',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Energía Cinética': [
+                  AssetImage('assets/img/formulas/Cinetica.PNG'),
+                  AssetImage('assets/img/paras/PyT.PNG'),
+                ],
+                'Energía Potencial': [
+                  AssetImage('assets/img/formulas/Potencial.PNG'),
+                  AssetImage('assets/img/paras/PyT.PNG'),
+                ],
+                'Energía Mecánica': [
+                  AssetImage('assets/img/formulas/Mecanica.PNG'),
+                  AssetImage('assets/img/paras/PyT.PNG'),
+                ],
+                'Conservación de Energía': [
+                  AssetImage('assets/img/formulas/ConservacionEnergia.PNG'),
+                  AssetImage('assets/img/paras/PyT.PNG'),
+                ],
+              },
+            ),
+          ),
+          /*
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/energia.png'),
