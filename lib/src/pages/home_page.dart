@@ -332,53 +332,60 @@ class HomePage extends StatelessWidget {
           ),
           ContentArguments(
             color: Colors.purple[200],
-            img: AssetImage('assets/img/dinrot.png'),
+            img: AssetImage('assets/img/trabajo.png'),
             route: 'energy',
-            title: 'Energías',
+            title: 'Trabajo',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
                 'Fuerza Disipativa': [
                   AssetImage('assets/img/formulas/Disipativa.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/Disipativa.PNG'),
                 ],
                 'Trabajo y Potencia': [
                   AssetImage('assets/img/formulas/TyP.PNG'),
+                  AssetImage('assets/img/params/TyP.PNG'),
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/termo.png'),
+            route: 'energy',
+            title: 'Termodinámica',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Cantidad de Calor': [
+                  AssetImage('assets/img/formulas/CantidadCalor.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Capacidad Térmica': [
+                  AssetImage('assets/img/formulas/CapacidadTermica.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Calor Específico': [
+                  AssetImage('assets/img/formulas/CalorEspecifico.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Dilatación Térmica': [
+                  AssetImage('assets/img/formulas/Dilatacion.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Equilibrio Térmico': [
+                  AssetImage('assets/img/formulas/EqTer.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Calor Latente': [
+                  AssetImage('assets/img/formulas/Latente.PNG'),
                   AssetImage('assets/img/params/PyT.PNG'),
                 ],
               },
             ),
           ),
           /*
-          ContentArguments(
-            color: Colors.purple[200],
-            img: AssetImage('assets/img/energia.png'),
-            route: 'energy',
-            title: 'Energía',
-            formulas: FormulaArguments(
-              cardColor: Colors.purple[100],
-              formulas: {
-                'Cantidad de Calor': [
-                  AssetImage('assets/img/formulas/CantidadCalor.PNG')
-                ],
-                'Capacidad Térmica': [
-                  AssetImage('assets/img/formulas/CapacidadTermica.PNG')
-                ],
-                'Calor Específico': [
-                  AssetImage('assets/img/formulas/CalorEspecifico.PNG')
-                ],
-                'Dilatación Térmica': [
-                  AssetImage('assets/img/formulas/Dilatacion.PNG')
-                ],
-                'Equilibrio Térmico': [
-                  AssetImage('assets/img/formulas/EqTer.PNG')
-                ],
-                'Calor Latente': [
-                  AssetImage('assets/img/formulas/Latente.PNG')
-                ],
-              },
-            ),
-          ),
+         
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/magneto.png'),
