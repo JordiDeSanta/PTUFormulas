@@ -251,23 +251,23 @@ class HomePage extends StatelessWidget {
           ),
           ContentArguments(
             color: Colors.purple[200],
-            img: AssetImage('assets/img/mcu.png'),
+            img: AssetImage('assets/img/dinrot.png'),
             route: 'mechanics',
-            title: 'MCU',
+            title: 'Rotacional',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
                 'Torque': [
                   AssetImage('assets/img/formulas/Torque.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/Torque.PNG'),
                 ],
                 'Equilibrio Rotacional': [
                   AssetImage('assets/img/formulas/EqRot.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/EqRot.PNG'),
                 ],
                 'Momento Angular': [
                   AssetImage('assets/img/formulas/MomentoAngular.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/MomentoAngular.PNG'),
                 ],
               },
             ),
