@@ -251,7 +251,7 @@ class HomePage extends StatelessWidget {
           ),
           ContentArguments(
             color: Colors.purple[200],
-            img: AssetImage('assets/img/dinrot.png'),
+            img: AssetImage('assets/img/dinrot1.png'),
             route: 'mechanics',
             title: 'Rotacional',
             formulas: FormulaArguments(
@@ -305,7 +305,7 @@ class HomePage extends StatelessWidget {
           ),
           ContentArguments(
             color: Colors.purple[200],
-            img: AssetImage('assets/img/energia.png'),
+            img: AssetImage('assets/img/dinrot.png'),
             route: 'energy',
             title: 'Energías',
             formulas: FormulaArguments(
@@ -313,19 +313,38 @@ class HomePage extends StatelessWidget {
               formulas: {
                 'Energía Cinética': [
                   AssetImage('assets/img/formulas/Cinetica.PNG'),
-                  AssetImage('assets/img/paras/PyT.PNG'),
+                  AssetImage('assets/img/params/cinetica.PNG'),
                 ],
                 'Energía Potencial': [
                   AssetImage('assets/img/formulas/Potencial.PNG'),
-                  AssetImage('assets/img/paras/PyT.PNG'),
+                  AssetImage('assets/img/params/Potencial.PNG'),
                 ],
                 'Energía Mecánica': [
                   AssetImage('assets/img/formulas/Mecanica.PNG'),
-                  AssetImage('assets/img/paras/PyT.PNG'),
+                  AssetImage('assets/img/params/Mecanica.PNG'),
                 ],
                 'Conservación de Energía': [
                   AssetImage('assets/img/formulas/ConservacionEnergia.PNG'),
-                  AssetImage('assets/img/paras/PyT.PNG'),
+                  AssetImage('assets/img/params/ConservacionEnergia.PNG'),
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/dinrot.png'),
+            route: 'energy',
+            title: 'Energías',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Fuerza Disipativa': [
+                  AssetImage('assets/img/formulas/Disipativa.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Trabajo y Potencia': [
+                  AssetImage('assets/img/formulas/TyP.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
                 ],
               },
             ),
@@ -339,24 +358,6 @@ class HomePage extends StatelessWidget {
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
-                'Energía Cinética': [
-                  AssetImage('assets/img/formulas/Cinetica.PNG')
-                ],
-                'Energía Potencial': [
-                  AssetImage('assets/img/formulas/Potencial.PNG')
-                ],
-                'Energía Mecánica': [
-                  AssetImage('assets/img/formulas/Mecanica.PNG')
-                ],
-                'Conservación de Energía': [
-                  AssetImage('assets/img/formulas/ConservacionEnergia.PNG')
-                ],
-                'Fuerza Disipativa': [
-                  AssetImage('assets/img/formulas/Disipativa.PNG')
-                ],
-                'Trabajo y Potencia': [
-                  AssetImage('assets/img/formulas/TyP.PNG')
-                ],
                 'Cantidad de Calor': [
                   AssetImage('assets/img/formulas/CantidadCalor.PNG')
                 ],
