@@ -168,6 +168,60 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/fuerzas.png'),
+            route: 'mechanics',
+            title: 'Fuerzas',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Fuerza': [
+                  AssetImage('assets/img/formulas/Fuerza.PNG'),
+                  AssetImage('assets/img/params/Fuerza.PNG'),
+                ],
+                'Peso y Normal': [
+                  AssetImage('assets/img/formulas/PesoNormal.PNG'),
+                  AssetImage('assets/img/params/PesoNormal.PNG'),
+                ],
+                'Fricción': [
+                  AssetImage('assets/img/formulas/Friccion.PNG'),
+                  AssetImage('assets/img/params/Friccion.PNG'),
+                ],
+                'Fuerza Elástica': [
+                  AssetImage('assets/img/formulas/Elastica.PNG'),
+                  AssetImage('assets/img/params/Elastica.PNG'),
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/planeta.png'),
+            route: 'mechanics',
+            title: 'Fuerzas',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Fuerza': [
+                  AssetImage('assets/img/formulas/Fuerza.PNG'),
+                  AssetImage('assets/img/params/Fuerza.PNG'),
+                ],
+                'Peso y Normal': [
+                  AssetImage('assets/img/formulas/PesoNormal.PNG'),
+                  AssetImage('assets/img/params/PesoNormal.PNG'),
+                ],
+                'Fricción': [
+                  AssetImage('assets/img/formulas/Friccion.PNG'),
+                  AssetImage('assets/img/params/Friccion.PNG'),
+                ],
+                'Fuerza Elástica': [
+                  AssetImage('assets/img/formulas/Elastica.PNG'),
+                  AssetImage('assets/img/params/Elastica.PNG'),
+                ],
+              },
+            ),
+          ),
 
           /*
           ContentArguments(
@@ -181,14 +235,7 @@ class HomePage extends StatelessWidget {
                
                
                 
-                'Fuerza': [AssetImage('assets/img/formulas/Fuerza.PNG')],
-                'Peso y Normal': [
-                  AssetImage('assets/img/formulas/PesoNormal.PNG')
-                ],
-                'Fricción': [AssetImage('assets/img/formulas/Friccion.PNG')],
-                'Fuerza Elástica': [
-                  AssetImage('assets/img/formulas/Elastica.PNG')
-                ],
+                
                 'Gravitación Universal': [
                   AssetImage('assets/img/formulas/Gravitacion.PNG')
                 ],
