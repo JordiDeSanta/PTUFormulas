@@ -216,15 +216,15 @@ class HomePage extends StatelessWidget {
           ),
           ContentArguments(
             color: Colors.purple[200],
-            img: AssetImage('assets/img/colision.png'),
+            img: AssetImage('assets/img/mcu.png'),
             route: 'mechanics',
-            title: 'Colisiones',
+            title: 'MCU',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
                 'Periódo y Frecuencia': [
                   AssetImage('assets/img/formulas/PyT.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/PyT1.PNG'),
                 ],
                 'Velocidad Angular': [
                   AssetImage('assets/img/formulas/VelocidadAMCU.PNG'),
