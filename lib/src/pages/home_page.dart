@@ -228,22 +228,45 @@ class HomePage extends StatelessWidget {
                 ],
                 'Velocidad Angular': [
                   AssetImage('assets/img/formulas/VelocidadAMCU.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/VelocidadAMCU.PNG'),
                 ],
                 'Velocidad Tangencial': [
                   AssetImage('assets/img/formulas/VelocidadTMCU.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/VelocidadTMCU.PNG'),
                 ],
                 'Aceleración Centrípeta': [
                   AssetImage('assets/img/formulas/AceleracionMCU.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/AceleracionMCU.PNG'),
                 ],
                 'Fuerza Centrípeta': [
                   AssetImage('assets/img/formulas/FuerzaMCU.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/FuerzaMCU.PNG'),
                 ],
                 'Posición': [
                   AssetImage('assets/img/formulas/PosicionMCU.PNG'),
+                  AssetImage('assets/img/params/PosicionMCU.PNG'),
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/mcu.png'),
+            route: 'mechanics',
+            title: 'MCU',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Torque': [
+                  AssetImage('assets/img/formulas/Torque.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Equilibrio Rotacional': [
+                  AssetImage('assets/img/formulas/EqRot.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Momento Angular': [
+                  AssetImage('assets/img/formulas/MomentoAngular.PNG'),
                   AssetImage('assets/img/params/PyT.PNG'),
                 ],
               },
