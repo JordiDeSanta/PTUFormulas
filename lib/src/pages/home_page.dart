@@ -199,25 +199,17 @@ class HomePage extends StatelessWidget {
             color: Colors.purple[200],
             img: AssetImage('assets/img/planeta.png'),
             route: 'mechanics',
-            title: 'Fuerzas',
+            title: 'Cosmos',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
-                'Fuerza': [
-                  AssetImage('assets/img/formulas/Fuerza.PNG'),
-                  AssetImage('assets/img/params/Fuerza.PNG'),
+                'Gravitación Universal': [
+                  AssetImage('assets/img/formulas/Gravitacion.PNG'),
+                  AssetImage('assets/img/params/Gravitacion.PNG'),
                 ],
-                'Peso y Normal': [
-                  AssetImage('assets/img/formulas/PesoNormal.PNG'),
-                  AssetImage('assets/img/params/PesoNormal.PNG'),
-                ],
-                'Fricción': [
-                  AssetImage('assets/img/formulas/Friccion.PNG'),
-                  AssetImage('assets/img/params/Friccion.PNG'),
-                ],
-                'Fuerza Elástica': [
-                  AssetImage('assets/img/formulas/Elastica.PNG'),
-                  AssetImage('assets/img/params/Elastica.PNG'),
+                'Leyes de Kepler': [
+                  AssetImage('assets/img/formulas/Kepler.PNG'),
+                  AssetImage('assets/img/params/Kepler.PNG'),
                 ],
               },
             ),
@@ -236,12 +228,7 @@ class HomePage extends StatelessWidget {
                
                 
                 
-                'Gravitación Universal': [
-                  AssetImage('assets/img/formulas/Gravitacion.PNG')
-                ],
-                'Leyes de Kepler': [
-                  AssetImage('assets/img/formulas/Kepler.PNG')
-                ],
+               
                 'Momentum Lineal': [
                   AssetImage('assets/img/formulas/MomentumLineal.PNG')
                 ],
