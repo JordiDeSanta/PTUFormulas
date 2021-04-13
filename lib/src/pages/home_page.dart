@@ -17,9 +17,9 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         toolbarHeight: 80.0,
         backgroundColor: Colors.black12,
-        /* shape: RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
-        ),*/
+        ),
       ),
       body: Container(
         child: Column(
@@ -214,7 +214,41 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
-
+          ContentArguments(
+            color: Colors.purple[200],
+            img: AssetImage('assets/img/colision.png'),
+            route: 'mechanics',
+            title: 'Colisiones',
+            formulas: FormulaArguments(
+              cardColor: Colors.purple[100],
+              formulas: {
+                'Periódo y Frecuencia': [
+                  AssetImage('assets/img/formulas/PyT.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Velocidad Angular': [
+                  AssetImage('assets/img/formulas/VelocidadAMCU.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Velocidad Tangencial': [
+                  AssetImage('assets/img/formulas/VelocidadTMCU.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Aceleración Centrípeta': [
+                  AssetImage('assets/img/formulas/AceleracionMCU.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Fuerza Centrípeta': [
+                  AssetImage('assets/img/formulas/FuerzaMCU.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+                'Posición': [
+                  AssetImage('assets/img/formulas/PosicionMCU.PNG'),
+                  AssetImage('assets/img/params/PyT.PNG'),
+                ],
+              },
+            ),
+          ),
           /*
           ContentArguments(
             color: Colors.purple[200],
@@ -229,31 +263,8 @@ class HomePage extends StatelessWidget {
                 
                 
                
-                'Momentum Lineal': [
-                  AssetImage('assets/img/formulas/MomentumLineal.PNG')
-                ],
-                'Impulso': [AssetImage('assets/img/formulas/Impulso.PNG')],
-                'Conservación Momentum': [
-                  AssetImage('assets/img/formulas/ConservacionMomentum.PNG')
-                ],
-                'MCU: Periódo y Frecuencia': [
-                  AssetImage('assets/img/formulas/PyT.PNG')
-                ],
-                'MCU: Velocidad Angular': [
-                  AssetImage('assets/img/formulas/VelocidadAMCU.PNG')
-                ],
-                'MCU: Velocidad Tangencial': [
-                  AssetImage('assets/img/formulas/VelocidadTMCU.PNG')
-                ],
-                'MCU: Aceleración Centrípeta': [
-                  AssetImage('assets/img/formulas/AceleracionMCU.PNG')
-                ],
-                'MCU: Fuerza Centrípeta': [
-                  AssetImage('assets/img/formulas/FuerzaMCU.PNG')
-                ],
-                'MCU: Posición': [
-                  AssetImage('assets/img/formulas/PosicionMCU.PNG')
-                ],
+                
+               
                 'Torque': [AssetImage('assets/img/formulas/Torque.PNG')],
                 'Equilibrio Rotacional': [
                   AssetImage('assets/img/formulas/EqRot.PNG')
