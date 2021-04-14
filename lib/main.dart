@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       routes: {
         'home': (BuildContext context) => HomePage(),
+        'math': (BuildContext context) => CoursePage(),
         'physics': (BuildContext context) => CoursePage(),
         'quimics': (BuildContext context) => CoursePage(),
         'waves': (BuildContext context) => ContentPage(),
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         'energy': (BuildContext context) => ContentPage(),
         'eandm': (BuildContext context) => ContentPage(),
         'test': (BuildContext context) => ContentPage(),
+        'number': (BuildContext context) => ContentPage(),
       },
     );
   }

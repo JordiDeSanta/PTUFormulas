@@ -25,15 +25,43 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 10.0),
-            createPhysics(),
-            createQuimics(),
+            _createMath(),
+            _createPhysics(),
+            _createQuimics(),
           ],
         ),
       ),
     );
   }
 
-  Widget createPhysics() {
+  Widget _createMath() {
+    return CourseTileWidget(
+      CourseArguments(
+          color: Colors.blue[300],
+          img: AssetImage('assets/img/matematica.png'),
+          route: 'math',
+          title: 'Matemática',
+          contents: [
+            ContentArguments(
+              color: Colors.blue[200],
+              img: AssetImage('assets/img/matematica.png'),
+              route: 'number',
+              title: 'Números',
+              formulas: FormulaArguments(
+                cardColor: Colors.blue[100],
+                formulas: {
+                  'Periódo y Frecuencia': [
+                    AssetImage('assets/img/formulas/PyT.PNG'),
+                    AssetImage('assets/img/params/PyT.PNG'),
+                  ],
+                },
+              ),
+            ),
+          ]),
+    );
+  }
+
+  Widget _createPhysics() {
     return CourseTileWidget(
       CourseArguments(
         color: Colors.purple[300],
@@ -424,7 +452,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget createQuimics() {
+  Widget _createQuimics() {
     return CourseTileWidget(
       CourseArguments(
           color: Colors.green[300],
