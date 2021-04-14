@@ -359,27 +359,27 @@ class HomePage extends StatelessWidget {
               formulas: {
                 'Cantidad de Calor': [
                   AssetImage('assets/img/formulas/CantidadCalor.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/CantidadCalor.PNG'),
                 ],
                 'Capacidad Térmica': [
                   AssetImage('assets/img/formulas/CapacidadTermica.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/CapacidadTermica.PNG'),
                 ],
                 'Calor Específico': [
                   AssetImage('assets/img/formulas/CalorEspecifico.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/CalorEspecifico.PNG'),
                 ],
                 'Dilatación Térmica': [
                   AssetImage('assets/img/formulas/Dilatacion.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/Dilatacion.PNG'),
                 ],
                 'Equilibrio Térmico': [
                   AssetImage('assets/img/formulas/EqTer.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/EqTer.PNG'),
                 ],
                 'Calor Latente': [
                   AssetImage('assets/img/formulas/Latente.PNG'),
-                  AssetImage('assets/img/params/PyT.PNG'),
+                  AssetImage('assets/img/params/Latente.PNG'),
                 ],
               },
             ),
