@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
         'mechanics': (BuildContext context) => ContentPage(),
         'energy': (BuildContext context) => ContentPage(),
         'eandm': (BuildContext context) => ContentPage(),
+        'test': (BuildContext context) => ContentPage(),
       },
     );
   }

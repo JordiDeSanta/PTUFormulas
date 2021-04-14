@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
           children: [
             SizedBox(height: 10.0),
             createPhysics(),
-            //createQuimics(),
+            createQuimics(),
           ],
         ),
       ),
@@ -384,34 +384,41 @@ class HomePage extends StatelessWidget {
               },
             ),
           ),
-          /*
-         
           ContentArguments(
             color: Colors.purple[200],
-            img: AssetImage('assets/img/magneto.png'),
+            img: AssetImage('assets/img/electric.png'),
             route: 'eandm',
             title: 'Electricidad y Magnetismo',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
                 'Ley de Coulomb': [
-                  AssetImage('assets/img/formulas/Coulomb.PNG')
+                  AssetImage('assets/img/formulas/Coulomb.PNG'),
+                  AssetImage('assets/img/params/Coulomb.PNG'),
                 ],
                 'Campo Eléctrico': [
-                  AssetImage('assets/img/formulas/CampoElectrico.PNG')
+                  AssetImage('assets/img/formulas/CampoElectrico.PNG'),
+                  AssetImage('assets/img/params/CampoElectrico.PNG'),
                 ],
-                'Ley de Ohm': [AssetImage('assets/img/formulas/Ohm.PNG')],
+                'Ley de Ohm': [
+                  AssetImage('assets/img/formulas/Ohm.PNG'),
+                  AssetImage('assets/img/params/Ohm.PNG'),
+                ],
                 'Circuitos en Serie': [
-                  AssetImage('assets/img/formulas/EnSerie.PNG')
+                  AssetImage('assets/img/formulas/EnSerie.PNG'),
+                  AssetImage('assets/img/params/EnSerie.PNG'),
                 ],
                 'Circuitos en Paralelo': [
-                  AssetImage('assets/img/formulas/EnParalelo.PNG')
+                  AssetImage('assets/img/formulas/EnParalelo.PNG'),
+                  AssetImage('assets/img/params/EnSerie.PNG'),
                 ],
-                'Ley de Watt': [AssetImage('assets/img/formulas/Watt.PNG')],
+                'Ley de Watt': [
+                  AssetImage('assets/img/formulas/Watt.PNG'),
+                  AssetImage('assets/img/params/Watt.PNG'),
+                ],
               },
             ),
           ),
-          */
         ],
       ),
     );
@@ -420,11 +427,27 @@ class HomePage extends StatelessWidget {
   Widget createQuimics() {
     return CourseTileWidget(
       CourseArguments(
-        color: Colors.green[300],
-        img: AssetImage('assets/img/quimica.png'),
-        route: 'quimics',
-        title: 'Química',
-      ),
+          color: Colors.green[300],
+          img: AssetImage('assets/img/quimica.png'),
+          route: 'quimics',
+          title: 'Química',
+          contents: [
+            ContentArguments(
+              color: Colors.green[200],
+              img: AssetImage('assets/img/quimica.png'),
+              route: 'test',
+              title: 'A CTM',
+              formulas: FormulaArguments(
+                cardColor: Colors.green[100],
+                formulas: {
+                  'Periódo y Frecuencia': [
+                    AssetImage('assets/img/formulas/PyT.PNG'),
+                    AssetImage('assets/img/params/PyT.PNG'),
+                  ],
+                },
+              ),
+            ),
+          ]),
     );
   }
 }

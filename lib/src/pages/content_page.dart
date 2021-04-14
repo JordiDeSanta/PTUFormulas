@@ -21,6 +21,7 @@ class ContentPage extends StatelessWidget {
           backgroundColor: args.color,
           elevation: 0.0,
           toolbarHeight: 80.0,
+          foregroundColor: Colors.transparent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
           ),
