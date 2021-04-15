@@ -149,7 +149,15 @@ class HomePage extends StatelessWidget {
                 'Desplazamiento': [
                   AssetImage('assets/img/formulas/Desplazamiento.PNG'),
                   AssetImage('assets/img/params/Desplazamiento.PNG'),
-                  FormulaButtonArguments(),
+                  FormulaButtonArguments(
+                    params: {
+                      'Xf': 0,
+                      'X0': 0,
+                    },
+                    formula: (l) {
+                      return l[0] - l[1];
+                    },
+                  ),
                 ],
                 'Rapidez': [
                   AssetImage('assets/img/formulas/RapidezMRU.PNG'),

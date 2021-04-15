@@ -76,7 +76,7 @@ class FormulaTileWidget extends StatelessWidget {
 
   Widget _createButton() {
     if (button != null) {
-      return FormulaButton();
+      return FormulaButton(args: button);
     } else {
       return Container();
     }

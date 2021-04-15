@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ptuformulas/src/providers/_provider.dart';
 
 class FormulaButton extends StatelessWidget {
-  const FormulaButton({Key key}) : super(key: key);
+  final FormulaButtonArguments args;
+
+  const FormulaButton({this.args});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +14,9 @@ class FormulaButton extends StatelessWidget {
           elevation: MaterialStateProperty.all(0.0),
           backgroundColor: MaterialStateProperty.all(Colors.purple[200]),
         ),
-        onPressed: () {},
+        onPressed: () {
+          print(args.formula([2, 1]));
+        },
         child: Container(
           width: double.infinity,
           height: 15,
