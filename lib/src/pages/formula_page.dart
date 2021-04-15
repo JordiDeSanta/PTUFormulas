@@ -35,7 +35,7 @@ class _FormulaPageState extends State<FormulaPage> {
 
   List<Widget> _createParams(FormulaButtonArguments args) {
     List<Widget> _params = [SizedBox(height: 20.0)];
-    Map<String, int> newMap = args.params;
+    Map<String, double> newMap = args.params;
 
     args.params.forEach(
       (key, value) {
@@ -52,7 +52,7 @@ class _FormulaPageState extends State<FormulaPage> {
                     labelText: key,
                   ),
                   onChanged: (s) {
-                    int v = int.parse(s);
+                    double v = double.parse(s);
                     args.params[key] = v;
                     setState(() {});
                   },

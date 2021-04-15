@@ -153,12 +153,12 @@ class HomePage extends StatelessWidget {
                     pageName: 'Desplazamiento',
                     pageColor: Colors.deepPurple,
                     params: {
-                      'Xf': 0,
-                      'X0': 0,
+                      'Velocidad Final': 1.0,
+                      'Velocidad Inicial': 1.0,
                     },
-                    formula: (Map<String, int> m) {
-                      int xf = m['Xf'];
-                      int xo = m['X0'];
+                    formula: (Map<String, double> m) {
+                      double xf = m['Velocidad Final'];
+                      double xo = m['Velocidad Inicial'];
                       return xf - xo;
                     },
                   ),
@@ -166,7 +166,19 @@ class HomePage extends StatelessWidget {
                 'Rapidez': [
                   AssetImage('assets/img/formulas/RapidezMRU.PNG'),
                   AssetImage('assets/img/params/VeldeProp.PNG'),
-                  null,
+                  FormulaButtonArguments(
+                    pageName: 'Rapidez',
+                    pageColor: Colors.deepPurple,
+                    params: {
+                      'Distancia Recorrida': 1.0,
+                      'Tiempo Transcurrido': 1.0,
+                    },
+                    formula: (Map<String, double> m) {
+                      double d = m['Distancia Recorrida'];
+                      double t = m['Tiempo Transcurrido'];
+                      return d / t;
+                    },
+                  ),
                 ],
                 'Velocidad': [
                   AssetImage('assets/img/formulas/VelocidadMRU.PNG'),

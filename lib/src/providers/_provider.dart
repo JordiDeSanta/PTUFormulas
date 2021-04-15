@@ -30,8 +30,8 @@ class FormulaArguments {
 }
 
 class FormulaButtonArguments {
-  Map<String, int> params;
-  int Function(Map<String, int> m) formula;
+  Map<String, double> params;
+  double Function(Map<String, double> m) formula;
   Color pageColor;
   String pageName;
 
