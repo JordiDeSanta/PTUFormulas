@@ -31,7 +31,7 @@ class FormulaArguments {
 
 class FormulaButtonArguments {
   Map<String, int> params;
-  int Function(List<int> l) formula;
+  int Function(Map<String, int> m) formula;
 
   FormulaButtonArguments({this.params, this.formula});
 }

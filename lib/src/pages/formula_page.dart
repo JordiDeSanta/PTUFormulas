@@ -43,7 +43,10 @@ class FormulaPage extends StatelessWidget {
                   decoration: InputDecoration(
                     labelText: key,
                   ),
-                  onChanged: (s) {},
+                  onChanged: (s) {
+                    int v = int.parse(s);
+                    value = v;
+                  },
                 ),
               ),
               SizedBox(height: 10.0),
@@ -52,6 +55,12 @@ class FormulaPage extends StatelessWidget {
         );
         _params.add(_temp);
       },
+    );
+
+    _params.add(
+      Text(
+        args.formula(args.params).toString(),
+      ),
     );
 
     return _params;
