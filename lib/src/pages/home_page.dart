@@ -150,6 +150,8 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/formulas/Desplazamiento.PNG'),
                   AssetImage('assets/img/params/Desplazamiento.PNG'),
                   FormulaButtonArguments(
+                    pageName: 'Desplazamiento',
+                    pageColor: Colors.deepPurple,
                     params: {
                       'Xf': 0,
                       'X0': 0,

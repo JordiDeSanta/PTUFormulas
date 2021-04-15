@@ -32,6 +32,9 @@ class FormulaArguments {
 class FormulaButtonArguments {
   Map<String, int> params;
   int Function(Map<String, int> m) formula;
+  Color pageColor;
+  String pageName;
 
-  FormulaButtonArguments({this.params, this.formula});
+  FormulaButtonArguments(
+      {this.params, this.formula, this.pageColor, this.pageName});
 }

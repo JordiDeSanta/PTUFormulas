@@ -19,10 +19,10 @@ class _FormulaPageState extends State<FormulaPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Formula', style: styles.title),
+        title: Text(args.pageName, style: styles.title),
         centerTitle: true,
         toolbarHeight: 80.0,
-        backgroundColor: Colors.black12,
+        backgroundColor: args.pageColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
@@ -34,7 +34,7 @@ class _FormulaPageState extends State<FormulaPage> {
   }
 
   List<Widget> _createParams(FormulaButtonArguments args) {
-    List<Widget> _params = [SizedBox(height: 10.0)];
+    List<Widget> _params = [SizedBox(height: 20.0)];
     Map<String, int> newMap = args.params;
 
     args.params.forEach(
@@ -47,6 +47,8 @@ class _FormulaPageState extends State<FormulaPage> {
                 child: TextField(
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: args.pageColor)),
                     labelText: key,
                   ),
                   onChanged: (s) {
@@ -56,7 +58,7 @@ class _FormulaPageState extends State<FormulaPage> {
                   },
                 ),
               ),
-              SizedBox(height: 10.0),
+              SizedBox(height: 20.0),
             ],
           ),
         );
@@ -64,7 +66,9 @@ class _FormulaPageState extends State<FormulaPage> {
       },
     );
 
-    print(args.formula(newMap));
+    _params.add(
+      Text('Result: ' + args.formula(newMap).toString()),
+    );
 
     return _params;
   }
