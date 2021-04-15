@@ -37,24 +37,73 @@ class HomePage extends StatelessWidget {
   Widget _createMath() {
     return CourseTileWidget(
       CourseArguments(
-          color: Colors.blue[300],
-          img: AssetImage('assets/img/matematica.png'),
-          route: 'math',
-          title: 'Matemática',
-          contents: [
-            ContentArguments(
-              color: Colors.blue[200],
-              img: AssetImage('assets/img/numbers.png'),
-              route: 'number',
-              title: 'Números',
-              formulas: FormulaArguments(
-                cardColor: Colors.blue[100],
-                formulas: {
-                  'Números': [AssetImage('assets/img/formulas/PyT.PNG'), null],
-                },
-              ),
+        color: Colors.blue[300],
+        img: AssetImage('assets/img/matematica.png'),
+        route: 'math',
+        title: 'Matemática',
+        contents: [
+          ContentArguments(
+            color: Colors.blue[200],
+            img: AssetImage('assets/img/numbers.png'),
+            route: 'm',
+            title: 'Números',
+            formulas: FormulaArguments(
+              cardColor: Colors.blue[100],
+              formulas: {
+                'Números': [
+                  null,
+                  null,
+                ],
+              },
             ),
-          ]),
+          ),
+          ContentArguments(
+            color: Colors.blue[200],
+            img: AssetImage('assets/img/algebra.png'),
+            route: 'm',
+            title: 'Álgebra',
+            formulas: FormulaArguments(
+              cardColor: Colors.blue[100],
+              formulas: {
+                'Números': [
+                  null,
+                  null,
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.blue[200],
+            img: AssetImage('assets/img/function.png'),
+            route: 'm',
+            title: 'Funciones',
+            formulas: FormulaArguments(
+              cardColor: Colors.blue[100],
+              formulas: {
+                'Números': [
+                  null,
+                  null,
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.blue[200],
+            img: AssetImage('assets/img/triangle.png'),
+            route: 'm',
+            title: 'Geometría',
+            formulas: FormulaArguments(
+              cardColor: Colors.blue[100],
+              formulas: {
+                'Números': [
+                  null,
+                  null,
+                ],
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -69,7 +118,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/ondas.png'),
-            route: 'waves',
+            route: 'p',
             title: 'Ondas',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -92,7 +141,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/mru.png'),
-            route: 'mechanics',
+            route: 'p',
             title: 'MRU',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -119,7 +168,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/mruvh.png'),
-            route: 'mechanics',
+            route: 'p',
             title: 'MRUV',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -142,7 +191,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/mruvv.png'),
-            route: 'mechanics',
+            route: 'p',
             title: 'Caida Libre',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -165,7 +214,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/vert.png'),
-            route: 'mechanics',
+            route: 'p',
             title: 'Tiro Vertical',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -196,7 +245,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/fuerzas.png'),
-            route: 'mechanics',
+            route: 'p',
             title: 'Fuerzas',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -223,7 +272,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/planeta.png'),
-            route: 'mechanics',
+            route: 'p',
             title: 'Cosmos',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -242,7 +291,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/mcu.png'),
-            route: 'mechanics',
+            route: 'p',
             title: 'MCU',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -277,7 +326,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/dinrot1.png'),
-            route: 'mechanics',
+            route: 'p',
             title: 'Rotacional',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -300,7 +349,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/presion.png'),
-            route: 'mechanics',
+            route: 'p',
             title: 'Presión',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -331,7 +380,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/dinrot.png'),
-            route: 'energy',
+            route: 'p',
             title: 'Energías',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -358,7 +407,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/trabajo.png'),
-            route: 'energy',
+            route: 'p',
             title: 'Trabajo',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -377,7 +426,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/termo.png'),
-            route: 'energy',
+            route: 'p',
             title: 'Termodinámica',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -412,7 +461,7 @@ class HomePage extends StatelessWidget {
           ContentArguments(
             color: Colors.purple[200],
             img: AssetImage('assets/img/electric.png'),
-            route: 'eandm',
+            route: 'p',
             title: 'Electricidad y Magnetismo',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
@@ -460,7 +509,7 @@ class HomePage extends StatelessWidget {
             ContentArguments(
               color: Colors.green[200],
               img: AssetImage('assets/img/quimica.png'),
-              route: 'test',
+              route: 'q',
               title: 'A CTM',
               formulas: FormulaArguments(
                 cardColor: Colors.green[100],

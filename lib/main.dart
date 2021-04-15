@@ -26,12 +26,9 @@ class MyApp extends StatelessWidget {
         'math': (BuildContext context) => CoursePage(),
         'physics': (BuildContext context) => CoursePage(),
         'quimics': (BuildContext context) => CoursePage(),
-        'waves': (BuildContext context) => ContentPage(),
-        'mechanics': (BuildContext context) => ContentPage(),
-        'energy': (BuildContext context) => ContentPage(),
-        'eandm': (BuildContext context) => ContentPage(),
-        'test': (BuildContext context) => ContentPage(),
-        'number': (BuildContext context) => ContentPage(),
+        'p': (BuildContext context) => ContentPage(),
+        'm': (BuildContext context) => ContentPage(),
+        'q': (BuildContext context) => ContentPage(),
       },
     );
   }

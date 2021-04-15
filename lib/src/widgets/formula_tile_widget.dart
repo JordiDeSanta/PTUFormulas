@@ -32,7 +32,7 @@ class FormulaTileWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20.0),
                 child: Column(
                   children: [
-                    Image(image: image),
+                    _createFormula(),
                     _createParams(),
                   ],
                 ),
@@ -42,6 +42,18 @@ class FormulaTileWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _createFormula() {
+    if (image != null) {
+      return Column(
+        children: [
+          Image(image: image),
+        ],
+      );
+    } else {
+      return Container();
+    }
   }
 
   Widget _createParams() {
