@@ -33,7 +33,23 @@ class FormulaPage extends StatelessWidget {
 
     args.params.forEach(
       (key, value) {
-        Widget _temp = Text(key);
+        Widget _temp = Center(
+          child: Column(
+            children: [
+              Container(
+                width: 250.0,
+                child: TextField(
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    labelText: key,
+                  ),
+                  onChanged: (s) {},
+                ),
+              ),
+              SizedBox(height: 10.0),
+            ],
+          ),
+        );
         _params.add(_temp);
       },
     );
