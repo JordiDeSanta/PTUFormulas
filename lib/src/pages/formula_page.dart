@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 
-class FormulaPage extends StatelessWidget {
+class FormulaPage extends StatefulWidget {
   FormulaPage();
 
+  @override
+  _FormulaPageState createState() => _FormulaPageState();
+}
+
+class _FormulaPageState extends State<FormulaPage> {
   final styles = TextStyles();
 
   @override
@@ -30,6 +35,7 @@ class FormulaPage extends StatelessWidget {
 
   List<Widget> _createParams(FormulaButtonArguments args) {
     List<Widget> _params = [SizedBox(height: 10.0)];
+    Map<String, int> newMap = args.params;
 
     args.params.forEach(
       (key, value) {
@@ -45,7 +51,8 @@ class FormulaPage extends StatelessWidget {
                   ),
                   onChanged: (s) {
                     int v = int.parse(s);
-                    value = v;
+                    args.params[key] = v;
+                    setState(() {});
                   },
                 ),
               ),
@@ -57,11 +64,7 @@ class FormulaPage extends StatelessWidget {
       },
     );
 
-    _params.add(
-      Text(
-        args.formula(args.params).toString(),
-      ),
-    );
+    print(args.formula(newMap));
 
     return _params;
   }

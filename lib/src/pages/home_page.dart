@@ -151,8 +151,8 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/Desplazamiento.PNG'),
                   FormulaButtonArguments(
                     params: {
-                      'Xf': 9,
-                      'X0': 1,
+                      'Xf': 0,
+                      'X0': 0,
                     },
                     formula: (Map<String, int> m) {
                       int xf = m['Xf'];
