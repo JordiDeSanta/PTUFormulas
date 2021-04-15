@@ -28,3 +28,10 @@ class FormulaArguments {
 
   FormulaArguments({this.formulas, this.cardColor});
 }
+
+class FormulaButtonArguments {
+  Map<String, int> params;
+  Function(List<int> l) formula;
+
+  FormulaButtonArguments({this.params, this.formula});
+}
