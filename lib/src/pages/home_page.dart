@@ -44,16 +44,13 @@ class HomePage extends StatelessWidget {
           contents: [
             ContentArguments(
               color: Colors.blue[200],
-              img: AssetImage('assets/img/matematica.png'),
+              img: AssetImage('assets/img/numbers.png'),
               route: 'number',
               title: 'Números',
               formulas: FormulaArguments(
                 cardColor: Colors.blue[100],
                 formulas: {
-                  'Periódo y Frecuencia': [
-                    AssetImage('assets/img/formulas/PyT.PNG'),
-                    AssetImage('assets/img/params/PyT.PNG'),
-                  ],
+                  'Números': [AssetImage('assets/img/formulas/PyT.PNG'), null],
                 },
               ),
             ),

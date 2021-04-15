@@ -33,8 +33,7 @@ class FormulaTileWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     Image(image: image),
-                    SizedBox(height: 5.0),
-                    Image(image: params),
+                    _createParams(),
                   ],
                 ),
               ),
@@ -43,5 +42,18 @@ class FormulaTileWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _createParams() {
+    if (params != null) {
+      return Column(
+        children: [
+          SizedBox(height: 5.0),
+          Image(image: params),
+        ],
+      );
+    } else {
+      return Container();
+    }
   }
 }
