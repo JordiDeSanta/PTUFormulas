@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:ptuformulas/src/pages/content_page.dart';
 import 'package:ptuformulas/src/pages/home_page.dart';
 import 'package:ptuformulas/src/pages/course_page.dart';
+import 'package:ptuformulas/src/pages/formula_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       routes: {
         'home': (BuildContext context) => HomePage(),
+        'formula': (BuildContext context) => FormulaPage(),
         'math': (BuildContext context) => CoursePage(),
         'physics': (BuildContext context) => CoursePage(),
         'quimics': (BuildContext context) => CoursePage(),

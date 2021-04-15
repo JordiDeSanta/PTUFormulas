@@ -15,7 +15,7 @@ class FormulaButton extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(Colors.purple[200]),
         ),
         onPressed: () {
-          print(args.formula([2, 1]));
+          Navigator.pushNamed(context, 'formula', arguments: args);
         },
         child: Container(
           width: double.infinity,
