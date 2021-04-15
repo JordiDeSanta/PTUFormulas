@@ -50,6 +50,7 @@ class _FormulaPageState extends State<FormulaPage> {
                     focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: args.pageColor)),
                     labelText: key,
+                    labelStyle: TextStyle(color: args.pageColor),
                   ),
                   onChanged: (s) {
                     double v = double.parse(s);
