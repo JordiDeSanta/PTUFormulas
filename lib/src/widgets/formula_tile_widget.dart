@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
+import 'package:ptuformulas/src/widgets/formula_button.dart';
 
 class FormulaTileWidget extends StatelessWidget {
   final ImageProvider image;
   final ImageProvider params;
+  final FormulaButtonArguments button;
   final String title;
   final Color cardColor;
 
-  FormulaTileWidget({this.image, this.title, this.cardColor, this.params});
+  FormulaTileWidget(
+      {this.image, this.title, this.cardColor, this.params, this.button});
 
   final styles = TextStyles();
 
@@ -32,8 +36,9 @@ class FormulaTileWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20.0),
                 child: Column(
                   children: [
-                    _createFormula(),
+                    _createFormulas(),
                     _createParams(),
+                    _createButton(),
                   ],
                 ),
               ),
@@ -44,7 +49,7 @@ class FormulaTileWidget extends StatelessWidget {
     );
   }
 
-  Widget _createFormula() {
+  Widget _createFormulas() {
     if (image != null) {
       return Column(
         children: [
@@ -64,6 +69,14 @@ class FormulaTileWidget extends StatelessWidget {
           Image(image: params),
         ],
       );
+    } else {
+      return Container();
+    }
+  }
+
+  Widget _createButton() {
+    if (button != null) {
+      return FormulaButton();
     } else {
       return Container();
     }

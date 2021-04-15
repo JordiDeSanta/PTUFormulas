@@ -54,6 +54,7 @@ class ContentPage extends StatelessWidget {
         title: key,
         image: value[0],
         params: value[1],
+        button: value[2],
         cardColor: args.formulas.cardColor,
       );
 

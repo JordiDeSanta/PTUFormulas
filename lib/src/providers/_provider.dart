@@ -23,7 +23,7 @@ class ContentArguments {
 }
 
 class FormulaArguments {
-  Map<String, List<ImageProvider>> formulas;
+  Map<String, List> formulas;
   Color cardColor;
 
   FormulaArguments({this.formulas, this.cardColor});
