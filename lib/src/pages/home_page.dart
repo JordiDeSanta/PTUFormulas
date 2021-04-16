@@ -126,14 +126,23 @@ class HomePage extends StatelessWidget {
                 'Periódo y Frecuencia': [
                   AssetImage('assets/img/formulas/PyT.PNG'),
                   AssetImage('assets/img/params/PyT.PNG'),
+                  [
+                    null,
+                  ]
                 ],
                 'Longitud de Onda': [
                   AssetImage('assets/img/formulas/LdeOnda.PNG'),
                   AssetImage('assets/img/params/LdeOnda.PNG'),
+                  [
+                    null,
+                  ]
                 ],
                 'Velocidad de Propagación': [
                   AssetImage('assets/img/formulas/VeldeProp.PNG'),
                   AssetImage('assets/img/params/VeldeProp.PNG'),
+                  [
+                    null,
+                  ]
                 ],
               },
             ),
@@ -149,72 +158,80 @@ class HomePage extends StatelessWidget {
                 'Desplazamiento': [
                   AssetImage('assets/img/formulas/Desplazamiento.PNG'),
                   AssetImage('assets/img/params/Desplazamiento.PNG'),
-                  FormulaButtonArguments(
-                    pageName: 'Desplazamiento',
-                    pageColor: Colors.deepPurple,
-                    params: {
-                      'Posición Final': 1.0,
-                      'Posición Inicial': 1.0,
-                    },
-                    formula: (Map<String, double> m) {
-                      double xf = m['Posición Final'];
-                      double xo = m['Posición Inicial'];
-                      return xf - xo;
-                    },
-                  ),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Desplazamiento',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Posición Final': 1.0,
+                        'Posición Inicial': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double xf = m['Posición Final'];
+                        double xo = m['Posición Inicial'];
+                        return xf - xo;
+                      },
+                    ),
+                  ],
                 ],
                 'Rapidez': [
                   AssetImage('assets/img/formulas/RapidezMRU.PNG'),
                   AssetImage('assets/img/params/VeldeProp.PNG'),
-                  FormulaButtonArguments(
-                    pageName: 'Rapidez',
-                    pageColor: Colors.deepPurple,
-                    params: {
-                      'Distancia Recorrida': 1.0,
-                      'Tiempo Transcurrido': 1.0,
-                    },
-                    formula: (Map<String, double> m) {
-                      double d = m['Distancia Recorrida'];
-                      double t = m['Tiempo Transcurrido'];
-                      return d / t;
-                    },
-                  ),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Rapidez',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Distancia Recorrida': 1.0,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double d = m['Distancia Recorrida'];
+                        double t = m['Tiempo Transcurrido'];
+                        return d / t;
+                      },
+                    ),
+                  ],
                 ],
                 'Velocidad': [
                   AssetImage('assets/img/formulas/VelocidadMRU.PNG'),
                   AssetImage('assets/img/params/VelocidadMRU.PNG'),
-                  FormulaButtonArguments(
-                    pageName: 'Velocidad',
-                    pageColor: Colors.deepPurple,
-                    params: {
-                      'Desplazamiento': 1.0,
-                      'Tiempo Transcurrido': 1.0,
-                    },
-                    formula: (Map<String, double> m) {
-                      double d = m['Desplazamiento'];
-                      double t = m['Tiempo Transcurrido'];
-                      return d / t;
-                    },
-                  ),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Desplazamiento': 1.0,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double d = m['Desplazamiento'];
+                        double t = m['Tiempo Transcurrido'];
+                        return d / t;
+                      },
+                    ),
+                  ],
                 ],
                 'Posición': [
                   AssetImage('assets/img/formulas/PosicionMRU.PNG'),
                   AssetImage('assets/img/params/PosicionMRU.PNG'),
-                  FormulaButtonArguments(
-                    pageName: 'Velocidad',
-                    pageColor: Colors.deepPurple,
-                    params: {
-                      'Posición Inicial': 1.0,
-                      'Velocidad': 1.0,
-                      'Tiempo Transcurrido': 1.0,
-                    },
-                    formula: (Map<String, double> m) {
-                      double p = m['Posición Inicial'];
-                      double v = m['Velocidad'];
-                      double t = m['Tiempo Transcurrido'];
-                      return p + (v * t);
-                    },
-                  ),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Posición',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Posición Inicial': 1.0,
+                        'Velocidad': 1.0,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double p = m['Posición Inicial'];
+                        double v = m['Velocidad'];
+                        double t = m['Tiempo Transcurrido'];
+                        return p + (v * t);
+                      },
+                    ),
+                  ],
                 ],
               },
             ),

@@ -21,8 +21,9 @@ class FormulaButton extends StatelessWidget {
           width: double.infinity,
           height: 15,
           child: Text(
-            'Calcular',
+            'Calcular ' + args.pageName,
             textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ),

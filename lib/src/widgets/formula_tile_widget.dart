@@ -7,7 +7,7 @@ import 'package:ptuformulas/src/widgets/formula_button.dart';
 class FormulaTileWidget extends StatelessWidget {
   final ImageProvider image;
   final ImageProvider params;
-  final FormulaButtonArguments button;
+  final List<FormulaButtonArguments> button;
   final String title;
   final Color cardColor;
 
@@ -38,7 +38,9 @@ class FormulaTileWidget extends StatelessWidget {
                   children: [
                     _createFormulas(),
                     _createParams(),
-                    _createButton(),
+                    Column(
+                      children: _buttons(),
+                    ),
                   ],
                 ),
               ),
@@ -74,11 +76,16 @@ class FormulaTileWidget extends StatelessWidget {
     }
   }
 
-  Widget _createButton() {
-    if (button != null) {
-      return FormulaButton(args: button);
-    } else {
-      return Container();
-    }
+  List<Widget> _buttons() {
+    List<Widget> buttons = [SizedBox(height: 5.0)];
+
+    button.forEach((b) {
+      final _temp = FormulaButton(
+        args: b,
+      );
+      buttons.add(_temp);
+    });
+
+    return buttons;
   }
 }
