@@ -53,9 +53,14 @@ class _FormulaPageState extends State<FormulaPage> {
                     labelStyle: TextStyle(color: args.pageColor),
                   ),
                   onChanged: (s) {
-                    double v = double.parse(s);
-                    args.params[key] = v;
-                    setState(() {});
+                    if (s == '') {
+                      args.params[key] = 0.0;
+                      setState(() {});
+                    } else {
+                      double v = double.parse(s);
+                      args.params[key] = v;
+                      setState(() {});
+                    }
                   },
                 ),
               ),

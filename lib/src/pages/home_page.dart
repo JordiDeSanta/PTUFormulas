@@ -126,22 +126,135 @@ class HomePage extends StatelessWidget {
                 'Periódo y Frecuencia': [
                   AssetImage('assets/img/formulas/PyT.PNG'),
                   AssetImage('assets/img/params/PyT.PNG'),
-                  [
-                    null,
-                  ]
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Periódo',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Tiempo Transcurrido': 1.0,
+                        'Número de Oscilaciones': 1.0,
+                        'Frecuencia': 0.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double t = m['Tiempo Transcurrido'];
+                        double n = m['Número de Oscilaciones'];
+                        double f = m['Frecuencia'];
+                        if (f != 0.0) {
+                          return 1 / f;
+                        } else {
+                          return t / n;
+                        }
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Frecuencia',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Tiempo Transcurrido': 1.0,
+                        'Número de Oscilaciones': 1.0,
+                        'Periódo': 0.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double t = m['Tiempo Transcurrido'];
+                        double n = m['Número de Oscilaciones'];
+                        double p = m['Periódo'];
+                        if (p != 0.0) {
+                          return 1 / p;
+                        } else {
+                          return t / n;
+                        }
+                      },
+                    ),
+                  ],
                 ],
                 'Longitud de Onda': [
                   AssetImage('assets/img/formulas/LdeOnda.PNG'),
                   AssetImage('assets/img/params/LdeOnda.PNG'),
                   [
-                    null,
+                    FormulaButtonArguments(
+                      pageName: 'Longitud de Onda 1',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Longitud del Tren de Ondas': 1.0,
+                        'Número de Oscilaciones': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double l = m['Longitud del Tren de Ondas'];
+                        double n = m['Número de Oscilaciones'];
+                        return l / n;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Longitud de Onda 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad de Propagación': 1.0,
+                        'Periódo': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double v = m['Velocidad de Propagación'];
+                        double t = m['Periódo'];
+                        return v * t;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Longitud de Onda 3',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad de Propagación': 1.0,
+                        'Frecuencia': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double v = m['Velocidad de Propagación'];
+                        double f = m['Frecuencia'];
+                        return v / f;
+                      },
+                    ),
                   ]
                 ],
                 'Velocidad de Propagación': [
                   AssetImage('assets/img/formulas/VeldeProp.PNG'),
                   AssetImage('assets/img/params/VeldeProp.PNG'),
                   [
-                    null,
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad de Propagación 1',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Distancia Recorrida': 1.0,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double d = m['Distancia Recorrida'];
+                        double t = m['Tiempo Transcurrido'];
+                        return d / t;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad de Propagación 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Longitud de Onda': 1.0,
+                        'Periódo': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double l = m['Longitud de Onda'];
+                        double t = m['Periódo'];
+                        return l / t;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad de Propagación 3',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Longitud de Onda': 1.0,
+                        'Frecuencia': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double l = m['Longitud de Onda'];
+                        double f = m['Frecuencia'];
+                        return l * f;
+                      },
+                    ),
                   ]
                 ],
               },
