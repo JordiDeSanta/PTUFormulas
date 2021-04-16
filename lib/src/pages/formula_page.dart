@@ -73,7 +73,7 @@ class _FormulaPageState extends State<FormulaPage> {
     );
 
     _params.add(
-      Text('Result: ' + args.formula(newMap).toString()),
+      Text('Resultado: ' + args.formula(newMap).toString()),
     );
 
     return _params;
