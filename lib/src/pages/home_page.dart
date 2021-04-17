@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
@@ -418,7 +420,7 @@ class HomePage extends StatelessWidget {
                         double a = m['Aceleración'];
                         double d = m['Desplazamiento'];
 
-                        return (vo * vo) + 2 * a * d;
+                        return sqrt((vo * vo) + (2 * a * d));
                       },
                     ),
                   ],
@@ -428,7 +430,7 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/PosicionMRUV.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Posición 2',
+                      pageName: 'Posición 1',
                       pageColor: Colors.deepPurple,
                       params: {
                         'Posición Inicial': 1.0,
@@ -446,7 +448,7 @@ class HomePage extends StatelessWidget {
                       },
                     ),
                     FormulaButtonArguments(
-                      pageName: 'Posición',
+                      pageName: 'Posición 2',
                       pageColor: Colors.deepPurple,
                       params: {
                         'Velocidad Inicial': 1.0,
@@ -470,21 +472,107 @@ class HomePage extends StatelessWidget {
             color: Colors.purple[200],
             img: AssetImage('assets/img/mruvv.png'),
             route: 'p',
-            title: 'Caida Libre',
+            title: 'Caída Libre',
             formulas: FormulaArguments(
               cardColor: Colors.purple[100],
               formulas: {
                 'Velocidad': [
                   AssetImage('assets/img/formulas/VelocidadMRUVV.PNG'),
                   AssetImage('assets/img/params/VelocidadMRUVV.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad según Tiempo',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Inicial': 1.0,
+                        'Gravedad': 9.8,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double vo = m['Velocidad Inicial'];
+                        double g = m['Gravedad'];
+                        double t = m['Tiempo Transcurrido'];
+
+                        return vo + (g * t);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad Final',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Inicial': 1.0,
+                        'Gravedad': 9.8,
+                        'Altura': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double vo = m['Velocidad Inicial'];
+                        double g = m['Gravedad'];
+                        double h = m['Altura'];
+
+                        return sqrt((vo * vo) + (2 * g * h));
+                      },
+                    ),
+                  ],
                 ],
                 'Altura': [
                   AssetImage('assets/img/formulas/AlturaMRUVV.PNG'),
                   AssetImage('assets/img/params/AlturaMRUVV.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Altura 1',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Inicial': 1.0,
+                        'Gravedad': 9.8,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double vo = m['Velocidad Inicial'];
+                        double g = m['Aceleración'];
+                        double t = m['Tiempo Transcurrido'];
+
+                        return (vo * t) + ((g * t * t) / 2);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Altura 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Inicial': 1.0,
+                        'Velocidad Final': 1.0,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double vo = m['Velocidad Inicial'];
+                        double vf = m['Velocidad Final'];
+                        double t = m['Tiempo Transcurrido'];
+
+                        return ((vo + vf) / 2) * t;
+                      },
+                    ),
+                  ],
                 ],
-                'Tiempo': [
+                'Tiempo de Caída': [
                   AssetImage('assets/img/formulas/TiempoMRUVV.PNG'),
                   AssetImage('assets/img/params/TiempoMRUVV.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Tiempo de Caída',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Tiempo Final': 1.0,
+                        'Tiempo Inicial': 0.0,
+                        'Gravedad': 9.8,
+                      },
+                      formula: (Map<String, double> m) {
+                        double to = m['Tiempo Inicial'];
+                        double tf = m['Tiempo Final'];
+                        double g = m['Gravedad'];
+
+                        return (tf - to) / g;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
@@ -500,22 +588,138 @@ class HomePage extends StatelessWidget {
                 'Velocidad': [
                   AssetImage('assets/img/formulas/VelocidadUP.PNG'),
                   AssetImage('assets/img/params/VelocidadMRUVV.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad según Tiempo',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Inicial': 1.0,
+                        'Gravedad': 9.8,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double vo = m['Velocidad Inicial'];
+                        double g = m['Gravedad'];
+                        double t = m['Tiempo Transcurrido'];
+
+                        return vo - (g * t);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad Final',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Inicial': 1.0,
+                        'Gravedad': 9.8,
+                        'Altura': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double vo = m['Velocidad Inicial'];
+                        double g = m['Gravedad'];
+                        double h = m['Altura'];
+
+                        return sqrt((vo * vo) - (2 * g * h));
+                      },
+                    ),
+                  ],
                 ],
                 'Altura': [
                   AssetImage('assets/img/formulas/AlturaUP.PNG'),
                   AssetImage('assets/img/params/AlturaMRUVV.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Altura 1',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Inicial': 1.0,
+                        'Gravedad': 9.8,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double vo = m['Velocidad Inicial'];
+                        double g = m['Aceleración'];
+                        double t = m['Tiempo Transcurrido'];
+
+                        return (vo * t) - ((g * t * t) / 2);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Altura 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Inicial': 1.0,
+                        'Velocidad Final': 1.0,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double vo = m['Velocidad Inicial'];
+                        double vf = m['Velocidad Final'];
+                        double t = m['Tiempo Transcurrido'];
+
+                        return ((vo - vf) / 2) * t;
+                      },
+                    ),
+                  ],
                 ],
                 'Velocidad Inicial': [
                   AssetImage('assets/img/formulas/Velocidad0UP.PNG'),
                   AssetImage('assets/img/params/Velocidad0UP.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad Inicial',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Gravedad': 9.8,
+                        'Altura Máxima': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double hm = m['Altura Máxima'];
+                        double g = m['Gravedad'];
+
+                        return sqrt(2 * g * hm);
+                      },
+                    ),
+                  ],
                 ],
                 'Altura Máxima': [
                   AssetImage('assets/img/formulas/AlturaMAX.PNG'),
                   AssetImage('assets/img/params/AlturaMAX.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Altura Máxima',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Inicial': 1.0,
+                        'Gravedad': 9.8,
+                      },
+                      formula: (Map<String, double> m) {
+                        double vo = m['Velocidad Inicial'];
+                        double g = m['Gravedad'];
+
+                        return (vo * vo) / (2 * g);
+                      },
+                    ),
+                  ],
                 ],
-                'Tiempo': [
+                'Tiempo de Subida': [
                   AssetImage('assets/img/formulas/TiempoUP.PNG'),
                   AssetImage('assets/img/params/TiempoUP.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Tiempo de Subida',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Inicial': 1.0,
+                        'Gravedad': 9.8,
+                      },
+                      formula: (Map<String, double> m) {
+                        double vo = m['Velocidad Inicial'];
+                        double g = m['Gravedad'];
+
+                        return vo / g;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
