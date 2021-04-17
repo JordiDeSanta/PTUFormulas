@@ -735,18 +735,96 @@ class HomePage extends StatelessWidget {
                 'Fuerza': [
                   AssetImage('assets/img/formulas/Fuerza.PNG'),
                   AssetImage('assets/img/params/Fuerza.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Fuerza',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Masa': 1.0,
+                        'Aceleración': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ma = m['Masa'];
+                        double a = m['Aceleración'];
+
+                        return ma * a;
+                      },
+                    ),
+                  ],
                 ],
                 'Peso y Normal': [
                   AssetImage('assets/img/formulas/PesoNormal.PNG'),
                   AssetImage('assets/img/params/PesoNormal.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Peso',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Masa': 1.0,
+                        'Gravedad': 9.8,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ma = m['Masa'];
+                        double g = m['Gravedad'];
+
+                        return ma * g;
+                      },
+                    ),
+                  ],
                 ],
                 'Fricción': [
                   AssetImage('assets/img/formulas/Friccion.PNG'),
                   AssetImage('assets/img/params/Friccion.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Fricción Estática',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Coeficiente de Fricción Estática': 1.0,
+                        'Normal': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double cf = m['Coeficiente de Fricción Estática'];
+                        double n = m['Normal'];
+
+                        return cf * n;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Fricción Cinética',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Coeficiente de Fricción Cinética': 1.0,
+                        'Normal': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double cf = m['Coeficiente de Fricción Cinética'];
+                        double n = m['Normal'];
+
+                        return cf * n;
+                      },
+                    ),
+                  ],
                 ],
                 'Fuerza Elástica': [
                   AssetImage('assets/img/formulas/Elastica.PNG'),
                   AssetImage('assets/img/params/Elastica.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Fuerza Elástica',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Longitud de la Deformación': 1.0,
+                        'Constante Elástica': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double dx = m['Longitud de la Deformación'];
+                        double k = m['Constante Elástica'];
+
+                        return (-k) * dx;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
