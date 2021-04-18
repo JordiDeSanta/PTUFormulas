@@ -73,6 +73,12 @@ class _FormulaPageState extends State<FormulaPage> {
     );
 
     _params.add(
+      SizedBox(
+        height: 10.0,
+      ),
+    );
+
+    _params.add(
       Text('Resultado: ' + args.formula(newMap).toString()),
     );
 

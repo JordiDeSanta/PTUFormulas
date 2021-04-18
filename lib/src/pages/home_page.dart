@@ -1092,14 +1092,47 @@ class HomePage extends StatelessWidget {
                 'Torque': [
                   AssetImage('assets/img/formulas/Torque.PNG'),
                   AssetImage('assets/img/params/Torque.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Torque',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Fuerza': 1.0,
+                        'Longitud perpendicular a la Fuerza': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double f = m['Fuerza'];
+                        double l = m['Longitud perpendicular a la Fuerza'];
+
+                        return f * l;
+                      },
+                    ),
+                  ],
                 ],
                 'Equilibrio Rotacional': [
                   AssetImage('assets/img/formulas/EqRot.PNG'),
                   AssetImage('assets/img/params/EqRot.PNG'),
+                  <FormulaButtonArguments>[],
                 ],
                 'Momento Angular': [
                   AssetImage('assets/img/formulas/MomentoAngular.PNG'),
                   AssetImage('assets/img/params/MomentoAngular.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Momento Angular',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Momento de Inercia': 1.0,
+                        'Velocidad Angular': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double i = m['Momento de Inercia'];
+                        double w = m['Velocidad Angular'];
+
+                        return i * w;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
