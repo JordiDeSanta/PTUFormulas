@@ -1148,22 +1148,91 @@ class HomePage extends StatelessWidget {
                 'Presión': [
                   AssetImage('assets/img/formulas/Presion.PNG'),
                   AssetImage('assets/img/params/Presion.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Presión',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Fuerza Aplicada': 1.0,
+                        'Área': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double f = m['Fuerza Aplicada'];
+                        double a = m['Área'];
+
+                        return f / a;
+                      },
+                    ),
+                  ],
                 ],
                 'Presión Hidrostática': [
                   AssetImage('assets/img/formulas/Hidrostatica.PNG'),
                   AssetImage('assets/img/params/Hidrostatica.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Presión Hidrostática',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Densidad': 1.0,
+                        'Gravedad': 1.0,
+                        'Altura': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double d = m['Densidad'];
+                        double g = m['Gravedad'];
+                        double h = m['Altura'];
+
+                        return d * g * h;
+                      },
+                    ),
+                  ],
                 ],
                 'Presión Absoluta': [
                   AssetImage('assets/img/formulas/PresionAbs.PNG'),
                   AssetImage('assets/img/params/PresionAbs.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Presión Absoluta',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Presión Hidrostática': 1.0,
+                        'Presión Atmosférica': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double h = m['Presión Hidrostática'];
+                        double a = m['Presión Atmosférica'];
+
+                        return h + a;
+                      },
+                    ),
+                  ],
                 ],
                 'Pascal': [
                   AssetImage('assets/img/formulas/Pascal.PNG'),
                   AssetImage('assets/img/params/Pascal.PNG'),
+                  <FormulaButtonArguments>[],
                 ],
                 'Arquímedes': [
                   AssetImage('assets/img/formulas/Arquimedes.PNG'),
                   AssetImage('assets/img/params/Arquimedes.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Fuerza de Flotación',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Densidad': 1.0,
+                        'Volumen': 1.0,
+                        'Altura': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double d = m['Densidad'];
+                        double v = m['Volumen'];
+                        double h = m['Altura'];
+
+                        return d * v * h;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
