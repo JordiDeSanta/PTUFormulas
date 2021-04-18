@@ -1435,17 +1435,33 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/CantidadCalor.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Energía Mecánica Inicial',
+                      pageName: 'Calor Requerido 1',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Energía Mecánica Inicial': 1.0,
-                        'Trabajo de la Fuerza': 1.0,
+                        'Masa del Cuerpo': 1.0,
+                        'Calor Especifico del Material': 1.0,
+                        'Cambio en la Temperatura': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double em = m['Energía Mecánica Inicial'];
-                        double wf = m['Trabajo de la Fuerza'];
+                        double ma = m['Masa del Cuerpo'];
+                        double c = m['Calor Especifico del Material'];
+                        double dt = m['Cambio en la Temperatura'];
 
-                        return em + wf.abs();
+                        return ma * c * dt;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Calor Requerido 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Masa del Cuerpo': 1.0,
+                        'Calor Latente': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ma = m['Masa del Cuerpo'];
+                        double l = m['Calor Latente'];
+
+                        return l * ma;
                       },
                     ),
                   ],
@@ -1455,17 +1471,17 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/CapacidadTermica.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Energía Mecánica Inicial',
+                      pageName: 'Capacidad Térmica',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Energía Mecánica Inicial': 1.0,
-                        'Trabajo de la Fuerza': 1.0,
+                        'Cambio en el Calor': 1.0,
+                        'Cambio en la Temperatura': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double em = m['Energía Mecánica Inicial'];
-                        double wf = m['Trabajo de la Fuerza'];
+                        double dq = m['Cambio en el Calor'];
+                        double dt = m['Cambio en la Temperatura'];
 
-                        return em + wf.abs();
+                        return dq / dt;
                       },
                     ),
                   ],
@@ -1475,17 +1491,17 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/CalorEspecifico.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Energía Mecánica Inicial',
+                      pageName: 'Calor Específico',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Energía Mecánica Inicial': 1.0,
-                        'Trabajo de la Fuerza': 1.0,
+                        'Capacidad Térmica': 1.0,
+                        'Masa': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double em = m['Energía Mecánica Inicial'];
-                        double wf = m['Trabajo de la Fuerza'];
+                        double c = m['Capacidad Térmica'];
+                        double ma = m['Masa'];
 
-                        return em + wf.abs();
+                        return c / ma;
                       },
                     ),
                   ],
@@ -1495,17 +1511,51 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/Dilatacion.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Energía Mecánica Inicial',
+                      pageName: 'Cambio Lineal',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Energía Mecánica Inicial': 1.0,
-                        'Trabajo de la Fuerza': 1.0,
+                        'Longitud Inicial': 1.0,
+                        'Coeficiente de Dilatación Lineal': 1.0,
+                        'Cambio en la Temperatura': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double em = m['Energía Mecánica Inicial'];
-                        double wf = m['Trabajo de la Fuerza'];
+                        double lo = m['Longitud Inicial'];
+                        double a = m['Coeficiente de Dilatación Lineal'];
+                        double dt = m['Cambio en la Temperatura'];
 
-                        return em + wf.abs();
+                        return lo * a * dt;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Cambio Superficial',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Área Inicial': 1.0,
+                        'Coeficiente de Dilatación Superficial': 1.0,
+                        'Cambio en la Temperatura': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double lo = m['Longitud Inicial'];
+                        double b = m['Coeficiente de Dilatación Superficial'];
+                        double dt = m['Cambio en la Temperatura'];
+
+                        return lo * b * dt;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Cambio Volumétrico',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Volumen Inicial': 1.0,
+                        'Coeficiente de Dilatación Volumétrica': 1.0,
+                        'Cambio en la Temperatura': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double lo = m['Longitud Inicial'];
+                        double g = m['Coeficiente de Dilatación Volumétrica'];
+                        double dt = m['Cambio en la Temperatura'];
+
+                        return lo * g * dt;
                       },
                     ),
                   ],
@@ -1515,17 +1565,27 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/EqTer.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Energía Mecánica Inicial',
+                      pageName: 'Calor Cedido',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Energía Mecánica Inicial': 1.0,
-                        'Trabajo de la Fuerza': 1.0,
+                        'Calor Absorbido': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double em = m['Energía Mecánica Inicial'];
-                        double wf = m['Trabajo de la Fuerza'];
+                        double qa = m['Calor Absorbido'];
 
-                        return em + wf.abs();
+                        return -qa;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Calor Absorbido',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Calor Cedido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double qc = m['Calor Cedido'];
+
+                        return -qc;
                       },
                     ),
                   ],
@@ -1535,17 +1595,17 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/Latente.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Energía Mecánica Inicial',
+                      pageName: 'Calor Latente',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Energía Mecánica Inicial': 1.0,
-                        'Trabajo de la Fuerza': 1.0,
+                        'Calor': 1.0,
+                        'Masa': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double em = m['Energía Mecánica Inicial'];
-                        double wf = m['Trabajo de la Fuerza'];
+                        double q = m['Calor'];
+                        double ma = m['Masa'];
 
-                        return em + wf.abs();
+                        return q / ma;
                       },
                     ),
                   ],
@@ -1564,26 +1624,122 @@ class HomePage extends StatelessWidget {
                 'Ley de Coulomb': [
                   AssetImage('assets/img/formulas/Coulomb.PNG'),
                   AssetImage('assets/img/params/Coulomb.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Calor Latente',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Calor': 1.0,
+                        'Masa': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double q = m['Calor'];
+                        double ma = m['Masa'];
+
+                        return q / ma;
+                      },
+                    ),
+                  ],
                 ],
                 'Campo Eléctrico': [
                   AssetImage('assets/img/formulas/CampoElectrico.PNG'),
                   AssetImage('assets/img/params/CampoElectrico.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Calor Latente',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Calor': 1.0,
+                        'Masa': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double q = m['Calor'];
+                        double ma = m['Masa'];
+
+                        return q / ma;
+                      },
+                    ),
+                  ],
                 ],
                 'Ley de Ohm': [
                   AssetImage('assets/img/formulas/Ohm.PNG'),
                   AssetImage('assets/img/params/Ohm.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Calor Latente',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Calor': 1.0,
+                        'Masa': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double q = m['Calor'];
+                        double ma = m['Masa'];
+
+                        return q / ma;
+                      },
+                    ),
+                  ],
                 ],
                 'Circuitos en Serie': [
                   AssetImage('assets/img/formulas/EnSerie.PNG'),
                   AssetImage('assets/img/params/EnSerie.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Calor Latente',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Calor': 1.0,
+                        'Masa': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double q = m['Calor'];
+                        double ma = m['Masa'];
+
+                        return q / ma;
+                      },
+                    ),
+                  ],
                 ],
                 'Circuitos en Paralelo': [
                   AssetImage('assets/img/formulas/EnParalelo.PNG'),
                   AssetImage('assets/img/params/EnSerie.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Calor Latente',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Calor': 1.0,
+                        'Masa': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double q = m['Calor'];
+                        double ma = m['Masa'];
+
+                        return q / ma;
+                      },
+                    ),
+                  ],
                 ],
                 'Ley de Watt': [
                   AssetImage('assets/img/formulas/Watt.PNG'),
                   AssetImage('assets/img/params/Watt.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Calor Latente',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Calor': 1.0,
+                        'Masa': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double q = m['Calor'];
+                        double ma = m['Masa'];
+
+                        return q / ma;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
