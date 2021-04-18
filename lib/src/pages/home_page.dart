@@ -1340,10 +1340,84 @@ class HomePage extends StatelessWidget {
                 'Fuerza Disipativa': [
                   AssetImage('assets/img/formulas/Disipativa.PNG'),
                   AssetImage('assets/img/params/Disipativa.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Energía Mecánica Inicial',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Energía Mecánica Inicial': 1.0,
+                        'Trabajo de la Fuerza': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double em = m['Energía Mecánica Inicial'];
+                        double wf = m['Trabajo de la Fuerza'];
+
+                        return em + wf.abs();
+                      },
+                    ),
+                  ],
                 ],
                 'Trabajo y Potencia': [
                   AssetImage('assets/img/formulas/TyP.PNG'),
                   AssetImage('assets/img/params/TyP.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Trabajo 1',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Fuerza': 1.0,
+                        'Distancia': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double f = m['Fuerza'];
+                        double d = m['Distancia'];
+
+                        return f * d;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Trabajo 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Energía Cinética Final': 1.0,
+                        'Energía Cinética Inicial': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ecf = m['Energía Cinética Final'];
+                        double eco = m['Energía Cinética Inicial'];
+
+                        return ecf - eco;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Potencia 1',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Trabajo': 1.0,
+                        'Tiempo': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double w = m['Trabajo'];
+                        double t = m['Tiempo'];
+
+                        return w / t;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Potencia 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Fuerza': 1.0,
+                        'Velocidad': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double f = m['Fuerza'];
+                        double v = m['Velocidad'];
+
+                        return f * v;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
@@ -1359,26 +1433,122 @@ class HomePage extends StatelessWidget {
                 'Cantidad de Calor': [
                   AssetImage('assets/img/formulas/CantidadCalor.PNG'),
                   AssetImage('assets/img/params/CantidadCalor.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Energía Mecánica Inicial',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Energía Mecánica Inicial': 1.0,
+                        'Trabajo de la Fuerza': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double em = m['Energía Mecánica Inicial'];
+                        double wf = m['Trabajo de la Fuerza'];
+
+                        return em + wf.abs();
+                      },
+                    ),
+                  ],
                 ],
                 'Capacidad Térmica': [
                   AssetImage('assets/img/formulas/CapacidadTermica.PNG'),
                   AssetImage('assets/img/params/CapacidadTermica.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Energía Mecánica Inicial',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Energía Mecánica Inicial': 1.0,
+                        'Trabajo de la Fuerza': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double em = m['Energía Mecánica Inicial'];
+                        double wf = m['Trabajo de la Fuerza'];
+
+                        return em + wf.abs();
+                      },
+                    ),
+                  ],
                 ],
                 'Calor Específico': [
                   AssetImage('assets/img/formulas/CalorEspecifico.PNG'),
                   AssetImage('assets/img/params/CalorEspecifico.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Energía Mecánica Inicial',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Energía Mecánica Inicial': 1.0,
+                        'Trabajo de la Fuerza': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double em = m['Energía Mecánica Inicial'];
+                        double wf = m['Trabajo de la Fuerza'];
+
+                        return em + wf.abs();
+                      },
+                    ),
+                  ],
                 ],
                 'Dilatación Térmica': [
                   AssetImage('assets/img/formulas/Dilatacion.PNG'),
                   AssetImage('assets/img/params/Dilatacion.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Energía Mecánica Inicial',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Energía Mecánica Inicial': 1.0,
+                        'Trabajo de la Fuerza': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double em = m['Energía Mecánica Inicial'];
+                        double wf = m['Trabajo de la Fuerza'];
+
+                        return em + wf.abs();
+                      },
+                    ),
+                  ],
                 ],
                 'Equilibrio Térmico': [
                   AssetImage('assets/img/formulas/EqTer.PNG'),
                   AssetImage('assets/img/params/EqTer.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Energía Mecánica Inicial',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Energía Mecánica Inicial': 1.0,
+                        'Trabajo de la Fuerza': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double em = m['Energía Mecánica Inicial'];
+                        double wf = m['Trabajo de la Fuerza'];
+
+                        return em + wf.abs();
+                      },
+                    ),
+                  ],
                 ],
                 'Calor Latente': [
                   AssetImage('assets/img/formulas/Latente.PNG'),
                   AssetImage('assets/img/params/Latente.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Energía Mecánica Inicial',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Energía Mecánica Inicial': 1.0,
+                        'Trabajo de la Fuerza': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double em = m['Energía Mecánica Inicial'];
+                        double wf = m['Trabajo de la Fuerza'];
+
+                        return em + wf.abs();
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
