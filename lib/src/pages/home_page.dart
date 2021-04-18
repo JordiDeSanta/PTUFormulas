@@ -78,9 +78,35 @@ class HomePage extends StatelessWidget {
             formulas: FormulaArguments(
               cardColor: Colors.blue[100],
               formulas: {
-                'Números': [
+                'Ecuación Cuadrática': [
+                  AssetImage('assets/img/mathformulas/fg.PNG'),
                   null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Diferencia de Cuadrados': [
+                  AssetImage('assets/img/mathformulas/difqad.PNG'),
                   null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Trinomio Cuadrado Perfecto': [
+                  AssetImage('assets/img/mathformulas/trinqadper.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Trinomio de la Forma': [
+                  AssetImage('assets/img/mathformulas/trinfor.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Diferencia de Cubos': [
+                  AssetImage('assets/img/mathformulas/difcubos.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Suma de Cubos': [
+                  AssetImage('assets/img/mathformulas/scubos.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
                 ],
               },
             ),
