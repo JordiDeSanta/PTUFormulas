@@ -1626,17 +1626,33 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/Coulomb.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Calor Latente',
+                      pageName: 'Fuerza Eléctrica 1',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Calor': 1.0,
-                        'Masa': 1.0,
+                        'Primera Carga': 1.0,
+                        'Segunda Carga': 1.0,
+                        'Distancia entre Cargas': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double q = m['Calor'];
-                        double ma = m['Masa'];
+                        double q1 = m['Primera Carga'];
+                        double q2 = m['Segunda Carga'];
+                        double r = m['Distancia entre Cargas'];
 
-                        return q / ma;
+                        return (9 * pow(10, 9)) * ((q1 * q2).abs() / (r * r));
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Fuerza Eléctrica 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Campo Eléctrico': 1.0,
+                        'Carga': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double e = m['Campo Eléctrico'];
+                        double q = m['Carga'];
+
+                        return e * q;
                       },
                     ),
                   ],
@@ -1646,17 +1662,31 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/CampoElectrico.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Calor Latente',
+                      pageName: 'Campo Eléctrico 1',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Calor': 1.0,
-                        'Masa': 1.0,
+                        'Fuerza Eléctrica': 1.0,
+                        'Carga': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double q = m['Calor'];
-                        double ma = m['Masa'];
+                        double f = m['Fuerza Eléctrica'];
+                        double q = m['Carga'];
 
-                        return q / ma;
+                        return f / q;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Campo Eléctrico 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Carga': 1.0,
+                        'Distancia hacia el punto': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double q = m['Carga'];
+                        double r = m['Distancia entre Cargas'];
+
+                        return ((9 * pow(10, 9) * q) / (r * r));
                       },
                     ),
                   ],
@@ -1666,17 +1696,61 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/Ohm.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Calor Latente',
+                      pageName: 'Intensidad Eléctrica',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Calor': 1.0,
-                        'Masa': 1.0,
+                        'Carga': 1.0,
+                        'Tiempo Transcurrido': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double q = m['Calor'];
-                        double ma = m['Masa'];
+                        double q = m['Carga'];
+                        double t = m['Tiempo Transcurrido'];
 
-                        return q / ma;
+                        return q / t;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Voltaje 1',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Intensidad Eléctrica': 1.0,
+                        'Resistencia': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double i = m['Intensidad Eléctrica'];
+                        double r = m['Resistencia'];
+
+                        return i * r;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Voltaje 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Carga': 1.0,
+                        'Distancia hacia el punto': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double q = m['Carga'];
+                        double r = m['Distancia hacia el punto'];
+
+                        return ((9 * pow(10, 9)) * (q / r));
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Resistencia',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Resistividad del Material': 1.0,
+                        'Longitud del Cable': 1.0,
+                        'Area (círculo) del (cilíndro) Cable': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double r = m['Resistividad del Material'];
+                        double l = m['Longitud del Cable'];
+                        double a = m['Area (círculo) del (cilíndro) Cable'];
+
+                        return (r * l) / a;
                       },
                     ),
                   ],
@@ -1686,17 +1760,17 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/EnSerie.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Calor Latente',
+                      pageName: 'Potencia Eléctrica',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Calor': 1.0,
-                        'Masa': 1.0,
+                        'Voltaje Total': 1.0,
+                        'Intensidad Eléctrica': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double q = m['Calor'];
-                        double ma = m['Masa'];
+                        double vt = m['Voltaje Total'];
+                        double i = m['Intensidad Eléctrica'];
 
-                        return q / ma;
+                        return vt * i;
                       },
                     ),
                   ],
@@ -1706,37 +1780,77 @@ class HomePage extends StatelessWidget {
                   AssetImage('assets/img/params/EnSerie.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Calor Latente',
+                      pageName: 'Resistencia Total 1',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Calor': 1.0,
-                        'Masa': 1.0,
+                        'Sumatoria de las Resistencias': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double q = m['Calor'];
-                        double ma = m['Masa'];
+                        double er = m['Sumatoria de las Resistencias'];
 
-                        return q / ma;
+                        return 1 / er;
                       },
                     ),
                   ],
+                  FormulaButtonArguments(
+                    pageName: 'Resistencia Total 2',
+                    pageColor: Colors.deepPurple,
+                    params: {
+                      'Resistencia 1': 1.0,
+                      'Resistencia 2': 1.0,
+                    },
+                    formula: (Map<String, double> m) {
+                      double r1 = m['Resistencia 1'];
+                      double r2 = m['Resistencia 2'];
+
+                      return (r1 + r2) / (r1 * r2);
+                    },
+                  ),
+                  FormulaButtonArguments(
+                    pageName: 'Potencia Eléctrica',
+                    pageColor: Colors.deepPurple,
+                    params: {
+                      'Voltaje': 1.0,
+                      'Intensidad Eléctrica Total': 1.0,
+                    },
+                    formula: (Map<String, double> m) {
+                      double v = m['Voltaje'];
+                      double it = m['Intensidad Eléctrica Total'];
+
+                      return v * it;
+                    },
+                  ),
                 ],
                 'Ley de Watt': [
                   AssetImage('assets/img/formulas/Watt.PNG'),
                   AssetImage('assets/img/params/Watt.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Calor Latente',
+                      pageName: 'Potencia Eléctrica',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Calor': 1.0,
-                        'Masa': 1.0,
+                        'Voltaje': 1.0,
+                        'Intensidad Eléctrica': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double q = m['Calor'];
-                        double ma = m['Masa'];
+                        double v = m['Voltaje'];
+                        double i = m['Intensidad Eléctrica'];
 
-                        return q / ma;
+                        return v * i;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Energía Consumida (kWh)',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Potencia Eléctrica (W)': 1.0,
+                        'Tiempo Activo (h)': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double p = m['Potencia Eléctrica (W)'];
+                        double t = m['Tiempo Activo (h)'];
+
+                        return (p * t) / 1000;
                       },
                     ),
                   ],
