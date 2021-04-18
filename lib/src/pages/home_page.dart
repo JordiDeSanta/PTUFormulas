@@ -840,10 +840,58 @@ class HomePage extends StatelessWidget {
                 'Gravitación Universal': [
                   AssetImage('assets/img/formulas/Gravitacion.PNG'),
                   AssetImage('assets/img/params/Gravitacion.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Fuerza de Atracción',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Masa del primer cuerpo': 1.0,
+                        'Masa del segundo cuerpo': 1.0,
+                        'Distancia entre sus centros': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double m1 = m['Masa del primer cuerpo'];
+                        double m2 = m['Masa del segundo cuerpo'];
+                        double r = m['Distancia entre sus centros'];
+
+                        return (6.67 * pow(10, -11)) * ((m1 * m2) / (r * r));
+                      },
+                    ),
+                  ],
                 ],
                 'Leyes de Kepler': [
                   AssetImage('assets/img/formulas/Kepler.PNG'),
                   AssetImage('assets/img/params/Kepler.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Excentricidad de Órbita',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'c': 1.0,
+                        'a': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double c = m['c'];
+                        double a = m['a'];
+
+                        return c * a;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Constante Orbital',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Periódo': 1.0,
+                        'Semieje mayor': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double t = m['Periódo'];
+                        double r = m['Semieje mayor'];
+
+                        return ((pow(t, 2)) / (pow(r, 3)));
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
