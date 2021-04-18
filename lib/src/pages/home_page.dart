@@ -1248,18 +1248,83 @@ class HomePage extends StatelessWidget {
                 'Energía Cinética': [
                   AssetImage('assets/img/formulas/Cinetica.PNG'),
                   AssetImage('assets/img/params/cinetica.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Energía Cinética',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Masa': 1.0,
+                        'Velocidad': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ma = m['Masa'];
+                        double v = m['Velocidad'];
+
+                        return (ma * v * v) / 2;
+                      },
+                    ),
+                  ],
                 ],
                 'Energía Potencial': [
                   AssetImage('assets/img/formulas/Potencial.PNG'),
                   AssetImage('assets/img/params/Potencial.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Energía Gravitatoria',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Masa': 1.0,
+                        'Gravedad': 1.0,
+                        'Altura': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ma = m['Masa'];
+                        double g = m['Gravedad'];
+                        double h = m['Altura'];
+
+                        return ma * g * h;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Energía Elástica',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Constante Elástica': 1.0,
+                        'Longitud de la Deformación': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double k = m['Constante Elástica'];
+                        double dx = m['Longitud de la Deformación'];
+
+                        return (k * dx * dx) / 2;
+                      },
+                    ),
+                  ],
                 ],
                 'Energía Mecánica': [
                   AssetImage('assets/img/formulas/Mecanica.PNG'),
                   AssetImage('assets/img/params/Mecanica.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Energía Mecánica',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Energía Cinética': 1.0,
+                        'Energía Potencial': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ec = m['Energía Cinética'];
+                        double ep = m['Energía Potencial'];
+
+                        return ec + ep;
+                      },
+                    ),
+                  ],
                 ],
                 'Conservación de Energía': [
                   AssetImage('assets/img/formulas/ConservacionEnergia.PNG'),
                   AssetImage('assets/img/params/ConservacionEnergia.PNG'),
+                  <FormulaButtonArguments>[],
                 ],
               },
             ),
