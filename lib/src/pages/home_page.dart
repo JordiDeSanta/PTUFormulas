@@ -52,9 +52,20 @@ class HomePage extends StatelessWidget {
             formulas: FormulaArguments(
               cardColor: Colors.blue[100],
               formulas: {
-                'Números': [
+                'Porcentaje': [
+                  AssetImage('assets/img/mathformulas/porcentaje.PNG'),
                   null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Logaritmos': [
+                  AssetImage('assets/img/mathformulas/log.png'),
                   null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Raices': [
+                  AssetImage('assets/img/mathformulas/raices.png'),
+                  null,
+                  <FormulaButtonArguments>[],
                 ],
               },
             ),
