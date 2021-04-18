@@ -907,26 +907,176 @@ class HomePage extends StatelessWidget {
                 'Periódo y Frecuencia': [
                   AssetImage('assets/img/formulas/PyT.PNG'),
                   AssetImage('assets/img/params/PyT1.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Periódo',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Tiempo Transcurrido': 1.0,
+                        'Número de vueltas': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double t = m['Tiempo Transcurrido'];
+                        double n = m['Número de vueltas'];
+
+                        return t / n;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Frecuencia',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Tiempo Transcurrido': 1.0,
+                        'Número de vueltas': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double t = m['Tiempo Transcurrido'];
+                        double n = m['Número de vueltas'];
+
+                        return n / t;
+                      },
+                    ),
+                  ],
                 ],
                 'Velocidad Angular': [
                   AssetImage('assets/img/formulas/VelocidadAMCU.PNG'),
                   AssetImage('assets/img/params/VelocidadAMCU.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad Angular 1',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Ángulo Recorrido (rad)': 1.0,
+                        'Tiempo Transcurrido': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double a = m['Ángulo Recorrido (rad)'];
+                        double t = m['Tiempo Transcurrido'];
+
+                        return a / t;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad Angular 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Periódo': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double t = m['Periódo'];
+
+                        return (2 * pi) / t;
+                      },
+                    ),
+                  ],
                 ],
                 'Velocidad Tangencial': [
                   AssetImage('assets/img/formulas/VelocidadTMCU.PNG'),
                   AssetImage('assets/img/params/VelocidadTMCU.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad Tangencial 1',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Angular': 1.0,
+                        'Distancia al Eje (o Radio)': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double w = m['Velocidad Angular'];
+                        double r = m['Distancia al Eje (o Radio)'];
+
+                        return w * r;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Velocidad Tangencial 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Distancia al Eje (o Radio)': 1.0,
+                        'Periódo': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double r = m['Distancia al Eje (o Radio)'];
+                        double t = m['Periódo'];
+
+                        return (2 * pi * r) / t;
+                      },
+                    ),
+                  ],
                 ],
                 'Aceleración Centrípeta': [
                   AssetImage('assets/img/formulas/AceleracionMCU.PNG'),
                   AssetImage('assets/img/params/AceleracionMCU.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Aceleración Centrípeta 1',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Tangencial': 1.0,
+                        'Distancia al Eje (o Radio)': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double v = m['Velocidad Tangencial'];
+                        double r = m['Distancia al Eje (o Radio)'];
+
+                        return (v * v) / r;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Aceleración Centrípeta 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Velocidad Angular': 1.0,
+                        'Distancia al Eje (o Radio)': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double w = m['Velocidad Angular'];
+                        double r = m['Distancia al Eje (o Radio)'];
+
+                        return w * w * r;
+                      },
+                    ),
+                  ],
                 ],
                 'Fuerza Centrípeta': [
                   AssetImage('assets/img/formulas/FuerzaMCU.PNG'),
                   AssetImage('assets/img/params/FuerzaMCU.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Fuerza Centrípeta',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Masa': 1.0,
+                        'Aceleración Centrípeta': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ma = m['Masa'];
+                        double ac = m['Aceleración Centrípeta'];
+
+                        return ma * ac;
+                      },
+                    ),
+                  ],
                 ],
                 'Posición': [
                   AssetImage('assets/img/formulas/PosicionMCU.PNG'),
                   AssetImage('assets/img/params/PosicionMCU.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Ángulo de Posición',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Longitud del Arco': 1.0,
+                        'Distancia al Eje (o Radio)': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double s = m['Longitud del Arco'];
+                        double r = m['Distancia al Eje (o Radio)'];
+
+                        return s / r;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
