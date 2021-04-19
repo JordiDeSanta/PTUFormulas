@@ -77,14 +77,40 @@ class HomePage extends StatelessWidget {
           ),
           ContentArguments(
             color: Colors.blue[200],
-            img: AssetImage('assets/img/algebra.png'),
+            img: AssetImage('assets/img/alg.png'),
             route: 'm',
             title: 'Álgebra',
             formulas: FormulaArguments(
               cardColor: Colors.blue[100],
               formulas: {
-                'Ecuación Cuadrática': [
-                  AssetImage('assets/img/mathformulas/fg.PNG'),
+                'Factor Común': [
+                  AssetImage('assets/img/mathformulas/facomun.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.blue[200],
+            img: AssetImage('assets/img/algebra.png'),
+            route: 'm',
+            title: 'Factorización',
+            formulas: FormulaArguments(
+              cardColor: Colors.blue[100],
+              formulas: {
+                'Factor Común': [
+                  AssetImage('assets/img/mathformulas/facomun.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Trinomio Notable': [
+                  AssetImage('assets/img/mathformulas/trinqadper.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Suma de Cuadrados': [
+                  AssetImage('assets/img/mathformulas/sqad.PNG'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
@@ -93,13 +119,8 @@ class HomePage extends StatelessWidget {
                   null,
                   <FormulaButtonArguments>[],
                 ],
-                'Trinomio Cuadrado Perfecto': [
-                  AssetImage('assets/img/mathformulas/trinqadper.PNG'),
-                  null,
-                  <FormulaButtonArguments>[],
-                ],
-                'Trinomio de la Forma': [
-                  AssetImage('assets/img/mathformulas/trinfor.PNG'),
+                'Suma de Cubos': [
+                  AssetImage('assets/img/mathformulas/scubos.PNG'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
@@ -108,8 +129,13 @@ class HomePage extends StatelessWidget {
                   null,
                   <FormulaButtonArguments>[],
                 ],
-                'Suma de Cubos': [
-                  AssetImage('assets/img/mathformulas/scubos.PNG'),
+                'Trinomio de la Forma': [
+                  AssetImage('assets/img/mathformulas/trinfor.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Polinomio de la Forma': [
+                  AssetImage('assets/img/mathformulas/polifor.PNG'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
