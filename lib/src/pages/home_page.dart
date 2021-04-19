@@ -57,13 +57,18 @@ class HomePage extends StatelessWidget {
                   null,
                   <FormulaButtonArguments>[],
                 ],
-                'Logaritmos': [
-                  AssetImage('assets/img/mathformulas/log.png'),
+                'Potencias': [
+                  AssetImage('assets/img/mathformulas/potencias.PNG'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
                 'Raices': [
                   AssetImage('assets/img/mathformulas/raices.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Logaritmos': [
+                  AssetImage('assets/img/mathformulas/log.png'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
@@ -119,9 +124,20 @@ class HomePage extends StatelessWidget {
             formulas: FormulaArguments(
               cardColor: Colors.blue[100],
               formulas: {
-                'Números': [
+                'Función Lineal': [
+                  AssetImage('assets/img/mathformulas/flineal.PNG'),
                   null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Función Afín': [
+                  AssetImage('assets/img/mathformulas/fafin.PNG'),
                   null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Función Cuadrática': [
+                  AssetImage('assets/img/mathformulas/fqad.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
                 ],
               },
             ),
@@ -131,6 +147,21 @@ class HomePage extends StatelessWidget {
             img: AssetImage('assets/img/triangle.png'),
             route: 'm',
             title: 'Geometría',
+            formulas: FormulaArguments(
+              cardColor: Colors.blue[100],
+              formulas: {
+                'Números': [
+                  null,
+                  null,
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.blue[200],
+            img: AssetImage('assets/img/stats.png'),
+            route: 'm',
+            title: 'Estadística',
             formulas: FormulaArguments(
               cardColor: Colors.blue[100],
               formulas: {
