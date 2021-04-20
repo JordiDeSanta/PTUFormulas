@@ -12,7 +12,7 @@ class FormulaButton extends StatelessWidget {
       child: ElevatedButton(
         style: ButtonStyle(
           elevation: MaterialStateProperty.all(0.0),
-          backgroundColor: MaterialStateProperty.all(Colors.purple[200]),
+          backgroundColor: MaterialStateProperty.all(args.pageColor),
         ),
         onPressed: () {
           Navigator.pushNamed(context, 'formula', arguments: args);

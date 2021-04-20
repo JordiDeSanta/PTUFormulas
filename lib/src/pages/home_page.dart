@@ -154,6 +154,65 @@ class HomePage extends StatelessWidget {
           ),
           ContentArguments(
             color: Colors.blue[200],
+            img: AssetImage('assets/img/equations.png'),
+            route: 'm',
+            title: 'Ecuaciones',
+            formulas: FormulaArguments(
+              cardColor: Colors.blue[100],
+              formulas: {
+                'Propiedades: Ecuaciones': [
+                  AssetImage('assets/img/mathformulas/eqprops.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Propiedades: Incuaciones': [
+                  AssetImage('assets/img/mathformulas/ineqprops.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Ecuación Cuadrática': [
+                  AssetImage('assets/img/mathformulas/fg.PNG'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Solución X\u2081',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'a': 1.0,
+                        'b': 1.0,
+                        'c': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double a = m['a'];
+                        double b = m['b'];
+                        double c = m['c'];
+
+                        return (-b + sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Solución X\u2082',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'a': 1.0,
+                        'b': 1.0,
+                        'c': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double a = m['a'];
+                        double b = m['b'];
+                        double c = m['c'];
+
+                        return (-b - sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.blue[200],
             img: AssetImage('assets/img/function.png'),
             route: 'm',
             title: 'Funciones',
