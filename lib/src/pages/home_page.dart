@@ -239,13 +239,13 @@ class HomePage extends StatelessWidget {
           ),
           ContentArguments(
             color: Colors.blue[200],
-            img: AssetImage('assets/img/triangle.png'),
+            img: AssetImage('assets/img/stats.png'),
             route: 'm',
-            title: 'Geometría',
+            title: 'Estadística',
             formulas: FormulaArguments(
               cardColor: Colors.blue[100],
               formulas: {
-                'Números': [
+                'Estadística': [
                   null,
                   null,
                 ],
@@ -254,9 +254,30 @@ class HomePage extends StatelessWidget {
           ),
           ContentArguments(
             color: Colors.blue[200],
-            img: AssetImage('assets/img/stats.png'),
+            img: AssetImage('assets/img/prob.png'),
             route: 'm',
-            title: 'Estadística',
+            title: 'Probabilidad',
+            formulas: FormulaArguments(
+              cardColor: Colors.blue[100],
+              formulas: {
+                'Probabilidad': [
+                  AssetImage('assets/img/mathformulas/prob.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Varianza': [
+                  AssetImage('assets/img/mathformulas/var.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            color: Colors.blue[200],
+            img: AssetImage('assets/img/triangle.png'),
+            route: 'm',
+            title: 'Geometría',
             formulas: FormulaArguments(
               cardColor: Colors.blue[100],
               formulas: {
@@ -2051,5 +2072,10 @@ class HomePage extends StatelessWidget {
             ),
           ]),
     );
+  }
+
+  int factorial(int n) {
+    if (n < 0) throw ('Negative numbers are not allowed.');
+    return n <= 1 ? 1 : n * factorial(n - 1);
   }
 }
