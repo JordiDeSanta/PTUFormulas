@@ -83,8 +83,18 @@ class HomePage extends StatelessWidget {
             formulas: FormulaArguments(
               cardColor: Colors.blue[100],
               formulas: {
-                'Factor Común': [
-                  AssetImage('assets/img/mathformulas/facomun.PNG'),
+                'Suma y Resta': [
+                  AssetImage('assets/img/mathformulas/syr.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Multiplicación': [
+                  AssetImage('assets/img/mathformulas/mult.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'División': [
+                  AssetImage('assets/img/mathformulas/div.PNG'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
