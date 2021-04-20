@@ -267,7 +267,17 @@ class HomePage extends StatelessWidget {
                 ],
                 'Varianza': [
                   AssetImage('assets/img/mathformulas/var.PNG'),
-                  null,
+                  AssetImage('assets/img/mathformulas/varp.PNG'),
+                  <FormulaButtonArguments>[],
+                ],
+                'Permutación': [
+                  AssetImage('assets/img/mathformulas/per.PNG'),
+                  AssetImage('assets/img/mathformulas/perp.PNG'),
+                  <FormulaButtonArguments>[],
+                ],
+                'Combinación': [
+                  AssetImage('assets/img/mathformulas/com.PNG'),
+                  AssetImage('assets/img/mathformulas/varp.PNG'),
                   <FormulaButtonArguments>[],
                 ],
               },
