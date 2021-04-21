@@ -55,7 +55,22 @@ class HomePage extends StatelessWidget {
                 'Porcentaje': [
                   AssetImage('assets/img/mathformulas/porcentaje.PNG'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Porcentaje',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'X': 1.0,
+                        'Y': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double x = m['X'];
+                        double y = m['Y'];
+
+                        return (x * y) / 100;
+                      },
+                    ),
+                  ],
                 ],
                 'Potencias': [
                   AssetImage('assets/img/mathformulas/potencias.PNG'),
@@ -263,22 +278,118 @@ class HomePage extends StatelessWidget {
                 'Probabilidad': [
                   AssetImage('assets/img/mathformulas/prob.PNG'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Probabilidad',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Resultados Favorables': 1.0,
+                        'Resultados Posibles': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double rf = m['Resultados Favorables'];
+                        double rp = m['Resultados Posibles'];
+
+                        return (rf / rp) * 100;
+                      },
+                    ),
+                  ],
                 ],
                 'Varianza': [
                   AssetImage('assets/img/mathformulas/var.PNG'),
                   AssetImage('assets/img/mathformulas/varp.PNG'),
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Varianza',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Elementos totales': 2.0,
+                        'Elementos tomados': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        int n = m['Elementos totales'].floor();
+                        int k = m['Elementos tomados'].floor();
+
+                        if (n <= 0 || k <= 0 || n < k) return 0.0;
+
+                        return ((factorial(n)) / (factorial(n - k))).toDouble();
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Varianza con Repetición',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Elementos totales': 2.0,
+                        'Elementos tomados': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        int n = m['Elementos totales'].floor();
+                        int k = m['Elementos tomados'].floor();
+
+                        if (n <= 0 || k <= 0 || n < k) return 0.0;
+
+                        return pow(n, k).toDouble();
+                      },
+                    ),
+                  ],
                 ],
                 'Permutación': [
                   AssetImage('assets/img/mathformulas/per.PNG'),
                   AssetImage('assets/img/mathformulas/perp.PNG'),
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Permutación',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Elementos totales': 2.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        int n = m['Elementos totales'].floor();
+
+                        if (n <= 0) return 0.0;
+
+                        return factorial(n).toDouble();
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Permutación Circular',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Elementos totales': 2.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        int n = m['Elementos totales'].floor();
+
+                        if (n <= 0) return 0.0;
+
+                        return factorial(n - 1).toDouble();
+                      },
+                    ),
+                  ],
                 ],
                 'Combinación': [
                   AssetImage('assets/img/mathformulas/com.PNG'),
                   AssetImage('assets/img/mathformulas/varp.PNG'),
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Combinación',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Elementos totales': 2.0,
+                        'Elementos tomados': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        int n = m['Elementos totales'].floor();
+                        int k = m['Elementos tomados'].floor();
+
+                        if (n <= 0 || k <= 0 || n < k) return 0.0;
+
+                        return ((factorial(n)) /
+                                ((factorial(k)) * (factorial(n - k))))
+                            .toDouble();
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
