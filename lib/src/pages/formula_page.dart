@@ -27,7 +27,7 @@ class _FormulaPageState extends State<FormulaPage> {
           borderRadius: BorderRadius.circular(20.0),
         ),
       ),
-      body: Column(
+      body: ListView(
         children: _createParams(args),
       ),
     );
@@ -79,7 +79,7 @@ class _FormulaPageState extends State<FormulaPage> {
     );
 
     _params.add(
-      Text('Resultado: ' + args.formula(newMap).toString()),
+      Center(child: Text('Resultado: ' + args.formula(newMap).toString())),
     );
 
     return _params;

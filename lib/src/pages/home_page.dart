@@ -260,9 +260,149 @@ class HomePage extends StatelessWidget {
             formulas: FormulaArguments(
               cardColor: Colors.blue[100],
               formulas: {
-                'Estadística': [
+                'Media': [
+                  AssetImage('assets/img/mathformulas/media.png'),
+                  AssetImage('assets/img/mathformulas/mparams.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Media',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Sumatoria de los Datos': 1.0,
+                        'Numero de Datos': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ex = m['Sumatoria de los Datos'];
+                        double n = m['Numero de Datos'];
+
+                        return ex / n;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Media en Datos Agrupados',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Sumatoria de los Datos x Frecuencia': 1.0,
+                        'Numero de Datos': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double exf = m['Sumatoria de los Datos x Frecuencia'];
+                        double n = m['Numero de Datos'];
+
+                        return exf / n;
+                      },
+                    ),
+                  ],
+                ],
+                'Rango': [
+                  AssetImage('assets/img/mathformulas/rango.PNG'),
                   null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Rango',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Dato Superior': 2.0,
+                        'Dato Inferior': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ds = m['Dato Superior'];
+                        double di = m['Dato Inferior'];
+
+                        return (ds - di).abs();
+                      },
+                    ),
+                  ],
+                ],
+                'Marca de Clase': [
+                  AssetImage('assets/img/mathformulas/mc.PNG'),
                   null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Marca de Clase',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Limite Superior': 2.0,
+                        'Limite Inferior': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double ls = m['Limite Superior'];
+                        double li = m['Limite Inferior'];
+
+                        return (li + ls) / 2;
+                      },
+                    ),
+                  ],
+                ],
+                'Mediana (Posición)': [
+                  AssetImage('assets/img/mathformulas/mediana.PNG'),
+                  AssetImage('assets/img/mathformulas/pmediana.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Mediana',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Número de Datos': 2.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double n = m['Número de Datos'];
+
+                        return n / 2;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Mediana en Datos Agrupados',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Li del intervalo de la Media': 1.0,
+                        'Número de Datos': 1.0,
+                        'f del intervalo de la Media': 1.0,
+                        'f del intervalo anterior al de la Media': 1.0,
+                        'Amplitud del intervalo de la Media': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double li = m['Li del intervalo de la Media'];
+                        double n = m['Número de Datos'];
+                        double fi = m['f del intervalo de la Media'];
+                        double fim1 =
+                            m['f del intervalo anterior al de la Media'];
+                        double a = m['Amplitud del intervalo de la Media'];
+
+                        return li + (((n / 2) - fim1) / fi) * a;
+                      },
+                    ),
+                  ],
+                ],
+                'Moda': [
+                  AssetImage('assets/img/mathformulas/moda.PNG'),
+                  AssetImage('assets/img/mathformulas/pmoda.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Moda en Datos Agrupados',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Li del intervalo de la Media': 1.0,
+                        'Número de Datos': 1.0,
+                        'f del intervalo de la Media': 1.0,
+                        'f del intervalo posterior al de la Media': 1.0,
+                        'f del intervalo anterior al de la Media': 1.0,
+                        'Amplitud del intervalo de la Media': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double li = m['Li del intervalo de la Media'];
+                        double n = m['Número de Datos'];
+                        double fi = m['f del intervalo de la Media'];
+                        double fip1 =
+                            m['f del intervalo posterior al de la Media'];
+                        double fim1 =
+                            m['f del intervalo anterior al de la Media'];
+                        double a = m['Amplitud del intervalo de la Media'];
+
+                        return li +
+                            ((fi - fim1) / ((fi - fim1) + (fi - fip1))) * a;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
