@@ -269,11 +269,11 @@ class HomePage extends StatelessWidget {
                       pageColor: Colors.indigo[900],
                       params: {
                         'Sumatoria de los Datos': 1.0,
-                        'Numero de Datos': 1.0,
+                        'Número de Datos': 1.0,
                       },
                       formula: (Map<String, double> m) {
                         double ex = m['Sumatoria de los Datos'];
-                        double n = m['Numero de Datos'];
+                        double n = m['Número de Datos'];
 
                         return ex / n;
                       },
@@ -283,11 +283,11 @@ class HomePage extends StatelessWidget {
                       pageColor: Colors.indigo[900],
                       params: {
                         'Sumatoria de los Datos x Frecuencia': 1.0,
-                        'Numero de Datos': 1.0,
+                        'Número de Datos': 1.0,
                       },
                       formula: (Map<String, double> m) {
                         double exf = m['Sumatoria de los Datos x Frecuencia'];
-                        double n = m['Numero de Datos'];
+                        double n = m['Número de Datos'];
 
                         return exf / n;
                       },
@@ -345,9 +345,9 @@ class HomePage extends StatelessWidget {
                         'Número de Datos': 2.0,
                       },
                       formula: (Map<String, double> m) {
-                        double n = m['Número de Datos'];
+                        int n = m['Número de Datos'].floor();
 
-                        return n / 2;
+                        return (n + 1) / 2;
                       },
                     ),
                     FormulaButtonArguments(
@@ -414,12 +414,12 @@ class HomePage extends StatelessWidget {
                         'Cuartil a Calcular (1-3)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double n = m['Numero de Datos'];
-                        double k = m['Cuartil a Calcular (1-3)'];
+                        int n = m['Número de Datos'].floor();
+                        int k = m['Cuartil a Calcular (1-3)'].floor();
 
-                        if (k <= 3 && k >= 1) return 0.0;
+                        if (k > 3 || k < 1) return 0.0;
 
-                        return (n * k) / 4;
+                        return ((n + 1) * k) / 4;
                       },
                     ),
                     FormulaButtonArguments(
@@ -430,12 +430,12 @@ class HomePage extends StatelessWidget {
                         'Quintil a Calcular (1-4)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double n = m['Numero de Datos'];
-                        double k = m['Quintil a Calcular (1-4)'];
+                        int n = m['Número de Datos'].floor();
+                        int k = m['Quintil a Calcular (1-4)'].floor();
 
-                        if (k <= 4 && k >= 1) return 0.0;
+                        if (k > 4 || k < 1) return 0.0;
 
-                        return (n * k) / 5;
+                        return ((n + 1) * k) / 5;
                       },
                     ),
                     FormulaButtonArguments(
@@ -446,12 +446,12 @@ class HomePage extends StatelessWidget {
                         'Decil a Calcular (1-4)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double n = m['Numero de Datos'];
-                        double k = m['Decil a Calcular (1-9)'];
+                        int n = m['Número de Datos'].floor();
+                        int k = m['Decil a Calcular (1-9)'].floor();
 
-                        if (k <= 9 && k >= 1) return 0.0;
+                        if (k > 9 || k < 1) return 0.0;
 
-                        return (n * k) / 10;
+                        return ((n + 1) * k) / 10;
                       },
                     ),
                     FormulaButtonArguments(
@@ -462,12 +462,12 @@ class HomePage extends StatelessWidget {
                         'Percentil a Calcular (1-99)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double n = m['Numero de Datos'];
-                        double k = m['Percentil a Calcular (1-99)'];
+                        int n = m['Número de Datos'].floor();
+                        int k = m['Percentil a Calcular (1-99)'].floor();
 
-                        if (k <= 99 && k >= 1) return 0.0;
+                        if (k > 99 || k < 1) return 0.0;
 
-                        return (n * k) / 100;
+                        return ((n + 1) * k) / 100;
                       },
                     ),
                   ],
