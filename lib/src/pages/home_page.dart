@@ -382,7 +382,6 @@ class HomePage extends StatelessWidget {
                       pageColor: Colors.indigo[900],
                       params: {
                         'Li del intervalo de la Media': 1.0,
-                        'Número de Datos': 1.0,
                         'f del intervalo de la Media': 1.0,
                         'f del intervalo posterior al de la Media': 1.0,
                         'f del intervalo anterior al de la Media': 1.0,
@@ -390,7 +389,6 @@ class HomePage extends StatelessWidget {
                       },
                       formula: (Map<String, double> m) {
                         double li = m['Li del intervalo de la Media'];
-                        double n = m['Número de Datos'];
                         double fi = m['f del intervalo de la Media'];
                         double fip1 =
                             m['f del intervalo posterior al de la Media'];
@@ -400,6 +398,76 @@ class HomePage extends StatelessWidget {
 
                         return li +
                             ((fi - fim1) / ((fi - fim1) + (fi - fip1))) * a;
+                      },
+                    ),
+                  ],
+                ],
+                'Cuantiles (Posición)': [
+                  AssetImage('assets/img/mathformulas/qantiles.PNG'),
+                  AssetImage('assets/img/mathformulas/nk.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Cuartil',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Número de Datos': 1.0,
+                        'Cuartil a Calcular (1-3)': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double n = m['Numero de Datos'];
+                        double k = m['Cuartil a Calcular (1-3)'];
+
+                        if (k <= 3 && k >= 1) return 0.0;
+
+                        return (n * k) / 4;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Quintil',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Número de Datos': 1.0,
+                        'Quintil a Calcular (1-4)': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double n = m['Numero de Datos'];
+                        double k = m['Quintil a Calcular (1-4)'];
+
+                        if (k <= 4 && k >= 1) return 0.0;
+
+                        return (n * k) / 5;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Decil',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Número de Datos': 1.0,
+                        'Decil a Calcular (1-4)': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double n = m['Numero de Datos'];
+                        double k = m['Decil a Calcular (1-9)'];
+
+                        if (k <= 9 && k >= 1) return 0.0;
+
+                        return (n * k) / 10;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Percentil',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'Número de Datos': 1.0,
+                        'Percentil a Calcular (1-99)': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double n = m['Numero de Datos'];
+                        double k = m['Percentil a Calcular (1-99)'];
+
+                        if (k <= 99 && k >= 1) return 0.0;
+
+                        return (n * k) / 100;
                       },
                     ),
                   ],
