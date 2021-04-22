@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
+import 'package:ptuformulas/src/widgets/app_bar_border.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key key}) : super(key: key);
@@ -27,7 +28,6 @@ class HomePage extends StatelessWidget {
             _createMath(),
             _createPhysics(),
             _createQuimics(),
-            // ad banner
           ],
         ),
       ),
@@ -632,25 +632,9 @@ class HomePage extends StatelessWidget {
             formulas: FormulaArguments(
               cardColor: Colors.blue[100],
               formulas: {
-                'Probabilidad': [
-                  AssetImage('assets/img/mathformulas/prob.PNG'),
+                'Números': [
                   null,
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      pageName: 'Probabilidad',
-                      pageColor: Colors.indigo[900],
-                      params: {
-                        'Resultados Favorables': 1.0,
-                        'Resultados Posibles': 1.0,
-                      },
-                      formula: (Map<String, double> m) {
-                        double rf = m['Resultados Favorables'];
-                        double rp = m['Resultados Posibles'];
-
-                        return (rf / rp) * 100;
-                      },
-                    ),
-                  ],
+                  null,
                 ],
               },
             ),
