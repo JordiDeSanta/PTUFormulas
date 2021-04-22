@@ -5,7 +5,9 @@ import 'package:ptuformulas/src/pages/home_page.dart';
 import 'package:ptuformulas/src/pages/course_page.dart';
 import 'package:ptuformulas/src/pages/formula_page.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
