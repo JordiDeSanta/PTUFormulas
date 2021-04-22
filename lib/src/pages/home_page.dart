@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
-import 'package:ptuformulas/src/widgets/app_bar_border.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key key}) : super(key: key);
