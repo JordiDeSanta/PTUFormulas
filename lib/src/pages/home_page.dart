@@ -249,6 +249,30 @@ class HomePage extends StatelessWidget {
                   null,
                   <FormulaButtonArguments>[],
                 ],
+                'Pendiente': [
+                  AssetImage('assets/img/mathformulas/pend.PNG'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Pendiente',
+                      pageColor: Colors.indigo[900],
+                      params: {
+                        'y\u2082': 1.0,
+                        'y\u2081': 1.0,
+                        'x\u2082': 1.0,
+                        'x\u2081': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double y2 = m['y\u2082'];
+                        double y1 = m['y\u2081'];
+                        double x2 = m['x\u2082'];
+                        double x1 = m['x\u2081'];
+
+                        return (y2 - y1) / (x2 - x1);
+                      },
+                    ),
+                  ],
+                ],
               },
             ),
           ),
