@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Container(
-        child: Column(
+        child: ListView(
           children: [
             SizedBox(height: 10.0),
             _createMath(),
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
         color: Colors.blue[300],
         img: AssetImage('assets/img/matematica.png'),
         route: 'math',
-        title: 'Matemática',
+        title: 'Matemáticas',
         contents: [
           ContentArguments(
             color: Colors.blue[200],

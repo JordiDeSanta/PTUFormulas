@@ -11,6 +11,9 @@ class CourseTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
       child: ElevatedButton(
@@ -22,25 +25,27 @@ class CourseTileWidget extends StatelessWidget {
           ),
           backgroundColor: MaterialStateProperty.all(settings.color),
         ),
-        child: Row(
-          children: [
-            Image(
-              height: 80.0,
-              image: settings.img,
-              fit: BoxFit.cover,
-            ),
-            Container(
-              width: 220,
-              height: 120,
-              padding:
-                  const EdgeInsets.symmetric(vertical: 40.0, horizontal: 30.0),
-              child: Text(
-                settings.title,
-                style: styles.course,
-                overflow: TextOverflow.ellipsis,
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: height * 0.035),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image(
+                height: height * 0.12,
+                image: settings.img,
+                fit: BoxFit.cover,
               ),
-            )
-          ],
+              Container(
+                padding: EdgeInsets.only(left: width * 0.06),
+                width: width * 0.6,
+                child: Text(
+                  settings.title,
+                  style: styles.course,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              )
+            ],
+          ),
         ),
         onPressed: () {
           Navigator.pushNamed(context, settings.route, arguments: settings);
