@@ -18,6 +18,7 @@ class CourseTileWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
       child: ElevatedButton(
         style: ButtonStyle(
+          elevation: MaterialStateProperty.all(0.0),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
