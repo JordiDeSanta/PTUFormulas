@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/content_tile_widget.dart';
+import 'package:ptuformulas/src/widgets/app_bar_border.dart';
 
 class CoursePage extends StatelessWidget {
   final styles = TextStyles();
@@ -19,9 +20,7 @@ class CoursePage extends StatelessWidget {
           backgroundColor: args.color,
           elevation: 0.0,
           toolbarHeight: 80.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
-          ),
+          shape: const CurvedBorder(10.0),
           actions: [
             ElevatedButton(
               onPressed: () {},

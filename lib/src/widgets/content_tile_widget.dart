@@ -15,7 +15,7 @@ class ContentTileWidget extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 5.0),
+      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
       child: ElevatedButton(
         style: ButtonStyle(
           elevation: MaterialStateProperty.all(0.0),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
+import 'package:ptuformulas/src/widgets/app_bar_border.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key key}) : super(key: key);
@@ -19,9 +20,6 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         toolbarHeight: 80.0,
         backgroundColor: Colors.black12,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
       ),
       body: Container(
         child: ListView(
