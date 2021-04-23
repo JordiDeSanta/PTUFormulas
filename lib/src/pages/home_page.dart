@@ -1099,7 +1099,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       formula: (Map<String, double> m) {
                         double vo = m['Velocidad Inicial'];
-                        double g = m['Aceleración'];
+                        double g = m['Gravedad'];
                         double t = m['Tiempo Transcurrido'];
 
                         return (vo * t) + ((g * t * t) / 2);
@@ -1208,7 +1208,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       formula: (Map<String, double> m) {
                         double vo = m['Velocidad Inicial'];
-                        double g = m['Aceleración'];
+                        double g = m['Gravedad'];
                         double t = m['Tiempo Transcurrido'];
 
                         return (vo * t) - ((g * t * t) / 2);
