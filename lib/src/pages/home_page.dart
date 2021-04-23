@@ -1330,14 +1330,14 @@ class _HomePageState extends State<HomePage> {
                       pageName: 'Fuerza',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Fuerza': 0,
-                        'Masa': 0,
-                        'Aceleración': 0,
+                        'Fuerza (N)': 0,
+                        'Masa (Kg)': 0,
+                        'Aceleración (m/s\u00B2)': 0,
                       },
                       formula: (Map<String, double> m) {
-                        double f = m['Fuerza'];
-                        double ma = m['Masa'];
-                        double a = m['Aceleración'];
+                        double f = m['Fuerza (N)'];
+                        double ma = m['Masa (Kg)'];
+                        double a = m['Aceleración (m/s\u00B2)'];
 
                         if (f == 0) return ma * a;
                         if (ma == 0) return f / a;
@@ -1352,18 +1352,24 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/PesoNormal.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      resultsSystem: ['N'],
+                      bIsTriangle: true,
+                      resultsSystem: ['N', 'Kg', 'm/s\u00B2'],
                       pageName: 'Peso',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Masa': 1.0,
-                        'Gravedad': 9.8,
+                        'Fuerza (N)': 0,
+                        'Masa (Kg)': 0,
+                        'Gravedad (m/s\u00B2)': 0,
                       },
                       formula: (Map<String, double> m) {
-                        double ma = m['Masa'];
-                        double g = m['Gravedad'];
+                        double f = m['Fuerza (N)'];
+                        double ma = m['Masa (Kg)'];
+                        double g = m['Gravedad (m/s\u00B2)'];
 
-                        return ma * g;
+                        if (f == 0) return ma * g;
+                        if (ma == 0) return f / g;
+                        if (g == 0) return f / ma;
+                        return 0.0;
                       },
                     ),
                   ],
@@ -1373,29 +1379,31 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/Friccion.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['N'],
                       pageName: 'Fricción Estática',
                       pageColor: Colors.deepPurple,
                       params: {
                         'Coeficiente de Fricción Estática': 1.0,
-                        'Normal': 1.0,
+                        'Normal (N)': 1.0,
                       },
                       formula: (Map<String, double> m) {
                         double cf = m['Coeficiente de Fricción Estática'];
-                        double n = m['Normal'];
+                        double n = m['Normal (N)'];
 
                         return cf * n;
                       },
                     ),
                     FormulaButtonArguments(
+                      resultsSystem: ['N'],
                       pageName: 'Fricción Cinética',
                       pageColor: Colors.deepPurple,
                       params: {
                         'Coeficiente de Fricción Cinética': 1.0,
-                        'Normal': 1.0,
+                        'Normal (N)': 1.0,
                       },
                       formula: (Map<String, double> m) {
                         double cf = m['Coeficiente de Fricción Cinética'];
-                        double n = m['Normal'];
+                        double n = m['Normal (N)'];
 
                         return cf * n;
                       },
@@ -1407,14 +1415,15 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/Elastica.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['N'],
                       pageName: 'Fuerza Elástica',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Longitud de la Deformación': 1.0,
+                        'Longitud de la Deformación (m)': 1.0,
                         'Constante Elástica': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double dx = m['Longitud de la Deformación'];
+                        double dx = m['Longitud de la Deformación (m)'];
                         double k = m['Constante Elástica'];
 
                         return (-k) * dx;
