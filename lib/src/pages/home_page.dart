@@ -1447,19 +1447,24 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/Gravitacion.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['N'],
                       pageName: 'Fuerza de Atracción',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Masa del primer cuerpo': 1.0,
-                        'Masa del segundo cuerpo': 1.0,
-                        'Distancia entre sus centros': 1.0,
+                        'Masa del primer cuerpo (ton)': 1.0,
+                        'Masa del segundo cuerpo (ton)': 1.0,
+                        'Distancia entre sus centros (km)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double m1 = m['Masa del primer cuerpo'];
-                        double m2 = m['Masa del segundo cuerpo'];
-                        double r = m['Distancia entre sus centros'];
+                        double nm1 = m['Masa del primer cuerpo (ton)'];
+                        double nm2 = m['Masa del segundo cuerpo (ton)'];
+                        double nr = m['Distancia entre sus centros (km)'];
 
-                        return (6.67 * pow(10, -11)) * ((m1 * m2) / (r * r));
+                        double m1 = nm1 * 1000;
+                        double m2 = nm2 * 1000;
+                        double r = nr * 1000;
+
+                        return (6.67 * pow(10, -11)) * (((m1 * m2) / (r * r)));
                       },
                     ),
                   ],
