@@ -2354,43 +2354,44 @@ class _HomePageState extends State<HomePage> {
                       pageName: 'Resistencia Total 1',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Sumatoria de las Resistencias': 1.0,
+                        'Sumatoria del inverso de las Resistencias': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double er = m['Sumatoria de las Resistencias'];
+                        double er =
+                            m['Sumatoria del inverso de las Resistencias'];
 
                         return 1 / er;
                       },
                     ),
+                    FormulaButtonArguments(
+                      pageName: 'Resistencia Total 2',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Resistencia 1': 1.0,
+                        'Resistencia 2': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double r1 = m['Resistencia 1'];
+                        double r2 = m['Resistencia 2'];
+
+                        return (r1 + r2) / (r1 * r2);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Potencia Eléctrica',
+                      pageColor: Colors.deepPurple,
+                      params: {
+                        'Voltaje': 1.0,
+                        'Intensidad Eléctrica Total': 1.0,
+                      },
+                      formula: (Map<String, double> m) {
+                        double v = m['Voltaje'];
+                        double it = m['Intensidad Eléctrica Total'];
+
+                        return v * it;
+                      },
+                    ),
                   ],
-                  FormulaButtonArguments(
-                    pageName: 'Resistencia Total 2',
-                    pageColor: Colors.deepPurple,
-                    params: {
-                      'Resistencia 1': 1.0,
-                      'Resistencia 2': 1.0,
-                    },
-                    formula: (Map<String, double> m) {
-                      double r1 = m['Resistencia 1'];
-                      double r2 = m['Resistencia 2'];
-
-                      return (r1 + r2) / (r1 * r2);
-                    },
-                  ),
-                  FormulaButtonArguments(
-                    pageName: 'Potencia Eléctrica',
-                    pageColor: Colors.deepPurple,
-                    params: {
-                      'Voltaje': 1.0,
-                      'Intensidad Eléctrica Total': 1.0,
-                    },
-                    formula: (Map<String, double> m) {
-                      double v = m['Voltaje'];
-                      double it = m['Intensidad Eléctrica Total'];
-
-                      return v * it;
-                    },
-                  ),
                 ],
                 'Ley de Watt': [
                   AssetImage('assets/img/formulas/Watt.PNG'),
