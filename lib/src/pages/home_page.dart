@@ -1308,14 +1308,17 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/Fuerza.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['N', 'Kg', 'm/s\u00B2'],
                       bIsTriangle: true,
                       pageName: 'Fuerza',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Masa': 1.0,
-                        'Aceleración': 1.0,
+                        'Fuerza': 0,
+                        'Masa': 0,
+                        'Aceleración': 0,
                       },
                       formula: (Map<String, double> m) {
+                        double f = m['Fuerza'];
                         double ma = m['Masa'];
                         double a = m['Aceleración'];
 
@@ -1329,6 +1332,7 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/PesoNormal.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['N'],
                       pageName: 'Peso',
                       pageColor: Colors.deepPurple,
                       params: {
