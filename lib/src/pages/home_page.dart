@@ -935,6 +935,7 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/AceleracionMRUV.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['m/s\u00B2'],
                       pageName: 'Aceleración',
                       pageColor: Colors.deepPurple,
                       params: {
@@ -963,32 +964,34 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/VelocidadMRUV.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['m/s'],
                       pageName: 'Velocidad según Tiempo',
                       pageColor: Colors.deepPurple,
                       params: {
                         'Velocidad Inicial (m/s)': 1.0,
-                        'Aceleración (m/2\u00B2)': 1.0,
+                        'Aceleración (m/s\u00B2)': 1.0,
                         'Tiempo Transcurrido (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
                         double vo = m['Velocidad Inicial (m/s)'];
-                        double a = m['Aceleración (m/2\u00B2)'];
+                        double a = m['Aceleración (m/s\u00B2)'];
                         double t = m['Tiempo Transcurrido (s)'];
 
                         return vo + (a * t);
                       },
                     ),
                     FormulaButtonArguments(
+                      resultsSystem: ['m/s'],
                       pageName: 'Velocidad Final',
                       pageColor: Colors.deepPurple,
                       params: {
                         'Velocidad Inicial (m/s)': 1.0,
-                        'Aceleración (m/2\u00B2)': 1.0,
+                        'Aceleración (m/s\u00B2)': 1.0,
                         'Desplazamiento (m)': 1.0,
                       },
                       formula: (Map<String, double> m) {
                         double vo = m['Velocidad Inicial (m/s)'];
-                        double a = m['Aceleración (m/2\u00B2)'];
+                        double a = m['Aceleración (m/s\u00B2)'];
                         double d = m['Desplazamiento (m)'];
 
                         return sqrt((vo * vo) + (2 * a * d));
@@ -1001,24 +1004,26 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/PosicionMRUV.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['m'],
                       pageName: 'Posición 1',
                       pageColor: Colors.deepPurple,
                       params: {
                         'Posición Inicial (m)': 1.0,
                         'Velocidad Inicial (m/s)': 1.0,
-                        'Aceleración (m/2\u00B2)': 1.0,
+                        'Aceleración (m/s\u00B2)': 1.0,
                         'Tiempo Transcurrido (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
                         double xo = m['Posición Inicial (m)'];
                         double vo = m['Velocidad Inicial (m/s)'];
-                        double a = m['Aceleración (m/2\u00B2)'];
+                        double a = m['Aceleración (m/s\u00B2)'];
                         double t = m['Tiempo Transcurrido (s)'];
 
                         return xo + (vo * t) + ((a * t * t) / 2);
                       },
                     ),
                     FormulaButtonArguments(
+                      resultsSystem: ['m'],
                       pageName: 'Posición 2',
                       pageColor: Colors.deepPurple,
                       params: {
