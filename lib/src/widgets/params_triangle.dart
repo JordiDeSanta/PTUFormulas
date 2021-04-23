@@ -4,7 +4,9 @@ import 'package:ptuformulas/src/themes/text_theme.dart';
 
 class ParamsTriangle extends StatelessWidget {
   final Color color;
-  ParamsTriangle({this.color});
+  ParamsTriangle({
+    this.color,
+  });
 
   final TextStyles styles = new TextStyles();
 
@@ -17,10 +19,29 @@ class ParamsTriangle extends StatelessWidget {
           size: 400,
           color: color,
         ),
-        Transform.translate(
-          offset: Offset(127, 140),
+        Positioned(
+          left: 137.0,
+          top: 130.0,
           child: Text(
-            '0.512 N',
+            '0.51 N',
+            style: styles.triangle,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        Positioned(
+          left: 50,
+          top: 280,
+          child: Text(
+            '1.56 Kg',
+            style: styles.triangle,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        Positioned(
+          left: 200,
+          top: 280,
+          child: Text(
+            '2.56 m/s\u00B2',
             style: styles.triangle,
             textAlign: TextAlign.center,
           ),

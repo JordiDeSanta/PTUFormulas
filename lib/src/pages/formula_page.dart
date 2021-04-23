@@ -82,7 +82,12 @@ class _FormulaPageState extends State<FormulaPage> {
 
     if (!args.bIsTriangle) {
       _params.add(
-        Center(child: Text('Resultado: ' + args.formula(newMap).toString())),
+        Center(
+          child: Text('Resultado: ' +
+              args.formula(newMap).toString() +
+              " " +
+              args.resultsSystem[0]),
+        ),
       );
     } else {
       _params.add(
