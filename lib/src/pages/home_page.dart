@@ -54,9 +54,7 @@ class _HomePageState extends State<HomePage> {
             _createPhysics(),
             _createQuimics(),
             if (banner == null)
-              SizedBox(
-                height: 80.0,
-              )
+              SizedBox(height: 80.0)
             else
               Container(
                 height: 80,
@@ -701,41 +699,33 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/PyT.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['s'],
                       pageName: 'Periódo',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Tiempo Transcurrido': 1.0,
+                        'Tiempo Transcurrido (s)': 1.0,
                         'Número de Oscilaciones': 1.0,
-                        'Frecuencia': 0.0,
                       },
                       formula: (Map<String, double> m) {
-                        double t = m['Tiempo Transcurrido'];
+                        double t = m['Tiempo Transcurrido (s)'];
                         double n = m['Número de Oscilaciones'];
-                        double f = m['Frecuencia'];
-                        if (f != 0.0) {
-                          return 1 / f;
-                        } else {
-                          return t / n;
-                        }
+
+                        return t / n;
                       },
                     ),
                     FormulaButtonArguments(
+                      resultsSystem: ['Hz'],
                       pageName: 'Frecuencia',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Tiempo Transcurrido': 1.0,
+                        'Tiempo Transcurrido (s)': 1.0,
                         'Número de Oscilaciones': 1.0,
-                        'Periódo': 0.0,
                       },
                       formula: (Map<String, double> m) {
-                        double t = m['Tiempo Transcurrido'];
+                        double t = m['Tiempo Transcurrido (s)'];
                         double n = m['Número de Oscilaciones'];
-                        double p = m['Periódo'];
-                        if (p != 0.0) {
-                          return 1 / p;
-                        } else {
-                          return t / n;
-                        }
+
+                        return n / t;
                       },
                     ),
                   ],
@@ -745,41 +735,44 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/LdeOnda.PNG'),
                   [
                     FormulaButtonArguments(
+                      resultsSystem: ['m'],
                       pageName: 'Longitud de Onda 1',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Longitud del Tren de Ondas': 1.0,
+                        'Longitud del Tren de Ondas (m)': 1.0,
                         'Número de Oscilaciones': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double l = m['Longitud del Tren de Ondas'];
+                        double l = m['Longitud del Tren de Ondas (m)'];
                         double n = m['Número de Oscilaciones'];
                         return l / n;
                       },
                     ),
                     FormulaButtonArguments(
+                      resultsSystem: ['m'],
                       pageName: 'Longitud de Onda 2',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Velocidad de Propagación': 1.0,
-                        'Periódo': 1.0,
+                        'Velocidad de Propagación (m/s)': 1.0,
+                        'Periódo (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double v = m['Velocidad de Propagación'];
-                        double t = m['Periódo'];
+                        double v = m['Velocidad de Propagación (m/s)'];
+                        double t = m['Periódo (s)'];
                         return v * t;
                       },
                     ),
                     FormulaButtonArguments(
+                      resultsSystem: ['m'],
                       pageName: 'Longitud de Onda 3',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Velocidad de Propagación': 1.0,
-                        'Frecuencia': 1.0,
+                        'Velocidad de Propagación (m/s)': 1.0,
+                        'Frecuencia (Hz)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double v = m['Velocidad de Propagación'];
-                        double f = m['Frecuencia'];
+                        double v = m['Velocidad de Propagación (m/s)'];
+                        double f = m['Frecuencia (Hz)'];
                         return v / f;
                       },
                     ),
@@ -790,41 +783,44 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/VeldeProp.PNG'),
                   [
                     FormulaButtonArguments(
+                      resultsSystem: ['m/s'],
                       pageName: 'Velocidad de Propagación 1',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Distancia Recorrida': 1.0,
-                        'Tiempo Transcurrido': 1.0,
+                        'Distancia Recorrida (m)': 1.0,
+                        'Tiempo Transcurrido (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double d = m['Distancia Recorrida'];
-                        double t = m['Tiempo Transcurrido'];
+                        double d = m['Distancia Recorrida (m)'];
+                        double t = m['Tiempo Transcurrido (s)'];
                         return d / t;
                       },
                     ),
                     FormulaButtonArguments(
+                      resultsSystem: ['m/s'],
                       pageName: 'Velocidad de Propagación 2',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Longitud de Onda': 1.0,
-                        'Periódo': 1.0,
+                        'Longitud de Onda (m)': 1.0,
+                        'Periódo (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double l = m['Longitud de Onda'];
-                        double t = m['Periódo'];
+                        double l = m['Longitud de Onda (m)'];
+                        double t = m['Periódo (s)'];
                         return l / t;
                       },
                     ),
                     FormulaButtonArguments(
+                      resultsSystem: ['m/s'],
                       pageName: 'Velocidad de Propagación 3',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Longitud de Onda': 1.0,
-                        'Frecuencia': 1.0,
+                        'Longitud de Onda (m)': 1.0,
+                        'Frecuencia (Hz)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double l = m['Longitud de Onda'];
-                        double f = m['Frecuencia'];
+                        double l = m['Longitud de Onda (m)'];
+                        double f = m['Frecuencia (Hz)'];
                         return l * f;
                       },
                     ),
@@ -846,15 +842,16 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/Desplazamiento.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['m'],
                       pageName: 'Desplazamiento',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Posición Final': 1.0,
-                        'Posición Inicial': 1.0,
+                        'Posición Final (m)': 1.0,
+                        'Posición Inicial (m)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double xf = m['Posición Final'];
-                        double xo = m['Posición Inicial'];
+                        double xf = m['Posición Final (m)'];
+                        double xo = m['Posición Inicial (m)'];
                         return xf - xo;
                       },
                     ),
@@ -865,15 +862,16 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/VeldeProp.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['m/s'],
                       pageName: 'Rapidez',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Distancia Recorrida': 1.0,
-                        'Tiempo Transcurrido': 1.0,
+                        'Distancia Recorrida (m)': 1.0,
+                        'Tiempo Transcurrido (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double d = m['Distancia Recorrida'];
-                        double t = m['Tiempo Transcurrido'];
+                        double d = m['Distancia Recorrida (m)'];
+                        double t = m['Tiempo Transcurrido (s)'];
                         return d / t;
                       },
                     ),
@@ -884,15 +882,16 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/VelocidadMRU.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['m/s'],
                       pageName: 'Velocidad',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Desplazamiento': 1.0,
-                        'Tiempo Transcurrido': 1.0,
+                        'Desplazamiento (m)': 1.0,
+                        'Tiempo Transcurrido (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double d = m['Desplazamiento'];
-                        double t = m['Tiempo Transcurrido'];
+                        double d = m['Desplazamiento (m)'];
+                        double t = m['Tiempo Transcurrido (s)'];
                         return d / t;
                       },
                     ),
@@ -903,17 +902,18 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/PosicionMRU.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultsSystem: ['m'],
                       pageName: 'Posición',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Posición Inicial': 1.0,
-                        'Velocidad': 1.0,
-                        'Tiempo Transcurrido': 1.0,
+                        'Posición Inicial (m)': 1.0,
+                        'Velocidad (m/s)': 1.0,
+                        'Tiempo Transcurrido (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double p = m['Posición Inicial'];
-                        double v = m['Velocidad'];
-                        double t = m['Tiempo Transcurrido'];
+                        double p = m['Posición Inicial (m)'];
+                        double v = m['Velocidad (m/s)'];
+                        double t = m['Tiempo Transcurrido (s)'];
                         return p + (v * t);
                       },
                     ),
@@ -938,16 +938,16 @@ class _HomePageState extends State<HomePage> {
                       pageName: 'Aceleración',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Velocidad Final': 2.0,
-                        'Velocidad Inicial': 1.0,
-                        'Tiempo Final': 1.0,
-                        'Tiempo Inicial': 0.0,
+                        'Velocidad Final (m/s)': 2.0,
+                        'Velocidad Inicial (m/s)': 1.0,
+                        'Tiempo Final (s)': 1.0,
+                        'Tiempo Inicial (s)': 0.0,
                       },
                       formula: (Map<String, double> m) {
-                        double vo = m['Velocidad Inicial'];
-                        double vf = m['Velocidad Final'];
-                        double to = m['Tiempo Inicial'];
-                        double tf = m['Tiempo Final'];
+                        double vo = m['Velocidad Inicial (m/s)'];
+                        double vf = m['Velocidad Final (m/s)'];
+                        double to = m['Tiempo Inicial (s)'];
+                        double tf = m['Tiempo Final (s)'];
 
                         if (tf + to <= 0) {
                           return 0.0;
@@ -966,14 +966,14 @@ class _HomePageState extends State<HomePage> {
                       pageName: 'Velocidad según Tiempo',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Velocidad Inicial': 1.0,
-                        'Aceleración': 1.0,
-                        'Tiempo Transcurrido': 1.0,
+                        'Velocidad Inicial (m/s)': 1.0,
+                        'Aceleración (m/2\u00B2)': 1.0,
+                        'Tiempo Transcurrido (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double vo = m['Velocidad Inicial'];
-                        double a = m['Aceleración'];
-                        double t = m['Tiempo Transcurrido'];
+                        double vo = m['Velocidad Inicial (m/s)'];
+                        double a = m['Aceleración (m/2\u00B2)'];
+                        double t = m['Tiempo Transcurrido (s)'];
 
                         return vo + (a * t);
                       },
@@ -982,14 +982,14 @@ class _HomePageState extends State<HomePage> {
                       pageName: 'Velocidad Final',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Velocidad Inicial': 1.0,
-                        'Aceleración': 1.0,
-                        'Desplazamiento': 1.0,
+                        'Velocidad Inicial (m/s)': 1.0,
+                        'Aceleración (m/2\u00B2)': 1.0,
+                        'Desplazamiento (m)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double vo = m['Velocidad Inicial'];
-                        double a = m['Aceleración'];
-                        double d = m['Desplazamiento'];
+                        double vo = m['Velocidad Inicial (m/s)'];
+                        double a = m['Aceleración (m/2\u00B2)'];
+                        double d = m['Desplazamiento (m)'];
 
                         return sqrt((vo * vo) + (2 * a * d));
                       },
@@ -1004,16 +1004,16 @@ class _HomePageState extends State<HomePage> {
                       pageName: 'Posición 1',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Posición Inicial': 1.0,
-                        'Velocidad Inicial': 1.0,
-                        'Aceleración': 1.0,
-                        'Tiempo Transcurrido': 1.0,
+                        'Posición Inicial (m)': 1.0,
+                        'Velocidad Inicial (m/s)': 1.0,
+                        'Aceleración (m/2\u00B2)': 1.0,
+                        'Tiempo Transcurrido (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double xo = m['Posición Inicial'];
-                        double vo = m['Velocidad Inicial'];
-                        double a = m['Aceleración'];
-                        double t = m['Tiempo Transcurrido'];
+                        double xo = m['Posición Inicial (m)'];
+                        double vo = m['Velocidad Inicial (m/s)'];
+                        double a = m['Aceleración (m/2\u00B2)'];
+                        double t = m['Tiempo Transcurrido (s)'];
 
                         return xo + (vo * t) + ((a * t * t) / 2);
                       },
@@ -1022,14 +1022,14 @@ class _HomePageState extends State<HomePage> {
                       pageName: 'Posición 2',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Velocidad Inicial': 1.0,
-                        'Velocidad Final': 1.0,
-                        'Tiempo Transcurrido': 1.0,
+                        'Velocidad Inicial (m/s)': 1.0,
+                        'Velocidad Final (m/s)': 1.0,
+                        'Tiempo Transcurrido (s)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double vo = m['Velocidad Inicial'];
-                        double vf = m['Velocidad Final'];
-                        double t = m['Tiempo Transcurrido'];
+                        double vo = m['Velocidad Inicial (m/s)'];
+                        double vf = m['Velocidad Final (m/s)'];
+                        double t = m['Tiempo Transcurrido (s)'];
 
                         return ((vo + vf) / 2) * t;
                       },
@@ -1325,6 +1325,7 @@ class _HomePageState extends State<HomePage> {
                         if (f == 0) return ma * a;
                         if (ma == 0) return f / a;
                         if (a == 0) return f / ma;
+                        return 0.0;
                       },
                     ),
                   ],

@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'PTU Formulas',
       initialRoute: 'home',
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       routes: {
         'home': (BuildContext context) => HomePage(),
         'formula': (BuildContext context) => FormulaPage(),

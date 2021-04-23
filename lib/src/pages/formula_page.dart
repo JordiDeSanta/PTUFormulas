@@ -15,6 +15,11 @@ class _FormulaPageState extends State<FormulaPage> {
   final styles = TextStyles();
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final FormulaButtonArguments args =
         ModalRoute.of(context).settings.arguments;
@@ -39,8 +44,9 @@ class _FormulaPageState extends State<FormulaPage> {
     List<Widget> _params = [SizedBox(height: 20.0)];
     Map<String, double> newMap = args.params;
 
-    args.params.forEach(
+    newMap.forEach(
       (key, value) {
+        value = 1.0;
         Widget _temp = Center(
           child: Column(
             children: [
@@ -56,12 +62,14 @@ class _FormulaPageState extends State<FormulaPage> {
                   ),
                   onChanged: (s) {
                     if (s == '') {
-                      args.params[key] = 0.0;
-                      setState(() {});
+                      setState(() {
+                        newMap[key] = 0.0;
+                      });
                     } else {
-                      double v = double.parse(s);
-                      args.params[key] = v;
-                      setState(() {});
+                      setState(() {
+                        double v = double.parse(s);
+                        newMap[key] = v;
+                      });
                     }
                   },
                 ),
