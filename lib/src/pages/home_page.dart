@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         banner = BannerAd(
           adUnitId: adState.bannerAdUnitId,
-          size: AdSize.banner,
+          size: AdSize.largeBanner,
           request: AdRequest(),
           listener: adState.adListener,
         )..load();
@@ -55,11 +55,11 @@ class _HomePageState extends State<HomePage> {
             _createQuimics(),
             if (banner == null)
               SizedBox(
-                height: 50.0,
+                height: 80.0,
               )
             else
               Container(
-                height: 50,
+                height: 80,
                 child: AdWidget(
                   ad: banner,
                 ),

@@ -13,9 +13,6 @@ class ContentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final ContentArguments args = ModalRoute.of(context).settings.arguments;
 
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-
     return Container(
       child: Scaffold(
         backgroundColor: Colors.white,
