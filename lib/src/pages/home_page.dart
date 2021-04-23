@@ -1322,7 +1322,9 @@ class _HomePageState extends State<HomePage> {
                         double ma = m['Masa'];
                         double a = m['Aceleración'];
 
-                        return ma * a;
+                        if (f == 0) return ma * a;
+                        if (ma == 0) return f / a;
+                        if (a == 0) return f / ma;
                       },
                     ),
                   ],

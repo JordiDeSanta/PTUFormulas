@@ -27,9 +27,13 @@ class ParamsTriangle extends StatelessWidget {
           left: 137.0,
           top: 130.0,
           child: Text(
-            paramsList[0] != 0
-                ? paramsList[0].toString() + ' ' + args.resultsSystem[0]
-                : args.formula.toString(),
+            paramsList[0] != 0.0
+                ? paramsList[0].toStringAsPrecision(3) +
+                    ' ' +
+                    args.resultsSystem[0]
+                : args.formula(args.params).toStringAsPrecision(3) +
+                    ' ' +
+                    args.resultsSystem[0],
             style: styles.triangle,
             textAlign: TextAlign.center,
           ),
@@ -39,8 +43,12 @@ class ParamsTriangle extends StatelessWidget {
           top: 280,
           child: Text(
             paramsList[1] != 0
-                ? paramsList[1].toString() + ' ' + args.resultsSystem[1]
-                : args.formula.toString(),
+                ? paramsList[1].toStringAsPrecision(3) +
+                    ' ' +
+                    args.resultsSystem[1]
+                : args.formula(args.params).toStringAsPrecision(3) +
+                    ' ' +
+                    args.resultsSystem[1],
             style: styles.triangle,
             textAlign: TextAlign.center,
           ),
@@ -50,8 +58,12 @@ class ParamsTriangle extends StatelessWidget {
           top: 280,
           child: Text(
             paramsList[2] != 0
-                ? paramsList[2].toString() + ' ' + args.resultsSystem[2]
-                : args.formula.toString(),
+                ? paramsList[2].toStringAsPrecision(3) +
+                    ' ' +
+                    args.resultsSystem[2]
+                : args.formula(args.params).toStringAsPrecision(3) +
+                    ' ' +
+                    args.resultsSystem[2],
             style: styles.triangle,
             textAlign: TextAlign.center,
           ),
