@@ -42,10 +42,7 @@ class FormulaButtonArguments {
     this.formula,
     this.pageColor,
     this.pageName,
-    this.bIsTriangle,
-    this.resultsSystem,
-  }) {
-    this.resultsSystem = [''];
-    this.bIsTriangle = false;
-  }
+    this.bIsTriangle = false,
+    this.resultsSystem = const [''],
+  });
 }

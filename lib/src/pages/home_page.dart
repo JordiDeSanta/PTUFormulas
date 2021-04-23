@@ -1308,6 +1308,7 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/Fuerza.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      bIsTriangle: true,
                       pageName: 'Fuerza',
                       pageColor: Colors.deepPurple,
                       params: {
