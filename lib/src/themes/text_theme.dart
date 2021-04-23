@@ -9,4 +9,7 @@ class TextStyles {
 
   final TextStyle expansionTile =
       TextStyle(fontSize: 20.0, fontWeight: FontWeight.w200);
+
+  final TextStyle triangle =
+      TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.w200);
 }

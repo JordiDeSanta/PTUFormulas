@@ -34,7 +34,13 @@ class FormulaButtonArguments {
   double Function(Map<String, double> m) formula;
   Color pageColor;
   String pageName;
+  bool bIsTriangle = false;
+  List<String> resultsSystem = [''];
 
   FormulaButtonArguments(
-      {this.params, this.formula, this.pageColor, this.pageName});
+      {this.params,
+      this.formula,
+      this.pageColor,
+      this.pageName,
+      this.bIsTriangle});
 }

@@ -6,7 +6,7 @@ import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
-import 'package:ptuformulas/src/widgets/ad_state.dart';
+import 'package:ptuformulas/src/providers/ad_state.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -1308,6 +1308,7 @@ class _HomePageState extends State<HomePage> {
                   AssetImage('assets/img/params/Fuerza.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      bIsTriangle: true,
                       pageName: 'Fuerza',
                       pageColor: Colors.deepPurple,
                       params: {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ptuformulas/src/providers/_provider.dart';
+import 'package:ptuformulas/src/providers/_provider.dart'
+    show FormulaButtonArguments;
 import 'package:ptuformulas/src/themes/text_theme.dart';
+import 'package:ptuformulas/src/widgets/params_triangle.dart';
 
 class FormulaPage extends StatefulWidget {
   FormulaPage();
@@ -78,9 +80,19 @@ class _FormulaPageState extends State<FormulaPage> {
       ),
     );
 
-    _params.add(
-      Center(child: Text('Resultado: ' + args.formula(newMap).toString())),
-    );
+    if (!args.bIsTriangle) {
+      _params.add(
+        Center(child: Text('Resultado: ' + args.formula(newMap).toString())),
+      );
+    } else {
+      _params.add(
+        Center(
+          child: ParamsTriangle(
+            color: Colors.deepPurple,
+          ),
+        ),
+      );
+    }
 
     return _params;
   }
