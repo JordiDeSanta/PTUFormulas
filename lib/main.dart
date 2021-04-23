@@ -4,10 +4,28 @@ import 'package:ptuformulas/src/pages/content_page.dart';
 import 'package:ptuformulas/src/pages/home_page.dart';
 import 'package:ptuformulas/src/pages/course_page.dart';
 import 'package:ptuformulas/src/pages/formula_page.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:ptuformulas/src/widgets/ad_state.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  final initFuture = MobileAds.instance.initialize();
+  final adState = AdState(initFuture);
+  runApp(
+    Provider.value(
+      value: adState,
+      builder: (context, child) => MyApp(),
+    ),
+  );
+}
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(

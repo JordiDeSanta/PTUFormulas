@@ -4,11 +4,37 @@ import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:provider/provider.dart';
+import 'package:ptuformulas/src/widgets/ad_state.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final styles = TextStyles();
+
+  BannerAd banner;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final adState = Provider.of<AdState>(context);
+    adState.initialization.then((status) {
+      setState(() {
+        banner = BannerAd(
+          adUnitId: adState.bannerAdUnitId,
+          size: AdSize.banner,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +53,17 @@ class HomePage extends StatelessWidget {
             _createMath(),
             _createPhysics(),
             _createQuimics(),
+            if (banner == null)
+              SizedBox(
+                height: 50.0,
+              )
+            else
+              Container(
+                height: 50,
+                child: AdWidget(
+                  ad: banner,
+                ),
+              )
           ],
         ),
       ),
