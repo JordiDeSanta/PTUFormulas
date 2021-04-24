@@ -3,6 +3,7 @@ import 'package:ptuformulas/src/providers/_provider.dart'
     show FormulaButtonArguments;
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/params_triangle.dart';
+import 'package:input_calculator/input_calculator.dart';
 
 class FormulaPage extends StatefulWidget {
   FormulaPage();

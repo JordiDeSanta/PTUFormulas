@@ -1451,20 +1451,24 @@ class _HomePageState extends State<HomePage> {
                       pageName: 'Fuerza de Atracción',
                       pageColor: Colors.deepPurple,
                       params: {
-                        'Masa del primer cuerpo (ton)': 1.0,
-                        'Masa del segundo cuerpo (ton)': 1.0,
-                        'Distancia entre sus centros (km)': 1.0,
+                        'Masa del cuerpo 1 (M⊕(MT))': 1.0,
+                        'Masa del cuerpo 2 (M⊕(MT))': 1.0,
+                        'Distancia entre sus centros (UA)': 1.0,
                       },
                       formula: (Map<String, double> m) {
-                        double nm1 = m['Masa del primer cuerpo (ton)'];
-                        double nm2 = m['Masa del segundo cuerpo (ton)'];
-                        double nr = m['Distancia entre sus centros (km)'];
+                        double nm1 = m['Masa del cuerpo 1 (M⊕(MT))'];
+                        double nm2 = m['Masa del cuerpo 2 (M⊕(MT))'];
+                        double nr = m['Distancia entre sus centros (UA)'];
 
-                        double m1 = nm1 * 1000;
-                        double m2 = nm2 * 1000;
-                        double r = nr * 1000;
+                        double m1 = nm1 * 5.972986e+24;
+                        double m2 = nm2 * 5.972986e+24;
+                        double r = nr * 149600000;
+                        double g = 6.67e-11;
 
-                        return (6.67 * pow(10, -11)) * (((m1 * m2) / (r * r)));
+                        double result = (g) * ((m1 * m2) / (r * r));
+                        print(result);
+
+                        return result;
                       },
                     ),
                   ],
