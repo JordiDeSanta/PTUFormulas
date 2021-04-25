@@ -62,9 +62,16 @@ class _NewHomePageState extends State<NewHomePage> {
                       pageName: 'Periódo',
                       pageColor: Colors.deepPurple,
                       params: {
-                        Param(name: 'Tiempo Transcurrido', med: Normal()): 1.0,
-                        Param(name: 'Número de Oscilaciones', med: Normal()):
-                            1.0,
+                        Param(
+                          name: 'Tiempo Transcurrido',
+                          med: Time(),
+                          selectedMed: 1,
+                        ): 1.0,
+                        Param(
+                          name: 'Número de Oscilaciones',
+                          med: Normal(),
+                          selectedMed: 1,
+                        ): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double t = m.values.toList()[0];

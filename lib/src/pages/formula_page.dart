@@ -45,7 +45,6 @@ class _FormulaPageState extends State<FormulaPage> {
 
     args.params.forEach(
       (key, value) {
-        value = 1.0;
         Widget _temp = Center(
           child: Column(
             children: [
@@ -80,8 +79,13 @@ class _FormulaPageState extends State<FormulaPage> {
                   height: 50.0,
                   child: DropdownButton(
                     items: _items(key.med),
-                    value: 1,
-                    onChanged: (v) {},
+                    value: key.selectedMed,
+                    onChanged: (v) {
+                      setState(() {
+                        key.selectedMed = v;
+                      });
+                    },
+                    style: TextStyle(color: args.pageColor),
                   ),
                 ),
               SizedBox(height: 20.0),

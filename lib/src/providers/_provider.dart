@@ -52,6 +52,7 @@ class FormulaButtonArguments {
 class Param {
   String name;
   Unit med;
+  double selectedMed;
 
-  Param({this.name, this.med});
+  Param({this.name, this.med, this.selectedMed});
 }
