@@ -5,6 +5,7 @@ import 'package:ptuformulas/src/pages/home_page.dart';
 import 'package:ptuformulas/src/pages/course_page.dart';
 import 'package:ptuformulas/src/pages/formula_page.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:ptuformulas/src/pages/new_hp.dart';
 import 'package:ptuformulas/src/providers/ad_state.dart';
 import 'package:provider/provider.dart';
 
@@ -41,7 +42,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: 'home',
       debugShowCheckedModeBanner: false,
       routes: {
-        'home': (BuildContext context) => HomePage(),
+        'home': (BuildContext context) => NewHomePage(),
         'formula': (BuildContext context) => FormulaPage(),
         'math': (BuildContext context) => CoursePage(),
         'physics': (BuildContext context) => CoursePage(),

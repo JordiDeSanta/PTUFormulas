@@ -35,17 +35,17 @@ class _FormulaPageState extends State<FormulaPage> {
           borderRadius: BorderRadius.circular(20.0),
         ),
       ),
-      body: ListView(
-        children: _createParams(args),
-      ),
+      body: ListView(children: [
+        _createParams(args),
+        _result(args),
+      ]),
     );
   }
 
-  List<Widget> _createParams(FormulaButtonArguments args) {
+  Widget _createParams(FormulaButtonArguments args) {
     List<Widget> _params = [SizedBox(height: 20.0)];
-    Map<String, double> newMap = args.params;
 
-    newMap.forEach(
+    args.params.forEach(
       (key, value) {
         value = 1.0;
         Widget _temp = Center(
@@ -57,19 +57,20 @@ class _FormulaPageState extends State<FormulaPage> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: args.pageColor)),
-                    labelText: key,
+                      borderSide: BorderSide(color: args.pageColor),
+                    ),
+                    labelText: key.name,
                     labelStyle: TextStyle(color: args.pageColor),
                   ),
                   onChanged: (s) {
                     if (s == '') {
                       setState(() {
-                        newMap[key] = 0.0;
+                        args.params[key] = 0.0;
                       });
                     } else {
                       setState(() {
                         double v = double.parse(s);
-                        newMap[key] = v;
+                        args.params[key] = v;
                       });
                     }
                   },
@@ -83,33 +84,31 @@ class _FormulaPageState extends State<FormulaPage> {
       },
     );
 
-    _params.add(
-      SizedBox(
-        height: 10.0,
-      ),
+    return Column(
+      children: _params,
     );
+  }
+
+  Widget _result(FormulaButtonArguments args) {
+    Widget _result;
 
     if (!args.bIsTriangle) {
-      _params.add(
-        Center(
-          child: Text(
-            'Resultado: ' +
-                args.formula(newMap).toString() +
-                " " +
-                args.resultsSystem[0],
-          ),
+      _result = Center(
+        child: Text(
+          'Resultado: ' +
+              args.formula(args.params).toString() +
+              " " +
+              args.resultsSystem[0],
         ),
       );
     } else {
-      _params.add(
-        Center(
-          child: ParamsTriangle(
-            args: args,
-          ),
+      _result = Center(
+        child: ParamsTriangle(
+          args: args,
         ),
       );
     }
 
-    return _params;
+    return _result;
   }
 }

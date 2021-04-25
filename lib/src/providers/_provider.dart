@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ptuformulas/src/providers/units.dart';
+export 'package:ptuformulas/src/providers/units.dart';
 
 class CourseArguments {
   String title;
@@ -30,8 +32,8 @@ class FormulaArguments {
 }
 
 class FormulaButtonArguments {
-  Map<String, double> params;
-  double Function(Map<String, double> m) formula;
+  Map<Param, double> params;
+  double Function(Map<Param, double> m) formula;
   Color pageColor;
   String pageName;
   bool bIsTriangle;
@@ -45,4 +47,11 @@ class FormulaButtonArguments {
     this.bIsTriangle = false,
     this.resultsSystem = const [''],
   });
+}
+
+class Param {
+  String name;
+  Unit med;
+
+  Param({this.name, this.med});
 }
