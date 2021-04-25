@@ -54,5 +54,11 @@ class Param {
   Unit med;
   double selectedMed;
 
-  Param({this.name, this.med, this.selectedMed});
+  Param({this.name, this.med, this.selectedMed = 1});
+
+  double getValue(double input) {
+    double v = input * selectedMed;
+    print('my' + v.toString());
+    return v;
+  }
 }

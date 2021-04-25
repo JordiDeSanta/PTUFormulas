@@ -65,17 +65,18 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(
                           name: 'Tiempo Transcurrido',
                           med: Time(),
-                          selectedMed: 1,
                         ): 1.0,
                         Param(
                           name: 'Número de Oscilaciones',
                           med: Normal(),
-                          selectedMed: 1,
                         ): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double t = m.values.toList()[0];
-                        double n = m.values.toList()[1];
+                        double inputT = m.values.toList()[0];
+                        double inputN = m.values.toList()[1];
+
+                        double t = m.keys.toList()[0].getValue(inputT);
+                        double n = m.keys.toList()[1].getValue(inputN);
 
                         return t / n;
                       },
