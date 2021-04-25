@@ -5,5 +5,6 @@ class ColorsTheme {
     Colors.purple[300],
     Colors.purple[200],
     Colors.purple[100],
+    Colors.deepPurple,
   ];
 }

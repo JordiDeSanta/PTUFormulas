@@ -9,9 +9,16 @@ class FormulaTileWidget extends StatelessWidget {
   final List<FormulaButtonArguments> button;
   final String title;
   final Color cardColor;
+  final Color buttonColor;
 
-  FormulaTileWidget(
-      {this.image, this.title, this.cardColor, this.params, this.button});
+  FormulaTileWidget({
+    this.image,
+    this.title,
+    this.cardColor,
+    this.params,
+    this.button,
+    this.buttonColor,
+  });
 
   final styles = TextStyles();
 
@@ -38,7 +45,7 @@ class FormulaTileWidget extends StatelessWidget {
                     _createFormulas(),
                     _createParams(),
                     Column(
-                      children: _buttons(),
+                      children: _buttons(buttonColor),
                     ),
                   ],
                 ),
@@ -75,12 +82,13 @@ class FormulaTileWidget extends StatelessWidget {
     }
   }
 
-  List<Widget> _buttons() {
+  List<Widget> _buttons(Color color) {
     List<Widget> buttons = [SizedBox(height: 5.0)];
 
     button.forEach((b) {
       final _temp = FormulaButton(
         args: b,
+        tileColor: color,
       );
       buttons.add(_temp);
     });

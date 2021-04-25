@@ -20,27 +20,28 @@ class _FormulaPageState extends State<FormulaPage> {
 
   @override
   Widget build(BuildContext context) {
-    final FormulaButtonArguments args =
-        ModalRoute.of(context).settings.arguments;
+    List args = ModalRoute.of(context).settings.arguments;
+    Color pageColor = args[0];
+    FormulaButtonArguments content = args[1];
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(args.pageName, style: styles.title),
+        title: Text(content.pageName, style: styles.title),
         centerTitle: true,
         toolbarHeight: 80.0,
-        backgroundColor: args.pageColor,
+        backgroundColor: pageColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
       ),
       body: ListView(children: [
-        _createParams(args),
-        _result(args),
+        _createParams(content, pageColor),
+        _result(content),
       ]),
     );
   }
 
-  Widget _createParams(FormulaButtonArguments args) {
+  Widget _createParams(FormulaButtonArguments args, Color pageColor) {
     List<Widget> _params = [SizedBox(height: 20.0)];
 
     args.params.forEach(
@@ -54,10 +55,10 @@ class _FormulaPageState extends State<FormulaPage> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: args.pageColor),
+                      borderSide: BorderSide(color: pageColor),
                     ),
                     labelText: key.name,
-                    labelStyle: TextStyle(color: args.pageColor),
+                    labelStyle: TextStyle(color: pageColor),
                   ),
                   onChanged: (s) {
                     if (s == '') {
@@ -85,7 +86,7 @@ class _FormulaPageState extends State<FormulaPage> {
                         key.selectedMed = v;
                       });
                     },
-                    style: TextStyle(color: args.pageColor),
+                    style: TextStyle(color: pageColor),
                   ),
                 ),
               SizedBox(height: 20.0),

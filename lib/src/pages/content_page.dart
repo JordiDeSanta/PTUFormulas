@@ -57,6 +57,7 @@ class ContentPage extends StatelessWidget {
         params: value[1],
         button: value[2],
         cardColor: args.ftColor,
+        buttonColor: args.formulas.tilesColor,
       );
 
       contentTiles.add(tempTile);

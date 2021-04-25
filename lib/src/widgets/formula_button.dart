@@ -3,8 +3,9 @@ import 'package:ptuformulas/src/providers/_provider.dart';
 
 class FormulaButton extends StatelessWidget {
   final FormulaButtonArguments args;
+  final Color tileColor;
 
-  const FormulaButton({this.args});
+  const FormulaButton({this.args, this.tileColor});
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +13,10 @@ class FormulaButton extends StatelessWidget {
       child: ElevatedButton(
         style: ButtonStyle(
           elevation: MaterialStateProperty.all(0.0),
-          backgroundColor: MaterialStateProperty.all(args.pageColor),
+          backgroundColor: MaterialStateProperty.all(tileColor),
         ),
         onPressed: () {
-          Navigator.pushNamed(context, 'formula', arguments: args);
+          Navigator.pushNamed(context, 'formula', arguments: [tileColor, args]);
         },
         child: Container(
           width: double.infinity,

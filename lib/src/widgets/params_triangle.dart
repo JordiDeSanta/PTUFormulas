@@ -21,7 +21,7 @@ class ParamsTriangle extends StatelessWidget {
         Icon(
           CupertinoIcons.triangle_fill,
           size: 400,
-          color: args.pageColor,
+          color: Colors.deepPurple,
         ),
         Positioned(
           left: 137.0,

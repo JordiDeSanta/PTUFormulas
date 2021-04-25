@@ -52,6 +52,7 @@ class _NewHomePageState extends State<NewHomePage> {
             title: 'Ondas',
             ftColor: colors.physics[2],
             formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
               formulas: {
                 'Periódo y Frecuencia': [
                   AssetImage('assets/img/formulas/PyT.PNG'),
@@ -60,7 +61,6 @@ class _NewHomePageState extends State<NewHomePage> {
                     FormulaButtonArguments(
                       resultsSystem: ['s'],
                       pageName: 'Periódo',
-                      pageColor: Colors.deepPurple,
                       params: {
                         Param(
                           name: 'Tiempo Transcurrido',

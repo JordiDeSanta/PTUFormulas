@@ -32,16 +32,14 @@ class ContentArguments {
 
 class FormulaArguments {
   Map<String, List> formulas;
+  Color tilesColor;
 
-  FormulaArguments({
-    this.formulas,
-  });
+  FormulaArguments({this.formulas, this.tilesColor});
 }
 
 class FormulaButtonArguments {
   Map<Param, double> params;
   double Function(Map<Param, double> m) formula;
-  Color pageColor;
   String pageName;
   bool bIsTriangle;
   List<String> resultsSystem;
@@ -49,7 +47,6 @@ class FormulaButtonArguments {
   FormulaButtonArguments({
     this.params,
     this.formula,
-    this.pageColor,
     this.pageName,
     this.bIsTriangle = false,
     this.resultsSystem = const [''],
