@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ptuformulas/src/providers/_provider.dart'
-    show FormulaButtonArguments;
+import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/params_triangle.dart';
-import 'package:input_calculator/input_calculator.dart';
 
 class FormulaPage extends StatefulWidget {
   FormulaPage();
@@ -76,6 +74,16 @@ class _FormulaPageState extends State<FormulaPage> {
                   },
                 ),
               ),
+              if (key.med != null)
+                Container(
+                  width: 250.0,
+                  height: 50.0,
+                  child: DropdownButton(
+                    items: _items(key.med),
+                    value: 1,
+                    onChanged: (v) {},
+                  ),
+                ),
               SizedBox(height: 20.0),
             ],
           ),
@@ -110,5 +118,20 @@ class _FormulaPageState extends State<FormulaPage> {
     }
 
     return _result;
+  }
+
+  List<DropdownMenuItem> _items(Unit args) {
+    final _tempList = <DropdownMenuItem>[];
+
+    args.mults.forEach((key, value) {
+      final _tempItem = DropdownMenuItem(
+        value: value,
+        child: Text(key),
+      );
+
+      _tempList.add(_tempItem);
+    });
+
+    return _tempList;
   }
 }
