@@ -2,9 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
+import 'package:ptuformulas/src/themes/colors_theme.dart';
 import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:provider/provider.dart';
 
 class NewHomePage extends StatefulWidget {
   NewHomePage({Key key}) : super(key: key);
@@ -15,6 +14,7 @@ class NewHomePage extends StatefulWidget {
 
 class _NewHomePageState extends State<NewHomePage> {
   final styles = TextStyles();
+  final colors = ColorsTheme();
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +40,18 @@ class _NewHomePageState extends State<NewHomePage> {
   Widget _createPhysics() {
     return CourseTileWidget(
       CourseArguments(
-        color: Colors.purple[300],
+        color: colors.physics[0],
         img: AssetImage('assets/img/fisica.png'),
         route: 'physics',
         title: 'Física',
+        contentsColor: colors.physics[1],
         contents: [
           ContentArguments(
-            color: Colors.purple[200],
             img: AssetImage('assets/img/ondas.png'),
             route: 'p',
             title: 'Ondas',
+            ftColor: colors.physics[2],
             formulas: FormulaArguments(
-              cardColor: Colors.purple[100],
               formulas: {
                 'Periódo y Frecuencia': [
                   AssetImage('assets/img/formulas/PyT.PNG'),

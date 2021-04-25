@@ -5,30 +5,37 @@ export 'package:ptuformulas/src/providers/units.dart';
 class CourseArguments {
   String title;
   Color color;
+  Color contentsColor;
   ImageProvider img;
   String route;
   List<ContentArguments> contents;
 
   CourseArguments(
-      {this.title, this.color, this.img, this.route, this.contents});
+      {this.title,
+      this.color,
+      this.img,
+      this.route,
+      this.contents,
+      this.contentsColor});
 }
 
 class ContentArguments {
   String title;
-  Color color;
   ImageProvider img;
   String route;
   FormulaArguments formulas;
+  Color ftColor;
 
   ContentArguments(
-      {this.title, this.color, this.img, this.route, this.formulas});
+      {this.title, this.img, this.route, this.formulas, this.ftColor});
 }
 
 class FormulaArguments {
   Map<String, List> formulas;
-  Color cardColor;
 
-  FormulaArguments({this.formulas, this.cardColor});
+  FormulaArguments({
+    this.formulas,
+  });
 }
 
 class FormulaButtonArguments {

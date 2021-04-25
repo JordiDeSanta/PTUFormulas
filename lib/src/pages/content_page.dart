@@ -11,15 +11,17 @@ class ContentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ContentArguments args = ModalRoute.of(context).settings.arguments;
+    List args = ModalRoute.of(context).settings.arguments;
+    Color bgColor = args[0];
+    ContentArguments content = args[1];
 
     return Container(
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text(args.title, style: styles.course),
+          title: Text(content.title, style: styles.course),
           centerTitle: true,
-          backgroundColor: args.color,
+          backgroundColor: bgColor,
           elevation: 0.0,
           toolbarHeight: 80.0,
           foregroundColor: Colors.transparent,
@@ -29,7 +31,7 @@ class ContentPage extends StatelessWidget {
               onPressed: () {},
               child: Image(
                 width: 50.0,
-                image: args.img,
+                image: content.img,
               ),
               style: ButtonStyle(
                 shadowColor: MaterialStateProperty.all(Colors.transparent),
@@ -39,7 +41,7 @@ class ContentPage extends StatelessWidget {
           ],
         ),
         body: ListView(
-          children: createFormulas(args),
+          children: createFormulas(content),
         ),
       ),
     );
@@ -54,7 +56,7 @@ class ContentPage extends StatelessWidget {
         image: value[0],
         params: value[1],
         button: value[2],
-        cardColor: args.formulas.cardColor,
+        cardColor: args.ftColor,
       );
 
       contentTiles.add(tempTile);

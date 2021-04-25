@@ -4,8 +4,9 @@ import 'package:ptuformulas/src/themes/text_theme.dart';
 
 class ContentTileWidget extends StatelessWidget {
   final ContentArguments settings;
+  final Color color;
 
-  ContentTileWidget({this.settings});
+  ContentTileWidget({this.settings, this.color});
 
   final styles = TextStyles();
 
@@ -24,7 +25,7 @@ class ContentTileWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.0),
             ),
           ),
-          backgroundColor: MaterialStateProperty.all(settings.color),
+          backgroundColor: MaterialStateProperty.all(color),
         ),
         child: Container(
           padding: EdgeInsets.symmetric(vertical: height * 0.025),
@@ -48,7 +49,8 @@ class ContentTileWidget extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          Navigator.pushNamed(context, settings.route, arguments: settings);
+          Navigator.pushNamed(context, settings.route,
+              arguments: [color, settings]);
         },
       ),
     );

@@ -52,6 +52,7 @@ class CoursePage extends StatelessWidget {
     for (var content in args.contents) {
       final tempTile = ContentTileWidget(
         settings: content,
+        color: args.contentsColor,
       );
 
       contentTiles.add(tempTile);
