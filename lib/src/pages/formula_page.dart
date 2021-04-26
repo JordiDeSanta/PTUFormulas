@@ -36,7 +36,7 @@ class _FormulaPageState extends State<FormulaPage> {
       ),
       body: ListView(children: [
         _createParams(content, pageColor),
-        _result(content),
+        _result(content, pageColor),
       ]),
     );
   }
@@ -102,16 +102,32 @@ class _FormulaPageState extends State<FormulaPage> {
     );
   }
 
-  Widget _result(FormulaButtonArguments args) {
+  Widget _result(FormulaButtonArguments args, Color pageColor) {
     Widget _result;
 
     if (!args.bIsTriangle) {
-      _result = Center(
-        child: Text(
-          'Resultado: ' +
-              args.formula(args.params).toString() +
-              " " +
-              args.resultsSystem[0],
+      _result = Container(
+        padding: EdgeInsets.only(top: 10.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Resultado: ' + args.formula(args.params).toString(),
+              style: styles.result,
+            ),
+            SizedBox(width: 10.0),
+            if (args.resultUnit != null)
+              DropdownButton(
+                items: _items(args.resultUnit),
+                value: args.selectedResultUnit,
+                onChanged: (v) {
+                  setState(() {
+                    args.selectedResultUnit = v;
+                  });
+                },
+                style: TextStyle(color: pageColor),
+              ),
+          ],
         ),
       );
     } else {

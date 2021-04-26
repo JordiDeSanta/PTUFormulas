@@ -43,6 +43,8 @@ class FormulaButtonArguments {
   String pageName;
   bool bIsTriangle;
   List<String> resultsSystem;
+  Unit resultUnit;
+  double selectedResultUnit;
 
   FormulaButtonArguments({
     this.params,
@@ -50,6 +52,8 @@ class FormulaButtonArguments {
     this.pageName,
     this.bIsTriangle = false,
     this.resultsSystem = const [''],
+    this.resultUnit,
+    this.selectedResultUnit = 1,
   });
 }
 
