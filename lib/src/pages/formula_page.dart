@@ -108,11 +108,13 @@ class _FormulaPageState extends State<FormulaPage> {
     if (!args.bIsTriangle) {
       _result = Container(
         padding: EdgeInsets.only(top: 10.0),
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Resultado: ' + args.formula(args.params).toString(),
+              'R: ' +
+                  (args.formula(args.params) / args.selectedResultUnit)
+                      .toString(),
               style: styles.result,
             ),
             SizedBox(width: 10.0),
