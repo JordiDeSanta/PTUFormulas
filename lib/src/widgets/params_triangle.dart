@@ -15,20 +15,22 @@ class ParamsTriangle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final paramsList = args.params.values.toList();
+    final multList = args.params.keys.toList();
 
     return Stack(
       children: [
         Icon(
           CupertinoIcons.triangle_fill,
           size: 400,
-          color: Colors.deepPurple,
+          color: Colors.deepPurple[400],
         ),
         Positioned(
           left: 137.0,
           top: 130.0,
           child: Text(
             paramsList[0] != 0.0
-                ? paramsList[0].toStringAsPrecision(3) +
+                ? (paramsList[0] * multList[0].selectedMed)
+                        .toStringAsPrecision(3) +
                     ' ' +
                     args.resultsSystem[0]
                 : args.formula(args.params).toStringAsPrecision(3) +
@@ -43,7 +45,8 @@ class ParamsTriangle extends StatelessWidget {
           top: 280,
           child: Text(
             paramsList[1] != 0
-                ? paramsList[1].toStringAsPrecision(3) +
+                ? (paramsList[1] * multList[1].selectedMed)
+                        .toStringAsPrecision(3) +
                     ' ' +
                     args.resultsSystem[1]
                 : args.formula(args.params).toStringAsPrecision(3) +
@@ -58,7 +61,8 @@ class ParamsTriangle extends StatelessWidget {
           top: 280,
           child: Text(
             paramsList[2] != 0
-                ? paramsList[2].toStringAsPrecision(3) +
+                ? (paramsList[2] * multList[2].selectedMed)
+                        .toStringAsPrecision(3) +
                     ' ' +
                     args.resultsSystem[2]
                 : args.formula(args.params).toStringAsPrecision(3) +

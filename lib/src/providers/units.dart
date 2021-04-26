@@ -24,14 +24,14 @@ class Time extends Unit {
 class Length extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
-        'Nanómetro': 1e-9,
-        'Micrómetro': 1e-6,
-        'Milímetro': 1e-3,
-        'Centímetro': 1e-2,
-        'Decímetro': 1e-1,
-        'Metro': 1,
-        'Kilómetro': 1e+3,
-        'Milla': 1609.34,
+        'Nanómetros': 1e-9,
+        'Micrómetros': 1e-6,
+        'Milímetros': 1e-3,
+        'Centímetros': 1e-2,
+        'Decímetros': 1e-1,
+        'Metros': 1,
+        'Kilómetros': 1e+3,
+        'Millas': 1609.34,
       };
 }
 
@@ -47,10 +47,10 @@ class VelocityU extends Unit {
 class Frecuency extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
-        'Hercio': 1,
-        'Kilohercio': 1e+3,
-        'Megahercio': 1e+6,
-        'Gigahercio': 1e+9,
+        'Hercios': 1,
+        'Kilohercios': 1e+3,
+        'Megahercios': 1e+6,
+        'Gigahercios': 1e+9,
       };
 }
 
@@ -60,5 +60,15 @@ class Aceleration extends Unit {
         'km / h\u00B2': 1 / 12960,
         'mi / h\u00B2': 1 / 8053,
         'm / s\u00B2': 1,
+      };
+}
+
+class Mass extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Miligramos': 1e-6,
+        'Gramos': 1e-3,
+        'Kilogramos': 1,
+        'Toneladas': 1e+3,
       };
 }
