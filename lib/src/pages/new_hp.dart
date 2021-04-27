@@ -1926,9 +1926,13 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Distancia entre Cargas'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double q1 = m['Primera Carga'];
-                        double q2 = m['Segunda Carga'];
-                        double r = m['Distancia entre Cargas'];
+                        double inputQ1 = m.values.toList()[0];
+                        double inputQ2 = m.values.toList()[1];
+                        double inputR = m.values.toList()[2];
+
+                        double q1 = m.keys.toList()[0].getValue(inputQ1);
+                        double q2 = m.keys.toList()[1].getValue(inputQ2);
+                        double r = m.keys.toList()[2].getValue(inputR);
 
                         return (9 * pow(10, 9)) * ((q1 * q2).abs() / (r * r));
                       },
@@ -1940,8 +1944,11 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Carga'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double e = m['Campo Eléctrico'];
-                        double q = m['Carga'];
+                        double inputE = m.values.toList()[0];
+                        double inputQ = m.values.toList()[1];
+
+                        double e = m.keys.toList()[0].getValue(inputE);
+                        double q = m.keys.toList()[1].getValue(inputQ);
 
                         return e * q;
                       },
@@ -1959,8 +1966,11 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Carga'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double f = m['Fuerza Eléctrica'];
-                        double q = m['Carga'];
+                        double inputF = m.values.toList()[0];
+                        double inputQ = m.values.toList()[1];
+
+                        double f = m.keys.toList()[0].getValue(inputF);
+                        double q = m.keys.toList()[1].getValue(inputQ);
 
                         return f / q;
                       },
@@ -1972,8 +1982,11 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Distancia hacia el punto'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double q = m['Carga'];
-                        double r = m['Distancia entre Cargas'];
+                        double inputQ = m.values.toList()[0];
+                        double inputR = m.values.toList()[1];
+
+                        double q = m.keys.toList()[0].getValue(inputQ);
+                        double r = m.keys.toList()[1].getValue(inputR);
 
                         return ((9 * pow(10, 9) * q) / (r * r));
                       },
@@ -2077,16 +2090,30 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/EnSerie.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      bIsTriangle: true,
+                      resultsSystem: ['W', 'V', 'A'],
                       pageName: 'Potencia Eléctrica',
                       params: {
-                        Param(name: 'Voltaje Total'): 1.0,
-                        Param(name: 'Intensidad Eléctrica'): 1.0,
+                        Param(name: 'Potencia'): 0.0,
+                        Param(name: 'Voltaje Total', med: EPotential()): 0.0,
+                        Param(
+                          name: 'Intensidad Eléctrica',
+                          med: EIntensity(),
+                        ): 0.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double vt = m['Voltaje Total'];
-                        double i = m['Intensidad Eléctrica'];
+                        double inputP = m.values.toList()[0];
+                        double inputV = m.values.toList()[1];
+                        double inputI = m.values.toList()[2];
 
-                        return vt * i;
+                        double p = m.keys.toList()[0].getValue(inputP);
+                        double v = m.keys.toList()[1].getValue(inputV);
+                        double i = m.keys.toList()[2].getValue(inputI);
+
+                        if (p == 0) return v * i;
+                        if (v == 0) return p / i;
+                        if (i == 0) return p / v;
+                        return 0.0;
                       },
                     ),
                   ],
@@ -2102,8 +2129,7 @@ class _NewHomePageState extends State<NewHomePage> {
                             1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double er =
-                            m['Sumatoria del inverso de las Resistencias'];
+                        double er = m.values.toList()[0];
 
                         return 1 / er;
                       },
@@ -2111,27 +2137,41 @@ class _NewHomePageState extends State<NewHomePage> {
                     FormulaButtonArguments(
                       pageName: 'Resistencia Total 2',
                       params: {
-                        Param(name: 'Resistencia 1'): 1.0,
-                        Param(name: 'Resistencia 2'): 1.0,
+                        Param(name: 'Resistencia 1', med: Resistence()): 1.0,
+                        Param(name: 'Resistencia 2', med: Resistence()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double r1 = m['Resistencia 1'];
-                        double r2 = m['Resistencia 2'];
+                        double inputR1 = m.values.toList()[0];
+                        double inputR2 = m.values.toList()[1];
+
+                        double r1 = m.keys.toList()[0].getValue(inputR1);
+                        double r2 = m.keys.toList()[1].getValue(inputR2);
 
                         return (r1 + r2) / (r1 * r2);
                       },
                     ),
                     FormulaButtonArguments(
+                      bIsTriangle: true,
+                      resultsSystem: ['W', 'V', 'A'],
                       pageName: 'Potencia Eléctrica',
                       params: {
-                        Param(name: 'Voltaje'): 1.0,
-                        Param(name: 'Intensidad Eléctrica Total'): 1.0,
+                        Param(name: 'Potencia'): 0.0,
+                        Param(name: 'Voltaje', med: EPotential()): 0.0,
+                        Param(name: 'Intensidad Total', med: EIntensity()): 0.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double v = m['Voltaje'];
-                        double it = m['Intensidad Eléctrica Total'];
+                        double inputP = m.values.toList()[0];
+                        double inputV = m.values.toList()[1];
+                        double inputI = m.values.toList()[2];
 
-                        return v * it;
+                        double p = m.keys.toList()[0].getValue(inputP);
+                        double v = m.keys.toList()[1].getValue(inputV);
+                        double i = m.keys.toList()[2].getValue(inputI);
+
+                        if (p == 0) return v * i;
+                        if (v == 0) return p / i;
+                        if (i == 0) return p / v;
+                        return 0.0;
                       },
                     ),
                   ],
@@ -2141,29 +2181,37 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/Watt.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      bIsTriangle: true,
+                      resultsSystem: ['W', 'V', 'A'],
                       pageName: 'Potencia Eléctrica',
                       params: {
-                        Param(name: 'Voltaje'): 1.0,
-                        Param(name: 'Intensidad Eléctrica'): 1.0,
+                        Param(name: 'Potencia'): 0.0,
+                        Param(name: 'Voltaje', med: EPotential()): 0.0,
+                        Param(name: 'Intensidad Total', med: EIntensity()): 0.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double v = m['Voltaje'];
-                        double i = m['Intensidad Eléctrica'];
+                        double inputP = m.values.toList()[0];
+                        double inputV = m.values.toList()[1];
+                        double inputI = m.values.toList()[2];
 
-                        return v * i;
+                        double p = m.keys.toList()[0].getValue(inputP);
+                        double v = m.keys.toList()[1].getValue(inputV);
+                        double i = m.keys.toList()[2].getValue(inputI);
+
+                        if (p == 0) return v * i;
+                        if (v == 0) return p / i;
+                        if (i == 0) return p / v;
+                        return 0.0;
                       },
                     ),
                     FormulaButtonArguments(
-                      pageName: 'Energía Consumida (kWh)',
+                      pageName: 'Energía Consumida',
                       params: {
-                        Param(name: 'Potencia Eléctrica (W)'): 1.0,
-                        Param(name: 'Tiempo Activo (h)'): 1.0,
+                        Param(name: 'Potencia Eléctrica'): 1.0,
+                        Param(name: 'Tiempo Activo'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double p = m['Potencia Eléctrica (W)'];
-                        double t = m['Tiempo Activo (h)'];
-
-                        return (p * t) / 1000;
+                        return 0.0;
                       },
                     ),
                   ],

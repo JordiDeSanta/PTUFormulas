@@ -184,3 +184,10 @@ class ECharge extends Unit {
         'C / m': 1,
       };
 }
+
+class Power extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Watts': 1,
+      };
+}
