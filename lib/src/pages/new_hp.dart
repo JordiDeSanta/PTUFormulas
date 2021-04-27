@@ -1334,8 +1334,11 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Área', med: Area()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double f = m['Fuerza Aplicada'];
-                        double a = m['Área'];
+                        double inputF = m.values.toList()[0];
+                        double inputA = m.values.toList()[1];
+
+                        double f = m.keys.toList()[0].getValue(inputF);
+                        double a = m.keys.toList()[1].getValue(inputA);
 
                         return f / a;
                       },
@@ -1348,17 +1351,19 @@ class _NewHomePageState extends State<NewHomePage> {
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
                       resultUnit: Density(),
-                      pageName: 'Presión Hidrostática',
+                      pageName: 'Densidad',
                       params: {
                         Param(name: 'Masa', med: Mass()): 1.0,
                         Param(name: 'Volumen', med: Volumen()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double d = m['Densidad'];
-                        double g = m['Gravedad'];
-                        double h = m['Altura'];
+                        double inputM = m.values.toList()[0];
+                        double inputV = m.values.toList()[1];
 
-                        return d * g * h;
+                        double ma = m.keys.toList()[0].getValue(inputM);
+                        double v = m.keys.toList()[1].getValue(inputV);
+
+                        return ma / v;
                       },
                     ),
                   ],
@@ -1376,9 +1381,13 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Altura', med: Length()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double d = m['Densidad'];
-                        double g = m['Gravedad'];
-                        double h = m['Altura'];
+                        double inputD = m.values.toList()[0];
+                        double inputG = m.values.toList()[1];
+                        double inputH = m.values.toList()[2];
+
+                        double d = m.keys.toList()[0].getValue(inputD);
+                        double g = m.keys.toList()[1].getValue(inputG);
+                        double h = m.keys.toList()[2].getValue(inputH);
 
                         return d * g * h;
                       },
@@ -1399,10 +1408,13 @@ class _NewHomePageState extends State<NewHomePage> {
                             1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double h = m['Presión Hidrostática'];
-                        double a = m['Presión Atmosférica'];
+                        double inputph = m.values.toList()[0];
+                        double inputpa = m.values.toList()[1];
 
-                        return h + a;
+                        double ph = m.keys.toList()[0].getValue(inputph);
+                        double pa = m.keys.toList()[1].getValue(inputpa);
+
+                        return ph + pa;
                       },
                     ),
                   ],
@@ -1424,11 +1436,469 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Altura', med: Length()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double d = m['Densidad'];
-                        double v = m['Volumen'];
-                        double h = m['Altura'];
+                        double inputD = m.values.toList()[0];
+                        double inputV = m.values.toList()[1];
+                        double inputH = m.values.toList()[2];
+
+                        double d = m.keys.toList()[0].getValue(inputD);
+                        double v = m.keys.toList()[1].getValue(inputV);
+                        double h = m.keys.toList()[2].getValue(inputH);
 
                         return d * v * h;
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.physics[2],
+            img: AssetImage('assets/img/dinrot.png'),
+            route: 'p',
+            title: 'Energías',
+            formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
+              formulas: {
+                'Energía Cinética': [
+                  AssetImage('assets/img/formulas/Cinetica.PNG'),
+                  AssetImage('assets/img/params/cinetica.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Energía Cinética',
+                      params: {
+                        Param(name: 'Masa', med: Mass()): 1.0,
+                        Param(name: 'Velocidad', med: VelocityU()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputM = m.values.toList()[0];
+                        double inputV = m.values.toList()[1];
+
+                        double ma = m.keys.toList()[0].getValue(inputM);
+                        double v = m.keys.toList()[1].getValue(inputV);
+
+                        return (ma * pow(v, 2)) / 2;
+                      },
+                    ),
+                  ],
+                ],
+                'Energía Potencial': [
+                  AssetImage('assets/img/formulas/Potencial.PNG'),
+                  AssetImage('assets/img/params/Potencial.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Energía Gravitatoria',
+                      params: {
+                        Param(name: 'Masa', med: Mass()): 1.0,
+                        Param(name: 'Gravedad', med: Aceleration()): 1.0,
+                        Param(name: 'Altura', med: Length()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputM = m.values.toList()[0];
+                        double inputG = m.values.toList()[1];
+                        double inputH = m.values.toList()[2];
+
+                        double ma = m.keys.toList()[0].getValue(inputM);
+                        double g = m.keys.toList()[1].getValue(inputG);
+                        double h = m.keys.toList()[2].getValue(inputH);
+
+                        return ma * g * h;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Energía Elástica',
+                      params: {
+                        Param(name: 'Constante Elástica'): 1.0,
+                        Param(
+                          name: 'Longitud de la Deformación',
+                          med: Length(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputK = m.values.toList()[0];
+                        double inputX = m.values.toList()[1];
+
+                        double k = m.keys.toList()[0].getValue(inputK);
+                        double dx = m.keys.toList()[1].getValue(inputX);
+
+                        return (k * pow(dx, 2)) / 2;
+                      },
+                    ),
+                  ],
+                ],
+                'Energía Mecánica': [
+                  AssetImage('assets/img/formulas/Mecanica.PNG'),
+                  AssetImage('assets/img/params/Mecanica.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Energía Mecánica',
+                      params: {
+                        Param(name: 'Energía Cinética', med: Energy()): 1.0,
+                        Param(name: 'Energía Potencial', med: Energy()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputC = m.values.toList()[0];
+                        double inputP = m.values.toList()[1];
+
+                        double ec = m.keys.toList()[0].getValue(inputC);
+                        double ep = m.keys.toList()[1].getValue(inputP);
+
+                        return ec + ep;
+                      },
+                    ),
+                  ],
+                ],
+                'Conservación de Energía': [
+                  AssetImage('assets/img/formulas/ConservacionEnergia.PNG'),
+                  AssetImage('assets/img/params/ConservacionEnergia.PNG'),
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.physics[2],
+            img: AssetImage('assets/img/trabajo.png'),
+            route: 'p',
+            title: 'Trabajo',
+            formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
+              formulas: {
+                'Fuerza Disipativa': [
+                  AssetImage('assets/img/formulas/Disipativa.PNG'),
+                  AssetImage('assets/img/params/Disipativa.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Energía Mecánica Inicial',
+                      params: {
+                        Param(
+                          name: 'Energía Mecánica Final',
+                          med: Energy(),
+                        ): 1.0,
+                        Param(name: 'Trabajo de la Fuerza', med: Energy()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputE = m.values.toList()[0];
+                        double inputW = m.values.toList()[1];
+
+                        double em = m.keys.toList()[0].getValue(inputE);
+                        double w = m.keys.toList()[1].getValue(inputW);
+
+                        return em + w.abs();
+                      },
+                    ),
+                  ],
+                ],
+                'Trabajo y Potencia': [
+                  AssetImage('assets/img/formulas/TyP.PNG'),
+                  AssetImage('assets/img/params/TyP.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Trabajo 1',
+                      params: {
+                        Param(name: 'Fuerza', med: Force()): 1.0,
+                        Param(name: 'Distancia', med: Length()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputF = m.values.toList()[0];
+                        double inputD = m.values.toList()[1];
+
+                        double f = m.keys.toList()[0].getValue(inputF);
+                        double d = m.keys.toList()[1].getValue(inputD);
+
+                        return f * d;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Trabajo 2',
+                      params: {
+                        Param(
+                          name: 'Energía Cinética Final',
+                          med: Energy(),
+                        ): 1.0,
+                        Param(
+                          name: 'Energía Cinética Inicial',
+                          med: Energy(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputCF = m.values.toList()[0];
+                        double inputC0 = m.values.toList()[1];
+
+                        double cf = m.keys.toList()[0].getValue(inputCF);
+                        double c0 = m.keys.toList()[1].getValue(inputC0);
+
+                        return cf - c0;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Potencia 1',
+                      params: {
+                        Param(name: 'Trabajo', med: Energy()): 1.0,
+                        Param(name: 'Tiempo', med: Time()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputW = m.values.toList()[0];
+                        double inputT = m.values.toList()[1];
+
+                        double w = m.keys.toList()[0].getValue(inputW);
+                        double t = m.keys.toList()[1].getValue(inputT);
+
+                        return w / t;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Potencia 2',
+                      params: {
+                        Param(name: 'Fuerza', med: Force()): 1.0,
+                        Param(name: 'Velocidad', med: VelocityU()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputF = m.values.toList()[0];
+                        double inputV = m.values.toList()[1];
+
+                        double f = m.keys.toList()[0].getValue(inputF);
+                        double v = m.keys.toList()[1].getValue(inputV);
+
+                        return f * v;
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.physics[2],
+            img: AssetImage('assets/img/termo.png'),
+            route: 'p',
+            title: 'Termodinámica',
+            formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
+              formulas: {
+                'Cantidad de Calor': [
+                  AssetImage('assets/img/formulas/CantidadCalor.PNG'),
+                  AssetImage('assets/img/params/CantidadCalor.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Calor Requerido 1',
+                      params: {
+                        Param(name: 'Masa del Cuerpo', med: Mass()): 1.0,
+                        Param(name: 'Calor Especifico del Material'): 1.0,
+                        Param(
+                          name: 'Cambio en la Temperatura',
+                          med: Temperature(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputM = m.values.toList()[0];
+                        double inputDT = m.values.toList()[2];
+
+                        double ma = m.keys.toList()[0].getValue(inputM);
+                        double c = m.values.toList()[1];
+                        double dt = m.keys.toList()[2].temp(inputDT);
+
+                        return ma * c * dt;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Calor Requerido 2',
+                      params: {
+                        Param(name: 'Masa del Cuerpo', med: Mass()): 1.0,
+                        Param(name: 'Calor Latente'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputM = m.values.toList()[0];
+
+                        double ma = m.keys.toList()[0].getValue(inputM);
+                        double l = m.values.toList()[1];
+
+                        return l * ma;
+                      },
+                    ),
+                  ],
+                ],
+                'Capacidad Térmica': [
+                  AssetImage('assets/img/formulas/CapacidadTermica.PNG'),
+                  AssetImage('assets/img/params/CapacidadTermica.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Capacidad Térmica',
+                      params: {
+                        Param(name: 'Cambio en el Calor', med: Energy()): 1.0,
+                        Param(
+                          name: 'Cambio en la Temperatura',
+                          med: Temperature(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputDQ = m.values.toList()[0];
+                        double inputDT = m.values.toList()[1];
+
+                        double dq = m.keys.toList()[0].getValue(inputDQ);
+                        double dt = m.keys.toList()[1].temp(inputDT);
+
+                        return dq / dt;
+                      },
+                    ),
+                  ],
+                ],
+                'Calor Específico': [
+                  AssetImage('assets/img/formulas/CalorEspecifico.PNG'),
+                  AssetImage('assets/img/params/CalorEspecifico.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Calor Específico',
+                      params: {
+                        Param(name: 'Capacidad Térmica'): 1.0,
+                        Param(name: 'Masa', med: Mass()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputC = m.values.toList()[0];
+                        double inputM = m.values.toList()[1];
+
+                        double c = m.keys.toList()[0].getValue(inputC);
+                        double ma = m.keys.toList()[1].temp(inputM);
+
+                        return c / ma;
+                      },
+                    ),
+                  ],
+                ],
+                'Dilatación Térmica': [
+                  AssetImage('assets/img/formulas/Dilatacion.PNG'),
+                  AssetImage('assets/img/params/Dilatacion.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Length(),
+                      pageName: 'Cambio Lineal',
+                      params: {
+                        Param(name: 'Longitud Inicial', med: Length()): 1.0,
+                        Param(name: 'Coeficiente de Dilatación Lineal'): 1.0,
+                        Param(
+                          name: 'Cambio en la Temperatura',
+                          med: Temperature(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputL0 = m.values.toList()[0];
+                        double inputDT = m.values.toList()[2];
+
+                        double lo = m.keys.toList()[0].getValue(inputL0);
+                        double a = m.values.toList()[1];
+                        double dt = m.keys.toList()[2].temp(inputDT);
+
+                        return lo * a * dt;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      resultUnit: Area(),
+                      pageName: 'Cambio Superficial',
+                      params: {
+                        Param(name: 'Área Inicial', med: Area()): 1.0,
+                        Param(name: 'Coeficiente de Dilatación Superficial'):
+                            1.0,
+                        Param(
+                          name: 'Cambio en la Temperatura',
+                          med: Temperature(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputS0 = m.values.toList()[0];
+                        double inputDT = m.values.toList()[2];
+
+                        double so = m.keys.toList()[0].getValue(inputS0);
+                        double b = m.values.toList()[1];
+                        double dt = m.keys.toList()[2].temp(inputDT);
+
+                        return so * b * dt;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      resultUnit: Volumen(),
+                      pageName: 'Cambio Volumétrico',
+                      params: {
+                        Param(name: 'Volumen Inicial', med: Volumen()): 1.0,
+                        Param(name: 'Coeficiente de Dilatación Volumétrica'):
+                            1.0,
+                        Param(
+                          name: 'Cambio en la Temperatura',
+                          med: Temperature(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputV0 = m.values.toList()[0];
+                        double inputDT = m.values.toList()[2];
+
+                        double vo = m.keys.toList()[0].getValue(inputV0);
+                        double g = m.values.toList()[1];
+                        double dt = m.keys.toList()[2].temp(inputDT);
+
+                        return vo * g * dt;
+                      },
+                    ),
+                  ],
+                ],
+                'Equilibrio Térmico': [
+                  AssetImage('assets/img/formulas/EqTer.PNG'),
+                  AssetImage('assets/img/params/EqTer.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Calor Cedido',
+                      params: {
+                        Param(name: 'Calor Absorbido', med: Energy()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputQa = m.values.toList()[0];
+
+                        double qabs = m.keys.toList()[0].getValue(inputQa);
+
+                        return -qabs;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Calor Absorbido',
+                      params: {
+                        Param(name: 'Calor Cedido', med: Energy()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputQc = m.values.toList()[0];
+
+                        double qced = m.keys.toList()[0].getValue(inputQc);
+
+                        return -qced;
+                      },
+                    ),
+                  ],
+                ],
+                'Calor Latente': [
+                  AssetImage('assets/img/formulas/Latente.PNG'),
+                  AssetImage('assets/img/params/Latente.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Calor Latente',
+                      params: {
+                        Param(name: 'Calor', med: Energy()): 1.0,
+                        Param(name: 'Masa', med: Mass()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputQ = m.values.toList()[0];
+                        double inputM = m.values.toList()[1];
+
+                        double q = m.keys.toList()[0].getValue(inputQ);
+                        double ma = m.keys.toList()[1].getValue(inputM);
+
+                        return q / ma;
                       },
                     ),
                   ],

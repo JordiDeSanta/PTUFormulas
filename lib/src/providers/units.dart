@@ -105,6 +105,7 @@ class AngleVelocity extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
         '° / s': pi / 180,
+        'RPM': pi / 30,
         'rad / s': 1,
       };
 }
@@ -133,5 +134,25 @@ class Volumen extends Unit {
         'Mililitros': 1e-6,
         'Litros': 1e-3,
         'Metros\u00B3': 1,
+      };
+}
+
+class Energy extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Joule': 1,
+        'Cal * g': 4.184,
+        'Kilocaloría': 4184,
+        'W * h': 3600,
+        'kW * h': 3.6e+6,
+      };
+}
+
+class Temperature extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Fahrenheit': 3,
+        'Grados Celsius': 2,
+        'Kelvins': 1,
       };
 }

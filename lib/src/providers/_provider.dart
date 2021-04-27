@@ -69,4 +69,18 @@ class Param {
     print('my' + v.toString());
     return v;
   }
+
+  double temp(double input) {
+    switch (selectedMed.toInt()) {
+      case 1:
+        return input;
+      case 2:
+        return input + 273.15;
+      case 3:
+        return (input - 32) * 5 / 9 + 273.15;
+        break;
+      default:
+        return 0.0;
+    }
+  }
 }
