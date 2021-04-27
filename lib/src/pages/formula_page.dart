@@ -42,7 +42,11 @@ class _FormulaPageState extends State<FormulaPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(content.pageName, style: styles.title),
+        title: Text(
+          content.pageName,
+          style: styles.title,
+          overflow: TextOverflow.fade,
+        ),
         centerTitle: true,
         toolbarHeight: 80.0,
         backgroundColor: pageColor,

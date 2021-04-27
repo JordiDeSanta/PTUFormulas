@@ -52,6 +52,7 @@ class _NewHomePageState extends State<NewHomePage> {
         child: ListView(
           children: [
             SizedBox(height: 10.0),
+            _createMath(),
             _createPhysics(),
             if (banner == null)
               SizedBox(height: 80.0)
@@ -64,6 +65,592 @@ class _NewHomePageState extends State<NewHomePage> {
               )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _createMath() {
+    return CourseTileWidget(
+      CourseArguments(
+        color: colors.math[0],
+        img: AssetImage('assets/img/matematica.png'),
+        route: 'math',
+        title: 'Matemáticas',
+        contentsColor: colors.math[1],
+        contents: [
+          ContentArguments(
+            ftColor: colors.math[2],
+            img: AssetImage('assets/img/numbers.png'),
+            route: 'm',
+            title: 'Números',
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Porcentaje': [
+                  AssetImage('assets/img/mathformulas/porcentaje.PNG'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Porcentaje',
+                      params: {
+                        Param(name: 'X'): 1.0,
+                        Param(name: 'Y'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double x = m.values.toList()[0];
+                        double y = m.values.toList()[1];
+
+                        return (x * y) / 100;
+                      },
+                    ),
+                  ],
+                ],
+                'Potencias': [
+                  AssetImage('assets/img/mathformulas/potencias.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Raices': [
+                  AssetImage('assets/img/mathformulas/raices.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Logaritmos': [
+                  AssetImage('assets/img/mathformulas/log.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.math[2],
+            img: AssetImage('assets/img/alg.png'),
+            route: 'm',
+            title: 'Álgebra',
+            formulas: FormulaArguments(
+              formulas: {
+                'Suma y Resta': [
+                  AssetImage('assets/img/mathformulas/syr.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Multiplicación': [
+                  AssetImage('assets/img/mathformulas/mult.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'División': [
+                  AssetImage('assets/img/mathformulas/div.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/algebra.png'),
+            route: 'm',
+            title: 'Factorización',
+            ftColor: colors.math[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Factor Común': [
+                  AssetImage('assets/img/mathformulas/facomun.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Trinomio Notable': [
+                  AssetImage('assets/img/mathformulas/trinqadper.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Suma de Cuadrados': [
+                  AssetImage('assets/img/mathformulas/sqad.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Diferencia de Cuadrados': [
+                  AssetImage('assets/img/mathformulas/difqad.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Suma de Cubos': [
+                  AssetImage('assets/img/mathformulas/scubos.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Diferencia de Cubos': [
+                  AssetImage('assets/img/mathformulas/difcubos.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Trinomio de la Forma': [
+                  AssetImage('assets/img/mathformulas/trinfor.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Polinomio de la Forma': [
+                  AssetImage('assets/img/mathformulas/polifor.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.math[2],
+            img: AssetImage('assets/img/equations.png'),
+            route: 'm',
+            title: 'Ecuaciones',
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Propiedades: Ecuaciones': [
+                  AssetImage('assets/img/mathformulas/eqprops.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Propiedades: Incuaciones': [
+                  AssetImage('assets/img/mathformulas/ineqprops.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Ecuación Cuadrática': [
+                  AssetImage('assets/img/mathformulas/fg.PNG'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Solución X\u2081',
+                      params: {
+                        Param(name: 'a'): 1.0,
+                        Param(name: 'b'): 1.0,
+                        Param(name: 'c'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double a = m.values.toList()[0];
+                        double b = m.values.toList()[1];
+                        double c = m.values.toList()[2];
+
+                        return (-b + sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Solución X\u2082',
+                      params: {
+                        Param(name: 'a'): 1.0,
+                        Param(name: 'b'): 1.0,
+                        Param(name: 'c'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double a = m.values.toList()[0];
+                        double b = m.values.toList()[1];
+                        double c = m.values.toList()[2];
+
+                        return (-b - sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/function.png'),
+            route: 'm',
+            title: 'Funciones',
+            ftColor: colors.math[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Función Lineal': [
+                  AssetImage('assets/img/mathformulas/flineal.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Función Afín': [
+                  AssetImage('assets/img/mathformulas/fafin.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Función Cuadrática': [
+                  AssetImage('assets/img/mathformulas/fqad.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Pendiente': [
+                  AssetImage('assets/img/mathformulas/pend.PNG'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Pendiente',
+                      params: {
+                        Param(name: 'y\u2082'): 1.0,
+                        Param(name: 'y\u2081'): 1.0,
+                        Param(name: 'x\u2082'): 1.0,
+                        Param(name: 'x\u2081'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double y2 = m.values.toList()[0];
+                        double y1 = m.values.toList()[1];
+                        double x2 = m.values.toList()[2];
+                        double x1 = m.values.toList()[3];
+
+                        return (y2 - y1) / (x2 - x1);
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/stats.png'),
+            route: 'm',
+            title: 'Estadística',
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Media': [
+                  AssetImage('assets/img/mathformulas/media.png'),
+                  AssetImage('assets/img/mathformulas/mparams.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Media',
+                      params: {
+                        Param(name: 'Sumatoria de los Datos'): 1.0,
+                        Param(name: 'Número de Datos'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double ex = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+
+                        return ex / n;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Media en Datos Agrupados',
+                      params: {
+                        Param(name: 'Sumatoria de los Datos x Frecuencia'): 1.0,
+                        Param(name: 'Número de Datos'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double exf = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+
+                        return exf / n;
+                      },
+                    ),
+                  ],
+                ],
+                'Rango': [
+                  AssetImage('assets/img/mathformulas/rango.PNG'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Rango',
+                      params: {
+                        Param(name: 'Dato Superior'): 2.0,
+                        Param(name: 'Dato Inferior'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double ds = m.values.toList()[0];
+                        double di = m.values.toList()[1];
+
+                        return (ds - di).abs();
+                      },
+                    ),
+                  ],
+                ],
+                'Marca de Clase': [
+                  AssetImage('assets/img/mathformulas/mc.PNG'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Marca de Clase',
+                      params: {
+                        Param(name: 'Limite Superior'): 2.0,
+                        Param(name: 'Limite Inferior'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double ls = m.values.toList()[0];
+                        double li = m.values.toList()[1];
+
+                        return (li + ls) / 2;
+                      },
+                    ),
+                  ],
+                ],
+                'Mediana (Posición)': [
+                  AssetImage('assets/img/mathformulas/mediana.PNG'),
+                  AssetImage('assets/img/mathformulas/pmediana.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Mediana',
+                      params: {
+                        Param(name: 'Número de Datos'): 2.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        int n = m.values.toList()[0].floor();
+
+                        return (n + 1) / 2;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Mediana en Datos Agrupados',
+                      params: {
+                        Param(name: 'Li del intervalo de la Media'): 1.0,
+                        Param(name: 'Número de Datos'): 1.0,
+                        Param(name: 'f del intervalo de la Media'): 1.0,
+                        Param(name: 'f del intervalo anterior al de la Media'):
+                            1.0,
+                        Param(name: 'Amplitud del intervalo de la Media'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double li = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+                        double fi = m.values.toList()[2];
+                        double fim1 = m.values.toList()[3];
+                        double a = m.values.toList()[4];
+
+                        return li + (((n / 2) - fim1) / fi) * a;
+                      },
+                    ),
+                  ],
+                ],
+                'Moda': [
+                  AssetImage('assets/img/mathformulas/moda.PNG'),
+                  AssetImage('assets/img/mathformulas/pmoda.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Moda en Datos Agrupados',
+                      params: {
+                        Param(name: 'Li del intervalo de la Media'): 1.0,
+                        Param(name: 'f del intervalo de la Media'): 1.0,
+                        Param(name: 'f del intervalo posterior al de la Media'):
+                            1.0,
+                        Param(name: 'f del intervalo anterior al de la Media'):
+                            1.0,
+                        Param(name: 'Amplitud del intervalo de la Media'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double li = m.values.toList()[0];
+                        double fi = m.values.toList()[1];
+                        double fip1 = m.values.toList()[2];
+                        double fim1 = m.values.toList()[3];
+                        double a = m.values.toList()[4];
+
+                        return li +
+                            ((fi - fim1) / ((fi - fim1) + (fi - fip1))) * a;
+                      },
+                    ),
+                  ],
+                ],
+                'Cuantiles (Posición)': [
+                  AssetImage('assets/img/mathformulas/qantiles.PNG'),
+                  AssetImage('assets/img/mathformulas/nk.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Cuartil',
+                      params: {
+                        Param(name: 'Número de Datos'): 1.0,
+                        Param(name: 'Cuartil a Calcular (1-3)'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        int n = m.values.toList()[0].floor();
+                        int k = m.values.toList()[1].floor();
+
+                        if (k > 3 || k < 1) return 0.0;
+
+                        return ((n + 1) * k) / 4;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Quintil',
+                      params: {
+                        Param(name: 'Número de Datos'): 1.0,
+                        Param(name: 'Quintil a Calcular (1-4)'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        int n = m.values.toList()[0].floor();
+                        int k = m.values.toList()[1].floor();
+
+                        if (k > 4 || k < 1) return 0.0;
+
+                        return ((n + 1) * k) / 5;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Decil',
+                      params: {
+                        Param(name: 'Número de Datos'): 1.0,
+                        Param(name: 'Decil a Calcular (1-4)'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        int n = m.values.toList()[0].floor();
+                        int k = m.values.toList()[1].floor();
+
+                        if (k > 9 || k < 1) return 0.0;
+
+                        return ((n + 1) * k) / 10;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Percentil',
+                      params: {
+                        Param(name: 'Número de Datos'): 1.0,
+                        Param(name: 'Percentil a Calcular (1-99)'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        int n = m.values.toList()[0].floor();
+                        int k = m.values.toList()[1].floor();
+
+                        if (k > 99 || k < 1) return 0.0;
+
+                        return ((n + 1) * k) / 100;
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/prob.png'),
+            route: 'm',
+            title: 'Probabilidad',
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Probabilidad': [
+                  AssetImage('assets/img/mathformulas/prob.PNG'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Probabilidad',
+                      params: {
+                        Param(name: 'Resultados Favorables'): 1.0,
+                        Param(name: 'Resultados Posibles'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double rf = m.values.toList()[0];
+                        double rp = m.values.toList()[1];
+
+                        return (rf / rp) * 100;
+                      },
+                    ),
+                  ],
+                ],
+                'Variación': [
+                  AssetImage('assets/img/mathformulas/var.PNG'),
+                  AssetImage('assets/img/mathformulas/varp.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Variación',
+                      params: {
+                        Param(name: 'Elementos totales'): 2.0,
+                        Param(name: 'Elementos tomados'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        int n = m.values.toList()[0].floor();
+                        int k = m.values.toList()[1].floor();
+
+                        if (n <= 0 || k <= 0 || n < k) return 0.0;
+
+                        return ((factorial(n)) / (factorial(n - k))).toDouble();
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Varianza con Repetición',
+                      params: {
+                        Param(name: 'Elementos totales'): 2.0,
+                        Param(name: 'Elementos tomados'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        int n = m.values.toList()[0].floor();
+                        int k = m.values.toList()[1].floor();
+
+                        if (n <= 0 || k <= 0 || n < k) return 0.0;
+
+                        return pow(n, k).toDouble();
+                      },
+                    ),
+                  ],
+                ],
+                'Permutación': [
+                  AssetImage('assets/img/mathformulas/per.PNG'),
+                  AssetImage('assets/img/mathformulas/perp.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Permutación',
+                      params: {
+                        Param(name: 'Elementos totales'): 2.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        int n = m.values.toList()[0].floor();
+
+                        if (n <= 0) return 0.0;
+
+                        return factorial(n).toDouble();
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Permutación Circular',
+                      params: {
+                        Param(name: 'Elementos totales'): 2.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        int n = m.values.toList()[0].floor();
+
+                        if (n <= 0) return 0.0;
+
+                        return factorial(n - 1).toDouble();
+                      },
+                    ),
+                  ],
+                ],
+                'Combinación': [
+                  AssetImage('assets/img/mathformulas/com.PNG'),
+                  AssetImage('assets/img/mathformulas/varp.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Combinación',
+                      params: {
+                        Param(name: 'Elementos totales'): 2.0,
+                        Param(name: 'Elementos tomados'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        int n = m.values.toList()[0].floor();
+                        int k = m.values.toList()[1].floor();
+
+                        if (n <= 0 || k <= 0 || n < k) return 0.0;
+
+                        return ((factorial(n)) /
+                                ((factorial(k)) * (factorial(n - k))))
+                            .toDouble();
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/triangle.png'),
+            route: 'm',
+            title: 'Geometría',
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Números': [
+                  null,
+                  null,
+                ],
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -362,7 +949,7 @@ class _NewHomePageState extends State<NewHomePage> {
                         double inputV = m.values.toList()[1];
                         double inputT = m.values.toList()[2];
 
-                        double x1 = m.keys.toList()[1].getValue(inputx1);
+                        double x1 = m.keys.toList()[0].getValue(inputx1);
                         double v = m.keys.toList()[1].getValue(inputV);
                         double t = m.keys.toList()[2].getValue(inputT);
 
@@ -617,20 +1204,20 @@ class _NewHomePageState extends State<NewHomePage> {
                       resultUnit: Time(),
                       pageName: 'Tiempo de Caída',
                       params: {
-                        Param(name: 'Tiempo Final', med: Time()): 1.0,
-                        Param(name: 'Tiempo Inicial', med: Time()): 0.0,
+                        Param(name: 'Velocidad Final', med: Time()): 1.0,
+                        Param(name: 'Velocidad Inicial', med: Time()): 0.0,
                         Param(name: 'Gravedad', med: Aceleration()): 9.8,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputTF = m.values.toList()[0];
-                        double inputT0 = m.values.toList()[1];
+                        double inputVF = m.values.toList()[0];
+                        double inputV0 = m.values.toList()[1];
                         double inputG = m.values.toList()[2];
 
-                        double tf = m.keys.toList()[0].getValue(inputTF);
-                        double t0 = m.keys.toList()[1].getValue(inputT0);
+                        double vf = m.keys.toList()[0].getValue(inputVF);
+                        double v0 = m.keys.toList()[1].getValue(inputV0);
                         double g = m.keys.toList()[2].getValue(inputG);
 
-                        return (tf - t0) / g;
+                        return (vf - v0) / g;
                       },
                     ),
                   ],
@@ -2222,5 +2809,10 @@ class _NewHomePageState extends State<NewHomePage> {
         ],
       ),
     );
+  }
+
+  int factorial(int n) {
+    if (n < 0) throw ('Negative numbers are not allowed.');
+    return n <= 1 ? 1 : n * factorial(n - 1);
   }
 }

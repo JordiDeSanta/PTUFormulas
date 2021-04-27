@@ -41,8 +41,8 @@ class Length extends Unit {
 class VelocityU extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
-        'km / h': 1 / 3.6,
-        'mi / h': 1 / 2.237,
+        'km / h': (5 / 18),
+        'mi / h': (1 / 2.237),
         'm / s': 1,
       };
 }
@@ -98,6 +98,7 @@ class Angle extends Unit {
         'Grado Centesimal': pi / 200,
         'Grado Sexagesimal': pi / 180,
         'Radianes': 1,
+        'Revolución': 2 * pi,
       };
 }
 

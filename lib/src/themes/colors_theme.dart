@@ -7,4 +7,11 @@ class ColorsTheme {
     Colors.purple[100],
     Colors.deepPurple[400],
   ];
+
+  final List<Color> math = [
+    Colors.blue[300],
+    Colors.blue[200],
+    Colors.blue[100],
+    Colors.blue[400],
+  ];
 }
