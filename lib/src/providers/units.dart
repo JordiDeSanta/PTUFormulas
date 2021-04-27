@@ -156,3 +156,31 @@ class Temperature extends Unit {
         'Kelvins': 1,
       };
 }
+
+class Resistence extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Ohms': 1,
+      };
+}
+
+class EPotential extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Volts': 1,
+      };
+}
+
+class EIntensity extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Amperes': 1,
+      };
+}
+
+class ECharge extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'C / m': 1,
+      };
+}
