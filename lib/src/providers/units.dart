@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Unit {
   Map<String, double> mults = {};
   Unit();
@@ -32,6 +34,7 @@ class Length extends Unit {
         'Metros': 1,
         'Kilómetros': 1e+3,
         'Millas': 1609.34,
+        'Unidad Astronómica': 1.5e+11,
       };
 }
 
@@ -70,5 +73,65 @@ class Mass extends Unit {
         'Gramos': 1e-3,
         'Kilogramos': 1,
         'Toneladas': 1e+3,
+        'Masa Terrestre': 5.972e+24,
+      };
+}
+
+class Force extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Newtons': 1,
+      };
+}
+
+class Density extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'g / L o Kg / m\u00B3': 1.0,
+        'g / ml': 1e+3,
+      };
+}
+
+class Angle extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Grado Centesimal': pi / 200,
+        'Grado Sexagesimal': pi / 180,
+        'Radianes': 1,
+      };
+}
+
+class AngleVelocity extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        '° / s': pi / 180,
+        'rad / s': 1,
+      };
+}
+
+class Area extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Centímetros\u00B2': 1e-4,
+        'Metros\u00B2': 1,
+        'Hectárea': 1e+3,
+        'Kilómetros\u00B2': 1e+6,
+      };
+}
+
+class Pressure extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Pascales': 1,
+        'Asmósferas': 101325,
+      };
+}
+
+class Volumen extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Mililitros': 1e-6,
+        'Litros': 1e-3,
+        'Metros\u00B3': 1,
       };
 }

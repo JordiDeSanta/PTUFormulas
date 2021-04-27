@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/params_triangle.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:provider/provider.dart';
+import 'package:ptuformulas/src/providers/ad_state.dart';
 
 class FormulaPage extends StatefulWidget {
   FormulaPage();
@@ -13,9 +16,22 @@ class FormulaPage extends StatefulWidget {
 class _FormulaPageState extends State<FormulaPage> {
   final styles = TextStyles();
 
+  BannerAd banner;
+
   @override
-  void dispose() {
-    super.dispose();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final adState = Provider.of<AdState>(context);
+    adState.initialization.then((status) {
+      setState(() {
+        banner = BannerAd(
+          adUnitId: adState.bannerAdUnitId,
+          size: AdSize.largeBanner,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+      });
+    });
   }
 
   @override
@@ -37,6 +53,16 @@ class _FormulaPageState extends State<FormulaPage> {
       body: ListView(children: [
         _createParams(content, pageColor),
         _result(content, pageColor),
+        Expanded(child: SizedBox()),
+        if (banner == null)
+          SizedBox(height: 80.0)
+        else
+          Container(
+            height: 80,
+            child: AdWidget(
+              ad: banner,
+            ),
+          )
       ]),
     );
   }
@@ -120,6 +146,7 @@ class _FormulaPageState extends State<FormulaPage> {
             SizedBox(width: 10.0),
             if (args.resultUnit != null)
               DropdownButton(
+                elevation: 1,
                 items: _items(args.resultUnit),
                 value: args.selectedResultUnit,
                 onChanged: (v) {
@@ -129,6 +156,7 @@ class _FormulaPageState extends State<FormulaPage> {
                 },
                 style: TextStyle(color: pageColor),
               ),
+            SizedBox(height: 10.0),
           ],
         ),
       );

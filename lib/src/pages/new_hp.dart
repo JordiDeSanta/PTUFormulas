@@ -4,6 +4,9 @@ import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/themes/colors_theme.dart';
 import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:provider/provider.dart';
+import 'package:ptuformulas/src/providers/ad_state.dart';
 
 class NewHomePage extends StatefulWidget {
   NewHomePage({Key key}) : super(key: key);
@@ -16,21 +19,49 @@ class _NewHomePageState extends State<NewHomePage> {
   final styles = TextStyles();
   final colors = ColorsTheme();
 
+  BannerAd banner;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final adState = Provider.of<AdState>(context);
+    adState.initialization.then((status) {
+      setState(() {
+        banner = BannerAd(
+          adUnitId: adState.bannerAdUnitId,
+          size: AdSize.largeBanner,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        elevation: 0.0,
         title: Text('PTU Fórmulas', style: styles.title),
         centerTitle: true,
         toolbarHeight: 80.0,
-        backgroundColor: Colors.black12,
+        backgroundColor: Colors.black26,
       ),
       body: Container(
         child: ListView(
           children: [
             SizedBox(height: 10.0),
             _createPhysics(),
+            if (banner == null)
+              SizedBox(height: 80.0)
+            else
+              Container(
+                height: 80,
+                child: AdWidget(
+                  ad: banner,
+                ),
+              )
           ],
         ),
       ),
@@ -794,7 +825,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       bIsTriangle: true,
                       pageName: 'Fuerza',
                       params: {
-                        Param(name: 'Fuerza'): 0,
+                        Param(name: 'Fuerza', med: Force()): 0,
                         Param(name: 'Masa', med: Mass()): 0,
                         Param(name: 'Aceleración', med: Aceleration()): 0,
                       },
@@ -824,17 +855,23 @@ class _NewHomePageState extends State<NewHomePage> {
                       resultsSystem: ['N', 'Kg', 'm/s\u00B2'],
                       pageName: 'Peso',
                       params: {
-                        Param(name: 'Fuerza (N)'): 0,
-                        Param(name: 'Masa (Kg)'): 0,
-                        Param(name: 'Gravedad (m/s\u00B2)'): 0,
+                        Param(name: 'Fuerza', med: Force()): 0,
+                        Param(name: 'Masa', med: Mass()): 0,
+                        Param(name: 'Gravedad', med: Aceleration()): 0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputT = m.values.toList()[0];
+                        double inputF = m.values.toList()[0];
+                        double inputM = m.values.toList()[1];
+                        double inputG = m.values.toList()[2];
 
-                        double t = m.keys.toList()[0].getValue(inputT);
-                        double n = m.values.toList()[1];
+                        double f = m.keys.toList()[0].getValue(inputF);
+                        double ma = m.keys.toList()[1].getValue(inputM);
+                        double g = m.keys.toList()[2].getValue(inputG);
 
-                        return t / n;
+                        if (f == 0) return ma * g;
+                        if (ma == 0) return f / g;
+                        if (g == 0) return f / ma;
+                        return 0.0;
                       },
                     ),
                   ],
@@ -844,33 +881,31 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/Friccion.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultUnit: Force(),
                       pageName: 'Fricción Estática',
                       params: {
                         Param(name: 'Coeficiente de Fricción Estática'): 1.0,
-                        Param(name: 'Normal (N)'): 1.0,
+                        Param(name: 'Normal', med: Force()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputT = m.values.toList()[0];
-
-                        double t = m.keys.toList()[0].getValue(inputT);
+                        double c = m.values.toList()[0];
                         double n = m.values.toList()[1];
 
-                        return t / n;
+                        return c * n;
                       },
                     ),
                     FormulaButtonArguments(
+                      resultUnit: Force(),
                       pageName: 'Fricción Cinética',
                       params: {
                         Param(name: 'Coeficiente de Fricción Cinética'): 1.0,
-                        Param(name: 'Normal (N)'): 1.0,
+                        Param(name: 'Normal', med: Force()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputT = m.values.toList()[0];
-
-                        double t = m.keys.toList()[0].getValue(inputT);
+                        double c = m.values.toList()[0];
                         double n = m.values.toList()[1];
 
-                        return t / n;
+                        return c * n;
                       },
                     ),
                   ],
@@ -880,6 +915,7 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/Elastica.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultUnit: Force(),
                       pageName: 'Fuerza Elástica',
                       params: {
                         Param(
@@ -888,12 +924,511 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Constante Elástica'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
+                        double inputL = m.values.toList()[0];
+
+                        double l = m.keys.toList()[0].getValue(inputL);
+                        double k = m.values.toList()[1];
+
+                        return -k * l;
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.physics[2],
+            img: AssetImage('assets/img/planeta.png'),
+            route: 'p',
+            title: 'Cosmos',
+            formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
+              formulas: {
+                'Gravitación Universal': [
+                  AssetImage('assets/img/formulas/Gravitacion.PNG'),
+                  AssetImage('assets/img/params/Gravitacion.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Force(),
+                      pageName: 'Fuerza de Atracción',
+                      params: {
+                        Param(name: 'Masa del cuerpo 1 (Kg)', med: Mass()): 1.0,
+                        Param(name: 'Masa del cuerpo 2 (Kg)', med: Mass()): 1.0,
+                        Param(
+                          name: 'Distancia entre sus centros (km)',
+                          med: Length(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputM1 = m.values.toList()[0];
+                        double inputM2 = m.values.toList()[1];
+                        double inputR = m.values.toList()[2];
+
+                        double m1 = m.keys.toList()[0].getValue(inputM1);
+                        double m2 = m.keys.toList()[1].getValue(inputM2);
+                        double r = m.keys.toList()[2].getValue(inputR);
+
+                        double g = 6.67e-11;
+
+                        return (g) * ((m1 * m2) / pow(r, 2));
+                      },
+                    ),
+                  ],
+                ],
+                'Leyes de Kepler': [
+                  AssetImage('assets/img/formulas/Kepler.PNG'),
+                  AssetImage('assets/img/params/Kepler.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Excentricidad de Órbita',
+                      params: {
+                        Param(name: 'c'): 1.0,
+                        Param(name: 'a'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double c = m.values.toList()[0];
+                        double a = m.values.toList()[1];
+
+                        return c / a;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Constante Orbital',
+                      params: {
+                        Param(name: 'Periódo', med: Time()): 1.0,
+                        Param(name: 'Semieje mayor', med: Length()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputT = m.values.toList()[0];
+                        double inputR = m.values.toList()[1];
+
+                        double t = m.keys.toList()[0].getValue(inputT);
+                        double r = m.keys.toList()[1].getValue(inputR);
+
+                        return pow(t, 2) / pow(r, 3);
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.physics[2],
+            img: AssetImage('assets/img/mcu.png'),
+            route: 'p',
+            title: 'MCU',
+            formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
+              formulas: {
+                'Periódo y Frecuencia': [
+                  AssetImage('assets/img/formulas/PyT.PNG'),
+                  AssetImage('assets/img/params/PyT1.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Time(),
+                      pageName: 'Periódo',
+                      params: {
+                        Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+                        Param(name: 'Número de vueltas'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
                         double inputT = m.values.toList()[0];
 
                         double t = m.keys.toList()[0].getValue(inputT);
                         double n = m.values.toList()[1];
 
                         return t / n;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      resultUnit: Frecuency(),
+                      pageName: 'Frecuencia',
+                      params: {
+                        Param(name: 'Número de vueltas'): 1.0,
+                        Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputT = m.values.toList()[1];
+
+                        double n = m.values.toList()[0];
+                        double t = m.keys.toList()[1].getValue(inputT);
+
+                        return n / t;
+                      },
+                    ),
+                  ],
+                ],
+                'Velocidad Angular': [
+                  AssetImage('assets/img/formulas/VelocidadAMCU.PNG'),
+                  AssetImage('assets/img/params/VelocidadAMCU.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: AngleVelocity(),
+                      pageName: 'Velocidad Angular 1',
+                      params: {
+                        Param(name: 'Ángulo Recorrido', med: Angle()): 1.0,
+                        Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputAR = m.values.toList()[0];
+                        double inputT = m.values.toList()[1];
+
+                        double a = m.keys.toList()[0].getValue(inputAR);
+                        double t = m.keys.toList()[1].getValue(inputT);
+
+                        return a / t;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      resultUnit: AngleVelocity(),
+                      pageName: 'Velocidad Angular 2',
+                      params: {
+                        Param(name: 'Periódo', med: Time()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputT = m.values.toList()[0];
+
+                        double t = m.keys.toList()[0].getValue(inputT);
+
+                        return 2 * pi / t;
+                      },
+                    ),
+                  ],
+                ],
+                'Velocidad Tangencial': [
+                  AssetImage('assets/img/formulas/VelocidadTMCU.PNG'),
+                  AssetImage('assets/img/params/VelocidadTMCU.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: VelocityU(),
+                      pageName: 'Velocidad Tangencial 1',
+                      params: {
+                        Param(
+                          name: 'Velocidad Angular',
+                          med: AngleVelocity(),
+                        ): 1.0,
+                        Param(
+                          name: 'Distancia al Eje (o Radio)',
+                          med: Length(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputW = m.values.toList()[0];
+                        double inputR = m.values.toList()[1];
+
+                        double w = m.keys.toList()[0].getValue(inputW);
+                        double r = m.keys.toList()[1].getValue(inputR);
+
+                        return w * r;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      resultUnit: VelocityU(),
+                      pageName: 'Velocidad Tangencial 2',
+                      params: {
+                        Param(
+                          name: 'Distancia al Eje (o Radio)',
+                          med: Length(),
+                        ): 1.0,
+                        Param(name: 'Periódo', med: Time()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputR = m.values.toList()[0];
+                        double inputT = m.values.toList()[1];
+
+                        double r = m.keys.toList()[0].getValue(inputR);
+                        double t = m.keys.toList()[1].getValue(inputT);
+
+                        return 2 * pi * r / t;
+                      },
+                    ),
+                  ],
+                ],
+                'Aceleración Centrípeta': [
+                  AssetImage('assets/img/formulas/AceleracionMCU.PNG'),
+                  AssetImage('assets/img/params/AceleracionMCU.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Aceleration(),
+                      pageName: 'Aceleración Centrípeta 1',
+                      params: {
+                        Param(
+                          name: 'Velocidad Tangencial',
+                          med: VelocityU(),
+                        ): 1.0,
+                        Param(
+                          name: 'Distancia al Eje (o Radio)',
+                          med: Length(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputV = m.values.toList()[0];
+                        double inputR = m.values.toList()[1];
+
+                        double v = m.keys.toList()[0].getValue(inputV);
+                        double r = m.keys.toList()[1].getValue(inputR);
+
+                        return pow(v, 2) / r;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      resultUnit: Aceleration(),
+                      pageName: 'Aceleración Centrípeta 2',
+                      params: {
+                        Param(
+                          name: 'Velocidad Angular',
+                          med: AngleVelocity(),
+                        ): 1.0,
+                        Param(
+                          name: 'Distancia al Eje (o Radio)',
+                          med: Length(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputW = m.values.toList()[0];
+                        double inputR = m.values.toList()[1];
+
+                        double w = m.keys.toList()[0].getValue(inputW);
+                        double r = m.keys.toList()[1].getValue(inputR);
+
+                        return pow(w, 2) * r;
+                      },
+                    ),
+                  ],
+                ],
+                'Fuerza Centrípeta': [
+                  AssetImage('assets/img/formulas/FuerzaMCU.PNG'),
+                  AssetImage('assets/img/params/FuerzaMCU.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Force(),
+                      pageName: 'Fuerza Centrípeta',
+                      params: {
+                        Param(name: 'Masa', med: Mass()): 1.0,
+                        Param(
+                            name: 'Aceleración Centrípeta',
+                            med: Aceleration()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputM = m.values.toList()[0];
+                        double inputA = m.values.toList()[1];
+
+                        double ma = m.keys.toList()[0].getValue(inputM);
+                        double a = m.keys.toList()[1].getValue(inputA);
+
+                        return ma * a;
+                      },
+                    ),
+                  ],
+                ],
+                'Posición': [
+                  AssetImage('assets/img/formulas/PosicionMCU.PNG'),
+                  AssetImage('assets/img/params/PosicionMCU.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Angle(),
+                      pageName: 'Ángulo de Posición',
+                      params: {
+                        Param(name: 'Longitud del Arco', med: Length()): 1.0,
+                        Param(
+                          name: 'Distancia al Eje (o Radio)',
+                          med: Length(),
+                        ): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputS = m.values.toList()[0];
+                        double inputR = m.values.toList()[1];
+
+                        double s = m.keys.toList()[0].getValue(inputS);
+                        double r = m.keys.toList()[1].getValue(inputR);
+
+                        return s / r;
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.physics[2],
+            img: AssetImage('assets/img/dinrot1.png'),
+            route: 'p',
+            title: 'Rotacional',
+            formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
+              formulas: {
+                'Torque': [
+                  AssetImage('assets/img/formulas/Torque.PNG'),
+                  AssetImage('assets/img/params/Torque.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Torque',
+                      params: {
+                        Param(name: 'Fuerza', med: Force()): 1.0,
+                        Param(
+                            name: 'Longitud perpendicular a la Fuerza',
+                            med: Length()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputF = m.values.toList()[0];
+                        double inputL = m.values.toList()[1];
+
+                        double f = m.keys.toList()[0].getValue(inputF);
+                        double l = m.keys.toList()[1].getValue(inputL);
+
+                        return f * l;
+                      },
+                    ),
+                  ],
+                ],
+                'Equilibrio Rotacional': [
+                  AssetImage('assets/img/formulas/EqRot.PNG'),
+                  AssetImage('assets/img/params/EqRot.PNG'),
+                  <FormulaButtonArguments>[],
+                ],
+                'Momento Angular': [
+                  AssetImage('assets/img/formulas/MomentoAngular.PNG'),
+                  AssetImage('assets/img/params/MomentoAngular.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Momento Angular',
+                      params: {
+                        Param(name: 'Momento de Inercia'): 1.0,
+                        Param(name: 'Velocidad Angular', med: AngleVelocity()):
+                            1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputW = m.values.toList()[1];
+                        double w = m.keys.toList()[1].getValue(inputW);
+
+                        double i = m.values.toList()[0];
+
+                        return i * w;
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.physics[2],
+            img: AssetImage('assets/img/presion.png'),
+            route: 'p',
+            title: 'Presión',
+            formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
+              formulas: {
+                'Presión': [
+                  AssetImage('assets/img/formulas/Presion.PNG'),
+                  AssetImage('assets/img/params/Presion.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Pressure(),
+                      pageName: 'Presión',
+                      params: {
+                        Param(name: 'Fuerza Aplicada', med: Force()): 1.0,
+                        Param(name: 'Área', med: Area()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double f = m['Fuerza Aplicada'];
+                        double a = m['Área'];
+
+                        return f / a;
+                      },
+                    ),
+                  ],
+                ],
+                'Densidad': [
+                  AssetImage('assets/img/formulas/dens.PNG'),
+                  AssetImage('assets/img/params/pdens.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Density(),
+                      pageName: 'Presión Hidrostática',
+                      params: {
+                        Param(name: 'Masa', med: Mass()): 1.0,
+                        Param(name: 'Volumen', med: Volumen()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double d = m['Densidad'];
+                        double g = m['Gravedad'];
+                        double h = m['Altura'];
+
+                        return d * g * h;
+                      },
+                    ),
+                  ],
+                ],
+                'Presión Hidrostática': [
+                  AssetImage('assets/img/formulas/Hidrostatica.PNG'),
+                  AssetImage('assets/img/params/Hidrostatica.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Pressure(),
+                      pageName: 'Presión Hidrostática',
+                      params: {
+                        Param(name: 'Densidad', med: Density()): 1.0,
+                        Param(name: 'Gravedad', med: Aceleration()): 1.0,
+                        Param(name: 'Altura', med: Length()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double d = m['Densidad'];
+                        double g = m['Gravedad'];
+                        double h = m['Altura'];
+
+                        return d * g * h;
+                      },
+                    ),
+                  ],
+                ],
+                'Presión Absoluta': [
+                  AssetImage('assets/img/formulas/PresionAbs.PNG'),
+                  AssetImage('assets/img/params/PresionAbs.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Pressure(),
+                      pageName: 'Presión Absoluta',
+                      params: {
+                        Param(name: 'Presión Hidrostática', med: Pressure()):
+                            1.0,
+                        Param(name: 'Presión Atmosférica', med: Pressure()):
+                            1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double h = m['Presión Hidrostática'];
+                        double a = m['Presión Atmosférica'];
+
+                        return h + a;
+                      },
+                    ),
+                  ],
+                ],
+                'Pascal': [
+                  AssetImage('assets/img/formulas/Pascal.PNG'),
+                  AssetImage('assets/img/params/Pascal.PNG'),
+                  <FormulaButtonArguments>[],
+                ],
+                'Arquímedes': [
+                  AssetImage('assets/img/formulas/Arquimedes.PNG'),
+                  AssetImage('assets/img/params/Arquimedes.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Fuerza de Flotación',
+                      params: {
+                        Param(name: 'Densidad', med: Density()): 1.0,
+                        Param(name: 'Volumen', med: Volumen()): 1.0,
+                        Param(name: 'Altura', med: Length()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double d = m['Densidad'];
+                        double v = m['Volumen'];
+                        double h = m['Altura'];
+
+                        return d * v * h;
                       },
                     ),
                   ],

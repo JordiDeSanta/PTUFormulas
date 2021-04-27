@@ -72,6 +72,16 @@ class ParamsTriangle extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
+        Positioned(
+          left: 90.0,
+          top: 200.0,
+          child: Text(
+            'Define como 0 el valor\n que quieras calcular',
+            style: styles.result.copyWith(color: Colors.white, fontSize: 18),
+            overflow: TextOverflow.visible,
+            textAlign: TextAlign.center,
+          ),
+        )
       ],
     );
   }

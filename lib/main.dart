@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ptuformulas/src/pages/content_page.dart';
-import 'package:ptuformulas/src/pages/home_page.dart';
 import 'package:ptuformulas/src/pages/course_page.dart';
 import 'package:ptuformulas/src/pages/formula_page.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
