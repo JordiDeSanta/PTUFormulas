@@ -45,15 +45,17 @@ class FormulaButtonArguments {
   List<String> resultsSystem;
   Unit resultUnit;
   double selectedResultUnit;
+  Color triangleColor;
 
   FormulaButtonArguments({
     this.params,
     this.formula,
     this.pageName,
     this.bIsTriangle = false,
-    this.resultsSystem = const [''],
+    this.resultsSystem = const ['', '', ''],
     this.resultUnit,
     this.selectedResultUnit = 1,
+    this.triangleColor = Colors.purple,
   });
 }
 

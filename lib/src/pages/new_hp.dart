@@ -647,9 +647,36 @@ class _NewHomePageState extends State<NewHomePage> {
             formulas: FormulaArguments(
               tilesColor: colors.math[3],
               formulas: {
-                'Números': [
+                'Teorema de Pitágoras': [
+                  AssetImage('assets/img/mathformulas/pitag.png'),
                   null,
-                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultsSystem: ['H', 'A', 'B'],
+                      triangleColor: Colors.blue,
+                      bIsTriangle: true,
+                      pageName: 'Pitágoras',
+                      params: {
+                        Param(name: 'Hipotenusa'): 0,
+                        Param(name: 'Cateto A'): 0,
+                        Param(name: 'Cateto B'): 0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputH = m.values.toList()[0];
+                        double inputA = m.values.toList()[1];
+                        double inputB = m.values.toList()[2];
+
+                        double h = m.keys.toList()[0].getValue(inputH);
+                        double a = m.keys.toList()[1].getValue(inputA);
+                        double b = m.keys.toList()[2].getValue(inputB);
+
+                        if (h == 0) return sqrt(pow(a, 2) + pow(b, 2));
+                        if (a == 0) return sqrt(pow(h, 2) - pow(b, 2));
+                        if (b == 0) return sqrt(pow(h, 2) - pow(a, 2));
+                        return 0.0;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
