@@ -2248,11 +2248,13 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/Coulomb.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultUnit: Force(),
                       pageName: 'Fuerza Eléctrica 1',
                       params: {
-                        Param(name: 'Primera Carga'): 1.0,
-                        Param(name: 'Segunda Carga'): 1.0,
-                        Param(name: 'Distancia entre Cargas'): 1.0,
+                        Param(name: 'Primera Carga', med: Charge()): 1.0,
+                        Param(name: 'Segunda Carga', med: Charge()): 1.0,
+                        Param(name: 'Distancia entre Cargas', med: Length()):
+                            1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputQ1 = m.values.toList()[0];
@@ -2291,8 +2293,8 @@ class _NewHomePageState extends State<NewHomePage> {
                     FormulaButtonArguments(
                       pageName: 'Campo Eléctrico 1',
                       params: {
-                        Param(name: 'Fuerza Eléctrica'): 1.0,
-                        Param(name: 'Carga'): 1.0,
+                        Param(name: 'Fuerza Eléctrica', med: Force()): 1.0,
+                        Param(name: 'Carga', med: Charge()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputF = m.values.toList()[0];
@@ -2307,8 +2309,9 @@ class _NewHomePageState extends State<NewHomePage> {
                     FormulaButtonArguments(
                       pageName: 'Campo Eléctrico 2',
                       params: {
-                        Param(name: 'Carga'): 1.0,
-                        Param(name: 'Distancia hacia el punto'): 1.0,
+                        Param(name: 'Carga', med: Charge()): 1.0,
+                        Param(name: 'Distancia hacia el punto', med: Length()):
+                            1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputQ = m.values.toList()[0];
@@ -2330,8 +2333,11 @@ class _NewHomePageState extends State<NewHomePage> {
                       resultUnit: EPotential(),
                       pageName: 'Voltaje',
                       params: {
-                        Param(name: 'Carga'): 1.0,
-                        Param(name: 'Distancia hacia el punto'): 1.0,
+                        Param(name: 'Carga', med: Charge()): 1.0,
+                        Param(
+                          name: 'Distancia hacia el punto',
+                          med: Length(),
+                        ): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputQ = m.values.toList()[0];
@@ -2347,7 +2353,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       resultUnit: EIntensity(),
                       pageName: 'Intensidad Eléctrica',
                       params: {
-                        Param(name: 'Carga', med: ECharge()): 1.0,
+                        Param(name: 'Carga', med: Charge()): 1.0,
                         Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
@@ -2423,7 +2429,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       resultsSystem: ['W', 'V', 'A'],
                       pageName: 'Potencia Eléctrica',
                       params: {
-                        Param(name: 'Potencia'): 0.0,
+                        Param(name: 'Potencia', med: Power()): 0.0,
                         Param(name: 'Voltaje Total', med: EPotential()): 0.0,
                         Param(
                           name: 'Intensidad Eléctrica',
@@ -2452,10 +2458,12 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/EnSerie.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultUnit: Resistence(),
                       pageName: 'Resistencia Total 1',
                       params: {
-                        Param(name: 'Sumatoria del inverso de las Resistencias'):
-                            1.0,
+                        Param(
+                          name: 'Sumatoria del inverso de las Resistencias',
+                        ): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double er = m.values.toList()[0];
@@ -2464,6 +2472,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                     ),
                     FormulaButtonArguments(
+                      resultUnit: Resistence(),
                       pageName: 'Resistencia Total 2',
                       params: {
                         Param(name: 'Resistencia 1', med: Resistence()): 1.0,
@@ -2514,7 +2523,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       resultsSystem: ['W', 'V', 'A'],
                       pageName: 'Potencia Eléctrica',
                       params: {
-                        Param(name: 'Potencia'): 0.0,
+                        Param(name: 'Potencia', med: Power()): 0.0,
                         Param(name: 'Voltaje', med: EPotential()): 0.0,
                         Param(name: 'Intensidad Total', med: EIntensity()): 0.0,
                       },
@@ -2536,8 +2545,8 @@ class _NewHomePageState extends State<NewHomePage> {
                     FormulaButtonArguments(
                       pageName: 'Energía Consumida',
                       params: {
-                        Param(name: 'Potencia Eléctrica'): 1.0,
-                        Param(name: 'Tiempo Activo'): 1.0,
+                        Param(name: 'Potencia Eléctrica', med: Power()): 1.0,
+                        Param(name: 'Tiempo Activo', med: Time()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         return 0.0;

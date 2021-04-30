@@ -179,18 +179,22 @@ class EIntensity extends Unit {
       };
 }
 
-class ECharge extends Unit {
-  @override
-  Map<String, double> get mults => <String, double>{
-        'C / m': 1,
-      };
-}
-
 class Power extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
         'Watts': 1,
         'Kilowatts': 1e+3,
         'Megawatts': 1e+6,
+      };
+}
+
+class Charge extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Picocoulombs': 1e-12,
+        'Nanocoulombs': 1e-9,
+        'Microcoulombs': 1e-6,
+        'Milicoulombs': 1e-3,
+        'Coulombs': 1,
       };
 }
