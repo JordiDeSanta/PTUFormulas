@@ -198,3 +198,22 @@ class Charge extends Unit {
         'Coulombs': 1,
       };
 }
+
+class MatResistivity extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Grafeno': 1e-8,
+        'Plata': 1.59e-8,
+        'Cobre': 1.71e-8,
+        'Oro': 2.35e-8,
+        'Aluminio': 2.82e-8,
+        'Wolframio': 5.65e-8,
+        'Níquel': 6.4e-8,
+        'Hierro': 8.9e-8,
+        'Platino': 10.6e-8,
+        'Estaño': 11.5e-8,
+        'Acero Inoxidable 301': 72e-8,
+        'Grafito': 60e-6,
+        'Personalizado': 1,
+      };
+}

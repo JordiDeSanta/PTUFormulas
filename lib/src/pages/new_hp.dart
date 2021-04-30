@@ -2265,14 +2265,14 @@ class _NewHomePageState extends State<NewHomePage> {
                         double q2 = m.keys.toList()[1].getValue(inputQ2);
                         double r = m.keys.toList()[2].getValue(inputR);
 
-                        return (9 * pow(10, 9)) * ((q1 * q2).abs() / (r * r));
+                        return (9e+9) * ((q1 * q2).abs() / (pow(r, 2)));
                       },
                     ),
                     FormulaButtonArguments(
                       pageName: 'Fuerza Eléctrica 2',
                       params: {
                         Param(name: 'Campo Eléctrico'): 1.0,
-                        Param(name: 'Carga'): 1.0,
+                        Param(name: 'Carga', med: Charge()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputE = m.values.toList()[0];
@@ -2370,7 +2370,9 @@ class _NewHomePageState extends State<NewHomePage> {
                       resultUnit: Resistence(),
                       pageName: 'Resistencia',
                       params: {
-                        Param(name: 'Resistividad del Material'): 1.0,
+                        Param(
+                            name: 'Resistividad (=1 si usas Mat)',
+                            med: MatResistivity()): 1.0,
                         Param(name: 'Longitud del Cable', med: Length()): 1.0,
                         Param(
                           name: 'Area (círculo) del (cilíndro) Cable',
