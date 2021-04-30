@@ -1907,6 +1907,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                     ),
                     FormulaButtonArguments(
+                      resultUnit: Energy(),
                       pageName: 'Trabajo 2',
                       params: {
                         Param(
@@ -1929,6 +1930,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                     ),
                     FormulaButtonArguments(
+                      resultUnit: Power(),
                       pageName: 'Potencia 1',
                       params: {
                         Param(name: 'Trabajo', med: Energy()): 1.0,
@@ -1945,6 +1947,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                     ),
                     FormulaButtonArguments(
+                      resultUnit: Power(),
                       pageName: 'Potencia 2',
                       params: {
                         Param(name: 'Fuerza', med: Force()): 1.0,
@@ -1994,13 +1997,15 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                       formula: (Map<Param, double> m) {
                         double inputM = m.values.toList()[0];
-                        double inputT0 = m.values.toList()[2];
-                        double inputTF = m.values.toList()[3];
+                        double inputTF = m.values.toList()[2];
+
+                        double inputT0 = m.values.toList()[3];
 
                         double ma = m.keys.toList()[0].getValue(inputM);
                         double c = m.values.toList()[1];
-                        double t0 = m.keys.toList()[2].temp(inputT0);
                         double tf = m.keys.toList()[2].temp(inputTF);
+
+                        double t0 = m.keys.toList()[3].temp(inputT0);
 
                         return ma * c * (tf - t0);
                       },
@@ -2030,20 +2035,29 @@ class _NewHomePageState extends State<NewHomePage> {
                     FormulaButtonArguments(
                       pageName: 'Capacidad Térmica',
                       params: {
-                        Param(name: 'Cambio en el Calor', med: Energy()): 1.0,
+                        Param(name: 'Calor Final', med: Energy()): 1.0,
+                        Param(name: 'Calor Inicial', med: Energy()): 1.0,
                         Param(
-                          name: 'Cambio en la Temperatura',
+                          name: 'Temperatura Final',
+                          med: Temperature(),
+                        ): 1.0,
+                        Param(
+                          name: 'Temperatura Inicial',
                           med: Temperature(),
                         ): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputDQ = m.values.toList()[0];
-                        double inputDT = m.values.toList()[1];
+                        double inputQF = m.values.toList()[0];
+                        double inputQ0 = m.values.toList()[1];
+                        double inputTF = m.values.toList()[2];
+                        double inputT0 = m.values.toList()[3];
 
-                        double dq = m.keys.toList()[0].getValue(inputDQ);
-                        double dt = m.keys.toList()[1].temp(inputDT);
+                        double qf = m.keys.toList()[0].getValue(inputQF);
+                        double q0 = m.keys.toList()[1].getValue(inputQ0);
+                        double tf = m.keys.toList()[2].temp(inputTF);
+                        double t0 = m.keys.toList()[3].temp(inputT0);
 
-                        return dq / dt;
+                        return (qf - q0) / (tf - t0);
                       },
                     ),
                   ],
@@ -2081,19 +2095,25 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Longitud Inicial', med: Length()): 1.0,
                         Param(name: 'Coeficiente de Dilatación Lineal'): 1.0,
                         Param(
-                          name: 'Cambio en la Temperatura',
+                          name: 'Temperatura Final',
+                          med: Temperature(),
+                        ): 1.0,
+                        Param(
+                          name: 'Temperatura Inicial',
                           med: Temperature(),
                         ): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputL0 = m.values.toList()[0];
-                        double inputDT = m.values.toList()[2];
+                        double inputTF = m.values.toList()[2];
+                        double inputT0 = m.values.toList()[3];
 
                         double lo = m.keys.toList()[0].getValue(inputL0);
                         double a = m.values.toList()[1];
-                        double dt = m.keys.toList()[2].temp(inputDT);
+                        double tf = m.keys.toList()[2].temp(inputTF);
+                        double t0 = m.keys.toList()[3].temp(inputT0);
 
-                        return lo * a * dt;
+                        return lo * a * (tf - t0);
                       },
                     ),
                     FormulaButtonArguments(
@@ -2104,19 +2124,25 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Coeficiente de Dilatación Superficial'):
                             1.0,
                         Param(
-                          name: 'Cambio en la Temperatura',
+                          name: 'Temperatura Final',
+                          med: Temperature(),
+                        ): 1.0,
+                        Param(
+                          name: 'Temperatura Inicial',
                           med: Temperature(),
                         ): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputS0 = m.values.toList()[0];
-                        double inputDT = m.values.toList()[2];
+                        double inputTF = m.values.toList()[2];
+                        double inputT0 = m.values.toList()[3];
 
                         double so = m.keys.toList()[0].getValue(inputS0);
                         double b = m.values.toList()[1];
-                        double dt = m.keys.toList()[2].temp(inputDT);
+                        double tf = m.keys.toList()[2].temp(inputTF);
+                        double t0 = m.keys.toList()[3].temp(inputT0);
 
-                        return so * b * dt;
+                        return so * b * (tf - t0);
                       },
                     ),
                     FormulaButtonArguments(
@@ -2127,19 +2153,25 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Coeficiente de Dilatación Volumétrica'):
                             1.0,
                         Param(
-                          name: 'Cambio en la Temperatura',
+                          name: 'Temperatura Final',
+                          med: Temperature(),
+                        ): 1.0,
+                        Param(
+                          name: 'Temperatura Inicial',
                           med: Temperature(),
                         ): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputV0 = m.values.toList()[0];
-                        double inputDT = m.values.toList()[2];
+                        double inputTF = m.values.toList()[2];
+                        double inputT0 = m.values.toList()[3];
 
                         double vo = m.keys.toList()[0].getValue(inputV0);
                         double g = m.values.toList()[1];
-                        double dt = m.keys.toList()[2].temp(inputDT);
+                        double tf = m.keys.toList()[2].temp(inputTF);
+                        double t0 = m.keys.toList()[3].temp(inputT0);
 
-                        return vo * g * dt;
+                        return vo * g * (tf - t0);
                       },
                     ),
                   ],

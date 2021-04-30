@@ -190,5 +190,7 @@ class Power extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
         'Watts': 1,
+        'Kilowatts': 1e+3,
+        'Megawatts': 1e+6,
       };
 }
