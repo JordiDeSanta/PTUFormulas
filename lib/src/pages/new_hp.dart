@@ -1603,306 +1603,6 @@ class _NewHomePageState extends State<NewHomePage> {
           ),
           ContentArguments(
             ftColor: colors.physics[2],
-            img: AssetImage('assets/img/mcu.png'),
-            route: 'p',
-            title: 'MCU',
-            formulas: FormulaArguments(
-              tilesColor: colors.physics[3],
-              formulas: {
-                'Periódo y Frecuencia': [
-                  AssetImage('assets/img/formulas/PyT.PNG'),
-                  AssetImage('assets/img/params/PyT1.PNG'),
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      resultUnit: Time(),
-                      pageName: 'Periódo',
-                      params: {
-                        Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
-                        Param(name: 'Número de vueltas'): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputT = m.values.toList()[0];
-
-                        double t = m.keys.toList()[0].getValue(inputT);
-                        double n = m.values.toList()[1];
-
-                        return t / n;
-                      },
-                    ),
-                    FormulaButtonArguments(
-                      resultUnit: Frecuency(),
-                      pageName: 'Frecuencia',
-                      params: {
-                        Param(name: 'Número de vueltas'): 1.0,
-                        Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputT = m.values.toList()[1];
-
-                        double n = m.values.toList()[0];
-                        double t = m.keys.toList()[1].getValue(inputT);
-
-                        return n / t;
-                      },
-                    ),
-                  ],
-                ],
-                'Velocidad Angular': [
-                  AssetImage('assets/img/formulas/VelocidadAMCU.PNG'),
-                  AssetImage('assets/img/params/VelocidadAMCU.PNG'),
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      resultUnit: AngleVelocity(),
-                      pageName: 'Velocidad Angular 1',
-                      params: {
-                        Param(name: 'Ángulo Recorrido', med: Angle()): 1.0,
-                        Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputAR = m.values.toList()[0];
-                        double inputT = m.values.toList()[1];
-
-                        double a = m.keys.toList()[0].getValue(inputAR);
-                        double t = m.keys.toList()[1].getValue(inputT);
-
-                        return a / t;
-                      },
-                    ),
-                    FormulaButtonArguments(
-                      resultUnit: AngleVelocity(),
-                      pageName: 'Velocidad Angular 2',
-                      params: {
-                        Param(name: 'Periódo', med: Time()): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputT = m.values.toList()[0];
-
-                        double t = m.keys.toList()[0].getValue(inputT);
-
-                        return 2 * pi / t;
-                      },
-                    ),
-                  ],
-                ],
-                'Velocidad Tangencial': [
-                  AssetImage('assets/img/formulas/VelocidadTMCU.PNG'),
-                  AssetImage('assets/img/params/VelocidadTMCU.PNG'),
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      resultUnit: VelocityU(),
-                      pageName: 'Velocidad Tangencial 1',
-                      params: {
-                        Param(
-                          name: 'Velocidad Angular',
-                          med: AngleVelocity(),
-                        ): 1.0,
-                        Param(
-                          name: 'Distancia al Eje (o Radio)',
-                          med: Length(),
-                        ): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputW = m.values.toList()[0];
-                        double inputR = m.values.toList()[1];
-
-                        double w = m.keys.toList()[0].getValue(inputW);
-                        double r = m.keys.toList()[1].getValue(inputR);
-
-                        return w * r;
-                      },
-                    ),
-                    FormulaButtonArguments(
-                      resultUnit: VelocityU(),
-                      pageName: 'Velocidad Tangencial 2',
-                      params: {
-                        Param(
-                          name: 'Distancia al Eje (o Radio)',
-                          med: Length(),
-                        ): 1.0,
-                        Param(name: 'Periódo', med: Time()): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputR = m.values.toList()[0];
-                        double inputT = m.values.toList()[1];
-
-                        double r = m.keys.toList()[0].getValue(inputR);
-                        double t = m.keys.toList()[1].getValue(inputT);
-
-                        return 2 * pi * r / t;
-                      },
-                    ),
-                  ],
-                ],
-                'Aceleración Centrípeta': [
-                  AssetImage('assets/img/formulas/AceleracionMCU.PNG'),
-                  AssetImage('assets/img/params/AceleracionMCU.PNG'),
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      resultUnit: Aceleration(),
-                      pageName: 'Aceleración Centrípeta 1',
-                      params: {
-                        Param(
-                          name: 'Velocidad Tangencial',
-                          med: VelocityU(),
-                        ): 1.0,
-                        Param(
-                          name: 'Distancia al Eje (o Radio)',
-                          med: Length(),
-                        ): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputV = m.values.toList()[0];
-                        double inputR = m.values.toList()[1];
-
-                        double v = m.keys.toList()[0].getValue(inputV);
-                        double r = m.keys.toList()[1].getValue(inputR);
-
-                        return pow(v, 2) / r;
-                      },
-                    ),
-                    FormulaButtonArguments(
-                      resultUnit: Aceleration(),
-                      pageName: 'Aceleración Centrípeta 2',
-                      params: {
-                        Param(
-                          name: 'Velocidad Angular',
-                          med: AngleVelocity(),
-                        ): 1.0,
-                        Param(
-                          name: 'Distancia al Eje (o Radio)',
-                          med: Length(),
-                        ): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputW = m.values.toList()[0];
-                        double inputR = m.values.toList()[1];
-
-                        double w = m.keys.toList()[0].getValue(inputW);
-                        double r = m.keys.toList()[1].getValue(inputR);
-
-                        return pow(w, 2) * r;
-                      },
-                    ),
-                  ],
-                ],
-                'Fuerza Centrípeta': [
-                  AssetImage('assets/img/formulas/FuerzaMCU.PNG'),
-                  AssetImage('assets/img/params/FuerzaMCU.PNG'),
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      resultUnit: Force(),
-                      pageName: 'Fuerza Centrípeta',
-                      params: {
-                        Param(name: 'Masa', med: Mass()): 1.0,
-                        Param(
-                            name: 'Aceleración Centrípeta',
-                            med: Aceleration()): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputM = m.values.toList()[0];
-                        double inputA = m.values.toList()[1];
-
-                        double ma = m.keys.toList()[0].getValue(inputM);
-                        double a = m.keys.toList()[1].getValue(inputA);
-
-                        return ma * a;
-                      },
-                    ),
-                  ],
-                ],
-                'Posición': [
-                  AssetImage('assets/img/formulas/PosicionMCU.PNG'),
-                  AssetImage('assets/img/params/PosicionMCU.PNG'),
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      resultUnit: Angle(),
-                      pageName: 'Ángulo de Posición',
-                      params: {
-                        Param(name: 'Longitud del Arco', med: Length()): 1.0,
-                        Param(
-                          name: 'Distancia al Eje (o Radio)',
-                          med: Length(),
-                        ): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputS = m.values.toList()[0];
-                        double inputR = m.values.toList()[1];
-
-                        double s = m.keys.toList()[0].getValue(inputS);
-                        double r = m.keys.toList()[1].getValue(inputR);
-
-                        return s / r;
-                      },
-                    ),
-                  ],
-                ],
-              },
-            ),
-          ),
-          ContentArguments(
-            ftColor: colors.physics[2],
-            img: AssetImage('assets/img/dinrot1.png'),
-            route: 'p',
-            title: 'Rotacional',
-            formulas: FormulaArguments(
-              tilesColor: colors.physics[3],
-              formulas: {
-                'Torque': [
-                  AssetImage('assets/img/formulas/Torque.PNG'),
-                  AssetImage('assets/img/params/Torque.PNG'),
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      pageName: 'Torque',
-                      params: {
-                        Param(name: 'Fuerza', med: Force()): 1.0,
-                        Param(
-                            name: 'Longitud perpendicular a la Fuerza',
-                            med: Length()): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputF = m.values.toList()[0];
-                        double inputL = m.values.toList()[1];
-
-                        double f = m.keys.toList()[0].getValue(inputF);
-                        double l = m.keys.toList()[1].getValue(inputL);
-
-                        return f * l;
-                      },
-                    ),
-                  ],
-                ],
-                'Equilibrio Rotacional': [
-                  AssetImage('assets/img/formulas/EqRot.PNG'),
-                  AssetImage('assets/img/params/EqRot.PNG'),
-                  <FormulaButtonArguments>[],
-                ],
-                'Momento Angular': [
-                  AssetImage('assets/img/formulas/MomentoAngular.PNG'),
-                  AssetImage('assets/img/params/MomentoAngular.PNG'),
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      pageName: 'Momento Angular',
-                      params: {
-                        Param(name: 'Momento de Inercia'): 1.0,
-                        Param(name: 'Velocidad Angular', med: AngleVelocity()):
-                            1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputW = m.values.toList()[1];
-                        double w = m.keys.toList()[1].getValue(inputW);
-
-                        double i = m.values.toList()[0];
-
-                        return i * w;
-                      },
-                    ),
-                  ],
-                ],
-              },
-            ),
-          ),
-          ContentArguments(
-            ftColor: colors.physics[2],
             img: AssetImage('assets/img/presion.png'),
             route: 'p',
             title: 'Presión',
@@ -2280,19 +1980,25 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Masa del Cuerpo', med: Mass()): 1.0,
                         Param(name: 'Calor Especifico del Material'): 1.0,
                         Param(
-                          name: 'Cambio en la Temperatura',
+                          name: 'Temperatura Final',
+                          med: Temperature(),
+                        ): 1.0,
+                        Param(
+                          name: 'Temperatura Inicial',
                           med: Temperature(),
                         ): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputM = m.values.toList()[0];
-                        double inputDT = m.values.toList()[2];
+                        double inputT0 = m.values.toList()[2];
+                        double inputTF = m.values.toList()[3];
 
                         double ma = m.keys.toList()[0].getValue(inputM);
                         double c = m.values.toList()[1];
-                        double dt = m.keys.toList()[2].temp(inputDT);
+                        double t0 = m.keys.toList()[2].temp(inputT0);
+                        double tf = m.keys.toList()[2].temp(inputTF);
 
-                        return ma * c * dt;
+                        return ma * c * (tf - t0);
                       },
                     ),
                     FormulaButtonArguments(
@@ -2734,7 +2440,7 @@ class _NewHomePageState extends State<NewHomePage> {
                         double r1 = m.keys.toList()[0].getValue(inputR1);
                         double r2 = m.keys.toList()[1].getValue(inputR2);
 
-                        return (r1 + r2) / (r1 * r2);
+                        return (r1 * r2) / (r1 + r2);
                       },
                     ),
                     FormulaButtonArguments(
