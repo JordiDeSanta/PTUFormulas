@@ -129,6 +129,7 @@ class _NewHomePageState extends State<NewHomePage> {
             route: 'm',
             title: 'Álgebra',
             formulas: FormulaArguments(
+              tilesColor: colors.math[3],
               formulas: {
                 'Suma y Resta': [
                   AssetImage('assets/img/mathformulas/syr.PNG'),
@@ -309,6 +310,7 @@ class _NewHomePageState extends State<NewHomePage> {
             img: AssetImage('assets/img/stats.png'),
             route: 'm',
             title: 'Estadística',
+            ftColor: colors.math[2],
             formulas: FormulaArguments(
               tilesColor: colors.math[3],
               formulas: {
@@ -520,6 +522,7 @@ class _NewHomePageState extends State<NewHomePage> {
             img: AssetImage('assets/img/prob.png'),
             route: 'm',
             title: 'Probabilidad',
+            ftColor: colors.math[2],
             formulas: FormulaArguments(
               tilesColor: colors.math[3],
               formulas: {
@@ -639,6 +642,7 @@ class _NewHomePageState extends State<NewHomePage> {
           ContentArguments(
             img: AssetImage('assets/img/triangle.png'),
             route: 'm',
+            ftColor: colors.math[2],
             title: 'Geometría',
             formulas: FormulaArguments(
               tilesColor: colors.math[3],
