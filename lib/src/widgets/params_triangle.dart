@@ -17,16 +17,19 @@ class ParamsTriangle extends StatelessWidget {
     final paramsList = args.params.values.toList();
     final multList = args.params.keys.toList();
 
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return Stack(
       children: [
         Icon(
           CupertinoIcons.triangle_fill,
-          size: 400,
+          size: width * 1.1,
           color: args.triangleColor,
         ),
         Positioned(
-          left: 137.0,
-          top: 130.0,
+          left: width * 0.34,
+          top: height * 0.18,
           child: Text(
             paramsList[0] != 0.0
                 ? (paramsList[0] * multList[0].selectedMed)
@@ -41,8 +44,8 @@ class ParamsTriangle extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: 50,
-          top: 280,
+          left: width * 0.1,
+          top: height * 0.4,
           child: Text(
             paramsList[1] != 0
                 ? (paramsList[1] * multList[1].selectedMed)
@@ -57,8 +60,8 @@ class ParamsTriangle extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: 200,
-          top: 280,
+          left: width * 0.55,
+          top: height * 0.4,
           child: Text(
             paramsList[2] != 0
                 ? (paramsList[2] * multList[2].selectedMed)
@@ -73,8 +76,8 @@ class ParamsTriangle extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: 90.0,
-          top: 200.0,
+          left: width * 0.25,
+          top: height * 0.28,
           child: Text(
             'Define como 0 el valor\n que quieras calcular',
             style: styles.result.copyWith(color: Colors.white, fontSize: 18),
