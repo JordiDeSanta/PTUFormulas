@@ -678,6 +678,36 @@ class _NewHomePageState extends State<NewHomePage> {
                     ),
                   ],
                 ],
+                'Áreas': [
+                  AssetImage('assets/img/mathformulas/areas.png'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Pitágoras',
+                      params: {
+                        Param(name: 'Hipotenusa'): 0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        return 0.0;
+                      },
+                    ),
+                  ],
+                ],
+                'Teorema de Tales': [
+                  AssetImage('assets/img/mathformulas/tales.png'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Pitágoras',
+                      params: {
+                        Param(name: 'Hipotenusa'): 0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        return 0.0;
+                      },
+                    ),
+                  ],
+                ],
               },
             ),
           ),
