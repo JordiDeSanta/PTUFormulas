@@ -54,6 +54,7 @@ class _NewHomePageState extends State<NewHomePage> {
             SizedBox(height: 10.0),
             _createMath(),
             _createPhysics(),
+            _createQuimics(),
             if (banner == null)
               SizedBox(height: 80.0)
             else
@@ -384,7 +385,7 @@ class _NewHomePageState extends State<NewHomePage> {
                     ),
                   ],
                 ],
-                'Mediana (Posición)': [
+                'Mediana': [
                   AssetImage('assets/img/mathformulas/mediana.PNG'),
                   AssetImage('assets/img/mathformulas/pmediana.PNG'),
                   <FormulaButtonArguments>[
@@ -640,13 +641,110 @@ class _NewHomePageState extends State<NewHomePage> {
             ),
           ),
           ContentArguments(
-            img: AssetImage('assets/img/triangle.png'),
+            img: AssetImage('assets/img/geometry.png'),
             route: 'm',
             ftColor: colors.math[2],
-            title: 'Geometría',
+            title: 'Figuras 2D',
             formulas: FormulaArguments(
               tilesColor: colors.math[3],
               formulas: {
+                'Áreas': [
+                  AssetImage('assets/img/mathformulas/areas.png'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Cuadrado',
+                      params: {
+                        Param(name: 'l'): 1,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double l = m.values.toList()[0];
+
+                        return pow(l, 3);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Rectángulo/Romboide',
+                      params: {
+                        Param(name: 'b'): 1,
+                        Param(name: 'a'): 1,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double b = m.values.toList()[0];
+                        double a = m.values.toList()[1];
+
+                        return b * a;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Triángulo',
+                      params: {
+                        Param(name: 'b'): 1,
+                        Param(name: 'a'): 1,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double b = m.values.toList()[0];
+                        double a = m.values.toList()[1];
+
+                        return (b * a) / 2;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Rombo',
+                      params: {
+                        Param(name: 'D'): 1,
+                        Param(name: 'd'): 1,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double d1 = m.values.toList()[0];
+                        double d2 = m.values.toList()[1];
+
+                        return (d1 * d2) / 2;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Trapezoide',
+                      params: {
+                        Param(name: 'B'): 1,
+                        Param(name: 'b'): 1,
+                        Param(name: 'a'): 1,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double bi = m.values.toList()[0];
+                        double b = m.values.toList()[1];
+                        double a = m.values.toList()[2];
+
+                        return ((bi + b) * a) / 2;
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/triangle.png'),
+            route: 'm',
+            ftColor: colors.math[2],
+            title: 'Triángulos',
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Semejanza: LLL': [
+                  AssetImage('assets/img/mathformulas/sem1.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Semejanza: LAL': [
+                  AssetImage('assets/img/mathformulas/sem3.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Semejanza: AA': [
+                  AssetImage('assets/img/mathformulas/sem2.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
                 'Teorema de Pitágoras': [
                   AssetImage('assets/img/mathformulas/pitag.png'),
                   null,
@@ -678,32 +776,46 @@ class _NewHomePageState extends State<NewHomePage> {
                     ),
                   ],
                 ],
-                'Áreas': [
-                  AssetImage('assets/img/mathformulas/areas.png'),
-                  null,
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      pageName: 'Pitágoras',
-                      params: {
-                        Param(name: 'Hipotenusa'): 0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        return 0.0;
-                      },
-                    ),
-                  ],
-                ],
                 'Teorema de Tales': [
                   AssetImage('assets/img/mathformulas/tales.png'),
                   null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/ci.png'),
+            route: 'm',
+            ftColor: colors.math[2],
+            title: 'Círculos',
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Área y Perimetro': [
+                  AssetImage('assets/img/mathformulas/circle.png'),
+                  null,
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Pitágoras',
+                      pageName: 'Perímetro',
                       params: {
-                        Param(name: 'Hipotenusa'): 0,
+                        Param(name: 'r'): 1,
                       },
                       formula: (Map<Param, double> m) {
-                        return 0.0;
+                        double r = m.values.toList()[0];
+
+                        return 2 * pi * r;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Área',
+                      params: {
+                        Param(name: 'r'): 1,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double r = m.values.toList()[0];
+
+                        return pi * r * r;
                       },
                     ),
                   ],
@@ -2617,6 +2729,19 @@ class _NewHomePageState extends State<NewHomePage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _createQuimics() {
+    return CourseTileWidget(
+      CourseArguments(
+        color: colors.quimics[0],
+        img: AssetImage('assets/img/quimica.png'),
+        route: 'quimics',
+        title: 'Química',
+        contentsColor: colors.quimics[1],
+        contents: [],
       ),
     );
   }

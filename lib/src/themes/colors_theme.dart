@@ -14,4 +14,11 @@ class ColorsTheme {
     Colors.blue[100],
     Colors.blue,
   ];
+
+  final List<Color> quimics = [
+    Colors.green[300],
+    Colors.green[200],
+    Colors.green[100],
+    Colors.green,
+  ];
 }
