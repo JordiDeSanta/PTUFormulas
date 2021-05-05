@@ -15,7 +15,7 @@ class CoursePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text(args.title, style: styles.course),
+          title: Text(args.title, style: styles.getCourse(context)),
           centerTitle: true,
           backgroundColor: args.color,
           elevation: 0.0,

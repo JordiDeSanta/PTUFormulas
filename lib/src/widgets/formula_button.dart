@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
+import 'package:ptuformulas/src/themes/text_theme.dart';
 
 class FormulaButton extends StatelessWidget {
   final FormulaButtonArguments args;
   final Color tileColor;
 
-  const FormulaButton({this.args, this.tileColor});
+  FormulaButton({this.args, this.tileColor});
+
+  final styles = TextStyles();
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+
     return Container(
       child: ElevatedButton(
         style: ButtonStyle(
@@ -20,10 +25,11 @@ class FormulaButton extends StatelessWidget {
         },
         child: Container(
           width: double.infinity,
-          height: 15,
+          height: height * 0.04,
           child: Text(
             'Calcular ' + args.pageName,
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.start,
+            style: styles.getResult(context),
             overflow: TextOverflow.ellipsis,
           ),
         ),

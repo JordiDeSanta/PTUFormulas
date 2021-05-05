@@ -41,7 +41,7 @@ class ContentTileWidget extends StatelessWidget {
                 width: width * 0.6,
                 child: Text(
                   settings.title,
-                  style: styles.course,
+                  style: styles.getCourse(context),
                   overflow: TextOverflow.ellipsis,
                 ),
               )

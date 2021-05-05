@@ -44,7 +44,7 @@ class _FormulaPageState extends State<FormulaPage> {
       appBar: AppBar(
         title: Text(
           content.pageName,
-          style: styles.title,
+          style: styles.getTitle(context),
           overflow: TextOverflow.fade,
         ),
         centerTitle: true,
@@ -145,7 +145,7 @@ class _FormulaPageState extends State<FormulaPage> {
               'R: ' +
                   (args.formula(args.params) / args.selectedResultUnit)
                       .toString(),
-              style: styles.result,
+              style: styles.getResult(context),
             ),
             SizedBox(width: 10.0),
             if (args.resultUnit != null)

@@ -39,7 +39,7 @@ class ParamsTriangle extends StatelessWidget {
                 : args.formula(args.params).toStringAsPrecision(3) +
                     ' ' +
                     args.resultsSystem[0],
-            style: styles.triangle,
+            style: styles.getTriangle(context),
             textAlign: TextAlign.center,
           ),
         ),
@@ -55,7 +55,7 @@ class ParamsTriangle extends StatelessWidget {
                 : args.formula(args.params).toStringAsPrecision(3) +
                     ' ' +
                     args.resultsSystem[1],
-            style: styles.triangle,
+            style: styles.getTriangle(context),
             textAlign: TextAlign.center,
           ),
         ),
@@ -71,7 +71,7 @@ class ParamsTriangle extends StatelessWidget {
                 : args.formula(args.params).toStringAsPrecision(3) +
                     ' ' +
                     args.resultsSystem[2],
-            style: styles.triangle,
+            style: styles.getTriangle(context),
             textAlign: TextAlign.center,
           ),
         ),
@@ -80,7 +80,9 @@ class ParamsTriangle extends StatelessWidget {
           top: height * 0.28,
           child: Text(
             'Define como 0 el valor\n que quieras calcular',
-            style: styles.result.copyWith(color: Colors.white, fontSize: 18),
+            style: styles
+                .getResult(context)
+                .copyWith(color: Colors.white, fontSize: 18),
             overflow: TextOverflow.visible,
             textAlign: TextAlign.center,
           ),

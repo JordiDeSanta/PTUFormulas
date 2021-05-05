@@ -1,18 +1,46 @@
 import 'package:flutter/material.dart';
 
 class TextStyles {
-  final TextStyle title =
-      TextStyle(fontSize: 25.0, fontWeight: FontWeight.w300);
+  double getWidth(BuildContext c) {
+    double width = MediaQuery.of(c).size.width;
 
-  final TextStyle course =
-      TextStyle(fontSize: 30.0, fontWeight: FontWeight.w100);
+    return width;
+  }
 
-  final TextStyle expansionTile =
-      TextStyle(fontSize: 20.0, fontWeight: FontWeight.w200);
+  TextStyle getTitle(BuildContext c) {
+    final TextStyle title =
+        TextStyle(fontSize: getWidth(c) * 0.01, fontWeight: FontWeight.w300);
 
-  final TextStyle triangle =
-      TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.w200);
+    return title;
+  }
 
-  final TextStyle result =
-      TextStyle(fontSize: 20.0, fontWeight: FontWeight.w300);
+  TextStyle getCourse(BuildContext c) {
+    final TextStyle course =
+        TextStyle(fontSize: getWidth(c) * 0.01, fontWeight: FontWeight.w100);
+
+    return course;
+  }
+
+  TextStyle getET(BuildContext c) {
+    final TextStyle expansionTile =
+        TextStyle(fontSize: getWidth(c) * 0.01, fontWeight: FontWeight.w200);
+
+    return expansionTile;
+  }
+
+  TextStyle getTriangle(BuildContext c) {
+    final TextStyle triangle = TextStyle(
+        fontSize: getWidth(c) * 0.01,
+        color: Colors.white,
+        fontWeight: FontWeight.w200);
+
+    return triangle;
+  }
+
+  TextStyle getResult(BuildContext c) {
+    final TextStyle result =
+        TextStyle(fontSize: getWidth(c) * 0.01, fontWeight: FontWeight.w300);
+
+    return result;
+  }
 }

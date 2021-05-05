@@ -43,7 +43,7 @@ class _NewHomePageState extends State<NewHomePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.0,
-        title: Text('PTU Fórmulas', style: styles.title),
+        title: Text('PTU Fórmulas', style: styles.getTitle(context)),
         centerTitle: true,
         toolbarHeight: 80.0,
         backgroundColor: Colors.black26,
@@ -828,7 +828,7 @@ class _NewHomePageState extends State<NewHomePage> {
                   <FormulaButtonArguments>[],
                 ],
                 'Incentro': [
-                  AssetImage('assets/img/mathformulas/incentro.png'),
+                  AssetImage('assets/img/mathformulas/inc.png'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
