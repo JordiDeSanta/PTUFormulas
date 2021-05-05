@@ -746,7 +746,7 @@ class _NewHomePageState extends State<NewHomePage> {
                   <FormulaButtonArguments>[],
                 ],
                 'Trapecios': [
-                  AssetImage('assets/img/mathformulas/pol.png'),
+                  AssetImage('assets/img/mathformulas/trap.png'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
@@ -771,18 +771,13 @@ class _NewHomePageState extends State<NewHomePage> {
             formulas: FormulaArguments(
               tilesColor: colors.math[3],
               formulas: {
-                'Semejanza: LLL': [
-                  AssetImage('assets/img/mathformulas/sem1.png'),
+                'Clasificación': [
+                  AssetImage('assets/img/mathformulas/clas.png'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
-                'Semejanza: LAL': [
-                  AssetImage('assets/img/mathformulas/sem3.png'),
-                  null,
-                  <FormulaButtonArguments>[],
-                ],
-                'Semejanza: AA': [
-                  AssetImage('assets/img/mathformulas/sem2.png'),
+                'Criterios de Semejanza': [
+                  AssetImage('assets/img/mathformulas/sem.png'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
@@ -824,6 +819,36 @@ class _NewHomePageState extends State<NewHomePage> {
                 ],
                 'Teorema de Ángulos': [
                   AssetImage('assets/img/mathformulas/ang.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Bisectriz': [
+                  AssetImage('assets/img/mathformulas/bis.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Incentro': [
+                  AssetImage('assets/img/mathformulas/incentro.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Transversal de Gravedad': [
+                  AssetImage('assets/img/mathformulas/tdg.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Simetral': [
+                  AssetImage('assets/img/mathformulas/simetr.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Circuncentro': [
+                  AssetImage('assets/img/mathformulas/cc.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Mediana': [
+                  AssetImage('assets/img/mathformulas/medianat.png'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
