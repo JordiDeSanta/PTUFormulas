@@ -142,10 +142,10 @@ class Energy extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
         'Joule': 1,
-        'Cal * g': 4.184,
+        'Cal-g': 4.184,
         'Kilocaloría': 4184,
-        'W * h': 3600,
-        'kW * h': 3.6e+6,
+        'W-h': 3600,
+        'kW-h': 3.6e+6,
       };
 }
 

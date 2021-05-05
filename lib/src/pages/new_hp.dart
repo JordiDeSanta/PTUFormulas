@@ -641,6 +641,27 @@ class _NewHomePageState extends State<NewHomePage> {
             ),
           ),
           ContentArguments(
+            img: AssetImage('assets/img/angle.png'),
+            route: 'm',
+            ftColor: colors.math[2],
+            title: 'Ángulos',
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Opuestos por Vértice': [
+                  AssetImage('assets/img/mathformulas/op.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Paralelas Cortadas': [
+                  AssetImage('assets/img/mathformulas/par.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
             img: AssetImage('assets/img/geometry.png'),
             route: 'm',
             ftColor: colors.math[2],
@@ -660,7 +681,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       formula: (Map<Param, double> m) {
                         double l = m.values.toList()[0];
 
-                        return pow(l, 3);
+                        return pow(l, 2);
                       },
                     ),
                     FormulaButtonArguments(
@@ -718,6 +739,26 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                     ),
                   ],
+                ],
+                'Polígonos Regulares': [
+                  AssetImage('assets/img/mathformulas/pol.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Trapecios': [
+                  AssetImage('assets/img/mathformulas/pol.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Cuadriláteros': [
+                  AssetImage('assets/img/mathformulas/cuadr.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Deltoide': [
+                  AssetImage('assets/img/mathformulas/delt.png'),
+                  null,
+                  <FormulaButtonArguments>[],
                 ],
               },
             ),
@@ -781,6 +822,11 @@ class _NewHomePageState extends State<NewHomePage> {
                   null,
                   <FormulaButtonArguments>[],
                 ],
+                'Teorema de Ángulos': [
+                  AssetImage('assets/img/mathformulas/ang.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
               },
             ),
           ),
@@ -792,7 +838,7 @@ class _NewHomePageState extends State<NewHomePage> {
             formulas: FormulaArguments(
               tilesColor: colors.math[3],
               formulas: {
-                'Área y Perimetro': [
+                'Círculo': [
                   AssetImage('assets/img/mathformulas/circle.png'),
                   null,
                   <FormulaButtonArguments>[
@@ -819,6 +865,61 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                     ),
                   ],
+                ],
+                'Sector Circular': [
+                  AssetImage('assets/img/mathformulas/sector.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Ángulo de Centro': [
+                  AssetImage('assets/img/mathformulas/dc.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Ángulo Inscrito': [
+                  AssetImage('assets/img/mathformulas/insc.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Ángulo Semi-Inscrito': [
+                  AssetImage('assets/img/mathformulas/asi.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Ángulo Interior': [
+                  AssetImage('assets/img/mathformulas/int.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Ángulo Exterior': [
+                  AssetImage('assets/img/mathformulas/ext.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Ángulos Inscritos y de Centro': [
+                  AssetImage('assets/img/mathformulas/angulos.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Líneas Paralelas': [
+                  AssetImage('assets/img/mathformulas/lpar.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Ángulos Inscritos': [
+                  AssetImage('assets/img/mathformulas/ins.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Inscritos en Semicírculo': [
+                  AssetImage('assets/img/mathformulas/smi.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Cuadrilátero Inscrito': [
+                  AssetImage('assets/img/mathformulas/cuadins.png'),
+                  null,
+                  <FormulaButtonArguments>[]
                 ],
               },
             ),
@@ -2714,13 +2815,20 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                     ),
                     FormulaButtonArguments(
+                      resultUnit: Energy(),
                       pageName: 'Energía Consumida',
                       params: {
                         Param(name: 'Potencia Eléctrica', med: Power()): 1.0,
                         Param(name: 'Tiempo Activo', med: Time()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        return 0.0;
+                        double inputP = m.values.toList()[0];
+                        double inputT = m.values.toList()[1];
+
+                        double p = m.keys.toList()[0].getValue(inputP);
+                        double t = m.keys.toList()[1].getValue(inputT);
+
+                        return p * t;
                       },
                     ),
                   ],
