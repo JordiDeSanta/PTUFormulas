@@ -24,6 +24,7 @@ class FormulaButton extends StatelessWidget {
           Navigator.pushNamed(context, 'formula', arguments: [tileColor, args]);
         },
         child: Container(
+          padding: EdgeInsets.all(5),
           width: double.infinity,
           height: height * 0.04,
           child: Text(

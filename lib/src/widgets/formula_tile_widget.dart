@@ -36,7 +36,7 @@ class FormulaTileWidget extends StatelessWidget {
           padding: const EdgeInsets.only(left: 5.0, right: 5.0),
           child: ExpansionTile(
             childrenPadding: EdgeInsets.all(5.0),
-            title: Text(title, style: styles.getTitle(context)),
+            title: Text(title, style: styles.getET(context)),
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),

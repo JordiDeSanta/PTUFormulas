@@ -44,12 +44,12 @@ class _FormulaPageState extends State<FormulaPage> {
       appBar: AppBar(
         title: Text(
           content.pageName,
-          style: styles.getTitle(context),
+          style: styles.getCourse(context),
           overflow: TextOverflow.fade,
         ),
         centerTitle: true,
         toolbarHeight: 80.0,
-        backgroundColor: pageColor,
+        backgroundColor: content.triangleColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
