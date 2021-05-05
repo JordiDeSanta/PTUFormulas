@@ -7,6 +7,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:ptuformulas/src/pages/new_hp.dart';
 import 'package:ptuformulas/src/providers/ad_state.dart';
 import 'package:provider/provider.dart';
+import 'package:ptuformulas/src/themes/colors_theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,6 +51,7 @@ class _MyAppState extends State<MyApp> {
         'm': (BuildContext context) => ContentPage(),
         'q': (BuildContext context) => ContentPage(),
       },
+      theme: ThemeData(accentColor: Colors.white),
     );
   }
 }
