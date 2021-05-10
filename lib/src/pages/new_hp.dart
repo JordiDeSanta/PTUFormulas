@@ -581,7 +581,7 @@ class _NewHomePageState extends State<NewHomePage> {
                     FormulaButtonArguments(
                       pageName: 'Variación',
                       params: {
-                        Param(name: 'Elementos totales'): 2.0,
+                        Param(name: 'Elementos totales'): 1.0,
                         Param(name: 'Elementos tomados'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
@@ -590,7 +590,8 @@ class _NewHomePageState extends State<NewHomePage> {
 
                         if (n <= 0 || k <= 0 || n < k) return 0.0;
 
-                        return ((factorial(n)) / (factorial(n - k))).toDouble();
+                        return (((factorial(n))) / ((factorial((n - k)))))
+                            .toDouble();
                       },
                     ),
                     FormulaButtonArguments(
@@ -833,11 +834,6 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/mathformulas/clas.png'),
                   null,
                   <FormulaButtonArguments>[],
-                ],
-                'Criterios de Congruencia': [
-                  AssetImage('assets/img/mathformulas/textra.png'),
-                  null,
-                  <FormulaButtonArguments>[]
                 ],
                 'Criterios de Semejanza': [
                   AssetImage('assets/img/mathformulas/sem.png'),
@@ -3002,7 +2998,44 @@ class _NewHomePageState extends State<NewHomePage> {
         route: 'quimics',
         title: 'Química',
         contentsColor: colors.quimics[1],
-        contents: [],
+        contents: [
+          ContentArguments(
+            img: AssetImage('assets/img/atomo.png'),
+            route: 'q',
+            title: 'Átomo',
+            ftColor: colors.quimics[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.quimics[3],
+              formulas: {
+                'Electrón': [
+                  AssetImage('assets/img/formulas/electron.PNG'),
+                  null,
+                  []
+                ],
+                'Protón': [
+                  AssetImage('assets/img/formulas/proton.PNG'),
+                  null,
+                  []
+                ],
+                'Neutrón': [
+                  AssetImage('assets/img/formulas/neutron.PNG'),
+                  null,
+                  []
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/organica.png'),
+            route: 'q',
+            title: 'Orgánica',
+            ftColor: colors.quimics[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.quimics[3],
+              formulas: {},
+            ),
+          ),
+        ],
       ),
     );
   }
