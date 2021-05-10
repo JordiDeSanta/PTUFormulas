@@ -406,7 +406,7 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Li del intervalo de la Media'): 1.0,
                         Param(name: 'Número de Datos'): 1.0,
                         Param(name: 'f del intervalo de la Media'): 1.0,
-                        Param(name: 'f del intervalo anterior al de la Media'):
+                        Param(name: 'f acum del intervalo anterior al de la Media'):
                             1.0,
                         Param(name: 'Amplitud del intervalo de la Media'): 1.0,
                       },
@@ -512,6 +512,34 @@ class _NewHomePageState extends State<NewHomePage> {
                         if (k > 99 || k < 1) return 0.0;
 
                         return ((n + 1) * k) / 100;
+                      },
+                    ),
+                  ],
+                ],
+                'Percentiles (DA)': [
+                  AssetImage('assets/img/mathformulas/perc.PNG'),
+                  AssetImage('assets/img/mathformulas/pperc.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Percentil k',
+                      params: {
+                        Param(name: 'Li del intervalo de la Media'): 1.0,
+                        Param(name: 'Número de Datos'): 1.0,
+                        Param(name: 'k'): 1.0,
+                        Param(name: 'f del intervalo de la Media'): 1.0,
+                        Param(name: 'f acum del intervalo anterior al de la Media'):
+                            1.0,
+                        Param(name: 'Amplitud del intervalo de la Media'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double li = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+                        double k = m.values.toList()[2];
+                        double fi = m.values.toList()[3];
+                        double fim1 = m.values.toList()[4];
+                        double a = m.values.toList()[5];
+
+                        return li + ((((n * k) / 100) - fim1) / fi) * a;
                       },
                     ),
                   ],
@@ -658,6 +686,11 @@ class _NewHomePageState extends State<NewHomePage> {
                   null,
                   <FormulaButtonArguments>[],
                 ],
+                'Teorema de Tales': [
+                  AssetImage('assets/img/mathformulas/tales.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
               },
             ),
           ),
@@ -724,7 +757,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                     ),
                     FormulaButtonArguments(
-                      pageName: 'Trapezoide',
+                      pageName: 'Trapecio',
                       params: {
                         Param(name: 'B'): 1,
                         Param(name: 'b'): 1,
@@ -760,6 +793,31 @@ class _NewHomePageState extends State<NewHomePage> {
                   null,
                   <FormulaButtonArguments>[],
                 ],
+                'Equivalencia por Transversales': [
+                  AssetImage('assets/img/mathformulas/transvers.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Equivalencia por Medianas': [
+                  AssetImage('assets/img/mathformulas/medianas.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Triangulos de = b y h': [
+                  AssetImage('assets/img/mathformulas/bya.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Equivalencia en Cuadriláteros': [
+                  AssetImage('assets/img/mathformulas/equad.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Triangulo Interior': [
+                  AssetImage('assets/img/mathformulas/ti.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
               },
             ),
           ),
@@ -775,6 +833,11 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/mathformulas/clas.png'),
                   null,
                   <FormulaButtonArguments>[],
+                ],
+                'Criterios de Congruencia': [
+                  AssetImage('assets/img/mathformulas/textra.png'),
+                  null,
+                  <FormulaButtonArguments>[]
                 ],
                 'Criterios de Semejanza': [
                   AssetImage('assets/img/mathformulas/sem.png'),
@@ -812,17 +875,17 @@ class _NewHomePageState extends State<NewHomePage> {
                     ),
                   ],
                 ],
-                'Teorema de Tales': [
-                  AssetImage('assets/img/mathformulas/tales.png'),
-                  null,
-                  <FormulaButtonArguments>[],
-                ],
                 'Teorema de Ángulos': [
                   AssetImage('assets/img/mathformulas/ang.png'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
-                'Bisectriz': [
+                'Altura': [
+                  AssetImage('assets/img/mathformulas/hei.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Bisectriz Interior': [
                   AssetImage('assets/img/mathformulas/bis.png'),
                   null,
                   <FormulaButtonArguments>[],
@@ -849,6 +912,11 @@ class _NewHomePageState extends State<NewHomePage> {
                 ],
                 'Mediana': [
                   AssetImage('assets/img/mathformulas/medianat.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Casos Especiales': [
+                  AssetImage('assets/img/mathformulas/esp.png'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
@@ -894,7 +962,47 @@ class _NewHomePageState extends State<NewHomePage> {
                 'Sector Circular': [
                   AssetImage('assets/img/mathformulas/sector.png'),
                   null,
-                  <FormulaButtonArguments>[]
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Aréa de Sector',
+                      params: {
+                        Param(name: 'Ángulo'): 1,
+                        Param(name: 'Radio'): 1,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double a = m.values.toList()[0];
+                        double r = m.values.toList()[1];
+
+                        return a * pi * r * r / 360;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Perímetro de Sector',
+                      params: {
+                        Param(name: 'Longitud del Arco'): 1,
+                        Param(name: 'Radio'): 1,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double l = m.values.toList()[0];
+                        double r = m.values.toList()[1];
+
+                        return l + 2 * r;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Longitud del Arco',
+                      params: {
+                        Param(name: 'Ángulo'): 1,
+                        Param(name: 'Radio'): 1,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double a = m.values.toList()[0];
+                        double r = m.values.toList()[1];
+
+                        return 2 * a * pi * r / 360;
+                      },
+                    ),
+                  ]
                 ],
                 'Ángulo de Centro': [
                   AssetImage('assets/img/mathformulas/dc.png'),
@@ -943,6 +1051,26 @@ class _NewHomePageState extends State<NewHomePage> {
                 ],
                 'Cuadrilátero Inscrito': [
                   AssetImage('assets/img/mathformulas/cuadins.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Teorema de las Cuerdas': [
+                  AssetImage('assets/img/mathformulas/cuerdas.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Teorema de las Secantes': [
+                  AssetImage('assets/img/mathformulas/sec.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Teorema de las Tangente y Secante': [
+                  AssetImage('assets/img/mathformulas/tys.png'),
+                  null,
+                  <FormulaButtonArguments>[]
+                ],
+                'Teoremas Extra': [
+                  AssetImage('assets/img/mathformulas/textra.png'),
                   null,
                   <FormulaButtonArguments>[]
                 ],

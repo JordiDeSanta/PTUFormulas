@@ -49,7 +49,7 @@ class _FormulaPageState extends State<FormulaPage> {
         ),
         centerTitle: true,
         toolbarHeight: 80.0,
-        backgroundColor: content.triangleColor,
+        backgroundColor: pageColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
