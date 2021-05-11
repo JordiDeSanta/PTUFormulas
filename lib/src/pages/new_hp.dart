@@ -3063,7 +3063,7 @@ class _NewHomePageState extends State<NewHomePage> {
                   null,
                   <FormulaButtonArguments>[],
                 ],
-                'Número de Carbonos': [
+                'Número de C en CP/Sust/Rad': [
                   AssetImage('assets/img/formulas/ndec.PNG'),
                   null,
                   <FormulaButtonArguments>[],
@@ -3084,18 +3084,43 @@ class _NewHomePageState extends State<NewHomePage> {
             formulas: FormulaArguments(
               tilesColor: colors.quimics[3],
               formulas: {
-                'Tipo de Enlace': [
-                  AssetImage('assets/img/formulas/sufc.PNG'),
+                'Nota': [
+                  AssetImage('assets/img/formulas/nota.PNG'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
-                'Número de Carbonos': [
-                  AssetImage('assets/img/formulas/ndec.PNG'),
+                'Ácido Carboxílico': [
+                  AssetImage('assets/img/formulas/acarbo.PNG'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
-                'Número de Enlaces/Sustituyentes/Radicales': [
-                  AssetImage('assets/img/formulas/ndee.PNG'),
+                'Anhídrido de Ácido': [
+                  AssetImage('assets/img/formulas/anhid.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Éster': [
+                  AssetImage('assets/img/formulas/ester.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Amida': [
+                  AssetImage('assets/img/formulas/amida.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Nitrilo': [
+                  AssetImage('assets/img/formulas/nitrilo.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Aldehído': [
+                  AssetImage('assets/img/formulas/aldehi.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Cetona': [
+                  AssetImage('assets/img/formulas/cetona.PNG'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
