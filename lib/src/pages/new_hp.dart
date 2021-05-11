@@ -3010,17 +3010,42 @@ class _NewHomePageState extends State<NewHomePage> {
                 'Electrón': [
                   AssetImage('assets/img/formulas/electron.PNG'),
                   null,
-                  []
+                  <FormulaButtonArguments>[],
                 ],
                 'Protón': [
                   AssetImage('assets/img/formulas/proton.PNG'),
                   null,
-                  []
+                  <FormulaButtonArguments>[],
                 ],
                 'Neutrón': [
                   AssetImage('assets/img/formulas/neutron.PNG'),
                   null,
-                  []
+                  <FormulaButtonArguments>[],
+                ],
+                'Catión': [
+                  AssetImage('assets/img/formulas/cation.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Anión': [
+                  AssetImage('assets/img/formulas/anion.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Isótopos': [
+                  AssetImage('assets/img/formulas/isotopo.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Isóbaros': [
+                  AssetImage('assets/img/formulas/isobaro.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Isótonos': [
+                  AssetImage('assets/img/formulas/isotono.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
                 ],
               },
             ),
