@@ -3053,11 +3053,53 @@ class _NewHomePageState extends State<NewHomePage> {
           ContentArguments(
             img: AssetImage('assets/img/organica.png'),
             route: 'q',
-            title: 'Orgánica',
+            title: 'Hidrocarburos',
             ftColor: colors.quimics[2],
             formulas: FormulaArguments(
               tilesColor: colors.quimics[3],
-              formulas: {},
+              formulas: {
+                'Tipo de Enlace': [
+                  AssetImage('assets/img/formulas/sufc.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Número de Carbonos': [
+                  AssetImage('assets/img/formulas/ndec.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Número de Enlaces/Sustituyentes/Radicales': [
+                  AssetImage('assets/img/formulas/ndee.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/grupos.png'),
+            route: 'q',
+            title: 'G. Funcionales',
+            ftColor: colors.quimics[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.quimics[3],
+              formulas: {
+                'Tipo de Enlace': [
+                  AssetImage('assets/img/formulas/sufc.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Número de Carbonos': [
+                  AssetImage('assets/img/formulas/ndec.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Número de Enlaces/Sustituyentes/Radicales': [
+                  AssetImage('assets/img/formulas/ndee.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
             ),
           ),
         ],
