@@ -3124,6 +3124,26 @@ class _NewHomePageState extends State<NewHomePage> {
                   null,
                   <FormulaButtonArguments>[],
                 ],
+                'Alcohol': [
+                  AssetImage('assets/img/formulas/alcohol.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Amina': [
+                  AssetImage('assets/img/formulas/amina.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Éter': [
+                  AssetImage('assets/img/formulas/eter.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Sulfuro': [
+                  AssetImage('assets/img/formulas/sulfuro.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
               },
             ),
           ),
