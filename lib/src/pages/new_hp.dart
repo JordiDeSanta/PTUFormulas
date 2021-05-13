@@ -3255,7 +3255,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       triangleColor: colors.quimics[3],
                       resultsSystem: ['g', 'uma', ''],
                       bIsTriangle: true,
-                      pageName: 'Mnm',
+                      pageName: 'MM-Masa-N',
                       params: <Param, double>{
                         Param(name: 'Masa (g)'): 0.0,
                         Param(name: 'Masa Molecular (uma)'): 0.0,
@@ -3274,6 +3274,23 @@ class _NewHomePageState extends State<NewHomePage> {
                     )
                   ],
                 ],
+                'Número de Moles': [
+                  AssetImage('assets/img/formulas/nmoles.png'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Moles',
+                      params: {
+                        Param(name: 'Número de Moléculas'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double nm = m.values.toList()[0];
+
+                        return nm / (6.022e23);
+                      },
+                    ),
+                  ],
+                ],
               },
             ),
           ),
@@ -3288,42 +3305,170 @@ class _NewHomePageState extends State<NewHomePage> {
                 'Densidad de Solución': [
                   AssetImage('assets/img/formulas/denss.png'),
                   AssetImage('assets/img/formulas/denssp.png'),
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      triangleColor: colors.quimics[3],
+                      resultsSystem: ['g', 'g/ml', 'ml'],
+                      bIsTriangle: true,
+                      pageName: 'Masa-Dens-Vol',
+                      params: <Param, double>{
+                        Param(name: 'Masa (g)'): 0.0,
+                        Param(name: 'Densidad (g/ml)'): 0.0,
+                        Param(name: 'Volumen (ml)'): 0.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double n = m.values.toList()[0];
+                        double ma = m.values.toList()[1];
+                        double v = m.values.toList()[2];
+
+                        if (n == 0) return ma * v;
+                        if (ma == 0) return n / v;
+                        if (v == 0) return n / ma;
+                        return 0.0;
+                      },
+                    )
+                  ],
                 ],
                 'Moles de Sustancia': [
                   AssetImage('assets/img/formulas/mv.png'),
-                  AssetImage('assets/img/formulas/denssp.png'),
-                  <FormulaButtonArguments>[],
+                  AssetImage('assets/img/formulas/npp.png'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      triangleColor: colors.quimics[3],
+                      resultsSystem: ['', 'mol/L', 'L'],
+                      bIsTriangle: true,
+                      pageName: 'N-Masa-Vol',
+                      params: <Param, double>{
+                        Param(name: 'Número de moles'): 0.0,
+                        Param(name: 'Molaridad (mol/L)'): 0.0,
+                        Param(name: 'Volumen (L)'): 0.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double n = m.values.toList()[0];
+                        double ma = m.values.toList()[1];
+                        double v = m.values.toList()[2];
+
+                        if (n == 0) return ma * v;
+                        if (ma == 0) return n / v;
+                        if (v == 0) return n / ma;
+                        return 0.0;
+                      },
+                    )
+                  ],
                 ],
                 'Porcentaje Masa-Masa': [
                   AssetImage('assets/img/formulas/pmm.png'),
-                  null,
-                  <FormulaButtonArguments>[],
+                  AssetImage('assets/img/formulas/dp.png'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: '%m/m',
+                      params: {
+                        Param(name: 'gramos de sto'): 1.0,
+                        Param(name: 'gramos de sln'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double msto = m.values.toList()[0];
+                        double msln = m.values.toList()[1];
+
+                        return (msto / msln) * 100;
+                      },
+                    ),
+                  ],
                 ],
                 'Porcentaje Masa-Volumen': [
                   AssetImage('assets/img/formulas/pmv.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: '%m/v',
+                      params: {
+                        Param(name: 'gramos de sto'): 1.0,
+                        Param(name: 'ml de sln'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double msto = m.values.toList()[0];
+                        double vsln = m.values.toList()[1];
+
+                        return (msto / vsln) * 100;
+                      },
+                    ),
+                  ],
                 ],
                 'Porcentaje Vol-Vol': [
                   AssetImage('assets/img/formulas/pvv.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: '%v/v',
+                      params: {
+                        Param(name: 'ml de sto'): 1.0,
+                        Param(name: 'ml de sln'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double vsto = m.values.toList()[0];
+                        double vsln = m.values.toList()[1];
+
+                        return (vsto / vsln) * 100;
+                      },
+                    ),
+                  ],
                 ],
                 'Molaridad': [
                   AssetImage('assets/img/formulas/molaridad.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Molaridad',
+                      params: {
+                        Param(name: 'Moles de sto'): 1.0,
+                        Param(name: 'L de sln'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double nsto = m.values.toList()[0];
+                        double lsln = m.values.toList()[1];
+
+                        return nsto / lsln;
+                      },
+                    ),
+                  ],
                 ],
                 'Molalidad': [
                   AssetImage('assets/img/formulas/molalidad.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Molalidad',
+                      params: {
+                        Param(name: 'Moles de sto'): 1.0,
+                        Param(name: 'Kg de ste'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double nsto = m.values.toList()[0];
+                        double kgste = m.values.toList()[1];
+
+                        return nsto / kgste;
+                      },
+                    ),
+                  ],
                 ],
                 'Fracción Molar': [
                   AssetImage('assets/img/formulas/fmolar.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Fracción Molar',
+                      params: {
+                        Param(name: 'Moles del Componente'): 1.0,
+                        Param(name: 'Moles en Total'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double mc = m.values.toList()[0];
+                        double mt = m.values.toList()[1];
+
+                        return mc / mt;
+                      },
+                    ),
+                  ],
                 ],
                 'Dilución': [
                   AssetImage('assets/img/formulas/dilu.png'),
@@ -3333,7 +3478,25 @@ class _NewHomePageState extends State<NewHomePage> {
                 'Mezcla': [
                   AssetImage('assets/img/formulas/molaridadmezcla.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Molaridad Final',
+                      params: {
+                        Param(name: 'Masa Inicial (g)'): 1.0,
+                        Param(name: 'Masa Final (g)'): 1.0,
+                        Param(name: 'Volumen Inicial (L)'): 1.0,
+                        Param(name: 'Volumen Final (L)'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double mi = m.values.toList()[0];
+                        double mf = m.values.toList()[1];
+                        double vi = m.values.toList()[2];
+                        double vf = m.values.toList()[3];
+
+                        return ((mi * vi) + (mf * vf)) / (vi + vf);
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
