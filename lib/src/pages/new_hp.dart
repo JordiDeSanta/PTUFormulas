@@ -3147,6 +3147,223 @@ class _NewHomePageState extends State<NewHomePage> {
               },
             ),
           ),
+          ContentArguments(
+            img: AssetImage('assets/img/sust.png'),
+            route: 'q',
+            title: 'Sustituyentes',
+            ftColor: colors.quimics[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.quimics[3],
+              formulas: {
+                'Éster': [
+                  AssetImage('assets/img/formulas/esters.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Amida': [
+                  AssetImage('assets/img/formulas/amidas.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Nitrilo': [
+                  AssetImage('assets/img/formulas/nitrilos.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Aldehído': [
+                  AssetImage('assets/img/formulas/aldehis.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Cetona': [
+                  AssetImage('assets/img/formulas/cetonas.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Alcohol': [
+                  AssetImage('assets/img/formulas/alcohols.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Amina': [
+                  AssetImage('assets/img/formulas/aminas.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Sulfuro': [
+                  AssetImage('assets/img/formulas/sulfuros.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Halogenuro': [
+                  AssetImage('assets/img/formulas/halogenuro.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Nitrocompuesto': [
+                  AssetImage('assets/img/formulas/nitro.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/gas.png'),
+            route: 'q',
+            title: 'Gases',
+            ftColor: colors.quimics[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.quimics[3],
+              formulas: {
+                'Número de Avogadro': [
+                  AssetImage('assets/img/formulas/avog.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/water.png'),
+            route: 'q',
+            title: 'Mol',
+            ftColor: colors.quimics[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.quimics[3],
+              formulas: {
+                'Número de Avogadro': [
+                  AssetImage('assets/img/formulas/avog.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Masa Molecular': [
+                  AssetImage('assets/img/formulas/mm.png'),
+                  AssetImage('assets/img/formulas/mmp.png'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      triangleColor: colors.quimics[3],
+                      resultsSystem: ['g', 'uma', ''],
+                      bIsTriangle: true,
+                      pageName: 'Mnm',
+                      params: <Param, double>{
+                        Param(name: 'Masa (g)'): 0.0,
+                        Param(name: 'Masa Molecular (uma)'): 0.0,
+                        Param(name: 'Numero de Moles'): 0.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double ma = m.values.toList()[0];
+                        double mm = m.values.toList()[1];
+                        double n = m.values.toList()[2];
+
+                        if (ma == 0) return mm * n;
+                        if (mm == 0) return ma / n;
+                        if (n == 0) return ma / mm;
+                        return 0.0;
+                      },
+                    )
+                  ],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/solutions.png'),
+            route: 'q',
+            title: 'Soluciones',
+            ftColor: colors.quimics[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.quimics[3],
+              formulas: {
+                'Densidad de Solución': [
+                  AssetImage('assets/img/formulas/denss.png'),
+                  AssetImage('assets/img/formulas/denssp.png'),
+                  <FormulaButtonArguments>[],
+                ],
+                'Moles de Sustancia': [
+                  AssetImage('assets/img/formulas/mv.png'),
+                  AssetImage('assets/img/formulas/denssp.png'),
+                  <FormulaButtonArguments>[],
+                ],
+                'Porcentaje Masa-Masa': [
+                  AssetImage('assets/img/formulas/pmm.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Porcentaje Masa-Volumen': [
+                  AssetImage('assets/img/formulas/pmv.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Porcentaje Vol-Vol': [
+                  AssetImage('assets/img/formulas/pvv.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Molaridad': [
+                  AssetImage('assets/img/formulas/molaridad.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Molalidad': [
+                  AssetImage('assets/img/formulas/molalidad.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Fracción Molar': [
+                  AssetImage('assets/img/formulas/fmolar.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Dilución': [
+                  AssetImage('assets/img/formulas/dilu.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Mezcla': [
+                  AssetImage('assets/img/formulas/molaridadmezcla.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            img: AssetImage('assets/img/relaciones.png'),
+            route: 'q',
+            title: 'Relaciones',
+            ftColor: colors.quimics[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.quimics[3],
+              formulas: {
+                'Relación %m/v %m/m': [
+                  AssetImage('assets/img/formulas/rel0.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Relación %m/v MM': [
+                  AssetImage('assets/img/formulas/rel1.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Relación %m/m M': [
+                  AssetImage('assets/img/formulas/rel2.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Relación %m/v m': [
+                  AssetImage('assets/img/formulas/rel3.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Relación %m/m m': [
+                  AssetImage('assets/img/formulas/rel4.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
         ],
       ),
     );
