@@ -3216,8 +3216,18 @@ class _NewHomePageState extends State<NewHomePage> {
             formulas: FormulaArguments(
               tilesColor: colors.quimics[3],
               formulas: {
-                'Número de Avogadro': [
-                  AssetImage('assets/img/formulas/avog.png'),
+                'Ley de Boyle': [
+                  AssetImage('assets/img/formulas/boyle.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Leyes de Gay-Lussac': [
+                  AssetImage('assets/img/formulas/leyesgay.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Leyes Combinadas': [
+                  AssetImage('assets/img/formulas/combiley.png'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
