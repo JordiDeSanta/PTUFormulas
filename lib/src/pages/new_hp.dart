@@ -3358,7 +3358,7 @@ class _NewHomePageState extends State<NewHomePage> {
                 ],
                 'Porcentaje Masa-Masa': [
                   AssetImage('assets/img/formulas/pmm.png'),
-                  AssetImage('assets/img/formulas/dp.png'),
+                  null,
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
                       pageName: '%m/m',
@@ -3472,12 +3472,12 @@ class _NewHomePageState extends State<NewHomePage> {
                 ],
                 'Dilución': [
                   AssetImage('assets/img/formulas/dilu.png'),
-                  null,
+                  AssetImage('assets/img/formulas/dp.png'),
                   <FormulaButtonArguments>[],
                 ],
                 'Mezcla': [
                   AssetImage('assets/img/formulas/molaridadmezcla.png'),
-                  null,
+                  AssetImage('assets/img/formulas/npp.png'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
                       pageName: 'Molaridad Final',
@@ -3512,27 +3512,101 @@ class _NewHomePageState extends State<NewHomePage> {
                 'Relación %m/v %m/m': [
                   AssetImage('assets/img/formulas/rel0.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: '%m/v',
+                      params: {
+                        Param(name: 'Densidad'): 1.0,
+                        Param(name: '%m/m'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double d = m.values.toList()[0];
+                        double mm = m.values.toList()[1];
+
+                        return d * mm;
+                      },
+                    ),
+                  ],
                 ],
                 'Relación %m/v MM': [
                   AssetImage('assets/img/formulas/rel1.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Molaridad',
+                      params: {
+                        Param(name: '%m/v'): 1.0,
+                        Param(name: 'Masa Molecular'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double mv = m.values.toList()[0];
+                        double mm = m.values.toList()[1];
+
+                        return (mv / mm) * 10;
+                      },
+                    ),
+                  ],
                 ],
                 'Relación %m/m M': [
                   AssetImage('assets/img/formulas/rel2.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Molaridad',
+                      params: {
+                        Param(name: '%m/m'): 1.0,
+                        Param(name: 'Masa Molecular'): 1.0,
+                        Param(name: 'Densidad'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double mm = m.values.toList()[0];
+                        double mmo = m.values.toList()[1];
+                        double d = m.values.toList()[2];
+
+                        return (mm / mmo) * d * 10;
+                      },
+                    ),
+                  ],
                 ],
                 'Relación %m/v m': [
                   AssetImage('assets/img/formulas/rel3.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Molalidad',
+                      params: {
+                        Param(name: '%m/v'): 1.0,
+                        Param(name: 'Masa Molecular'): 1.0,
+                        Param(name: 'Densidad'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double mv = m.values.toList()[0];
+                        double mm = m.values.toList()[1];
+                        double d = m.values.toList()[2];
+
+                        return (mv * 1000) / ((100 * d - mv) * mm);
+                      },
+                    ),
+                  ],
                 ],
                 'Relación %m/m m': [
                   AssetImage('assets/img/formulas/rel4.png'),
                   null,
-                  <FormulaButtonArguments>[],
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Molalidad',
+                      params: {
+                        Param(name: '%m/m'): 1.0,
+                        Param(name: 'Masa Molecular'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double mm = m.values.toList()[0];
+                        double mmo = m.values.toList()[1];
+
+                        return (mm * 1000) / ((100 - mm) * mmo);
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
