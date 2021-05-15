@@ -1,4 +1,4 @@
-package com.example.ptuformulas
+package com.jordidev.ptuformulas
 
 import io.flutter.embedding.android.FlutterActivity
 

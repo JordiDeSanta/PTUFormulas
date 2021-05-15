@@ -54,10 +54,11 @@ class _FormulaPageState extends State<FormulaPage> {
           borderRadius: BorderRadius.circular(20.0),
         ),
       ),
+      backgroundColor: Colors.white,
       body: ListView(children: [
         _createParams(content, pageColor),
         _result(content, pageColor),
-        Expanded(child: SizedBox()),
+        SizedBox(height: 20.0),
         if (banner == null)
           SizedBox(height: 80.0)
         else

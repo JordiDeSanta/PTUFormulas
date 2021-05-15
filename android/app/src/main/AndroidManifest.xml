@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ptuformulas">
+    package="com.jordidev.ptuformulas">
    <application
         android:label="PTU Formulas"
         android:icon="@mipmap/launcher_icon">
