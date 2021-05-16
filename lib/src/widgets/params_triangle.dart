@@ -28,8 +28,10 @@ class ParamsTriangle extends StatelessWidget {
           color: args.triangleColor,
         ),
         Positioned(
-          left: width * 0.34,
-          top: height * 0.18,
+          width: width * 0.5,
+          height: height * 0.1,
+          left: width * 0.20,
+          top: height * 0.25,
           child: Text(
             paramsList[0] != 0.0
                 ? (paramsList[0] * multList[0].selectedMed)
@@ -44,8 +46,10 @@ class ParamsTriangle extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: width * 0.1,
-          top: height * 0.4,
+          width: width * 0.5,
+          height: height * 0.1,
+          left: width * 0.02,
+          top: height * 0.6,
           child: Text(
             paramsList[1] != 0
                 ? (paramsList[1] * multList[1].selectedMed)
@@ -60,8 +64,10 @@ class ParamsTriangle extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: width * 0.55,
-          top: height * 0.4,
+          width: width * 0.5,
+          height: height * 0.1,
+          right: width * 0.02,
+          top: height * 0.6,
           child: Text(
             paramsList[2] != 0
                 ? (paramsList[2] * multList[2].selectedMed)
@@ -76,13 +82,15 @@ class ParamsTriangle extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: width * 0.25,
-          top: height * 0.28,
+          height: height * 0.2,
+          width: width * 0.6,
+          left: width * 0.2,
+          top: height * 0.42,
           child: Text(
-            'Define como 0 el valor\n que quieras calcular',
+            'Define como 0 el valor que quieras calcular',
             style: styles
                 .getResult(context)
-                .copyWith(color: Colors.white, fontSize: 18),
+                .copyWith(color: Colors.white, fontSize: height * 0.03),
             overflow: TextOverflow.visible,
             textAlign: TextAlign.center,
           ),

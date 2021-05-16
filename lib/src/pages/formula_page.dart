@@ -43,6 +43,7 @@ class _FormulaPageState extends State<FormulaPage> {
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.0,
         title: Text(
           content.pageName,
           style: styles.getCourse(context),
