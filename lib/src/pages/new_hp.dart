@@ -29,7 +29,7 @@ class _NewHomePageState extends State<NewHomePage> {
       setState(() {
         banner = BannerAd(
           adUnitId: adState.bannerAdUnitId,
-          size: AdSize.leaderboard,
+          size: AdSize.largeBanner,
           request: AdRequest(),
           listener: adState.adListener,
         )..load();
@@ -61,7 +61,7 @@ class _NewHomePageState extends State<NewHomePage> {
               SizedBox(height: 80.0)
             else
               Container(
-                height: height * 0.2,
+                height: 100,
                 child: AdWidget(
                   ad: banner,
                 ),
