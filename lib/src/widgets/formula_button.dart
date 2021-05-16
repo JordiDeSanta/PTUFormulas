@@ -15,6 +15,7 @@ class FormulaButton extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
     return Container(
+      padding: EdgeInsets.symmetric(vertical: height * 0.005),
       child: ElevatedButton(
         style: ButtonStyle(
           elevation: MaterialStateProperty.all(0.0),

@@ -43,6 +43,7 @@ class FormulaTileWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     _createFormulas(),
+                    SizedBox(height: 5),
                     _createParams(),
                     Column(
                       children: _buttons(buttonColor),
@@ -59,10 +60,12 @@ class FormulaTileWidget extends StatelessWidget {
 
   Widget _createFormulas() {
     if (image != null) {
-      return Column(
-        children: [
-          Image(image: image),
-        ],
+      return Container(
+        width: double.infinity,
+        child: Image(
+          image: image,
+          fit: BoxFit.fitWidth,
+        ),
       );
     } else {
       return Container();
@@ -71,11 +74,12 @@ class FormulaTileWidget extends StatelessWidget {
 
   Widget _createParams() {
     if (params != null) {
-      return Column(
-        children: [
-          SizedBox(height: 5.0),
-          Image(image: params),
-        ],
+      return Container(
+        width: double.infinity,
+        child: Image(
+          image: params,
+          fit: BoxFit.fitWidth,
+        ),
       );
     } else {
       return Container();
