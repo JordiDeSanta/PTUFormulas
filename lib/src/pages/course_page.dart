@@ -10,6 +10,7 @@ class CoursePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CourseArguments args = ModalRoute.of(context).settings.arguments;
+    double height = MediaQuery.of(context).size.height;
 
     return Container(
       child: Scaffold(
@@ -19,13 +20,13 @@ class CoursePage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: args.color,
           elevation: 0.0,
-          toolbarHeight: 80.0,
+          toolbarHeight: height * 0.1,
           shape: const CurvedBorder(10.0),
           actions: [
             ElevatedButton(
               onPressed: () {},
               child: Image(
-                width: 40,
+                width: height * 0.08,
                 image: args.img,
               ),
               style: ButtonStyle(

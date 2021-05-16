@@ -14,6 +14,7 @@ class ContentPage extends StatelessWidget {
     List args = ModalRoute.of(context).settings.arguments;
     Color bgColor = args[0];
     ContentArguments content = args[1];
+    double height = MediaQuery.of(context).size.height;
 
     return Container(
       child: Scaffold(
@@ -23,14 +24,14 @@ class ContentPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: bgColor,
           elevation: 0.0,
-          toolbarHeight: 80.0,
+          toolbarHeight: height * 0.1,
           foregroundColor: Colors.transparent,
           shape: const CurvedBorder(10.0),
           actions: [
             ElevatedButton(
               onPressed: () {},
               child: Image(
-                width: 50.0,
+                width: height * 0.08,
                 image: content.img,
               ),
               style: ButtonStyle(

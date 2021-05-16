@@ -29,7 +29,7 @@ class _NewHomePageState extends State<NewHomePage> {
       setState(() {
         banner = BannerAd(
           adUnitId: adState.bannerAdUnitId,
-          size: AdSize.largeBanner,
+          size: AdSize.leaderboard,
           request: AdRequest(),
           listener: adState.adListener,
         )..load();
@@ -39,13 +39,15 @@ class _NewHomePageState extends State<NewHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.0,
         title: Text('PTU Fórmulas', style: styles.getTitle(context)),
         centerTitle: true,
-        toolbarHeight: 80.0,
+        toolbarHeight: height * 0.1,
         backgroundColor: Colors.black26,
       ),
       body: Container(
@@ -59,7 +61,7 @@ class _NewHomePageState extends State<NewHomePage> {
               SizedBox(height: 80.0)
             else
               Container(
-                height: 80,
+                height: height * 0.2,
                 child: AdWidget(
                   ad: banner,
                 ),
