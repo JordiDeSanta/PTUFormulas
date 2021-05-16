@@ -26,7 +26,7 @@ class _FormulaPageState extends State<FormulaPage> {
       setState(() {
         banner = BannerAd(
           adUnitId: adState.bannerAdUnitId,
-          size: AdSize.largeBanner,
+          size: AdSize.leaderboard,
           request: AdRequest(),
           listener: adState.adListener,
         )..load();
@@ -39,6 +39,7 @@ class _FormulaPageState extends State<FormulaPage> {
     List args = ModalRoute.of(context).settings.arguments;
     Color pageColor = args[0];
     FormulaButtonArguments content = args[1];
+    double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -48,7 +49,7 @@ class _FormulaPageState extends State<FormulaPage> {
           overflow: TextOverflow.fade,
         ),
         centerTitle: true,
-        toolbarHeight: 80.0,
+        toolbarHeight: height * 0.1,
         backgroundColor: pageColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
@@ -63,7 +64,7 @@ class _FormulaPageState extends State<FormulaPage> {
           SizedBox(height: 80.0)
         else
           Container(
-            height: 80,
+            height: height * 0.2,
             child: AdWidget(
               ad: banner,
             ),
@@ -74,6 +75,8 @@ class _FormulaPageState extends State<FormulaPage> {
 
   Widget _createParams(FormulaButtonArguments args, Color pageColor) {
     List<Widget> _params = [SizedBox(height: 20.0)];
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     args.params.forEach(
       (key, value) {
@@ -81,7 +84,7 @@ class _FormulaPageState extends State<FormulaPage> {
           child: Column(
             children: [
               Container(
-                width: 250.0,
+                width: width * 0.8,
                 child: TextField(
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
@@ -89,7 +92,8 @@ class _FormulaPageState extends State<FormulaPage> {
                       borderSide: BorderSide(color: pageColor),
                     ),
                     labelText: key.name,
-                    labelStyle: TextStyle(color: pageColor),
+                    labelStyle:
+                        TextStyle(color: pageColor, fontSize: height * 0.02),
                   ),
                   onChanged: (s) {
                     if (s == '') {
@@ -107,7 +111,7 @@ class _FormulaPageState extends State<FormulaPage> {
               ),
               if (key.med != null)
                 Container(
-                  width: 250.0,
+                  width: width * 0.8,
                   height: 50.0,
                   child: DropdownButton(
                     items: _items(key.med),
@@ -178,11 +182,15 @@ class _FormulaPageState extends State<FormulaPage> {
 
   List<DropdownMenuItem> _items(Unit args) {
     final _tempList = <DropdownMenuItem>[];
+    double height = MediaQuery.of(context).size.height;
 
     args.mults.forEach((key, value) {
       final _tempItem = DropdownMenuItem(
         value: value,
-        child: Text(key),
+        child: Text(
+          key,
+          style: TextStyle(fontSize: height * 0.015),
+        ),
       );
 
       _tempList.add(_tempItem);
