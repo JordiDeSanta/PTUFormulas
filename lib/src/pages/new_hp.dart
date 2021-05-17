@@ -58,7 +58,7 @@ class _NewHomePageState extends State<NewHomePage> {
             _createPhysics(),
             _createQuimics(),
             if (banner == null)
-              SizedBox(height: 80.0)
+              CircularProgressIndicator()
             else
               Container(
                 height: 100,

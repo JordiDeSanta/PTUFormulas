@@ -5,9 +5,8 @@ class AdState {
   Future<InitializationStatus> initialization;
 
   AdState(this.initialization);
-  // ca-app-pub-5161422071680634/5368192153
   String get bannerAdUnitId => Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/6300978111'
+      ? 'ca-app-pub-5161422071680634/5368192153' // ca-app-pub-5161422071680634/5368192153 // test: ca-app-pub-3940256099942544/6300978111
       : 'ca-app-pub-3940256099942544/2934735716';
 
   AdListener get adListener => _adListener;

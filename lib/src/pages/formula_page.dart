@@ -57,20 +57,22 @@ class _FormulaPageState extends State<FormulaPage> {
         ),
       ),
       backgroundColor: Colors.white,
-      body: ListView(children: [
-        _createParams(content, pageColor),
-        _result(content, pageColor),
-        SizedBox(height: 20.0),
-        if (banner == null)
-          SizedBox(height: 80.0)
-        else
-          Container(
-            height: 100,
-            child: AdWidget(
-              ad: banner,
-            ),
-          )
-      ]),
+      body: ListView(
+        children: [
+          _createParams(content, pageColor),
+          _result(content, pageColor),
+          SizedBox(height: 20.0),
+          if (banner == null)
+            CircularProgressIndicator()
+          else
+            Container(
+              height: 100,
+              child: AdWidget(
+                ad: banner,
+              ),
+            )
+        ],
+      ),
     );
   }
 
