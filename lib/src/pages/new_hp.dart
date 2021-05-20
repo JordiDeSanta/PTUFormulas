@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/themes/colors_theme.dart';
+import 'package:ptuformulas/src/widgets/app_bar_border.dart';
 import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
@@ -49,6 +50,7 @@ class _NewHomePageState extends State<NewHomePage> {
         centerTitle: true,
         toolbarHeight: size * 140,
         backgroundColor: Colors.black26,
+        shape: CurvedBorder(10.0),
       ),
       body: Container(
         child: ListView(

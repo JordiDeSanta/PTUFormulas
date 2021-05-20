@@ -24,8 +24,11 @@ class FormulaTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double size = MediaQuery.of(context).size.aspectRatio;
+
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10.0, left: 8.0, right: 8.0),
+      padding:
+          EdgeInsets.only(bottom: size * 20, left: size * 10, right: size * 10),
       child: Card(
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -33,7 +36,7 @@ class FormulaTileWidget extends StatelessWidget {
         ),
         color: cardColor,
         child: Padding(
-          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
+          padding: EdgeInsets.only(left: size * 10),
           child: ExpansionTile(
             childrenPadding: EdgeInsets.all(5.0),
             title: Text(title, style: styles.getET(context)),
@@ -43,10 +46,10 @@ class FormulaTileWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     _createFormulas(),
-                    SizedBox(height: 5),
+                    SizedBox(height: size * 8),
                     _createParams(),
                     Column(
-                      children: _buttons(buttonColor),
+                      children: _buttons(buttonColor, size),
                     ),
                   ],
                 ),
@@ -86,8 +89,12 @@ class FormulaTileWidget extends StatelessWidget {
     }
   }
 
-  List<Widget> _buttons(Color color) {
-    List<Widget> buttons = [SizedBox(height: 5.0)];
+  List<Widget> _buttons(Color color, double size) {
+    List<Widget> buttons = [
+      SizedBox(
+        height: size * 5,
+      )
+    ];
 
     button.forEach((b) {
       final _temp = FormulaButton(

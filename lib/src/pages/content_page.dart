@@ -14,7 +14,7 @@ class ContentPage extends StatelessWidget {
     List args = ModalRoute.of(context).settings.arguments;
     Color bgColor = args[0];
     ContentArguments content = args[1];
-    double height = MediaQuery.of(context).size.height;
+    double size = MediaQuery.of(context).size.aspectRatio;
 
     return Container(
       child: Scaffold(
@@ -24,14 +24,14 @@ class ContentPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: bgColor,
           elevation: 0.0,
-          toolbarHeight: height * 0.1,
+          toolbarHeight: size * 140,
           foregroundColor: Colors.transparent,
           shape: const CurvedBorder(10.0),
           actions: [
             ElevatedButton(
               onPressed: () {},
               child: Image(
-                width: height * 0.08,
+                width: size * 90,
                 image: content.img,
               ),
               style: ButtonStyle(
@@ -42,14 +42,14 @@ class ContentPage extends StatelessWidget {
           ],
         ),
         body: ListView(
-          children: createFormulas(content),
+          children: createFormulas(content, size),
         ),
       ),
     );
   }
 
-  List<Widget> createFormulas(ContentArguments args) {
-    List<Widget> contentTiles = [SizedBox(height: 10.0)];
+  List<Widget> createFormulas(ContentArguments args, double size) {
+    List<Widget> contentTiles = [SizedBox(height: size * 20)];
 
     args.formulas.formulas.forEach((key, value) {
       final tempTile = FormulaTileWidget(

@@ -12,10 +12,10 @@ class FormulaButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    double size = MediaQuery.of(context).size.aspectRatio;
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: height * 0.005),
+      padding: EdgeInsets.symmetric(vertical: size * 5),
       child: ElevatedButton(
         style: ButtonStyle(
           elevation: MaterialStateProperty.all(0.0),
@@ -27,7 +27,7 @@ class FormulaButton extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(5),
           width: double.infinity,
-          height: height * 0.04,
+          height: size * 60,
           child: Text(
             'Calcular ' + args.pageName,
             textAlign: TextAlign.start,

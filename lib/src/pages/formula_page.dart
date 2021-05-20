@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
+import 'package:ptuformulas/src/widgets/app_bar_border.dart';
 import 'package:ptuformulas/src/widgets/params_triangle.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
@@ -39,7 +40,7 @@ class _FormulaPageState extends State<FormulaPage> {
     List args = ModalRoute.of(context).settings.arguments;
     Color pageColor = args[0];
     FormulaButtonArguments content = args[1];
-    double height = MediaQuery.of(context).size.height;
+    double size = MediaQuery.of(context).size.aspectRatio;
 
     return Scaffold(
       appBar: AppBar(
@@ -50,18 +51,16 @@ class _FormulaPageState extends State<FormulaPage> {
           overflow: TextOverflow.fade,
         ),
         centerTitle: true,
-        toolbarHeight: height * 0.1,
+        toolbarHeight: size * 140,
         backgroundColor: pageColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
+        shape: CurvedBorder(10.0),
       ),
       backgroundColor: Colors.white,
       body: ListView(
         children: [
           _createParams(content, pageColor),
-          _result(content, pageColor),
-          SizedBox(height: 20.0),
+          _result(content, pageColor, size),
+          SizedBox(height: size * 20),
           if (banner == null)
             CircularProgressIndicator()
           else
@@ -114,9 +113,9 @@ class _FormulaPageState extends State<FormulaPage> {
               if (key.med != null)
                 Container(
                   width: size * 550,
-                  height: 50.0,
+                  height: size * 100,
                   child: DropdownButton(
-                    items: _items(key.med),
+                    items: _items(key.med, size),
                     value: key.selectedMed,
                     onChanged: (v) {
                       setState(() {
@@ -126,7 +125,7 @@ class _FormulaPageState extends State<FormulaPage> {
                     style: TextStyle(color: pageColor),
                   ),
                 ),
-              SizedBox(height: 20.0),
+              SizedBox(height: size * 40),
             ],
           ),
         );
@@ -139,12 +138,12 @@ class _FormulaPageState extends State<FormulaPage> {
     );
   }
 
-  Widget _result(FormulaButtonArguments args, Color pageColor) {
+  Widget _result(FormulaButtonArguments args, Color pageColor, double size) {
     Widget _result;
 
     if (!args.bIsTriangle) {
       _result = Container(
-        padding: EdgeInsets.only(top: 10.0),
+        padding: EdgeInsets.only(top: size * 40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -154,11 +153,11 @@ class _FormulaPageState extends State<FormulaPage> {
                       .toString(),
               style: styles.getResult(context),
             ),
-            SizedBox(width: 10.0),
+            SizedBox(width: size * 20),
             if (args.resultUnit != null)
               DropdownButton(
                 elevation: 1,
-                items: _items(args.resultUnit),
+                items: _items(args.resultUnit, size),
                 value: args.selectedResultUnit,
                 onChanged: (v) {
                   setState(() {
@@ -167,7 +166,7 @@ class _FormulaPageState extends State<FormulaPage> {
                 },
                 style: TextStyle(color: pageColor),
               ),
-            SizedBox(height: 10.0),
+            SizedBox(height: size * 20),
           ],
         ),
       );
@@ -182,16 +181,15 @@ class _FormulaPageState extends State<FormulaPage> {
     return _result;
   }
 
-  List<DropdownMenuItem> _items(Unit args) {
+  List<DropdownMenuItem> _items(Unit args, double size) {
     final _tempList = <DropdownMenuItem>[];
-    double height = MediaQuery.of(context).size.height;
 
     args.mults.forEach((key, value) {
       final _tempItem = DropdownMenuItem(
         value: value,
         child: Text(
           key,
-          style: TextStyle(fontSize: height * 0.015),
+          style: TextStyle(fontSize: size * 20),
         ),
       );
 
