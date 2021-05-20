@@ -12,11 +12,10 @@ class ContentTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    double size = MediaQuery.of(context).size.aspectRatio;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+      padding: EdgeInsets.symmetric(vertical: size * 10, horizontal: size * 10),
       child: ElevatedButton(
         style: ButtonStyle(
           elevation: MaterialStateProperty.all(0.0),
@@ -28,17 +27,17 @@ class ContentTileWidget extends StatelessWidget {
           backgroundColor: MaterialStateProperty.all(color),
         ),
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: height * 0.025),
+          padding: EdgeInsets.symmetric(vertical: size * 40),
           child: Row(
             children: [
               Image(
-                height: height * 0.12,
+                height: size * 180,
                 image: settings.img,
                 fit: BoxFit.cover,
               ),
               Container(
-                padding: EdgeInsets.only(left: width * 0.06),
-                width: width * 0.6,
+                padding: EdgeInsets.only(left: size * 40),
+                width: size * 450,
                 child: Text(
                   settings.title,
                   style: styles.getCourse(context),
