@@ -17,8 +17,7 @@ class ParamsTriangle extends StatelessWidget {
     final paramsList = args.params.values.toList();
     final multList = args.params.keys.toList();
 
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    double size = MediaQuery.of(context).size.aspectRatio;
 
     return Stack(
       children: [
@@ -27,12 +26,12 @@ class ParamsTriangle extends StatelessWidget {
           child: Icon(
             CupertinoIcons.triangle_fill,
             color: args.triangleColor,
-            size: width * 1.1,
+            size: size * 800,
           ),
         ),
         Column(
           children: [
-            SizedBox(height: width * height * 0.0004),
+            SizedBox(height: size * 200),
             Text(
               paramsList[0] != 0.0
                   ? (paramsList[0] * multList[0].selectedMed)
@@ -45,19 +44,19 @@ class ParamsTriangle extends StatelessWidget {
               style: styles.getTriangle(context),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: height * 0.06),
+            SizedBox(height: size * 130),
             Container(
-              width: width * 0.5,
+              width: size * 300,
               child: Text(
                 'Define como 0 el valor que quieras calcular',
                 style: styles
                     .getResult(context)
-                    .copyWith(color: Colors.white, fontSize: height * 0.03),
+                    .copyWith(color: Colors.white, fontSize: size * 30),
                 overflow: TextOverflow.visible,
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: height * 0.07),
+            SizedBox(height: size * 130),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -73,7 +72,7 @@ class ParamsTriangle extends StatelessWidget {
                   style: styles.getTriangle(context),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(width: width * 0.2),
+                SizedBox(width: size * 200),
                 Text(
                   paramsList[2] != 0
                       ? (paramsList[2] * multList[2].selectedMed)
