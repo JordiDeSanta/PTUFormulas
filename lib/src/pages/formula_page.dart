@@ -78,8 +78,7 @@ class _FormulaPageState extends State<FormulaPage> {
 
   Widget _createParams(FormulaButtonArguments args, Color pageColor) {
     List<Widget> _params = [SizedBox(height: 20.0)];
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double size = MediaQuery.of(context).size.aspectRatio;
 
     args.params.forEach(
       (key, value) {
@@ -87,7 +86,7 @@ class _FormulaPageState extends State<FormulaPage> {
           child: Column(
             children: [
               Container(
-                width: width * 0.8,
+                width: size * 550,
                 child: TextField(
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
@@ -96,7 +95,7 @@ class _FormulaPageState extends State<FormulaPage> {
                     ),
                     labelText: key.name,
                     labelStyle:
-                        TextStyle(color: pageColor, fontSize: height * 0.02),
+                        TextStyle(color: pageColor, fontSize: size * 30),
                   ),
                   onChanged: (s) {
                     if (s == '') {
@@ -114,7 +113,7 @@ class _FormulaPageState extends State<FormulaPage> {
               ),
               if (key.med != null)
                 Container(
-                  width: width * 0.8,
+                  width: size * 550,
                   height: 50.0,
                   child: DropdownButton(
                     items: _items(key.med),
