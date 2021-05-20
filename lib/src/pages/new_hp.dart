@@ -39,7 +39,7 @@ class _NewHomePageState extends State<NewHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    double size = MediaQuery.of(context).size.aspectRatio;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -47,13 +47,13 @@ class _NewHomePageState extends State<NewHomePage> {
         elevation: 0.0,
         title: Text('PTU Fórmulas', style: styles.getTitle(context)),
         centerTitle: true,
-        toolbarHeight: height * 0.1,
+        toolbarHeight: size * 140,
         backgroundColor: Colors.black26,
       ),
       body: Container(
         child: ListView(
           children: [
-            SizedBox(height: 10.0),
+            SizedBox(height: size * 18),
             _createMath(),
             _createPhysics(),
             _createQuimics(),
