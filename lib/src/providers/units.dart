@@ -81,6 +81,9 @@ class Force extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
         'Newtons': 1,
+        'Kilonewtons': 1e+3,
+        'Meganewtons': 1e+6,
+        'Giganewtons': 1e+9,
       };
 }
 
