@@ -3055,6 +3055,283 @@ class _NewHomePageState extends State<NewHomePage> {
               },
             ),
           ),
+          ContentArguments(
+            ftColor: colors.physics[2],
+            img: AssetImage('assets/img/convertir.png'),
+            route: 'p',
+            title: 'Conversiones',
+            formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
+              formulas: {
+                'Longitud': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Length(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Longitud', med: Length()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Tiempo': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Time(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Tiempo', med: Time()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Velocidad': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: VelocityU(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Velocidad', med: VelocityU()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Frecuencia': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Frecuency(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Frecuencia', med: Frecuency()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Aceleración': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Aceleration(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Aceleración', med: Aceleration()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Masa': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Mass(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Masa', med: Mass()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Fuerza': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Force(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Fuerza', med: Force()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Área': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Area(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Área', med: Area()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Volumen': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Volumen(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Volumen', med: Volumen()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Densidad': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Density(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Densidad', med: Density()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Presión': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Pressure(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Presión', med: Pressure()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Energía': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Energy(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Energía', med: Energy()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Potencia Eléctrica': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Power(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Energía', med: Power()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+                'Carga Eléctrica': [
+                  null,
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Charge(),
+                      pageName: 'Convertir',
+                      params: {
+                        Param(name: 'Energía', med: Charge()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double input = m.values.toList()[0];
+                        double c = m.keys.toList()[0].getValue(input);
+
+                        return c;
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
         ],
       ),
     );
