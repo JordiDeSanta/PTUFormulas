@@ -6,6 +6,7 @@ import 'package:ptuformulas/src/widgets/params_triangle.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:ptuformulas/src/providers/ad_state.dart';
+import 'package:connectivity/connectivity.dart';
 
 class FormulaPage extends StatefulWidget {
   FormulaPage();
@@ -61,19 +62,35 @@ class _FormulaPageState extends State<FormulaPage> {
           _createParams(content, pageColor),
           _result(content, pageColor, size),
           SizedBox(height: size * 20),
-          if (banner == null) CircularProgressIndicator() else buildAd()
+          if (banner == null)
+            CircularProgressIndicator()
+          else
+            FutureBuilder(
+              future: checkWifi(),
+              builder: (BuildContext c, AsyncSnapshot<ConnectivityResult> a) {
+                if (a.hasData) {
+                  if (a.data == ConnectivityResult.none)
+                    return CircularProgressIndicator();
+                  else
+                    return Container(
+                      height: 100,
+                      child: AdWidget(
+                        ad: banner,
+                      ),
+                    );
+                }
+                return Container();
+              },
+            ),
         ],
       ),
     );
   }
 
-  Widget buildAd() {
-    return Container(
-      height: 100,
-      child: AdWidget(
-        ad: banner,
-      ),
-    );
+  Future<ConnectivityResult> checkWifi() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+
+    return connectivityResult;
   }
 
   Widget _createParams(FormulaButtonArguments args, Color pageColor) {
