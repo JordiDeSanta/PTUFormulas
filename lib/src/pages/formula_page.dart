@@ -61,16 +61,17 @@ class _FormulaPageState extends State<FormulaPage> {
           _createParams(content, pageColor),
           _result(content, pageColor, size),
           SizedBox(height: size * 20),
-          if (banner == null)
-            CircularProgressIndicator()
-          else
-            Container(
-              height: 100,
-              child: AdWidget(
-                ad: banner,
-              ),
-            )
+          if (banner == null) CircularProgressIndicator() else buildAd()
         ],
+      ),
+    );
+  }
+
+  Widget buildAd() {
+    return Container(
+      height: 100,
+      child: AdWidget(
+        ad: banner,
       ),
     );
   }
@@ -78,6 +79,7 @@ class _FormulaPageState extends State<FormulaPage> {
   Widget _createParams(FormulaButtonArguments args, Color pageColor) {
     List<Widget> _params = [SizedBox(height: 20.0)];
     double size = MediaQuery.of(context).size.aspectRatio;
+    double w = MediaQuery.of(context).size.width;
 
     args.params.forEach(
       (key, value) {
@@ -85,7 +87,7 @@ class _FormulaPageState extends State<FormulaPage> {
           child: Column(
             children: [
               Container(
-                width: size * 550,
+                width: w * 0.8,
                 child: TextField(
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
@@ -112,7 +114,7 @@ class _FormulaPageState extends State<FormulaPage> {
               ),
               if (key.med != null)
                 Container(
-                  width: size * 550,
+                  width: w * 0.8,
                   height: size * 100,
                   child: DropdownButton(
                     items: _items(key.med, size),

@@ -520,16 +520,82 @@ class _NewHomePageState extends State<NewHomePage> {
                     ),
                   ],
                 ],
-                'Percentiles (DA)': [
-                  AssetImage('assets/img/mathformulas/perc.PNG'),
+                'Cuantiles (DA)': [
                   AssetImage('assets/img/mathformulas/pperc.PNG'),
+                  AssetImage('assets/img/mathformulas/params.png'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Percentil k',
+                      pageName: 'Cuartil',
                       params: {
                         Param(name: 'Li del intervalo de la Media'): 1.0,
                         Param(name: 'Número de Datos'): 1.0,
-                        Param(name: 'k'): 1.0,
+                        Param(name: 'k (1-3)'): 1.0,
+                        Param(name: 'f del intervalo de la Media'): 1.0,
+                        Param(name: 'f acum del intervalo anterior al de la Media'):
+                            1.0,
+                        Param(name: 'Amplitud del intervalo de la Media'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double li = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+                        double k = m.values.toList()[2];
+                        double fi = m.values.toList()[3];
+                        double fim1 = m.values.toList()[4];
+                        double a = m.values.toList()[5];
+
+                        return li + ((((n * k) / 4) - fim1) / fi) * a;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Quintil',
+                      params: {
+                        Param(name: 'Li del intervalo de la Media'): 1.0,
+                        Param(name: 'Número de Datos'): 1.0,
+                        Param(name: 'k (1-4)'): 1.0,
+                        Param(name: 'f del intervalo de la Media'): 1.0,
+                        Param(name: 'f acum del intervalo anterior al de la Media'):
+                            1.0,
+                        Param(name: 'Amplitud del intervalo de la Media'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double li = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+                        double k = m.values.toList()[2];
+                        double fi = m.values.toList()[3];
+                        double fim1 = m.values.toList()[4];
+                        double a = m.values.toList()[5];
+
+                        return li + ((((n * k) / 5) - fim1) / fi) * a;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Decil',
+                      params: {
+                        Param(name: 'Li del intervalo de la Media'): 1.0,
+                        Param(name: 'Número de Datos'): 1.0,
+                        Param(name: 'k (1-9)'): 1.0,
+                        Param(name: 'f del intervalo de la Media'): 1.0,
+                        Param(name: 'f acum del intervalo anterior al de la Media'):
+                            1.0,
+                        Param(name: 'Amplitud del intervalo de la Media'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double li = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+                        double k = m.values.toList()[2];
+                        double fi = m.values.toList()[3];
+                        double fim1 = m.values.toList()[4];
+                        double a = m.values.toList()[5];
+
+                        return li + ((((n * k) / 10) - fim1) / fi) * a;
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Percentil',
+                      params: {
+                        Param(name: 'Li del intervalo de la Media'): 1.0,
+                        Param(name: 'Número de Datos'): 1.0,
+                        Param(name: 'k (1-99)'): 1.0,
                         Param(name: 'f del intervalo de la Media'): 1.0,
                         Param(name: 'f acum del intervalo anterior al de la Media'):
                             1.0,
@@ -788,7 +854,7 @@ class _NewHomePageState extends State<NewHomePage> {
                   null,
                   <FormulaButtonArguments>[],
                 ],
-                'Cuadriláteros': [
+                'Paralelogramos': [
                   AssetImage('assets/img/mathformulas/cuadr.png'),
                   null,
                   <FormulaButtonArguments>[],
@@ -813,7 +879,7 @@ class _NewHomePageState extends State<NewHomePage> {
                   null,
                   <FormulaButtonArguments>[]
                 ],
-                'Equivalencia en Cuadriláteros': [
+                'Equivalencia en Paralelogramos': [
                   AssetImage('assets/img/mathformulas/equad.png'),
                   null,
                   <FormulaButtonArguments>[]
