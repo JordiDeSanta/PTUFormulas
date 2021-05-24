@@ -3476,6 +3476,11 @@ class _NewHomePageState extends State<NewHomePage> {
                   null,
                   <FormulaButtonArguments>[],
                 ],
+                'Fenol': [
+                  AssetImage('assets/img/formulas/fenol.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
                 'Amina': [
                   AssetImage('assets/img/formulas/amina.PNG'),
                   null,
