@@ -3958,6 +3958,96 @@ class _NewHomePageState extends State<NewHomePage> {
               },
             ),
           ),
+          ContentArguments(
+            img: AssetImage('assets/img/flask.png'),
+            route: 'q',
+            title: 'P. Coligativas',
+            ftColor: colors.quimics[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.quimics[3],
+              formulas: {
+                'Descenso de la Presión de Vapor': [
+                  AssetImage('assets/img/formulas/pvapor.png'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Presión de Vapor',
+                      params: {
+                        Param(name: 'Fraccion Molar del Soluto'): 1.0,
+                        Param(name: 'Presión de Vapor del Disolvente Puro'):
+                            1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double x = m.values.toList()[0];
+                        double p = m.values.toList()[1];
+
+                        return x * p;
+                      },
+                    ),
+                  ],
+                ],
+                'Ascenso Ebulloscópico': [
+                  AssetImage('assets/img/formulas/aebu.png'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Ascenso Ebulloscópico',
+                      params: {
+                        Param(name: 'Constante Ebulloscópica'): 1.0,
+                        Param(name: 'Molalidad del Soluto'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double k = m.values.toList()[0];
+                        double mo = m.values.toList()[1];
+
+                        return k * mo;
+                      },
+                    ),
+                  ],
+                ],
+                'Descenso Crioscópico': [
+                  AssetImage('assets/img/formulas/aebu.png'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Ascenso Ebulloscópico',
+                      params: {
+                        Param(name: 'Constante Crioscópica'): 1.0,
+                        Param(name: 'Molalidad del Soluto'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double k = m.values.toList()[0];
+                        double mo = m.values.toList()[1];
+
+                        return k * mo;
+                      },
+                    ),
+                  ],
+                ],
+                'Presión Osmótica': [
+                  AssetImage('assets/img/formulas/osmo.png'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Presión Osmótica',
+                      params: {
+                        Param(name: 'Volumen de Disolución (L)'): 1.0,
+                        Param(name: 'Moles de Solutos'): 1.0,
+                        Param(name: 'Temperatura Absoluta (K)'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double v = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+                        double t = m.values.toList()[2];
+
+                        return (n * 0.082 * t) / v;
+                      },
+                    ),
+                  ],
+                ],
+              },
+            ),
+          ),
         ],
       ),
     );
