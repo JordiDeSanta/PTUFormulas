@@ -2033,10 +2033,10 @@ class _NewHomePageState extends State<NewHomePage> {
                       resultUnit: Force(),
                       pageName: 'Fuerza de Atracción',
                       params: {
-                        Param(name: 'Masa del cuerpo 1 (Kg)', med: Mass()): 1.0,
-                        Param(name: 'Masa del cuerpo 2 (Kg)', med: Mass()): 1.0,
+                        Param(name: 'Masa del cuerpo 1', med: Mass()): 1.0,
+                        Param(name: 'Masa del cuerpo 2', med: Mass()): 1.0,
                         Param(
-                          name: 'Distancia entre sus centros (km)',
+                          name: 'Distancia entre sus centros',
                           med: Length(),
                         ): 1.0,
                       },
