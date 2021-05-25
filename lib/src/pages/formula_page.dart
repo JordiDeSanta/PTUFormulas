@@ -42,6 +42,7 @@ class _FormulaPageState extends State<FormulaPage> {
     Color pageColor = args[0];
     FormulaButtonArguments content = args[1];
     double size = MediaQuery.of(context).size.aspectRatio;
+    double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -63,25 +64,14 @@ class _FormulaPageState extends State<FormulaPage> {
           _result(content, pageColor, size),
           SizedBox(height: size * 20),
           if (banner == null)
-            CircularProgressIndicator()
+            Container()
           else
-            FutureBuilder(
-              future: checkWifi(),
-              builder: (BuildContext c, AsyncSnapshot<ConnectivityResult> a) {
-                if (a.hasData) {
-                  if (a.data == ConnectivityResult.none)
-                    return CircularProgressIndicator();
-                  else
-                    return Container(
-                      height: 100,
-                      child: AdWidget(
-                        ad: banner,
-                      ),
-                    );
-                }
-                return Container();
-              },
-            ),
+            Container(
+              height: h * 0.3,
+              child: AdWidget(
+                ad: banner,
+              ),
+            )
         ],
       ),
     );

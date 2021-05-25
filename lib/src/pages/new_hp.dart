@@ -41,6 +41,7 @@ class _NewHomePageState extends State<NewHomePage> {
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.aspectRatio;
+    double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -60,10 +61,10 @@ class _NewHomePageState extends State<NewHomePage> {
             _createPhysics(),
             _createQuimics(),
             if (banner == null)
-              CircularProgressIndicator()
+              Container()
             else
               Container(
-                height: 100,
+                height: h * 0.3,
                 child: AdWidget(
                   ad: banner,
                 ),
