@@ -68,7 +68,7 @@ class _NewHomePageState extends State<NewHomePage> {
                 child: AdWidget(
                   ad: banner,
                 ),
-              )
+              ),
           ],
         ),
       ),
@@ -1732,6 +1732,7 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/VelocidadMRUVV.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultUnit: VelocityU(),
                       pageName: 'Velocidad según Tiempo',
                       params: {
                         Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
@@ -1751,6 +1752,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                     ),
                     FormulaButtonArguments(
+                      resultUnit: VelocityU(),
                       pageName: 'Velocidad Final',
                       params: {
                         Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
@@ -2210,11 +2212,12 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/Arquimedes.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultUnit: Force(),
                       pageName: 'Fuerza de Flotación',
                       params: {
                         Param(name: 'Densidad', med: Density()): 1.0,
                         Param(name: 'Volumen', med: Volumen()): 1.0,
-                        Param(name: 'Altura', med: Length()): 1.0,
+                        Param(name: 'Gravedad', med: Aceleration()): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputD = m.values.toList()[0];
@@ -2759,6 +2762,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       },
                     ),
                     FormulaButtonArguments(
+                      resultUnit: Force(),
                       pageName: 'Fuerza Eléctrica 2',
                       params: {
                         Param(name: 'Campo Eléctrico'): 1.0,
