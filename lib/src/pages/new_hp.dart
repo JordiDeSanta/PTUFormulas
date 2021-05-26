@@ -64,7 +64,7 @@ class _NewHomePageState extends State<NewHomePage> {
               Container()
             else
               Container(
-                height: h * 0.3,
+                height: h * 0.2,
                 child: AdWidget(
                   ad: banner,
                 ),
