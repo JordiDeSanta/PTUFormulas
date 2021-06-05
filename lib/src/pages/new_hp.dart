@@ -3969,6 +3969,62 @@ class _NewHomePageState extends State<NewHomePage> {
             ),
           ),
           ContentArguments(
+            img: AssetImage('assets/img/inorganic.png'),
+            route: 'q',
+            title: 'Inorgánicos',
+            ftColor: colors.quimics[2],
+            formulas: FormulaArguments(
+              tilesColor: colors.quimics[3],
+              formulas: {
+                'Óxido Metálico': [
+                  AssetImage('assets/img/formulas/oxmet.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Óxido No-Metálico': [
+                  AssetImage('assets/img/formulas/oxnomet.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Peróxido': [
+                  AssetImage('assets/img/formulas/perox.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Hidruro de Metal': [
+                  AssetImage('assets/img/formulas/hidrurometal.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Hidruro de No Metal': [
+                  AssetImage('assets/img/formulas/hidruronometal.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Ácido Hidrácido': [
+                  AssetImage('assets/img/formulas/acido.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Hidróxido': [
+                  AssetImage('assets/img/formulas/hidrox.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Ácido Oxácido': [
+                  AssetImage('assets/img/formulas/oxacido.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Sal Binaria': [
+                  AssetImage('assets/img/formulas/sal.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
             img: AssetImage('assets/img/flask.png'),
             route: 'q',
             title: 'P. Coligativas',
