@@ -109,6 +109,32 @@ class _NewHomePageState extends State<NewHomePage> {
                         return (x * y) / 100;
                       },
                     ),
+                    FormulaButtonArguments(
+                      pageName: 'Descuento',
+                      params: {
+                        Param(name: 'Precio Original'): 100.0,
+                        Param(name: 'Descuento en %'): 20.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double x = m.values.toList()[0];
+                        double y = m.values.toList()[1];
+
+                        return x - (x * y / 100);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Aumento',
+                      params: {
+                        Param(name: 'Precio Original'): 1.0,
+                        Param(name: 'Aumento en %'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double x = m.values.toList()[0];
+                        double y = m.values.toList()[1];
+
+                        return x + (x * y / 100);
+                      },
+                    ),
                   ],
                 ],
                 'Potencias': [
@@ -125,6 +151,36 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/mathformulas/log.png'),
                   null,
                   <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.math[2],
+            img: AssetImage('assets/img/interes.png'),
+            route: 'm',
+            title: 'Intereses',
+            formulas: FormulaArguments(
+              tilesColor: colors.math[3],
+              formulas: {
+                'Porcentaje': [
+                  AssetImage('assets/img/mathformulas/porcentaje.PNG'),
+                  null,
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Porcentaje',
+                      params: {
+                        Param(name: 'X'): 1.0,
+                        Param(name: 'Y'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double x = m.values.toList()[0];
+                        double y = m.values.toList()[1];
+
+                        return (x * y) / 100;
+                      },
+                    ),
+                  ],
                 ],
               },
             ),
