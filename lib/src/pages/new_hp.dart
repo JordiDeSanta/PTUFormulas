@@ -163,21 +163,59 @@ class _NewHomePageState extends State<NewHomePage> {
             formulas: FormulaArguments(
               tilesColor: colors.math[3],
               formulas: {
-                'Porcentaje': [
-                  AssetImage('assets/img/mathformulas/porcentaje.PNG'),
-                  null,
+                'Interés Simple': [
+                  AssetImage('assets/img/mathformulas/isimple.png'),
+                  AssetImage('assets/img/mathformulas/paramsint.png'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      pageName: 'Porcentaje',
+                      pageName: 'Capital Final',
                       params: {
-                        Param(name: 'X'): 1.0,
-                        Param(name: 'Y'): 1.0,
+                        Param(name: 'Capital Inicial'): 1.0,
+                        Param(name: 'Periodos Transcurridos'): 1.0,
+                        Param(name: 'Interes (%)'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double x = m.values.toList()[0];
-                        double y = m.values.toList()[1];
+                        double c = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+                        double i = m.values.toList()[2];
 
-                        return (x * y) / 100;
+                        return c + (n * i * c / 100);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      pageName: 'Ganancia',
+                      params: {
+                        Param(name: 'Capital Inicial'): 1.0,
+                        Param(name: 'Periodos Transcurridos'): 1.0,
+                        Param(name: 'Interes (%)'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double c = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+                        double i = m.values.toList()[2];
+
+                        return (n * i * c / 100);
+                      },
+                    ),
+                  ],
+                ],
+                'Interés Compuesto': [
+                  AssetImage('assets/img/mathformulas/icompuesto.png'),
+                  AssetImage('assets/img/mathformulas/paramsint.png'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Capital Final',
+                      params: {
+                        Param(name: 'Capital Inicial'): 1.0,
+                        Param(name: 'Periodos Transcurridos'): 1.0,
+                        Param(name: 'Interes (%)'): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double c = m.values.toList()[0];
+                        double n = m.values.toList()[1];
+                        double i = m.values.toList()[2];
+
+                        return c * pow(1 + i / 100, n);
                       },
                     ),
                   ],
