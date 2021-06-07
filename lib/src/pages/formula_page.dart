@@ -63,7 +63,7 @@ class _FormulaPageState extends State<FormulaPage> {
           _createParams(content, pageColor),
           _result(content, pageColor, size),
           SizedBox(height: size * 20),
-          if (banner == null)
+          if (banner == null && !content.bIsTriangle)
             Container()
           else
             Container(
