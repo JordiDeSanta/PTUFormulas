@@ -2116,6 +2116,68 @@ class _NewHomePageState extends State<NewHomePage> {
           ),
           ContentArguments(
             ftColor: colors.physics[2],
+            img: AssetImage('assets/img/colision.png'),
+            route: 'p',
+            title: 'Choques',
+            formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
+              formulas: {
+                'Momentum': [
+                  AssetImage('assets/img/formulas/MomentumLineal.PNG'),
+                  AssetImage('assets/img/params/Momentum.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Force(),
+                      pageName: 'Momentum',
+                      params: {
+                        Param(name: 'Masa', med: Mass()): 1.0,
+                        Param(name: 'Velocidad', med: VelocityU()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputM = m.values.toList()[0];
+                        double inputV = m.values.toList()[1];
+
+                        double ma = m.keys.toList()[0].getValue(inputM);
+                        double v = m.keys.toList()[1].getValue(inputV);
+
+                        return ma * v;
+                      },
+                    ),
+                  ],
+                ],
+                'Impulso': [
+                  AssetImage('assets/img/formulas/Impulso.PNG'),
+                  AssetImage('assets/img/params/Impulso.PNG'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Force(),
+                      pageName: 'Impulso',
+                      params: {
+                        Param(name: 'Fuerza', med: Force()): 1.0,
+                        Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputF = m.values.toList()[0];
+                        double inputT = m.values.toList()[1];
+
+                        double f = m.keys.toList()[0].getValue(inputF);
+                        double t = m.keys.toList()[1].getValue(inputT);
+
+                        return f * t;
+                      },
+                    ),
+                  ],
+                ],
+                'Conservación del Momentum': [
+                  AssetImage('assets/img/formulas/ConservacionMomentum.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.physics[2],
             img: AssetImage('assets/img/planeta.png'),
             route: 'p',
             title: 'Cosmos',
