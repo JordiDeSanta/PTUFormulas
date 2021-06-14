@@ -2173,6 +2173,11 @@ class _NewHomePageState extends State<NewHomePage> {
                   null,
                   <FormulaButtonArguments>[],
                 ],
+                'Momentum en Choques': [
+                  AssetImage('assets/img/formulas/choques.png'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
               },
             ),
           ),
