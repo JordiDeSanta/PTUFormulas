@@ -2635,46 +2635,31 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/CantidadCalor.PNG'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
-                      resultUnit: Energy(),
                       pageName: 'Calor Requerido 1',
                       params: {
-                        Param(name: 'Masa del Cuerpo', med: Mass()): 1.0,
+                        Param(name: 'Masa del Cuerpo (g)'): 1.0,
                         Param(name: 'Calor Especifico del Material'): 1.0,
-                        Param(
-                          name: 'Temperatura Final',
-                          med: Temperature(),
-                        ): 1.0,
-                        Param(
-                          name: 'Temperatura Inicial',
-                          med: Temperature(),
-                        ): 1.0,
+                        Param(name: 'Temperatura Final (°C)'): 1.0,
+                        Param(name: 'Temperatura Inicial (°C)'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputM = m.values.toList()[0];
-                        double inputTF = m.values.toList()[2];
+                        double ma = m.values.toList()[0];
+                        double ce = m.values.toList()[1];
+                        double tf = m.values.toList()[2];
+                        double t0 = m.values.toList()[3];
 
-                        double inputT0 = m.values.toList()[3];
-
-                        double ma = m.keys.toList()[0].getValue(inputM);
-                        double c = m.values.toList()[1];
-                        double tf = m.keys.toList()[2].temp(inputTF);
-
-                        double t0 = m.keys.toList()[3].temp(inputT0);
-
-                        return ma * c * (tf - t0);
+                        return ma * ce * (tf - t0);
                       },
                     ),
                     FormulaButtonArguments(
                       resultUnit: Energy(),
                       pageName: 'Calor Requerido 2',
                       params: {
-                        Param(name: 'Masa del Cuerpo', med: Mass()): 1.0,
+                        Param(name: 'Masa del Cuerpo (g)'): 1.0,
                         Param(name: 'Calor Latente'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputM = m.values.toList()[0];
-
-                        double ma = m.keys.toList()[0].getValue(inputM);
+                        double ma = m.values.toList()[0];
                         double l = m.values.toList()[1];
 
                         return l * ma;
@@ -2689,27 +2674,16 @@ class _NewHomePageState extends State<NewHomePage> {
                     FormulaButtonArguments(
                       pageName: 'Capacidad Térmica',
                       params: {
-                        Param(name: 'Calor Final', med: Energy()): 1.0,
-                        Param(name: 'Calor Inicial', med: Energy()): 1.0,
-                        Param(
-                          name: 'Temperatura Final',
-                          med: Temperature(),
-                        ): 1.0,
-                        Param(
-                          name: 'Temperatura Inicial',
-                          med: Temperature(),
-                        ): 1.0,
+                        Param(name: 'Calor Final (cal)'): 1.0,
+                        Param(name: 'Calor Inicial (cal)'): 1.0,
+                        Param(name: 'Temperatura Final (°C)'): 1.0,
+                        Param(name: 'Temperatura Inicial (°C)'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputQF = m.values.toList()[0];
-                        double inputQ0 = m.values.toList()[1];
-                        double inputTF = m.values.toList()[2];
-                        double inputT0 = m.values.toList()[3];
-
-                        double qf = m.keys.toList()[0].getValue(inputQF);
-                        double q0 = m.keys.toList()[1].getValue(inputQ0);
-                        double tf = m.keys.toList()[2].temp(inputTF);
-                        double t0 = m.keys.toList()[3].temp(inputT0);
+                        double qf = m.values.toList()[0];
+                        double q0 = m.values.toList()[1];
+                        double tf = m.values.toList()[2];
+                        double t0 = m.values.toList()[3];
 
                         return (qf - q0) / (tf - t0);
                       },
@@ -2724,14 +2698,11 @@ class _NewHomePageState extends State<NewHomePage> {
                       pageName: 'Calor Específico',
                       params: {
                         Param(name: 'Capacidad Térmica'): 1.0,
-                        Param(name: 'Masa', med: Mass()): 1.0,
+                        Param(name: 'Masa (g)'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputC = m.values.toList()[0];
-                        double inputM = m.values.toList()[1];
-
-                        double c = m.keys.toList()[0].getValue(inputC);
-                        double ma = m.keys.toList()[1].temp(inputM);
+                        double c = m.values.toList()[0];
+                        double ma = m.values.toList()[1];
 
                         return c / ma;
                       },
@@ -2748,24 +2719,16 @@ class _NewHomePageState extends State<NewHomePage> {
                       params: {
                         Param(name: 'Longitud Inicial', med: Length()): 1.0,
                         Param(name: 'Coeficiente de Dilatación Lineal'): 1.0,
-                        Param(
-                          name: 'Temperatura Final',
-                          med: Temperature(),
-                        ): 1.0,
-                        Param(
-                          name: 'Temperatura Inicial',
-                          med: Temperature(),
-                        ): 1.0,
+                        Param(name: 'Temperatura Final (°C)'): 1.0,
+                        Param(name: 'Temperatura Inicial (°C)'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputL0 = m.values.toList()[0];
-                        double inputTF = m.values.toList()[2];
-                        double inputT0 = m.values.toList()[3];
-
-                        double lo = m.keys.toList()[0].getValue(inputL0);
+                        double inputLO = m.values.toList()[0];
                         double a = m.values.toList()[1];
-                        double tf = m.keys.toList()[2].temp(inputTF);
-                        double t0 = m.keys.toList()[3].temp(inputT0);
+                        double tf = m.values.toList()[2];
+                        double t0 = m.values.toList()[3];
+
+                        double lo = m.keys.toList()[0].getValue(inputLO);
 
                         return lo * a * (tf - t0);
                       },
@@ -2777,24 +2740,16 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Área Inicial', med: Area()): 1.0,
                         Param(name: 'Coeficiente de Dilatación Superficial'):
                             1.0,
-                        Param(
-                          name: 'Temperatura Final',
-                          med: Temperature(),
-                        ): 1.0,
-                        Param(
-                          name: 'Temperatura Inicial',
-                          med: Temperature(),
-                        ): 1.0,
+                        Param(name: 'Temperatura Final (°C)'): 1.0,
+                        Param(name: 'Temperatura Inicial (°C)'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputS0 = m.values.toList()[0];
-                        double inputTF = m.values.toList()[2];
-                        double inputT0 = m.values.toList()[3];
-
-                        double so = m.keys.toList()[0].getValue(inputS0);
+                        double inputSO = m.values.toList()[0];
                         double b = m.values.toList()[1];
-                        double tf = m.keys.toList()[2].temp(inputTF);
-                        double t0 = m.keys.toList()[3].temp(inputT0);
+                        double tf = m.values.toList()[2];
+                        double t0 = m.values.toList()[3];
+
+                        double so = m.keys.toList()[0].getValue(inputSO);
 
                         return so * b * (tf - t0);
                       },
@@ -2806,24 +2761,16 @@ class _NewHomePageState extends State<NewHomePage> {
                         Param(name: 'Volumen Inicial', med: Volumen()): 1.0,
                         Param(name: 'Coeficiente de Dilatación Volumétrica'):
                             1.0,
-                        Param(
-                          name: 'Temperatura Final',
-                          med: Temperature(),
-                        ): 1.0,
-                        Param(
-                          name: 'Temperatura Inicial',
-                          med: Temperature(),
-                        ): 1.0,
+                        Param(name: 'Temperatura Final (°C)'): 1.0,
+                        Param(name: 'Temperatura Inicial (°C)'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
                         double inputV0 = m.values.toList()[0];
-                        double inputTF = m.values.toList()[2];
-                        double inputT0 = m.values.toList()[3];
+                        double g = m.values.toList()[1];
+                        double tf = m.values.toList()[2];
+                        double t0 = m.values.toList()[3];
 
                         double vo = m.keys.toList()[0].getValue(inputV0);
-                        double g = m.values.toList()[1];
-                        double tf = m.keys.toList()[2].temp(inputTF);
-                        double t0 = m.keys.toList()[3].temp(inputT0);
 
                         return vo * g * (tf - t0);
                       },
@@ -2833,36 +2780,7 @@ class _NewHomePageState extends State<NewHomePage> {
                 'Equilibrio Térmico': [
                   AssetImage('assets/img/formulas/EqTer.PNG'),
                   AssetImage('assets/img/params/EqTer.PNG'),
-                  <FormulaButtonArguments>[
-                    FormulaButtonArguments(
-                      resultUnit: Energy(),
-                      pageName: 'Calor Cedido',
-                      params: {
-                        Param(name: 'Calor Absorbido', med: Energy()): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputQa = m.values.toList()[0];
-
-                        double qabs = m.keys.toList()[0].getValue(inputQa);
-
-                        return -qabs;
-                      },
-                    ),
-                    FormulaButtonArguments(
-                      resultUnit: Energy(),
-                      pageName: 'Calor Absorbido',
-                      params: {
-                        Param(name: 'Calor Cedido', med: Energy()): 1.0,
-                      },
-                      formula: (Map<Param, double> m) {
-                        double inputQc = m.values.toList()[0];
-
-                        double qced = m.keys.toList()[0].getValue(inputQc);
-
-                        return -qced;
-                      },
-                    ),
-                  ],
+                  <FormulaButtonArguments>[],
                 ],
                 'Calor Latente': [
                   AssetImage('assets/img/formulas/Latente.PNG'),
@@ -2871,15 +2789,12 @@ class _NewHomePageState extends State<NewHomePage> {
                     FormulaButtonArguments(
                       pageName: 'Calor Latente',
                       params: {
-                        Param(name: 'Calor', med: Energy()): 1.0,
-                        Param(name: 'Masa', med: Mass()): 1.0,
+                        Param(name: 'Calor (cal)'): 1.0,
+                        Param(name: 'Masa (g)'): 1.0,
                       },
                       formula: (Map<Param, double> m) {
-                        double inputQ = m.values.toList()[0];
-                        double inputM = m.values.toList()[1];
-
-                        double q = m.keys.toList()[0].getValue(inputQ);
-                        double ma = m.keys.toList()[1].getValue(inputM);
+                        double q = m.values.toList()[0];
+                        double ma = m.values.toList()[1];
 
                         return q / ma;
                       },

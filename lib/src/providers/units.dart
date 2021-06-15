@@ -77,6 +77,16 @@ class Mass extends Unit {
       };
 }
 
+class MassQ extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Miligramos': 1e-3,
+        'Gramos': 1,
+        'Kilogramos': 1e+3,
+        'Toneladas': 1e+6,
+      };
+}
+
 class Force extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
@@ -144,18 +154,26 @@ class Volumen extends Unit {
 class Energy extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
-        'Joule': 1,
-        'Cal-g': 4.184,
+        'Joules': 1,
+        'Calorías': 4.184,
         'Kilocaloría': 4184,
         'W-h': 3600,
         'kW-h': 3.6e+6,
       };
 }
 
+class SHeat extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Caloria': 1,
+        'Kilocaloría': 1e+3,
+      };
+}
+
 class Temperature extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
-        'Fahrenheit': 3,
+        'Fahrenheits': 3,
         'Grados Celsius': 2,
         'Kelvins': 1,
       };
