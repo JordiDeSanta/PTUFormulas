@@ -3152,9 +3152,61 @@ class _NewHomePageState extends State<NewHomePage> {
 
                         double q = m.keys.toList()[0].getValue(inputQ);
                         double v = m.keys.toList()[1].getValue(inputV);
-                        double b = m.keys.toList()[1].getValue(inputB);
+                        double b = m.keys.toList()[2].getValue(inputB);
 
                         return q * v * b;
+                      },
+                    ),
+                  ],
+                ],
+                'Radio del Movimiento': [
+                  AssetImage('assets/img/formulas/radio.png'),
+                  AssetImage('assets/img/params/radio.png'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Radio del Movimiento',
+                      params: {
+                        Param(name: 'Masa (Partícula)', med: Mass()): 1.0,
+                        Param(name: 'Velocidad (Partícula)', med: VelocityU()):
+                            1.0,
+                        Param(name: 'Carga (Partícula)', med: Charge()): 1.0,
+                        Param(name: 'Campo Magnético', med: MagnetCamp()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputM = m.values.toList()[0];
+                        double inputV = m.values.toList()[1];
+                        double inputQ = m.values.toList()[2];
+                        double inputB = m.values.toList()[3];
+
+                        double ma = m.keys.toList()[0].getValue(inputM);
+                        double v = m.keys.toList()[1].getValue(inputV);
+                        double q = m.keys.toList()[2].getValue(inputQ);
+                        double b = m.keys.toList()[3].getValue(inputB);
+
+                        return (ma * v) / (q * b);
+                      },
+                    ),
+                  ],
+                ],
+                'Campo Magnético': [
+                  AssetImage('assets/img/formulas/campomag.png'),
+                  AssetImage('assets/img/params/mag.png'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Campo Magnético',
+                      params: {
+                        Param(name: 'Intensidad', med: EIntensity()): 1.0,
+                        Param(name: 'Distancia', med: Length()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputI = m.values.toList()[0];
+                        double inputA = m.values.toList()[1];
+
+                        double u = 4 * pi * 1e-7;
+                        double i = m.keys.toList()[0].getValue(inputI);
+                        double a = m.keys.toList()[1].getValue(inputA);
+
+                        return (u * i) / (2 * pi * a);
                       },
                     ),
                   ],
