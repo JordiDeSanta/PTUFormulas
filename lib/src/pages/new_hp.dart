@@ -3133,6 +3133,32 @@ class _NewHomePageState extends State<NewHomePage> {
                     ),
                   ],
                 ],
+                'Fuerza de Lorentz': [
+                  AssetImage('assets/img/formulas/lorentz.png'),
+                  AssetImage('assets/img/params/lor.png'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      pageName: 'Fuerza de Lorentz',
+                      params: {
+                        Param(name: 'Carga (Partícula)', med: Charge()): 1.0,
+                        Param(name: 'Velocidad (Partícula)', med: VelocityU()):
+                            1.0,
+                        Param(name: 'Campo Magnético', med: MagnetCamp()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputQ = m.values.toList()[0];
+                        double inputV = m.values.toList()[1];
+                        double inputB = m.values.toList()[2];
+
+                        double q = m.keys.toList()[0].getValue(inputQ);
+                        double v = m.keys.toList()[1].getValue(inputV);
+                        double b = m.keys.toList()[1].getValue(inputB);
+
+                        return q * v * b;
+                      },
+                    ),
+                  ],
+                ],
               },
             ),
           ),

@@ -151,6 +151,14 @@ class Volumen extends Unit {
       };
 }
 
+class MagnetCamp extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Gauss': 1e-4,
+        'Teslas': 1,
+      };
+}
+
 class Energy extends Unit {
   @override
   Map<String, double> get mults => <String, double>{
