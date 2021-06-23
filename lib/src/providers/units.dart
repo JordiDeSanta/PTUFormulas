@@ -38,6 +38,13 @@ class Length extends Unit {
       };
 }
 
+class Flux extends Unit {
+  @override
+  Map<String, double> get mults => <String, double>{
+        'Webers': 1,
+      };
+}
+
 class VelocityU extends Unit {
   @override
   Map<String, double> get mults => <String, double>{

@@ -2808,7 +2808,7 @@ class _NewHomePageState extends State<NewHomePage> {
             ftColor: colors.physics[2],
             img: AssetImage('assets/img/electric.png'),
             route: 'p',
-            title: 'Electricidad y Magnetismo',
+            title: 'Electricidad',
             formulas: FormulaArguments(
               tilesColor: colors.physics[3],
               formulas: {
@@ -3133,11 +3133,23 @@ class _NewHomePageState extends State<NewHomePage> {
                     ),
                   ],
                 ],
+              },
+            ),
+          ),
+          ContentArguments(
+            ftColor: colors.physics[2],
+            img: AssetImage('assets/img/magnetismo.png'),
+            route: 'p',
+            title: 'Magnetismo',
+            formulas: FormulaArguments(
+              tilesColor: colors.physics[3],
+              formulas: {
                 'Fuerza de Lorentz': [
                   AssetImage('assets/img/formulas/lorentz.png'),
                   AssetImage('assets/img/params/lor.png'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultUnit: Force(),
                       pageName: 'Fuerza de Lorentz',
                       params: {
                         Param(name: 'Carga (Partícula)', med: Charge()): 1.0,
@@ -3164,6 +3176,7 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/radio.png'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultUnit: Length(),
                       pageName: 'Radio del Movimiento',
                       params: {
                         Param(name: 'Masa (Partícula)', med: Mass()): 1.0,
@@ -3193,6 +3206,7 @@ class _NewHomePageState extends State<NewHomePage> {
                   AssetImage('assets/img/params/mag.png'),
                   <FormulaButtonArguments>[
                     FormulaButtonArguments(
+                      resultUnit: MagnetCamp(),
                       pageName: 'Campo Magnético',
                       params: {
                         Param(name: 'Intensidad', med: EIntensity()): 1.0,
@@ -3207,6 +3221,73 @@ class _NewHomePageState extends State<NewHomePage> {
                         double a = m.keys.toList()[1].getValue(inputA);
 
                         return (u * i) / (2 * pi * a);
+                      },
+                    ),
+                    FormulaButtonArguments(
+                      resultUnit: MagnetCamp(),
+                      pageName: 'Campo Magnético en Espira',
+                      params: {
+                        Param(name: 'Intensidad', med: EIntensity()): 1.0,
+                        Param(name: 'Radio', med: Length()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputI = m.values.toList()[0];
+                        double inputR = m.values.toList()[1];
+
+                        double u = 4 * pi * 1e-7;
+                        double i = m.keys.toList()[0].getValue(inputI);
+                        double r = m.keys.toList()[1].getValue(inputR);
+
+                        return u * (i / (2 * r));
+                      },
+                    ),
+                  ],
+                ],
+                'Flujo Magnético': [
+                  AssetImage('assets/img/formulas/flujo.png'),
+                  AssetImage('assets/img/params/flujo.png'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Flux(),
+                      pageName: 'Flujo Magnético',
+                      params: {
+                        Param(name: 'Campo Magnético', med: MagnetCamp()): 1.0,
+                        Param(name: 'Área de la Espira', med: Area()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double inputB = m.values.toList()[0];
+                        double inputA = m.values.toList()[1];
+
+                        double b = m.keys.toList()[0].getValue(inputB);
+                        double a = m.keys.toList()[1].getValue(inputA);
+
+                        return b * a;
+                      },
+                    ),
+                  ],
+                ],
+                'Fuerza Electromotriz': [
+                  AssetImage('assets/img/formulas/fem.png'),
+                  AssetImage('assets/img/params/fem.png'),
+                  <FormulaButtonArguments>[
+                    FormulaButtonArguments(
+                      resultUnit: Flux(),
+                      pageName: 'FEM',
+                      params: {
+                        Param(name: 'Número de Espiras'): 1.0,
+                        Param(name: 'Variación Flujo Magnético', med: Flux()):
+                            1.0,
+                        Param(name: 'Variación Tiempo', med: Time()): 1.0,
+                      },
+                      formula: (Map<Param, double> m) {
+                        double n = m.values.toList()[0];
+                        double inputF = m.values.toList()[1];
+                        double inputT = m.values.toList()[2];
+
+                        double f = m.keys.toList()[1].getValue(inputF);
+                        double t = m.keys.toList()[2].getValue(inputT);
+
+                        return -n * (f / t);
                       },
                     ),
                   ],
