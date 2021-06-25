@@ -287,8 +287,13 @@ class _NewHomePageState extends State<NewHomePage> {
                   null,
                   <FormulaButtonArguments>[],
                 ],
-                'Trinomio de la Forma': [
+                'Trinomio de la Forma 1': [
                   AssetImage('assets/img/mathformulas/trinfor.PNG'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
+                'Trinomio de la Forma 2': [
+                  AssetImage('assets/img/mathformulas/forma.png'),
                   null,
                   <FormulaButtonArguments>[],
                 ],
