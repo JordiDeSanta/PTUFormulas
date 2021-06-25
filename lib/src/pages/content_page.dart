@@ -1,13 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:provider/provider.dart';
 import 'package:ptuformulas/src/providers/_provider.dart';
+import 'package:ptuformulas/src/providers/ad_state.dart';
 import 'package:ptuformulas/src/themes/text_theme.dart';
 import 'package:ptuformulas/src/widgets/formula_tile_widget.dart';
 import 'package:ptuformulas/src/widgets/app_bar_border.dart';
 
-class ContentPage extends StatelessWidget {
+class ContentPage extends StatefulWidget {
+  ContentPage({Key key}) : super(key: key);
+
+  @override
+  _ContentPageState createState() => _ContentPageState();
+}
+
+class _ContentPageState extends State<ContentPage> {
   final styles = TextStyles();
 
-  ContentPage({Key key}) : super(key: key);
+  BannerAd banner;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final adState = Provider.of<AdState>(context);
+    adState.initialization.then((status) {
+      setState(() {
+        banner = BannerAd(
+          adUnitId: adState.bannerAdUnitId,
+          size: AdSize.mediumRectangle,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +75,20 @@ class ContentPage extends StatelessWidget {
   }
 
   List<Widget> createFormulas(ContentArguments args, double size) {
-    List<Widget> contentTiles = [SizedBox(height: size * 20)];
+    double h = MediaQuery.of(context).size.height;
+
+    List<Widget> contentTiles = [
+      SizedBox(height: h * 0.01),
+      if (banner == null)
+        Container()
+      else
+        Container(
+          height: h * 0.4,
+          child: AdWidget(
+            ad: banner,
+          ),
+        )
+    ];
 
     args.formulas.formulas.forEach((key, value) {
       final tempTile = FormulaTileWidget(
