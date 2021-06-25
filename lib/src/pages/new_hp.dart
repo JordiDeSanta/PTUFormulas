@@ -8,6 +8,7 @@ import 'package:ptuformulas/src/widgets/course_tile_widget.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:ptuformulas/src/providers/ad_state.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewHomePage extends StatefulWidget {
   NewHomePage({Key key}) : super(key: key);
@@ -51,15 +52,12 @@ class _NewHomePageState extends State<NewHomePage> {
         centerTitle: true,
         toolbarHeight: size * 140,
         backgroundColor: Colors.black26,
-        shape: CurvedBorder(10.0),
+        shape: const CurvedBorder(10.0),
       ),
       body: Container(
         child: ListView(
           children: [
             SizedBox(height: size * 18),
-            _createMath(),
-            _createPhysics(),
-            _createQuimics(),
             if (banner == null)
               Container()
             else
@@ -69,10 +67,78 @@ class _NewHomePageState extends State<NewHomePage> {
                   ad: banner,
                 ),
               ),
+            _createMath(),
+            _createPhysics(),
+            _createQuimics(),
+            fButton(
+              context,
+              styles,
+              Colors.orange[200],
+              'assets/img/logoC.png',
+              'https://play.google.com/store/apps/details?id=com.jordidev.ptucontenidos',
+              'Contenidos',
+            ),
+            fButton(
+              context,
+              styles,
+              Colors.brown[300],
+              'assets/img/logo.png',
+              'https://play.google.com/store/apps/details?id=com.jordidev.ptuformulas',
+              'Dános 🌟',
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Widget fButton(BuildContext context, TextStyles styles, Color c, String r,
+      String u, String t) {
+    double size = MediaQuery.of(context).size.aspectRatio;
+
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: size * 18, horizontal: size * 10),
+      child: ElevatedButton(
+        style: ButtonStyle(
+          elevation: MaterialStateProperty.all(0.0),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+          ),
+          backgroundColor: MaterialStateProperty.all(c),
+        ),
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: size * 40),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image(
+                height: size * 180,
+                image: AssetImage(r),
+                fit: BoxFit.cover,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: size * 40),
+                width: size * 400,
+                child: Text(
+                  t,
+                  style: styles.getCourse(context),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              )
+            ],
+          ),
+        ),
+        onPressed: () {
+          _launchURL(u);
+        },
+      ),
+    );
+  }
+
+  void _launchURL(String url) async {
+    await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
   }
 
   Widget _createMath() {
