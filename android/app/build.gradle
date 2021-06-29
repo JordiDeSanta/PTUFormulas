@@ -43,8 +43,8 @@ android {
         applicationId "com.jordidev.ptuformulas"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 18
-        versionName "1.8.2"
+        versionCode 19
+        versionName "1.9.2"
     }
 
     signingConfigs {
