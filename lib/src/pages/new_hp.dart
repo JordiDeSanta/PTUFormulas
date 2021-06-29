@@ -3374,6 +3374,11 @@ class _NewHomePageState extends State<NewHomePage> {
             formulas: FormulaArguments(
               tilesColor: colors.physics[3],
               formulas: {
+                'Tabla de Conversión': [
+                  AssetImage('assets/img/formulas/tabla.jpg'),
+                  null,
+                  <FormulaButtonArguments>[],
+                ],
                 'Longitud': [
                   null,
                   null,
