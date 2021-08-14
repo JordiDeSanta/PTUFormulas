@@ -2,11 +2,24 @@ import 'package:ezformulas/src/pages/content.dart';
 import 'package:ezformulas/src/pages/course.dart';
 import 'package:ezformulas/src/pages/formula.dart';
 import 'package:ezformulas/src/pages/home.dart';
+import 'package:ezformulas/src/providers/ad_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  final initFuture = MobileAds.instance.initialize();
+  final adState = AdState(initFuture);
+  runApp(
+    Provider.value(
+      value: adState,
+      builder: (context, child) => MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   final colorScheme = ColorScheme.dark().copyWith(
