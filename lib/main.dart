@@ -1,56 +1,44 @@
+import 'package:ezformulas/src/pages/content.dart';
+import 'package:ezformulas/src/pages/course.dart';
+import 'package:ezformulas/src/pages/formula.dart';
+import 'package:ezformulas/src/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ptuformulas/src/pages/content_page.dart';
-import 'package:ptuformulas/src/pages/course_page.dart';
-import 'package:ptuformulas/src/pages/formula_page.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:ptuformulas/src/pages/new_hp.dart';
-import 'package:ptuformulas/src/providers/ad_state.dart';
-import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  final initFuture = MobileAds.instance.initialize();
-  final adState = AdState(initFuture);
-  runApp(
-    Provider.value(
-      value: adState,
-      builder: (context, child) => MyApp(),
-    ),
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  final colorScheme = ColorScheme.dark().copyWith(
+    background: Color.fromARGB(255, 17, 17, 17),
+    primary: Color.fromARGB(255, 58, 58, 58),
   );
-}
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle.light.copyWith(
-        statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Colors.transparent,
-        systemNavigationBarDividerColor: Colors.transparent,
-      ),
-    );
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: colorScheme.background,
+      systemNavigationBarColor: colorScheme.background,
+      systemNavigationBarDividerColor: colorScheme.background,
+    ));
 
     return MaterialApp(
-      title: 'PTU Formulas',
-      initialRoute: 'home',
       debugShowCheckedModeBanner: false,
+      title: 'EZ Formulas',
+      initialRoute: 'home',
       routes: {
-        'home': (BuildContext context) => NewHomePage(),
+        'home': (BuildContext context) => HomePage(),
+        'course': (BuildContext context) => CoursePage(),
+        'content': (BuildContext context) => ContentPage(),
         'formula': (BuildContext context) => FormulaPage(),
-        'math': (BuildContext context) => CoursePage(),
-        'physics': (BuildContext context) => CoursePage(),
-        'quimics': (BuildContext context) => CoursePage(),
-        'p': (BuildContext context) => ContentPage(),
-        'm': (BuildContext context) => ContentPage(),
-        'q': (BuildContext context) => ContentPage(),
       },
-      theme: ThemeData(accentColor: Colors.white),
+      theme: ThemeData.dark().copyWith(
+        appBarTheme: AppBarTheme(elevation: 0, centerTitle: true),
+        scaffoldBackgroundColor: colorScheme.background,
+        primaryTextTheme: GoogleFonts.sansitaTextTheme(),
+        textTheme: GoogleFonts.ptSerifTextTheme(),
+        colorScheme: colorScheme,
+      ),
     );
   }
 }
