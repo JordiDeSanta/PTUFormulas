@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  connectivity: ^3.0.6
   cupertino_icons: ^1.0.2
   fab_circular_menu: ^1.0.2
   flutter:
@@ -49,7 +50,9 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/formulas/physics/
+    - assets/formulas/physics/Waves/
+    - assets/formulas/physics/MRU/
+    - assets/formulas/physics/MRUV/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
