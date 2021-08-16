@@ -21,7 +21,6 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  connectivity: ^3.0.6
   cupertino_icons: ^1.0.2
   fab_circular_menu: ^1.0.2
   flutter:

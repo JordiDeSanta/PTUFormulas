@@ -1,12 +1,37 @@
 import 'package:ezformulas/src/providers/_provider.dart';
+import 'package:ezformulas/src/providers/ad_state.dart';
 import 'package:ezformulas/src/providers/utils.dart' as utils;
 import 'package:ezformulas/src/widgets/content_tile.dart';
 import 'package:ezformulas/src/widgets/floating_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
-class CoursePage extends StatelessWidget {
+class CoursePage extends StatefulWidget {
+  @override
+  _CoursePageState createState() => _CoursePageState();
+}
+
+class _CoursePageState extends State<CoursePage> {
+  BannerAd? banner;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final adState = Provider.of<AdState>(context);
+    adState.initialization.then((status) {
+      setState(() {
+        banner = BannerAd(
+          adUnitId: adState.bannerAdUnitId,
+          size: AdSize.largeBanner,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -41,6 +66,19 @@ class CoursePage extends StatelessWidget {
           child: ListView(
             children: _createTiles(args, utils.colors[args.title]!, h),
           ),
+        ),
+        bottomSheet: Stack(
+          children: [
+            if (banner == null)
+              Container()
+            else
+              Container(
+                height: h * 0.2,
+                child: AdWidget(
+                  ad: banner!,
+                ),
+              )
+          ],
         ),
       ),
     );

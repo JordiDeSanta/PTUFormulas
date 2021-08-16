@@ -1,4 +1,3 @@
-import 'package:connectivity/connectivity.dart';
 import 'package:ezformulas/src/providers/ad_state.dart';
 import 'package:ezformulas/src/widgets/floating_button.dart';
 import 'package:flutter/material.dart';
@@ -32,15 +31,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
-    var connectivityResult = (Connectivity().checkConnectivity());
 
     return Scaffold(
       floatingActionButton: FloatingButton(Alignment.center),
       bottomSheet: Stack(
         children: [
-          if (banner == null &&
-              (connectivityResult == ConnectivityResult.wifi ||
-                  connectivityResult == ConnectivityResult.mobile))
+          if (banner == null)
             Container()
           else
             Container(
