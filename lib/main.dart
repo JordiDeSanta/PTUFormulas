@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
       statusBarColor: colorScheme.background,
-      systemNavigationBarColor: colorScheme.primary,
+      systemNavigationBarColor: colorScheme.background,
       systemNavigationBarDividerColor: colorScheme.background,
     ));
 

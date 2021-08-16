@@ -1,10 +1,13 @@
 import 'package:ezformulas/src/providers/_provider.dart';
+import 'package:ezformulas/src/providers/ad_state.dart';
 import 'package:ezformulas/src/providers/units.dart';
 import 'package:ezformulas/src/widgets/floating_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
+// Re factorizar tamaños
 class FormulaPage extends StatefulWidget {
   FormulaPage();
 
@@ -13,6 +16,24 @@ class FormulaPage extends StatefulWidget {
 }
 
 class _FormulaPageState extends State<FormulaPage> {
+  BannerAd? banner;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final adState = Provider.of<AdState>(context);
+    adState.initialization.then((status) {
+      setState(() {
+        banner = BannerAd(
+          adUnitId: adState.bannerAdUnitId,
+          size: AdSize.banner,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as List;
@@ -55,6 +76,19 @@ class _FormulaPageState extends State<FormulaPage> {
           ),
           _createParams(formula, color),
           _result(formula, color, size),
+        ],
+      ),
+      bottomSheet: Stack(
+        children: [
+          if (banner == null)
+            Container()
+          else
+            Container(
+              height: h * 0.1,
+              child: AdWidget(
+                ad: banner!,
+              ),
+            )
         ],
       ),
     );

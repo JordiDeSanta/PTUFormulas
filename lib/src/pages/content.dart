@@ -1,7 +1,9 @@
 import 'package:ezformulas/src/providers/_provider.dart';
+import 'package:ezformulas/src/providers/ad_state.dart';
 import 'package:ezformulas/src/widgets/floating_button.dart';
 import 'package:ezformulas/src/widgets/formula_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
 class ContentPage extends StatefulWidget {
@@ -12,6 +14,24 @@ class ContentPage extends StatefulWidget {
 }
 
 class _ContentPageState extends State<ContentPage> {
+  BannerAd? banner;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final adState = Provider.of<AdState>(context);
+    adState.initialization.then((status) {
+      setState(() {
+        banner = BannerAd(
+          adUnitId: adState.bannerAdUnitId,
+          size: AdSize.largeBanner,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -50,6 +70,19 @@ class _ContentPageState extends State<ContentPage> {
             children: createFormulas(content, color, h),
           ),
         ),
+        bottomSheet: Stack(
+          children: [
+            if (banner == null)
+              Container()
+            else
+              Container(
+                height: h * 0.2,
+                child: AdWidget(
+                  ad: banner!,
+                ),
+              )
+          ],
+        ),
       ),
     );
   }
@@ -61,6 +94,8 @@ class _ContentPageState extends State<ContentPage> {
       final _temp = FormulaTileWidget(settings: f, color: color);
       contentTiles.add(_temp);
     });
+
+    contentTiles.add(SizedBox(height: h * 0.2));
 
     return contentTiles;
   }
