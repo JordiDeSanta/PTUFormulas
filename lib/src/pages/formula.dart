@@ -7,7 +7,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
-// Re factorizar tamaños
 class FormulaPage extends StatefulWidget {
   FormulaPage();
 
@@ -40,12 +39,11 @@ class _FormulaPageState extends State<FormulaPage> {
     FormulaArguments formula = args[0];
     Color color = args[1];
 
-    double size = MediaQuery.of(context).size.aspectRatio;
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      floatingActionButton: FloatingButton(Alignment(1.5, 0)),
+      floatingActionButton: FloatingButton(Alignment(h * 0.0022, 0)),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
@@ -75,7 +73,7 @@ class _FormulaPageState extends State<FormulaPage> {
             ),
           ),
           _createParams(formula, color),
-          _result(formula, color, size),
+          _result(formula, color, h),
         ],
       ),
       bottomSheet: Stack(
@@ -158,11 +156,11 @@ class _FormulaPageState extends State<FormulaPage> {
     );
   }
 
-  Widget _result(FormulaArguments args, Color color, double size) {
+  Widget _result(FormulaArguments args, Color color, double h) {
     Widget _result;
 
     _result = Container(
-      padding: EdgeInsets.only(top: size * 40),
+      padding: EdgeInsets.only(top: h * 0.05),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -172,11 +170,11 @@ class _FormulaPageState extends State<FormulaPage> {
                     .toString(),
             style: TextStyle(color: color),
           ),
-          SizedBox(width: size * 20),
+          SizedBox(width: h * 0.1),
           if (args.resultUnit != null)
             DropdownButton(
               elevation: 1,
-              items: _items(args.resultUnit, size),
+              items: _items(args.resultUnit, h),
               value: args.selectedResultUnit,
               onChanged: (v) {
                 setState(() {
@@ -185,7 +183,7 @@ class _FormulaPageState extends State<FormulaPage> {
               },
               style: TextStyle(color: color),
             ),
-          SizedBox(height: size * 20),
+          SizedBox(height: h * 0.1),
         ],
       ),
     );
@@ -193,7 +191,7 @@ class _FormulaPageState extends State<FormulaPage> {
     return _result;
   }
 
-  List<DropdownMenuItem<double>> _items(Unit args, double size) {
+  List<DropdownMenuItem<double>> _items(Unit args, double h) {
     final _tempList = <DropdownMenuItem<double>>[];
 
     args.mults.forEach((key, value) {
@@ -201,7 +199,6 @@ class _FormulaPageState extends State<FormulaPage> {
         value: value,
         child: Text(
           key,
-          style: TextStyle(fontSize: size * 20),
         ),
       );
 

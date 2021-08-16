@@ -40,12 +40,11 @@ class _ContentPageState extends State<ContentPage> {
     ContentArguments content = args[0];
     Color color = args[1];
 
-    double size = MediaQuery.of(context).size.aspectRatio;
     double h = MediaQuery.of(context).size.height;
 
     return Container(
       child: Scaffold(
-        floatingActionButton: FloatingButton(Alignment(1.5, 0)),
+        floatingActionButton: FloatingButton(Alignment(h * 0.0022, 0)),
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {

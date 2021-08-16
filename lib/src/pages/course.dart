@@ -47,7 +47,7 @@ class _CoursePageState extends State<CoursePage> {
 
     return Container(
       child: Scaffold(
-        floatingActionButton: FloatingButton(Alignment(1.5, 0)),
+        floatingActionButton: FloatingButton(Alignment(h * 0.0022, 0)),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           toolbarHeight: h * 0.1,
