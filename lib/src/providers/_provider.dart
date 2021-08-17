@@ -27,19 +27,19 @@ class FormulaArguments {
   String char;
   String name;
   String svgRoute;
-  Map<Param, double> params;
-  double Function(Map<Param, double> m) formula;
+  Map<Param, double>? params;
+  double Function(Map<Param, double> m)? formula;
   double selectedResultUnit;
-  Unit resultUnit;
+  Unit? resultUnit;
 
   FormulaArguments({
     required this.char,
     required this.name,
     required this.svgRoute,
-    required this.params,
-    required this.formula,
+    this.params,
+    this.formula,
     this.selectedResultUnit = 1,
-    required this.resultUnit,
+    this.resultUnit,
   });
 }
 

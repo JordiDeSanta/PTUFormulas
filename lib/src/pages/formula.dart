@@ -72,8 +72,8 @@ class _FormulaPageState extends State<FormulaPage> {
               width: w * 0.8,
             ),
           ),
-          _createParams(formula, color),
-          _result(formula, color, h),
+          if (formula.formula != null) _createParams(formula, color),
+          if (formula.formula != null) _result(formula, color, h),
         ],
       ),
       bottomSheet: Stack(
@@ -97,7 +97,7 @@ class _FormulaPageState extends State<FormulaPage> {
     double size = MediaQuery.of(context).size.aspectRatio;
     double w = MediaQuery.of(context).size.width;
 
-    args.params.forEach(
+    args.params!.forEach(
       (key, value) {
         Widget _temp = Center(
           child: Column(
@@ -117,12 +117,12 @@ class _FormulaPageState extends State<FormulaPage> {
                   onChanged: (s) {
                     if (s == '') {
                       setState(() {
-                        args.params[key] = 0.0;
+                        args.params![key] = 0.0;
                       });
                     } else {
                       setState(() {
                         double v = double.parse(s);
-                        args.params[key] = v;
+                        args.params![key] = v;
                       });
                     }
                   },
@@ -166,7 +166,7 @@ class _FormulaPageState extends State<FormulaPage> {
         children: [
           Text(
             'Resultado: ' +
-                (args.formula(args.params) / args.selectedResultUnit)
+                (args.formula!(args.params!) / args.selectedResultUnit)
                     .toString(),
             style: TextStyle(color: color),
           ),
@@ -174,7 +174,7 @@ class _FormulaPageState extends State<FormulaPage> {
           if (args.resultUnit != null)
             DropdownButton(
               elevation: 1,
-              items: _items(args.resultUnit, h),
+              items: _items(args.resultUnit!, h),
               value: args.selectedResultUnit,
               onChanged: (v) {
                 setState(() {

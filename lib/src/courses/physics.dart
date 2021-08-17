@@ -36,7 +36,7 @@ final physics = CourseArguments(
           },
         ),
         FormulaArguments(
-          resultUnit: Time(),
+          resultUnit: Frecuency(),
           char: 'f',
           name: 'Frecuencia',
           svgRoute: 'assets/formulas/physics/Waves/Frecuencia.svg',
@@ -50,12 +50,13 @@ final physics = CourseArguments(
             ): 1.0,
           },
           formula: (Map<Param, double> m) {
-            double inputT = m.values.toList()[0];
+            double inputN = m.values.toList()[0];
+            double inputT = m.values.toList()[1];
 
-            double t = m.keys.toList()[0].getValue(inputT);
-            double n = m.values.toList()[1];
+            double n = m.keys.toList()[0].getValue(inputN);
+            double t = m.keys.toList()[1].getValue(inputT);
 
-            return t / n;
+            return n / t;
           },
         ),
         FormulaArguments(

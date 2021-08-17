@@ -7,6 +7,16 @@ import 'package:typicons_flutter/typicons_flutter.dart';
 final math = CourseArguments(
   title: 'Matemáticas',
   contents: [
-    //ContentArguments(title: 'Números', icon: Typicons.pi, formulas: []),
+    ContentArguments(
+      title: 'Funciones',
+      icon: Ionicons.logo_figma,
+      formulas: [
+        FormulaArguments(
+          char: 'f',
+          name: 'Función Afín',
+          svgRoute: 'assets/formulas/math/Functions/FuncionAfin.svg',
+        ),
+      ],
+    ),
   ],
 );
