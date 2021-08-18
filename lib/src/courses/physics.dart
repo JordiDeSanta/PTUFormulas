@@ -191,5 +191,153 @@ final physics = CourseArguments(
         ),
       ],
     ),
+    ContentArguments(
+      title: 'Movimiento Rectilíneo Uniforme',
+      icon: Ionicons.arrow_forward,
+      formulas: [
+        FormulaArguments(
+          resultUnit: Length(),
+          char: 'd',
+          name: 'Desplazamiento',
+          svgRoute: 'assets/formulas/physics/MRU/Desplazamiento.svg',
+          params: {
+            Param(name: 'Posición Final', med: Length()): 1.0,
+            Param(name: 'Posición Inicial', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputx2 = m.values.toList()[0];
+            double inputx1 = m.values.toList()[1];
+
+            double x2 = m.keys.toList()[0].getValue(inputx2);
+            double x1 = m.keys.toList()[1].getValue(inputx1);
+
+            return x2 - x1;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: VelocityU(),
+          char: 'v',
+          name: 'Rapidez',
+          svgRoute: 'assets/formulas/physics/MRU/Rapidez.svg',
+          params: {
+            Param(name: 'Distancia Recorrida', med: Length()): 1.0,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputD = m.values.toList()[0];
+            double inputT = m.values.toList()[1];
+
+            double d = m.keys.toList()[0].getValue(inputD);
+            double t = m.keys.toList()[1].getValue(inputT);
+
+            return d / t;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: VelocityU(),
+          char: 'v',
+          name: 'Velocidad',
+          svgRoute: 'assets/formulas/physics/MRU/Velocidad.svg',
+          params: {
+            Param(name: 'Desplazamiento', med: Length()): 1.0,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputD = m.values.toList()[0];
+            double inputT = m.values.toList()[1];
+
+            double d = m.keys.toList()[0].getValue(inputD);
+            double t = m.keys.toList()[1].getValue(inputT);
+
+            return d / t;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Length(),
+          char: 'x',
+          name: 'Posición',
+          svgRoute: 'assets/formulas/physics/MRU/Posicion.svg',
+          params: {
+            Param(name: 'Posición Inicial', med: Length()): 1.0,
+            Param(name: 'Velocidad', med: VelocityU()): 1.0,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputx1 = m.values.toList()[0];
+            double inputV = m.values.toList()[1];
+            double inputT = m.values.toList()[2];
+
+            double x1 = m.keys.toList()[0].getValue(inputx1);
+            double v = m.keys.toList()[1].getValue(inputV);
+            double t = m.keys.toList()[2].getValue(inputT);
+
+            return x1 + v * t;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Time(),
+          char: 't',
+          name: 'Tiempo Transcurrido',
+          svgRoute: 'assets/formulas/physics/MRU/Tiempo.svg',
+          params: {
+            Param(name: 'Distancia Recorrida', med: Length()): 1.0,
+            Param(name: 'Velocidad', med: VelocityU()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputD = m.values.toList()[0];
+            double inputV = m.values.toList()[1];
+
+            double d = m.keys.toList()[0].getValue(inputD);
+            double v = m.keys.toList()[1].getValue(inputV);
+
+            return d / v;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Time(),
+          char: 't\u2091',
+          name: 'Tiempo de Encuentro',
+          svgRoute: 'assets/formulas/physics/MRU/TdeEncuentro.svg',
+          params: {
+            Param(name: 'Distancia', med: Length()): 1.0,
+            Param(name: 'V. Móvil A', med: VelocityU()): 1.0,
+            Param(name: 'V. Móvil B', med: VelocityU()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputD = m.values.toList()[0];
+            double inputVA = m.values.toList()[1];
+            double inputVB = m.values.toList()[1];
+
+            double d = m.keys.toList()[0].getValue(inputD);
+            double va = m.keys.toList()[1].getValue(inputVA);
+            double vb = m.keys.toList()[2].getValue(inputVB);
+
+            return d / (va + vb);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Time(),
+          char: 't\u2090',
+          name: 'Tiempo de Alcance',
+          svgRoute: 'assets/formulas/physics/MRU/TdeAlcance.svg',
+          params: {
+            Param(name: 'Distancia', med: Length()): 1.0,
+            Param(name: 'V. Móvil A', med: VelocityU()): 1.0,
+            Param(name: 'V. Móvil B', med: VelocityU()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputD = m.values.toList()[0];
+            double inputVA = m.values.toList()[1];
+            double inputVB = m.values.toList()[1];
+
+            double d = m.keys.toList()[0].getValue(inputD);
+            double va = m.keys.toList()[1].getValue(inputVA);
+            double vb = m.keys.toList()[2].getValue(inputVB);
+
+            return d / (va - vb);
+          },
+        ),
+      ],
+    ),
   ],
 );

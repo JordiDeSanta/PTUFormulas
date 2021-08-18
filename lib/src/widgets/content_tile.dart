@@ -34,7 +34,7 @@ class ContentTileWidget extends StatelessWidget {
               Icon(settings.icon, color: color),
               Container(
                 padding: EdgeInsets.only(left: w * 0.04),
-                width: w * 0.6,
+                width: w * 0.75,
                 child: Text(
                   settings.title,
                   overflow: TextOverflow.ellipsis,
