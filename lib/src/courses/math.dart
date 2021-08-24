@@ -8,6 +8,32 @@ final math = CourseArguments(
   title: 'Matemáticas',
   contents: [
     ContentArguments(
+      title: 'Números',
+      icon: FontAwesomeIcons.squareRootAlt,
+      formulas: [
+        FormulaArguments(
+          char: '%',
+          name: 'Porcentaje',
+          svgRoute: 'assets/formulas/math/Functions/Porcentaje.svg',
+        ),
+        FormulaArguments(
+          char: '',
+          name: 'Potencias',
+          svgRoute: 'assets/formulas/math/Functions/Porcentaje.svg',
+        ),
+        FormulaArguments(
+          char: '',
+          name: 'Raíces',
+          svgRoute: 'assets/formulas/math/Functions/Porcentaje.svg',
+        ),
+        FormulaArguments(
+          char: '',
+          name: 'Logaritmos',
+          svgRoute: 'assets/formulas/math/Functions/Porcentaje.svg',
+        ),
+      ],
+    ),
+    ContentArguments(
       title: 'Funciones',
       icon: Ionicons.logo_figma,
       formulas: [

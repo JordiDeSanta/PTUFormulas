@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:ezformulas/src/providers/_provider.dart';
 import 'package:ezformulas/src/providers/units.dart';
 import 'package:flutter/material.dart';
@@ -306,7 +308,7 @@ final physics = CourseArguments(
           formula: (Map<Param, double> m) {
             double inputD = m.values.toList()[0];
             double inputVA = m.values.toList()[1];
-            double inputVB = m.values.toList()[1];
+            double inputVB = m.values.toList()[2];
 
             double d = m.keys.toList()[0].getValue(inputD);
             double va = m.keys.toList()[1].getValue(inputVA);
@@ -328,13 +330,157 @@ final physics = CourseArguments(
           formula: (Map<Param, double> m) {
             double inputD = m.values.toList()[0];
             double inputVA = m.values.toList()[1];
-            double inputVB = m.values.toList()[1];
+            double inputVB = m.values.toList()[2];
 
             double d = m.keys.toList()[0].getValue(inputD);
             double va = m.keys.toList()[1].getValue(inputVA);
             double vb = m.keys.toList()[2].getValue(inputVB);
 
-            return d / (va - vb);
+            return d / (va - vb).abs();
+          },
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Movimiento Rectilineo Variado',
+      icon: FontAwesomeIcons.car,
+      formulas: [
+        FormulaArguments(
+          resultUnit: Aceleration(),
+          char: 'a',
+          name: 'Aceleración',
+          svgRoute: 'assets/formulas/physics/MRUV/Aceleracion.svg',
+          params: {
+            Param(name: 'Velocidad Final', med: VelocityU()): 2.0,
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Tiempo Final', med: Time()): 1.0,
+            Param(name: 'Tiempo Inicial', med: Time()): 0.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputVF = m.values.toList()[0];
+            double inputV0 = m.values.toList()[1];
+            double inputTF = m.values.toList()[2];
+            double inputT0 = m.values.toList()[3];
+
+            double vf = m.keys.toList()[0].getValue(inputVF);
+            double v0 = m.keys.toList()[1].getValue(inputV0);
+            double tf = m.keys.toList()[2].getValue(inputTF);
+            double t0 = m.keys.toList()[3].getValue(inputT0);
+
+            return (vf - v0) / (tf - t0);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: VelocityU(),
+          char: 'v',
+          name: 'Velocidad Instantánea',
+          svgRoute: 'assets/formulas/physics/MRUV/Velocidad1.svg',
+          params: {
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Aceleración', med: Aceleration()): 1.0,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double inputA = m.values.toList()[1];
+            double inputT = m.values.toList()[2];
+
+            double v0 = m.keys.toList()[0].getValue(inputV0);
+            double a = m.keys.toList()[1].getValue(inputA);
+            double t = m.keys.toList()[2].getValue(inputT);
+
+            return v0 + a * t;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: VelocityU(),
+          char: 'v',
+          name: 'Velocidad Instantánea',
+          svgRoute: 'assets/formulas/physics/MRUV/Velocidad1.svg',
+          params: {
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Aceleración', med: Aceleration()): 1.0,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double inputA = m.values.toList()[1];
+            double inputT = m.values.toList()[2];
+
+            double v0 = m.keys.toList()[0].getValue(inputV0);
+            double a = m.keys.toList()[1].getValue(inputA);
+            double t = m.keys.toList()[2].getValue(inputT);
+
+            return v0 + a * t;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: VelocityU(),
+          char: 'v',
+          name: 'Velocidad Final',
+          svgRoute: 'assets/formulas/physics/MRUV/Velocidad2.svg',
+          params: {
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Aceleración', med: Aceleration()): 1.0,
+            Param(name: 'Desplazamiento', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double inputA = m.values.toList()[1];
+            double inputX = m.values.toList()[2];
+
+            double v0 = m.keys.toList()[0].getValue(inputV0);
+            double a = m.keys.toList()[1].getValue(inputA);
+            double x = m.keys.toList()[2].getValue(inputX);
+
+            return sqrt(pow(v0, 2) + 2 * a * x);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Length(),
+          char: 'x',
+          name: 'Posición I',
+          svgRoute: 'assets/formulas/physics/MRUV/Posicion1.svg',
+          params: {
+            Param(name: 'Posición Inicial', med: Length()): 1.0,
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Aceleración', med: Aceleration()): 1.0,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputX0 = m.values.toList()[0];
+            double inputV0 = m.values.toList()[1];
+            double inputA = m.values.toList()[2];
+            double inputT = m.values.toList()[3];
+
+            double x0 = m.keys.toList()[0].getValue(inputX0);
+            double v0 = m.keys.toList()[1].getValue(inputV0);
+            double a = m.keys.toList()[2].getValue(inputA);
+            double t = m.keys.toList()[3].getValue(inputT);
+
+            return x0 + v0 * t + ((a * pow(t, 2)) / 2);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Length(),
+          char: 'x',
+          name: 'Posición II',
+          svgRoute: 'assets/formulas/physics/MRUV/Posicion2.svg',
+          params: {
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Velocidad Final', med: VelocityU()): 1.0,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double inputVF = m.values.toList()[1];
+            double inputT = m.values.toList()[2];
+
+            double v0 = m.keys.toList()[0].getValue(inputV0);
+            double vf = m.keys.toList()[1].getValue(inputVF);
+            double t = m.keys.toList()[2].getValue(inputT);
+
+            return ((v0 + vf) / 2) * t;
           },
         ),
       ],

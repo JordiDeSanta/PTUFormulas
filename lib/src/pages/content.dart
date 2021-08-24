@@ -56,6 +56,7 @@ class _ContentPageState extends State<ContentPage> {
           title: Text(
             content.title,
             style: TextStyle(color: color, fontSize: h * 0.05),
+            overflow: TextOverflow.fade,
           ),
           toolbarHeight: h * 0.1,
           foregroundColor: Colors.transparent,

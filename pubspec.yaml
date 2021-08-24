@@ -53,6 +53,7 @@ flutter:
     - assets/formulas/physics/MRU/
     - assets/formulas/physics/MRUV/
     - assets/formulas/math/Functions/
+    - assets/formulas/math/Numbers/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
