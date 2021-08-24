@@ -17,19 +17,65 @@ final math = CourseArguments(
           svgRoute: 'assets/formulas/math/Numbers/Porcentaje.svg',
         ),
         FormulaArguments(
-          char: '',
+          char: 'x\u00B2',
           name: 'Potencias',
           imgRoute: 'assets/formulas/math/Numbers/Potencias.png',
         ),
         FormulaArguments(
-          char: '',
+          char: '√',
           name: 'Raíces',
           imgRoute: 'assets/formulas/math/Numbers/Raices.png',
         ),
         FormulaArguments(
-          char: '',
+          char: 'log',
           name: 'Logaritmos',
           imgRoute: 'assets/formulas/math/Numbers/Logaritmos.png',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Productos Notables y Factorización',
+      icon: FontAwesomeIcons.superscript,
+      formulas: [
+        FormulaArguments(
+          char: '',
+          name: 'Cuadrado de Binomio',
+          svgRoute: 'assets/formulas/math/Facto/CDB.svg',
+        ),
+        FormulaArguments(
+          char: '',
+          name: 'Suma por Diferencia',
+          svgRoute: 'assets/formulas/math/Facto/SPD.svg',
+        ),
+        FormulaArguments(
+          char: '',
+          name: 'Cubo de Binomio',
+          svgRoute: 'assets/formulas/math/Facto/CBDB.svg',
+        ),
+        FormulaArguments(
+          char: '',
+          name: 'Binomio con Término Común',
+          svgRoute: 'assets/formulas/math/Facto/BCTC.svg',
+        ),
+        FormulaArguments(
+          char: '',
+          name: 'Cuadrado de Trinomio',
+          svgRoute: 'assets/formulas/math/Facto/CDT.svg',
+        ),
+        FormulaArguments(
+          char: '',
+          name: 'Término Común',
+          svgRoute: 'assets/formulas/math/Facto/TC.svg',
+        ),
+        FormulaArguments(
+          char: '',
+          name: 'Suma de Cubos',
+          svgRoute: 'assets/formulas/math/Facto/SDC.svg',
+        ),
+        FormulaArguments(
+          char: '',
+          name: 'Suma de Cubos',
+          svgRoute: 'assets/formulas/math/Facto/SDC.svg',
         ),
       ],
     ),
