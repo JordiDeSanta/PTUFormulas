@@ -63,17 +63,11 @@ class _FormulaPageState extends State<FormulaPage> {
       ),
       body: ListView(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: h * 0.035),
-            child: SvgPicture.asset(
-              formula.svgRoute,
-              color: color,
-              fit: BoxFit.contain,
-              width: w * 0.8,
-            ),
-          ),
+          if (formula.svgRoute != null) _drawSvg(h, w, formula, color),
+          if (formula.imgRoute != null) _drawImg(h, w, formula, color),
           if (formula.formula != null) _createParams(formula, color),
           if (formula.formula != null) _result(formula, color, h),
+          Container(height: h * 0.1),
         ],
       ),
       bottomSheet: Stack(
@@ -88,6 +82,35 @@ class _FormulaPageState extends State<FormulaPage> {
               ),
             )
         ],
+      ),
+    );
+  }
+
+  Widget _drawSvg(double h, double w, FormulaArguments f, Color c) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: h * 0.035),
+      child: SvgPicture.asset(
+        f.svgRoute!,
+        color: c,
+        fit: BoxFit.contain,
+        width: w * 0.8,
+        allowDrawingOutsideViewBox: true,
+        placeholderBuilder: (c) {
+          return Image.asset('assets/formulas/loading.gif');
+        },
+      ),
+    );
+  }
+
+  Widget _drawImg(double h, double w, FormulaArguments f, Color c) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: h * 0.035),
+      child: Image.asset(
+        f.imgRoute!,
+        color: c,
+        fit: BoxFit.contain,
+        width: w * 0.8,
+        height: h * 1.2,
       ),
     );
   }

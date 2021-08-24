@@ -26,7 +26,8 @@ class ContentArguments {
 class FormulaArguments {
   String char;
   String name;
-  String svgRoute;
+  String? svgRoute;
+  String? imgRoute;
   Map<Param, double>? params;
   double Function(Map<Param, double> m)? formula;
   double selectedResultUnit;
@@ -35,11 +36,12 @@ class FormulaArguments {
   FormulaArguments({
     required this.char,
     required this.name,
-    required this.svgRoute,
+    this.svgRoute,
     this.params,
     this.formula,
     this.selectedResultUnit = 1,
     this.resultUnit,
+    this.imgRoute,
   });
 }
 

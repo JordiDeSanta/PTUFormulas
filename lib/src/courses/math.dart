@@ -14,22 +14,22 @@ final math = CourseArguments(
         FormulaArguments(
           char: '%',
           name: 'Porcentaje',
-          svgRoute: 'assets/formulas/math/Functions/Porcentaje.svg',
+          svgRoute: 'assets/formulas/math/Numbers/Porcentaje.svg',
         ),
         FormulaArguments(
           char: '',
           name: 'Potencias',
-          svgRoute: 'assets/formulas/math/Functions/Porcentaje.svg',
+          imgRoute: 'assets/formulas/math/Numbers/Potencias.png',
         ),
         FormulaArguments(
           char: '',
           name: 'Raíces',
-          svgRoute: 'assets/formulas/math/Functions/Porcentaje.svg',
+          imgRoute: 'assets/formulas/math/Numbers/Raices.png',
         ),
         FormulaArguments(
           char: '',
           name: 'Logaritmos',
-          svgRoute: 'assets/formulas/math/Functions/Porcentaje.svg',
+          imgRoute: 'assets/formulas/math/Numbers/Logaritmos.png',
         ),
       ],
     ),

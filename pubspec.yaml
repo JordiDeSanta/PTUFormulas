@@ -49,6 +49,7 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/formulas/
     - assets/formulas/physics/Waves/
     - assets/formulas/physics/MRU/
     - assets/formulas/physics/MRUV/
