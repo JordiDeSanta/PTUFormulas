@@ -74,14 +74,14 @@ final math = CourseArguments(
         ),
         FormulaArguments(
           char: '',
-          name: 'Suma de Cubos',
-          svgRoute: 'assets/formulas/math/Facto/SDC.svg',
+          name: 'Diferencia de Cubos',
+          svgRoute: 'assets/formulas/math/Facto/DDC.svg',
         ),
       ],
     ),
     ContentArguments(
       title: 'Funciones',
-      icon: Ionicons.logo_figma,
+      text: 'f(x)',
       formulas: [
         FormulaArguments(
           char: 'f',

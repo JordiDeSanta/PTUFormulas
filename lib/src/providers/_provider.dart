@@ -13,12 +13,14 @@ class CourseArguments {
 
 class ContentArguments {
   String title;
-  IconData icon;
+  IconData? icon;
+  String? text;
   List<FormulaArguments> formulas;
 
   ContentArguments({
     required this.title,
-    required this.icon,
+    this.icon,
+    this.text,
     required this.formulas,
   });
 }

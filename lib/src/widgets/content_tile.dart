@@ -31,7 +31,9 @@ class ContentTileWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: h * 0.03),
           child: Row(
             children: [
-              Icon(settings.icon, color: color),
+              if (settings.icon != null) Icon(settings.icon, color: color),
+              if (settings.text != null)
+                Text(settings.text!, style: TextStyle(color: color)),
               Container(
                 padding: EdgeInsets.only(left: w * 0.04),
                 width: w * 0.75,
