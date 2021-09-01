@@ -56,6 +56,10 @@ flutter:
     - assets/formulas/math/Numbers/
     - assets/formulas/math/Facto/
     - assets/formulas/math/Functions/
+    - assets/formulas/math/Rect/
+    - assets/formulas/math/System/
+    - assets/formulas/math/Economy/
+    - assets/formulas/math/Statistics/
 
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

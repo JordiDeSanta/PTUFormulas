@@ -96,6 +96,8 @@ class _CoursePageState extends State<CoursePage> {
       contentTiles.add(tempTile);
     }
 
+    contentTiles.add(SizedBox(height: h * 0.2));
+
     return contentTiles;
   }
 }

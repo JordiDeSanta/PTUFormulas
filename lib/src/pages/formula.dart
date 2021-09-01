@@ -104,13 +104,12 @@ class _FormulaPageState extends State<FormulaPage> {
 
   Widget _drawImg(double h, double w, FormulaArguments f, Color c) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: h * 0.035),
+      padding: EdgeInsets.symmetric(vertical: h * 0.035, horizontal: w * 0.035),
       child: Image.asset(
         f.imgRoute!,
         color: c,
         fit: BoxFit.contain,
         width: w * 0.8,
-        height: h * 1.2,
       ),
     );
   }
