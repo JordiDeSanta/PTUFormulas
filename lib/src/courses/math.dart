@@ -430,6 +430,47 @@ final math = CourseArguments(
         ),
       ],
     ),
+    ContentArguments(
+      title: 'Ángulos',
+      text: '<',
+      formulas: [
+        FormulaArguments(
+          char: '=',
+          name: 'Paralelas',
+          imgRoute: 'assets/formulas/math/Angles/Paralelas.png',
+        ),
+        FormulaArguments(
+          char: '+',
+          name: 'Perpendiculares',
+          imgRoute: 'assets/formulas/math/Angles/Perpendiculares.png',
+        ),
+        FormulaArguments(
+          char: '<',
+          name: 'Consecutivos',
+          imgRoute: 'assets/formulas/math/Angles/Consecutivos.png',
+        ),
+        FormulaArguments(
+          char: '<',
+          name: 'Bisectriz',
+          imgRoute: 'assets/formulas/math/Angles/Bisectriz.png',
+        ),
+        FormulaArguments(
+          char: 'x',
+          name: 'Secantes',
+          imgRoute: 'assets/formulas/math/Angles/Secantes.png',
+        ),
+        FormulaArguments(
+          char: 'S',
+          name: 'Suplementarios',
+          imgRoute: 'assets/formulas/math/Angles/Suplementarios.png',
+        ),
+        FormulaArguments(
+          char: 'T',
+          name: 'Teorema',
+          imgRoute: 'assets/formulas/math/Angles/Teorema.png',
+        ),
+      ],
+    ),
   ],
 );
 
