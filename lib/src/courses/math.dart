@@ -279,7 +279,161 @@ final math = CourseArguments(
             return li + (((n / 2) - fim1) / fi) * a;
           },
         ),
+        FormulaArguments(
+          char: 'C',
+          name: 'Cuantiles (Posición)',
+          svgRoute: 'assets/formulas/math/Statistics/Cuantiles.svg',
+        ),
+        FormulaArguments(
+          char: 'R',
+          name: 'Rango',
+          svgRoute: 'assets/formulas/math/Statistics/Rango.svg',
+        ),
+        FormulaArguments(
+          char: 'σ',
+          name: 'Desviación Estándar',
+          imgRoute: 'assets/formulas/math/Statistics/Desv.png',
+        ),
+        FormulaArguments(
+          char: 'σ\u00B2',
+          name: 'Varianza',
+          imgRoute: 'assets/formulas/math/Statistics/Var.png',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Combinatoria',
+      text: '()',
+      formulas: [
+        FormulaArguments(
+          char: 'P',
+          name: 'Permutación Lineal',
+          svgRoute: 'assets/formulas/math/Combinatory/Permutacion.svg',
+          params: {
+            Param(name: 'Elementos totales'): 2.0,
+          },
+          formula: (Map<Param, double> m) {
+            int n = m.values.toList()[0].floor();
+
+            if (n <= 0) return 0.0;
+
+            return factorial(n).toDouble();
+          },
+        ),
+        FormulaArguments(
+          char: 'Pr',
+          name: 'Permutación con Repetición',
+          svgRoute: 'assets/formulas/math/Combinatory/PermutacionR.svg',
+        ),
+        FormulaArguments(
+          char: 'Pc',
+          name: 'Permutación Circular',
+          svgRoute: 'assets/formulas/math/Combinatory/PermutacionC.svg',
+          params: {
+            Param(name: 'Elementos totales'): 2.0,
+          },
+          formula: (Map<Param, double> m) {
+            int n = m.values.toList()[0].floor();
+
+            if (n <= 0) return 0.0;
+
+            return factorial(n - 1).toDouble();
+          },
+        ),
+        FormulaArguments(
+          char: 'V',
+          name: 'Variación',
+          svgRoute: 'assets/formulas/math/Combinatory/Variacion.svg',
+          params: {
+            Param(name: 'Elementos totales'): 1.0,
+            Param(name: 'Elementos tomados'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            int n = m.values.toList()[0].floor();
+            int k = m.values.toList()[1].floor();
+
+            if (n <= 0 || k <= 0 || n < k) return 0.0;
+
+            return (((factorial(n))) / ((factorial((n - k))))).toDouble();
+          },
+        ),
+        FormulaArguments(
+          char: 'Vr',
+          name: 'Variación con Repetición',
+          svgRoute: 'assets/formulas/math/Combinatory/VariacionR.svg',
+          params: {
+            Param(name: 'Elementos totales'): 2.0,
+            Param(name: 'Elementos tomados'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            int n = m.values.toList()[0].floor();
+            int k = m.values.toList()[1].floor();
+
+            if (n <= 0 || k <= 0 || n < k) return 0.0;
+
+            return pow(n, k).toDouble();
+          },
+        ),
+        FormulaArguments(
+          char: 'C',
+          name: 'Combinación',
+          svgRoute: 'assets/formulas/math/Combinatory/Combinacion.svg',
+          params: {
+            Param(name: 'Elementos totales'): 2.0,
+            Param(name: 'Elementos tomados'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            int n = m.values.toList()[0].floor();
+            int k = m.values.toList()[1].floor();
+
+            if (n <= 0 || k <= 0 || n < k) return 0.0;
+
+            return ((factorial(n)) / ((factorial(k)) * (factorial(n - k))))
+                .toDouble();
+          },
+        ),
+        FormulaArguments(
+          char: 'Cr',
+          name: 'Combinación con Repetición',
+          svgRoute: 'assets/formulas/math/Combinatory/CombinacionR.svg',
+        ),
+        FormulaArguments(
+          char: 'p',
+          name: 'Propiedades',
+          svgRoute: 'assets/formulas/math/Combinatory/Props.svg',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Probabilidad',
+      text: 'P(x)',
+      formulas: [
+        FormulaArguments(
+          char: 'P',
+          name: 'Regla de Laplace',
+          imgRoute: 'assets/formulas/math/Probability/Laplace.png',
+        ),
+        FormulaArguments(
+          char: 'o',
+          name: 'Unión',
+          svgRoute: 'assets/formulas/math/Probability/Union.svg',
+        ),
+        FormulaArguments(
+          char: 'y',
+          name: 'Intersección',
+          svgRoute: 'assets/formulas/math/Probability/Inter.svg',
+        ),
+        FormulaArguments(
+          char: 'c',
+          name: 'Probabilidad Condicional',
+          svgRoute: 'assets/formulas/math/Probability/Cond.svg',
+        ),
       ],
     ),
   ],
 );
+
+int factorial(int n) {
+  if (n < 0) throw ('Negative numbers are not allowed.');
+  return n <= 1 ? 1 : n * factorial(n - 1);
+}
