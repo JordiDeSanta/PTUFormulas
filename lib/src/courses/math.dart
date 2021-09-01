@@ -471,6 +471,67 @@ final math = CourseArguments(
         ),
       ],
     ),
+    ContentArguments(
+      title: 'Triángulos',
+      text: '∆',
+      formulas: [
+        FormulaArguments(
+          char: '<',
+          name: 'Ángulos',
+          imgRoute: 'assets/formulas/math/Triangles/Angulos.png',
+        ),
+        FormulaArguments(
+          char: '<',
+          name: 'Clasificación',
+          imgRoute: 'assets/formulas/math/Triangles/Clasificacion.png',
+        ),
+        FormulaArguments(
+          char: '|',
+          name: 'Base y Altura',
+          imgRoute: 'assets/formulas/math/Triangles/BH.png',
+        ),
+        FormulaArguments(
+          char: 'b',
+          name: 'Bisectriz',
+          imgRoute: 'assets/formulas/math/Triangles/Bisectriz.png',
+        ),
+        FormulaArguments(
+          char: 'i',
+          name: 'Incentro',
+          imgRoute: 'assets/formulas/math/Triangles/Incentro.png',
+        ),
+        FormulaArguments(
+          char: 's',
+          name: 'Simetral',
+          imgRoute: 'assets/formulas/math/Triangles/Simetral.png',
+        ),
+        FormulaArguments(
+          char: 'c',
+          name: 'Circunscentro',
+          imgRoute: 'assets/formulas/math/Triangles/Circunscentro.png',
+        ),
+        FormulaArguments(
+          char: 't',
+          name: 'Transversal de Gravedad',
+          imgRoute: 'assets/formulas/math/Triangles/Transversales.png',
+        ),
+        FormulaArguments(
+          char: 'h',
+          name: 'Altura',
+          imgRoute: 'assets/formulas/math/Triangles/Altura.png',
+        ),
+        FormulaArguments(
+          char: 'm',
+          name: 'Mediana',
+          imgRoute: 'assets/formulas/math/Triangles/Mediana.png',
+        ),
+        FormulaArguments(
+          char: 'c',
+          name: 'Casos Especiales',
+          imgRoute: 'assets/formulas/math/Triangles/Casos.png',
+        ),
+      ],
+    ),
   ],
 );
 
