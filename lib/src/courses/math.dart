@@ -571,6 +571,11 @@ final math = CourseArguments(
           name: 'Tales (Triángulo)',
           imgRoute: 'assets/formulas/math/Teos/Tales3.png',
         ),
+        FormulaArguments(
+          char: 'h',
+          name: 'Euclides',
+          imgRoute: 'assets/formulas/math/Teos/Euclides.png',
+        ),
       ],
     ),
     ContentArguments(
