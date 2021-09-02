@@ -435,6 +435,11 @@ final math = CourseArguments(
       text: '<',
       formulas: [
         FormulaArguments(
+          char: 'c',
+          name: 'Clasificación',
+          imgRoute: 'assets/formulas/math/Angles/Clasificacion.png',
+        ),
+        FormulaArguments(
           char: '=',
           name: 'Paralelas',
           imgRoute: 'assets/formulas/math/Angles/Paralelas.png',
@@ -529,6 +534,88 @@ final math = CourseArguments(
           char: 'c',
           name: 'Casos Especiales',
           imgRoute: 'assets/formulas/math/Triangles/Casos.png',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Teoremas',
+      text: 'T',
+      formulas: [
+        FormulaArguments(
+          char: '∆',
+          name: 'Congruencia',
+          imgRoute: 'assets/formulas/math/Teos/Congruencia.png',
+        ),
+        FormulaArguments(
+          char: '∆',
+          name: 'Semejanza',
+          imgRoute: 'assets/formulas/math/Teos/Semejanza.png',
+        ),
+        FormulaArguments(
+          char: '∆',
+          name: 'Pitágoras',
+          imgRoute: 'assets/formulas/math/Teos/Pitagoras.png',
+        ),
+        FormulaArguments(
+          char: '/',
+          name: 'Tales (General)',
+          imgRoute: 'assets/formulas/math/Teos/Tales1.png',
+        ),
+        FormulaArguments(
+          char: '/',
+          name: 'Tales (Secantes)',
+          imgRoute: 'assets/formulas/math/Teos/Tales2.png',
+        ),
+        FormulaArguments(
+          char: '/',
+          name: 'Tales (Triángulo)',
+          imgRoute: 'assets/formulas/math/Teos/Tales3.png',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Figuras 2D',
+      text: '❒',
+      formulas: [
+        FormulaArguments(
+          char: 'P',
+          name: 'Perímetros',
+          imgRoute: 'assets/formulas/math/2D/Perimetros.png',
+        ),
+        FormulaArguments(
+          char: 'A',
+          name: 'Áreas',
+          imgRoute: 'assets/formulas/math/2D/Areas.png',
+        ),
+        FormulaArguments(
+          char: '|',
+          name: 'Cuadrilátero',
+          imgRoute: 'assets/formulas/math/2D/Cuadrilatero.png',
+        ),
+        FormulaArguments(
+          char: '/',
+          name: 'Paralelógramos (General)',
+          imgRoute: 'assets/formulas/math/2D/Paralelogramos.png',
+        ),
+        FormulaArguments(
+          char: '❒',
+          name: 'Cuadrado',
+          imgRoute: 'assets/formulas/math/2D/Cuadrado.png',
+        ),
+        FormulaArguments(
+          char: '❒',
+          name: 'Rectángulo',
+          imgRoute: 'assets/formulas/math/2D/Rectangulo.png',
+        ),
+        FormulaArguments(
+          char: '⧫',
+          name: 'Rombo',
+          imgRoute: 'assets/formulas/math/2D/Rombo.png',
+        ),
+        FormulaArguments(
+          char: '⧫',
+          name: 'Romboide',
+          imgRoute: 'assets/formulas/math/2D/Romboide.png',
         ),
       ],
     ),
