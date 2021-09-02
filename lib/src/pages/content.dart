@@ -1,6 +1,5 @@
 import 'package:ezformulas/src/providers/_provider.dart';
 import 'package:ezformulas/src/providers/ad_state.dart';
-import 'package:ezformulas/src/widgets/floating_button.dart';
 import 'package:ezformulas/src/widgets/formula_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -44,7 +43,6 @@ class _ContentPageState extends State<ContentPage> {
 
     return Container(
       child: Scaffold(
-        floatingActionButton: FloatingButton(Alignment(h * 0.0022, 0)),
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {

@@ -2,7 +2,6 @@ import 'package:ezformulas/src/providers/_provider.dart';
 import 'package:ezformulas/src/providers/ad_state.dart';
 import 'package:ezformulas/src/providers/utils.dart' as utils;
 import 'package:ezformulas/src/widgets/content_tile.dart';
-import 'package:ezformulas/src/widgets/floating_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -47,7 +46,6 @@ class _CoursePageState extends State<CoursePage> {
 
     return Container(
       child: Scaffold(
-        floatingActionButton: FloatingButton(Alignment(h * 0.0022, 0)),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           toolbarHeight: h * 0.1,

@@ -1,7 +1,6 @@
 import 'package:ezformulas/src/providers/_provider.dart';
 import 'package:ezformulas/src/providers/ad_state.dart';
 import 'package:ezformulas/src/providers/units.dart';
-import 'package:ezformulas/src/widgets/floating_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -43,7 +42,6 @@ class _FormulaPageState extends State<FormulaPage> {
     double w = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      floatingActionButton: FloatingButton(Alignment(h * 0.0022, 0)),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
