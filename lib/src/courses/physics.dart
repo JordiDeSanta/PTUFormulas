@@ -395,28 +395,6 @@ final physics = CourseArguments(
         FormulaArguments(
           resultUnit: VelocityU(),
           char: 'v',
-          name: 'Velocidad Instantánea',
-          svgRoute: 'assets/formulas/physics/MRUV/Velocidad1.svg',
-          params: {
-            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
-            Param(name: 'Aceleración', med: Aceleration()): 1.0,
-            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
-          },
-          formula: (Map<Param, double> m) {
-            double inputV0 = m.values.toList()[0];
-            double inputA = m.values.toList()[1];
-            double inputT = m.values.toList()[2];
-
-            double v0 = m.keys.toList()[0].getValue(inputV0);
-            double a = m.keys.toList()[1].getValue(inputA);
-            double t = m.keys.toList()[2].getValue(inputT);
-
-            return v0 + a * t;
-          },
-        ),
-        FormulaArguments(
-          resultUnit: VelocityU(),
-          char: 'v',
           name: 'Velocidad Final',
           svgRoute: 'assets/formulas/physics/MRUV/Velocidad2.svg',
           params: {
