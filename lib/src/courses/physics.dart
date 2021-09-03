@@ -937,52 +937,274 @@ final physics = CourseArguments(
       ],
     ),
     ContentArguments(
-      title: 'Cosmos',
-      icon: FontAwesomeIcons.globeAmericas,
+      title: 'Hidrostática y Presión',
+      icon: FontAwesomeIcons.water,
       formulas: [
         FormulaArguments(
-          resultUnit: Force(),
-          char: 'G',
-          name: 'Gravitación Universal',
-          svgRoute: 'assets/formulas/physics/Cosmos/Gravitacion.svg',
+          resultUnit: Pressure(),
+          char: 'P',
+          name: 'Presión',
+          svgRoute: 'assets/formulas/physics/Hidro/Presion.svg',
           params: {
-            Param(name: 'Masa del cuerpo 1', med: Mass()): 1.0,
-            Param(name: 'Masa del cuerpo 2', med: Mass()): 1.0,
+            Param(name: 'Fuerza Aplicada', med: Force()): 1.0,
+            Param(name: 'Área', med: Area()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputF = m.values.toList()[0];
+            double inputA = m.values.toList()[1];
+
+            double f = m.keys.toList()[0].getValue(inputF);
+            double a = m.keys.toList()[1].getValue(inputA);
+
+            return f / a;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Density(),
+          char: '𝜌',
+          name: 'Densidad',
+          svgRoute: 'assets/formulas/physics/Hidro/Densidad.svg',
+          params: {
+            Param(name: 'Masa', med: Mass()): 1.0,
+            Param(name: 'Volumen', med: Volumen()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputM = m.values.toList()[0];
+            double inputV = m.values.toList()[1];
+
+            double ma = m.keys.toList()[0].getValue(inputM);
+            double v = m.keys.toList()[1].getValue(inputV);
+
+            return ma / v;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Pressure(),
+          char: 'h',
+          name: 'Presión Hidrostática',
+          svgRoute: 'assets/formulas/physics/Hidro/Hidrostatica.svg',
+          params: {
+            Param(name: 'Densidad del líquido', med: Density()): 1.0,
+            Param(name: 'Gravedad', med: Aceleration()): 1.0,
+            Param(name: 'Profundidad', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputD = m.values.toList()[0];
+            double inputG = m.values.toList()[1];
+            double inputH = m.values.toList()[2];
+
+            double d = m.keys.toList()[0].getValue(inputD);
+            double g = m.keys.toList()[1].getValue(inputG);
+            double h = m.keys.toList()[2].getValue(inputH);
+
+            return d * g * h;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Pressure(),
+          char: 'a',
+          name: 'Presión Absoluta',
+          svgRoute: 'assets/formulas/physics/Hidro/Absoluta.svg',
+          params: {
+            Param(name: 'Presión Hidrostática', med: Pressure()): 1.0,
+            Param(name: 'Presión Atmosférica', med: Pressure()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputph = m.values.toList()[0];
+            double inputpa = m.values.toList()[1];
+
+            double ph = m.keys.toList()[0].getValue(inputph);
+            double pa = m.keys.toList()[1].getValue(inputpa);
+
+            return ph + pa;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Pressure(),
+          char: 'P',
+          name: 'Principio de Pascal',
+          svgRoute: 'assets/formulas/physics/Hidro/Pascal.svg',
+        ),
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'E',
+          name: 'Flotación (Arquímedes)',
+          svgRoute: 'assets/formulas/physics/Hidro/Flotacion.svg',
+          params: {
+            Param(name: 'Densidad del líquido', med: Density()): 1.0,
+            Param(name: 'Volumen', med: Volumen()): 1.0,
+            Param(name: 'Gravedad', med: Aceleration()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputD = m.values.toList()[0];
+            double inputV = m.values.toList()[1];
+            double inputH = m.values.toList()[2];
+
+            double d = m.keys.toList()[0].getValue(inputD);
+            double v = m.keys.toList()[1].getValue(inputV);
+            double h = m.keys.toList()[2].getValue(inputH);
+
+            return d * v * h;
+          },
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Energía, Trabajo y Potencia',
+      icon: FontAwesomeIcons.solarPanel,
+      formulas: [
+        FormulaArguments(
+          resultUnit: Energy(),
+          char: 'K',
+          name: 'Energía Cinética',
+          svgRoute: 'assets/formulas/physics/Energy/Cinetica.svg',
+          params: {
+            Param(name: 'Masa', med: Mass()): 1.0,
+            Param(name: 'Velocidad', med: VelocityU()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputM = m.values.toList()[0];
+            double inputV = m.values.toList()[1];
+
+            double ma = m.keys.toList()[0].getValue(inputM);
+            double v = m.keys.toList()[1].getValue(inputV);
+
+            return (ma * pow(v, 2)) / 2;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Energy(),
+          char: 'G',
+          name: 'Energía Potencial Gravitatoria',
+          svgRoute: 'assets/formulas/physics/Energy/PotencialG.svg',
+          params: {
+            Param(name: 'Masa', med: Mass()): 1.0,
+            Param(name: 'Gravedad', med: Aceleration()): 1.0,
+            Param(name: 'Altura', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputM = m.values.toList()[0];
+            double inputG = m.values.toList()[1];
+            double inputH = m.values.toList()[2];
+
+            double ma = m.keys.toList()[0].getValue(inputM);
+            double g = m.keys.toList()[1].getValue(inputG);
+            double h = m.keys.toList()[2].getValue(inputH);
+
+            return ma * g * h;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Energy(),
+          char: 'E',
+          name: 'Energía Potencial Elástica',
+          svgRoute: 'assets/formulas/physics/Energy/PotencialE.svg',
+          params: {
+            Param(name: 'Constante Elástica'): 1.0,
             Param(
-              name: 'Distancia entre sus centros',
+              name: 'Longitud de la Deformación',
               med: Length(),
             ): 1.0,
           },
           formula: (Map<Param, double> m) {
-            double inputM1 = m.values.toList()[0];
-            double inputM2 = m.values.toList()[1];
-            double inputR = m.values.toList()[2];
+            double inputK = m.values.toList()[0];
+            double inputX = m.values.toList()[1];
 
-            double m1 = m.keys.toList()[0].getValue(inputM1);
-            double m2 = m.keys.toList()[1].getValue(inputM2);
-            double r = m.keys.toList()[2].getValue(inputR);
+            double k = m.keys.toList()[0].getValue(inputK);
+            double dx = m.keys.toList()[1].getValue(inputX);
 
-            double g = 6.67e-11;
-
-            return (g) * ((m1 * m2) / pow(r, 2));
+            return (k * pow(dx, 2)) / 2;
           },
         ),
         FormulaArguments(
-          char: 'K',
-          name: 'Constante Orbital',
-          svgRoute: 'assets/formulas/physics/Cosmos/Kepler.svg',
+          resultUnit: Energy(),
+          char: 'M',
+          name: 'Energía Mecánica',
+          svgRoute: 'assets/formulas/physics/Energy/Mecanica.svg',
           params: {
-            Param(name: 'Periódo', med: Time()): 1.0,
-            Param(name: 'Semieje mayor', med: Length()): 1.0,
+            Param(name: 'Energía Cinética', med: Energy()): 1.0,
+            Param(name: 'Energía Potencial', med: Energy()): 1.0,
           },
           formula: (Map<Param, double> m) {
-            double inputT = m.values.toList()[0];
-            double inputR = m.values.toList()[1];
+            double inputC = m.values.toList()[0];
+            double inputP = m.values.toList()[1];
 
-            double t = m.keys.toList()[0].getValue(inputT);
-            double r = m.keys.toList()[1].getValue(inputR);
+            double ec = m.keys.toList()[0].getValue(inputC);
+            double ep = m.keys.toList()[1].getValue(inputP);
 
-            return pow(t, 2) / pow(r, 3);
+            return ec + ep;
+          },
+        ),
+        FormulaArguments(
+          char: 'M',
+          name: 'Conservación de la Energía',
+          svgRoute: 'assets/formulas/physics/Energy/Conservacion.svg',
+        ),
+        FormulaArguments(
+          char: 'M',
+          name: 'Variación de la Energía',
+          svgRoute: 'assets/formulas/physics/Energy/Variacion.svg',
+        ),
+        FormulaArguments(
+          char: 'W',
+          name: 'Fuerza Disipativa',
+          svgRoute: 'assets/formulas/physics/Energy/Disipativa.svg',
+        ),
+        FormulaArguments(
+          resultUnit: Energy(),
+          char: 'W',
+          name: 'Trabajo',
+          svgRoute: 'assets/formulas/physics/Energy/Trabajo.svg',
+          params: {
+            Param(name: 'Fuerza', med: Force()): 1.0,
+            Param(name: 'Distancia', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputF = m.values.toList()[0];
+            double inputD = m.values.toList()[1];
+
+            double f = m.keys.toList()[0].getValue(inputF);
+            double d = m.keys.toList()[1].getValue(inputD);
+
+            return f * d;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Power(),
+          char: 'P',
+          name: 'Potencia I',
+          svgRoute: 'assets/formulas/physics/Energy/Potencia.svg',
+          params: {
+            Param(name: 'Trabajo', med: Energy()): 1.0,
+            Param(name: 'Tiempo', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputW = m.values.toList()[0];
+            double inputT = m.values.toList()[1];
+
+            double w = m.keys.toList()[0].getValue(inputW);
+            double t = m.keys.toList()[1].getValue(inputT);
+
+            return w / t;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Power(),
+          char: 'P',
+          name: 'Potencia II',
+          svgRoute: 'assets/formulas/physics/Energy/Potencia2.svg',
+          params: {
+            Param(name: 'Fuerza', med: Force()): 1.0,
+            Param(name: 'Velocidad', med: VelocityU()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputF = m.values.toList()[0];
+            double inputV = m.values.toList()[1];
+
+            double f = m.keys.toList()[0].getValue(inputF);
+            double v = m.keys.toList()[1].getValue(inputV);
+
+            return f * v;
           },
         ),
       ],

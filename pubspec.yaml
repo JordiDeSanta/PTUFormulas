@@ -66,6 +66,8 @@ flutter:
     - assets/formulas/physics/Forces/
     - assets/formulas/physics/Colls/
     - assets/formulas/physics/Cosmos/
+    - assets/formulas/physics/Hidro/
+    - assets/formulas/physics/Energy/
     - assets/formulas/math/Numbers/
     - assets/formulas/math/Facto/
     - assets/formulas/math/Functions/
