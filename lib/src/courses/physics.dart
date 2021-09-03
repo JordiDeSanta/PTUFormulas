@@ -849,13 +849,11 @@ final physics = CourseArguments(
           },
         ),
         FormulaArguments(
-          resultUnit: Force(),
           char: 'p',
           name: 'Conservación del Momentum',
           svgRoute: 'assets/formulas/physics/Colls/Conservacion.svg',
         ),
         FormulaArguments(
-          resultUnit: Force(),
           char: 'I',
           name: 'Impulso',
           svgRoute: 'assets/formulas/physics/Colls/Impulso.svg',
@@ -884,6 +882,108 @@ final physics = CourseArguments(
           char: 'i',
           name: 'Choque Inelástico',
           svgRoute: 'assets/formulas/physics/Colls/Inelastico.svg',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Cosmos',
+      icon: FontAwesomeIcons.globeAmericas,
+      formulas: [
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'G',
+          name: 'Gravitación Universal',
+          svgRoute: 'assets/formulas/physics/Cosmos/Gravitacion.svg',
+          params: {
+            Param(name: 'Masa del cuerpo 1', med: Mass()): 1.0,
+            Param(name: 'Masa del cuerpo 2', med: Mass()): 1.0,
+            Param(
+              name: 'Distancia entre sus centros',
+              med: Length(),
+            ): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputM1 = m.values.toList()[0];
+            double inputM2 = m.values.toList()[1];
+            double inputR = m.values.toList()[2];
+
+            double m1 = m.keys.toList()[0].getValue(inputM1);
+            double m2 = m.keys.toList()[1].getValue(inputM2);
+            double r = m.keys.toList()[2].getValue(inputR);
+
+            double g = 6.67e-11;
+
+            return (g) * ((m1 * m2) / pow(r, 2));
+          },
+        ),
+        FormulaArguments(
+          char: 'K',
+          name: 'Constante Orbital',
+          svgRoute: 'assets/formulas/physics/Cosmos/Kepler.svg',
+          params: {
+            Param(name: 'Periódo', med: Time()): 1.0,
+            Param(name: 'Semieje mayor', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputT = m.values.toList()[0];
+            double inputR = m.values.toList()[1];
+
+            double t = m.keys.toList()[0].getValue(inputT);
+            double r = m.keys.toList()[1].getValue(inputR);
+
+            return pow(t, 2) / pow(r, 3);
+          },
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Cosmos',
+      icon: FontAwesomeIcons.globeAmericas,
+      formulas: [
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'G',
+          name: 'Gravitación Universal',
+          svgRoute: 'assets/formulas/physics/Cosmos/Gravitacion.svg',
+          params: {
+            Param(name: 'Masa del cuerpo 1', med: Mass()): 1.0,
+            Param(name: 'Masa del cuerpo 2', med: Mass()): 1.0,
+            Param(
+              name: 'Distancia entre sus centros',
+              med: Length(),
+            ): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputM1 = m.values.toList()[0];
+            double inputM2 = m.values.toList()[1];
+            double inputR = m.values.toList()[2];
+
+            double m1 = m.keys.toList()[0].getValue(inputM1);
+            double m2 = m.keys.toList()[1].getValue(inputM2);
+            double r = m.keys.toList()[2].getValue(inputR);
+
+            double g = 6.67e-11;
+
+            return (g) * ((m1 * m2) / pow(r, 2));
+          },
+        ),
+        FormulaArguments(
+          char: 'K',
+          name: 'Constante Orbital',
+          svgRoute: 'assets/formulas/physics/Cosmos/Kepler.svg',
+          params: {
+            Param(name: 'Periódo', med: Time()): 1.0,
+            Param(name: 'Semieje mayor', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputT = m.values.toList()[0];
+            double inputR = m.values.toList()[1];
+
+            double t = m.keys.toList()[0].getValue(inputT);
+            double r = m.keys.toList()[1].getValue(inputR);
+
+            return pow(t, 2) / pow(r, 3);
+          },
         ),
       ],
     ),
