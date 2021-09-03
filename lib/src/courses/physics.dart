@@ -5,6 +5,7 @@ import 'package:ezformulas/src/providers/units.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 
 final physics = CourseArguments(
@@ -580,7 +581,7 @@ final physics = CourseArguments(
       ],
     ),
     ContentArguments(
-      title: 'Caída Libre',
+      title: 'Tiro Vertical',
       icon: FontAwesomeIcons.arrowUp,
       formulas: [
         FormulaArguments(
@@ -727,6 +728,162 @@ final physics = CourseArguments(
 
             return v0 / g;
           },
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Fuerzas',
+      icon: FontAwesomeIcons.dumbbell,
+      formulas: [
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'F',
+          name: 'Fuerza',
+          svgRoute: 'assets/formulas/physics/Forces/Fuerza.svg',
+          params: {
+            Param(name: 'Masa', med: Mass()): 0,
+            Param(name: 'Aceleración', med: Aceleration()): 0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputM = m.values.toList()[0];
+            double inputA = m.values.toList()[1];
+
+            double ma = m.keys.toList()[0].getValue(inputM);
+            double a = m.keys.toList()[1].getValue(inputA);
+
+            return ma * a;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'P',
+          name: 'Peso y Normal',
+          svgRoute: 'assets/formulas/physics/Forces/Peso.svg',
+          params: {
+            Param(name: 'Masa', med: Mass()): 0,
+            Param(name: 'Gravedad', med: Aceleration()): 0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputM = m.values.toList()[0];
+            double inputA = m.values.toList()[1];
+
+            double ma = m.keys.toList()[0].getValue(inputM);
+            double a = m.keys.toList()[1].getValue(inputA);
+
+            return ma * a;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'e',
+          name: 'Fricción Estática',
+          svgRoute: 'assets/formulas/physics/Forces/Estatica.svg',
+          params: {
+            Param(name: 'Coeficiente de Fricción Estática'): 1.0,
+            Param(name: 'Normal', med: Force()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double c = m.values.toList()[0];
+            double n = m.values.toList()[1];
+
+            return c * n;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'c',
+          name: 'Fricción Cinética',
+          svgRoute: 'assets/formulas/physics/Forces/Cinetica.svg',
+          params: {
+            Param(name: 'Coeficiente de Fricción Cinética'): 1.0,
+            Param(name: 'Normal', med: Force()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double c = m.values.toList()[0];
+            double n = m.values.toList()[1];
+
+            return c * n;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'E',
+          name: 'Fuerza Elástica',
+          svgRoute: 'assets/formulas/physics/Forces/Elastica.svg',
+          params: {
+            Param(name: 'Longitud de la Deformación', med: Length()): 1.0,
+            Param(name: 'Constante Elástica'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputL = m.values.toList()[0];
+
+            double l = m.keys.toList()[0].getValue(inputL);
+            double k = m.values.toList()[1];
+
+            return -k * l;
+          },
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Choques',
+      icon: FontAwesomeIcons.carCrash,
+      formulas: [
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'p',
+          name: 'Momentum',
+          svgRoute: 'assets/formulas/physics/Colls/Momentum.svg',
+          params: {
+            Param(name: 'Masa', med: Mass()): 1.0,
+            Param(name: 'Velocidad', med: VelocityU()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputM = m.values.toList()[0];
+            double inputV = m.values.toList()[1];
+
+            double ma = m.keys.toList()[0].getValue(inputM);
+            double v = m.keys.toList()[1].getValue(inputV);
+
+            return ma * v;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'p',
+          name: 'Conservación del Momentum',
+          svgRoute: 'assets/formulas/physics/Colls/Conservacion.svg',
+        ),
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'I',
+          name: 'Impulso',
+          svgRoute: 'assets/formulas/physics/Colls/Impulso.svg',
+          params: {
+            Param(name: 'Fuerza', med: Force()): 1.0,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputF = m.values.toList()[0];
+            double inputT = m.values.toList()[1];
+
+            double f = m.keys.toList()[0].getValue(inputF);
+            double t = m.keys.toList()[1].getValue(inputT);
+
+            return f * t;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'e',
+          name: 'Choque Elástico',
+          svgRoute: 'assets/formulas/physics/Colls/Elastico.svg',
+        ),
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'i',
+          name: 'Choque Inelástico',
+          svgRoute: 'assets/formulas/physics/Colls/Inelastico.svg',
         ),
       ],
     ),

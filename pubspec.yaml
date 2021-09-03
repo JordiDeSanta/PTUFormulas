@@ -63,6 +63,8 @@ flutter:
     - assets/formulas/physics/MRUV/
     - assets/formulas/physics/CL/
     - assets/formulas/physics/TV/
+    - assets/formulas/physics/Forces/
+    - assets/formulas/physics/Colls/
     - assets/formulas/math/Numbers/
     - assets/formulas/math/Facto/
     - assets/formulas/math/Functions/
