@@ -579,5 +579,156 @@ final physics = CourseArguments(
         ),
       ],
     ),
+    ContentArguments(
+      title: 'Caída Libre',
+      icon: FontAwesomeIcons.arrowUp,
+      formulas: [
+        FormulaArguments(
+          resultUnit: VelocityU(),
+          char: 'v',
+          name: 'Velocidad Instantánea',
+          svgRoute: 'assets/formulas/physics/TV/VelocidadInstantanea.svg',
+          params: {
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Gravedad', med: Aceleration()): 9.8,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double inputG = m.values.toList()[1];
+            double inputT = m.values.toList()[2];
+
+            double v0 = m.keys.toList()[0].getValue(inputV0);
+            double g = m.keys.toList()[1].getValue(inputG);
+            double t = m.keys.toList()[2].getValue(inputT);
+
+            return v0 - g * t;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: VelocityU(),
+          char: 'v',
+          name: 'Velocidad Final',
+          svgRoute: 'assets/formulas/physics/TV/VelocidadFinal.svg',
+          params: {
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Gravedad', med: Aceleration()): 9.8,
+            Param(name: 'Altura', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double inputG = m.values.toList()[1];
+            double inputH = m.values.toList()[2];
+
+            double v0 = m.keys.toList()[0].getValue(inputV0);
+            double g = m.keys.toList()[1].getValue(inputG);
+            double h = m.keys.toList()[2].getValue(inputH);
+
+            return sqrt(pow(v0, 2) - 2 * g * h);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Length(),
+          char: 'h',
+          name: 'Altura I',
+          svgRoute: 'assets/formulas/physics/TV/Altura.svg',
+          params: {
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Gravedad', med: Aceleration()): 9.8,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double inputG = m.values.toList()[1];
+            double inputT = m.values.toList()[2];
+
+            double v0 = m.keys.toList()[0].getValue(inputV0);
+            double g = m.keys.toList()[1].getValue(inputG);
+            double t = m.keys.toList()[2].getValue(inputT);
+
+            return v0 * t - ((g * pow(t, 2)) / 2);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Length(),
+          char: 'h',
+          name: 'Altura II',
+          svgRoute: 'assets/formulas/physics/TV/Altura2.svg',
+          params: {
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Velocidad Final', med: VelocityU()): 1.0,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double inputVF = m.values.toList()[1];
+            double inputT = m.values.toList()[2];
+
+            double v0 = m.keys.toList()[0].getValue(inputV0);
+            double vf = m.keys.toList()[1].getValue(inputVF);
+            double t = m.keys.toList()[2].getValue(inputT);
+
+            return ((v0 - vf) / 2) * t;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: VelocityU(),
+          char: 'v',
+          name: 'Velocidad Inicial',
+          imgRoute: 'assets/formulas/physics/TV/VelocidadInicial.png',
+          params: {
+            Param(name: 'Gravedad', med: Aceleration()): 9.8,
+            Param(name: 'Altura Máxima', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputG = m.values.toList()[0];
+            double inputHM = m.values.toList()[1];
+
+            double g = m.keys.toList()[0].getValue(inputG);
+            double hmax = m.keys.toList()[1].getValue(inputHM);
+
+            return sqrt(2 * g * hmax);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Length(),
+          char: 'h',
+          name: 'Altura Máxima',
+          svgRoute: 'assets/formulas/physics/TV/AlturaMaxima.svg',
+          params: {
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Gravedad', med: Aceleration()): 9.8,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double inputG = m.values.toList()[1];
+
+            double v0 = m.keys.toList()[0].getValue(inputV0);
+            double g = m.keys.toList()[1].getValue(inputG);
+
+            return pow(v0, 2) / (2 * g);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Length(),
+          char: 't',
+          name: 'Tiempo de Subida',
+          svgRoute: 'assets/formulas/physics/TV/Tiempo.svg',
+          params: {
+            Param(name: 'Velocidad Inicial', med: VelocityU()): 1.0,
+            Param(name: 'Gravedad', med: Aceleration()): 9.8,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double inputG = m.values.toList()[1];
+
+            double v0 = m.keys.toList()[0].getValue(inputV0);
+            double g = m.keys.toList()[1].getValue(inputG);
+
+            return v0 / g;
+          },
+        ),
+      ],
+    ),
   ],
 );
