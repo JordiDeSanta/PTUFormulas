@@ -36,7 +36,7 @@ class FormulaTileWidget extends StatelessWidget {
                   style: charTheme.bodyText1!.copyWith(color: color)),
               Container(
                 padding: EdgeInsets.only(left: h * 0.04),
-                width: w * 0.6,
+                width: w * 0.7,
                 child: Text(
                   settings.name,
                   overflow: TextOverflow.ellipsis,

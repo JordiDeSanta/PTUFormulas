@@ -1209,5 +1209,165 @@ final physics = CourseArguments(
         ),
       ],
     ),
+    ContentArguments(
+      title: 'Termodinámica',
+      icon: FontAwesomeIcons.fire,
+      formulas: [
+        FormulaArguments(
+          char: 'Q',
+          svgRoute: 'assets/formulas/physics/Termo/Calor.svg',
+          name: 'Cantidad de Calor I (cal)',
+          params: {
+            Param(name: 'Masa del Cuerpo (g)'): 1.0,
+            Param(name: 'Calor Especifico del Material'): 1.0,
+            Param(name: 'Temperatura Final (°C)'): 1.0,
+            Param(name: 'Temperatura Inicial (°C)'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double ma = m.values.toList()[0];
+            double ce = m.values.toList()[1];
+            double tf = m.values.toList()[2];
+            double t0 = m.values.toList()[3];
+
+            return ma * ce * (tf - t0);
+          },
+        ),
+        FormulaArguments(
+          char: 'Q',
+          svgRoute: 'assets/formulas/physics/Termo/Calor2.svg',
+          name: 'Cantidad de Calor II (J)',
+          params: {
+            Param(name: 'Masa del Cuerpo (Kg))'): 1.0,
+            Param(name: 'Calor Latente (J/Kg)'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double ma = m.values.toList()[0];
+            double l = m.values.toList()[1];
+
+            return l * ma;
+          },
+        ),
+        FormulaArguments(
+          char: 'c',
+          svgRoute: 'assets/formulas/physics/Termo/CalorE.svg',
+          name: 'Calor Específico (cal/g°C)',
+          params: {
+            Param(name: 'Capacidad Térmica'): 1.0,
+            Param(name: 'Masa (g)'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double c = m.values.toList()[0];
+            double ma = m.values.toList()[1];
+
+            return c / ma;
+          },
+        ),
+        FormulaArguments(
+          char: 'C',
+          svgRoute: 'assets/formulas/physics/Termo/CapacidadT.svg',
+          name: 'Capacidad Térmica (cal/°C)',
+          params: {
+            Param(name: 'Calor Final (cal)'): 1.0,
+            Param(name: 'Calor Inicial (cal)'): 1.0,
+            Param(name: 'Temperatura Final (°C)'): 1.0,
+            Param(name: 'Temperatura Inicial (°C)'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double qf = m.values.toList()[0];
+            double q0 = m.values.toList()[1];
+            double tf = m.values.toList()[2];
+            double t0 = m.values.toList()[3];
+
+            return (qf - q0) / (tf - t0);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Length(),
+          char: 'α',
+          svgRoute: 'assets/formulas/physics/Termo/Lineal.svg',
+          name: 'Dilatación Lineal',
+          params: {
+            Param(name: 'Longitud Inicial', med: Length()): 1.0,
+            Param(name: 'Coeficiente de Dilatación Lineal'): 1.0,
+            Param(name: 'Temperatura Final (°C)'): 1.0,
+            Param(name: 'Temperatura Inicial (°C)'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputLO = m.values.toList()[0];
+            double a = m.values.toList()[1];
+            double tf = m.values.toList()[2];
+            double t0 = m.values.toList()[3];
+
+            double lo = m.keys.toList()[0].getValue(inputLO);
+
+            return lo * a * (tf - t0);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Area(),
+          char: 'α',
+          svgRoute: 'assets/formulas/physics/Termo/Superficial.svg',
+          name: 'Dilatación Superficial',
+          params: {
+            Param(name: 'Área Inicial', med: Area()): 1.0,
+            Param(name: 'Coeficiente de Dilatación Superficial'): 1.0,
+            Param(name: 'Temperatura Final (°C)'): 1.0,
+            Param(name: 'Temperatura Inicial (°C)'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputSO = m.values.toList()[0];
+            double b = m.values.toList()[1];
+            double tf = m.values.toList()[2];
+            double t0 = m.values.toList()[3];
+
+            double so = m.keys.toList()[0].getValue(inputSO);
+
+            return so * b * (tf - t0);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Volumen(),
+          char: 'α',
+          svgRoute: 'assets/formulas/physics/Termo/Volumetrica.svg',
+          name: 'Dilatación Volumétrica',
+          params: {
+            Param(name: 'Volumen Inicial', med: Volumen()): 1.0,
+            Param(name: 'Coeficiente de Dilatación Volumétrica'): 1.0,
+            Param(name: 'Temperatura Final (°C)'): 1.0,
+            Param(name: 'Temperatura Inicial (°C)'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV0 = m.values.toList()[0];
+            double g = m.values.toList()[1];
+            double tf = m.values.toList()[2];
+            double t0 = m.values.toList()[3];
+
+            double vo = m.keys.toList()[0].getValue(inputV0);
+
+            return vo * g * (tf - t0);
+          },
+        ),
+        FormulaArguments(
+          char: 'L',
+          svgRoute: 'assets/formulas/physics/Termo/Latente.svg',
+          name: 'Calor Latente',
+          params: {
+            Param(name: 'Calor (J)'): 1.0,
+            Param(name: 'Masa (Kg)'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double q = m.values.toList()[0];
+            double ma = m.values.toList()[1];
+
+            return q / ma;
+          },
+        ),
+        FormulaArguments(
+          char: 'E',
+          svgRoute: 'assets/formulas/physics/Termo/Equilibrio.svg',
+          name: 'Equilibrio Térmico',
+        ),
+      ],
+    ),
   ],
 );

@@ -42,19 +42,19 @@ class _HomePageState extends State<HomePage> {
         children: [
           Positioned(
             left: w * 0.3,
-            top: h * 0.2,
+            top: h * 0.28,
             child: _button(math, context, LineIcons.infinity,
                 utils.colors['Matemáticas'], h),
           ),
           Positioned(
             left: w * 0.48,
-            top: h * 0.35,
+            top: h * 0.43,
             child: _button(
                 physics, context, LineIcons.atom, utils.colors['Física'], h),
           ),
           Positioned(
             left: w * 0.12,
-            top: h * 0.35,
+            top: h * 0.43,
             child: _button(
                 math, context, LineIcons.flask, utils.colors['Química'], h),
           ),
