@@ -1377,7 +1377,7 @@ final physics = CourseArguments(
           resultUnit: Force(),
           char: 'F',
           name: 'Fuerza de Lorentz',
-          svgRoute: 'assets/formulas/physics/Electricity/Lorentz.svg',
+          svgRoute: 'assets/formulas/physics/Magnetism/Lorentz.svg',
           params: {
             Param(name: 'Carga (Partícula)', med: Charge()): 1.0,
             Param(name: 'Velocidad (Partícula)', med: VelocityU()): 1.0,
@@ -1399,7 +1399,7 @@ final physics = CourseArguments(
           resultUnit: Length(),
           char: 'R',
           name: 'Radio del Movimiento (Espira)',
-          svgRoute: 'assets/formulas/physics/Electricity/Radio.svg',
+          svgRoute: 'assets/formulas/physics/Magnetism/Radio.svg',
           params: {
             Param(name: 'Masa (Partícula)', med: Mass()): 1.0,
             Param(name: 'Velocidad (Partícula)', med: VelocityU()): 1.0,
@@ -1424,7 +1424,7 @@ final physics = CourseArguments(
           resultUnit: MagnetCamp(),
           char: 'B',
           name: 'Campo Magnético',
-          svgRoute: 'assets/formulas/physics/Electricity/Campo.svg',
+          svgRoute: 'assets/formulas/physics/Magnetism/Campo.svg',
           params: {
             Param(name: 'Intensidad', med: EIntensity()): 1.0,
             Param(name: 'Distancia', med: Length()): 1.0,
@@ -1444,7 +1444,7 @@ final physics = CourseArguments(
           resultUnit: MagnetCamp(),
           char: 'B',
           name: 'Campo Magnético (Espira)',
-          svgRoute: 'assets/formulas/physics/Electricity/Campo2.svg',
+          svgRoute: 'assets/formulas/physics/Magnetism/Campo2.svg',
           params: {
             Param(name: 'Intensidad', med: EIntensity()): 1.0,
             Param(name: 'Radio', med: Length()): 1.0,
@@ -1464,7 +1464,7 @@ final physics = CourseArguments(
           resultUnit: Flux(),
           char: 'ϕ',
           name: 'Flujo Magnético (Espira)',
-          svgRoute: 'assets/formulas/physics/Electricity/Flujo.svg',
+          svgRoute: 'assets/formulas/physics/Magnetism/Flujo.svg',
           params: {
             Param(name: 'Campo Magnético', med: MagnetCamp()): 1.0,
             Param(name: 'Área de la Espira', med: Area()): 1.0,
@@ -1483,7 +1483,7 @@ final physics = CourseArguments(
           resultUnit: Flux(),
           char: 'ε',
           name: 'Fuerza Electromotriz (Bobina)',
-          svgRoute: 'assets/formulas/physics/Electricity/Fem.svg',
+          svgRoute: 'assets/formulas/physics/Magnetism/Fem.svg',
           params: {
             Param(name: 'Número de Espiras'): 1.0,
             Param(name: 'Variación Flujo Magnético', med: Flux()): 1.0,
