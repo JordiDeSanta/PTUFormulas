@@ -73,6 +73,7 @@ flutter:
     - assets/formulas/physics/Magnetism/
     - assets/formulas/math/Numbers/
     - assets/formulas/math/Facto/
+    - assets/formulas/math/Cuad/
     - assets/formulas/math/Functions/
     - assets/formulas/math/Rect/
     - assets/formulas/math/System/

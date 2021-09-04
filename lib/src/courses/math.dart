@@ -206,9 +206,24 @@ final math = CourseArguments(
       text: 'x\u00B2',
       formulas: [
         FormulaArguments(
-          char: 'f',
-          name: 'Función Lineal',
-          svgRoute: 'assets/formulas/math/Functions/FuncionLineal.svg',
+          char: 'G',
+          name: 'Forma General',
+          svgRoute: 'assets/formulas/math/Cuad/General.svg',
+        ),
+        FormulaArguments(
+          char: 'x',
+          name: 'Fórmula General',
+          imgRoute: 'assets/formulas/math/Cuad/General.png',
+        ),
+        FormulaArguments(
+          char: '+',
+          name: 'Suma de Soluciones',
+          svgRoute: 'assets/formulas/math/Cuad/Suma.svg',
+        ),
+        FormulaArguments(
+          char: '*',
+          name: 'Multiplicación de Soluciones',
+          svgRoute: 'assets/formulas/math/Cuad/Mult.svg',
         ),
       ],
     ),
