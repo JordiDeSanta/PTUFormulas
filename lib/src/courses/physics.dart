@@ -1305,7 +1305,7 @@ final physics = CourseArguments(
         ),
         FormulaArguments(
           resultUnit: Area(),
-          char: 'α',
+          char: 'β',
           svgRoute: 'assets/formulas/physics/Termo/Superficial.svg',
           name: 'Dilatación Superficial',
           params: {
@@ -1327,7 +1327,7 @@ final physics = CourseArguments(
         ),
         FormulaArguments(
           resultUnit: Volumen(),
-          char: 'α',
+          char: 'γ',
           svgRoute: 'assets/formulas/physics/Termo/Volumetrica.svg',
           name: 'Dilatación Volumétrica',
           params: {
@@ -1366,6 +1366,139 @@ final physics = CourseArguments(
           char: 'E',
           svgRoute: 'assets/formulas/physics/Termo/Equilibrio.svg',
           name: 'Equilibrio Térmico',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Magnetismo',
+      icon: FontAwesomeIcons.magnet,
+      formulas: [
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'F',
+          name: 'Fuerza de Lorentz',
+          svgRoute: 'assets/formulas/physics/Electricity/Lorentz.svg',
+          params: {
+            Param(name: 'Carga (Partícula)', med: Charge()): 1.0,
+            Param(name: 'Velocidad (Partícula)', med: VelocityU()): 1.0,
+            Param(name: 'Campo Magnético', med: MagnetCamp()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputQ = m.values.toList()[0];
+            double inputV = m.values.toList()[1];
+            double inputB = m.values.toList()[2];
+
+            double q = m.keys.toList()[0].getValue(inputQ);
+            double v = m.keys.toList()[1].getValue(inputV);
+            double b = m.keys.toList()[2].getValue(inputB);
+
+            return q * v * b;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Length(),
+          char: 'R',
+          name: 'Radio del Movimiento (Espira)',
+          svgRoute: 'assets/formulas/physics/Electricity/Radio.svg',
+          params: {
+            Param(name: 'Masa (Partícula)', med: Mass()): 1.0,
+            Param(name: 'Velocidad (Partícula)', med: VelocityU()): 1.0,
+            Param(name: 'Carga (Partícula)', med: Charge()): 1.0,
+            Param(name: 'Campo Magnético', med: MagnetCamp()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputM = m.values.toList()[0];
+            double inputV = m.values.toList()[1];
+            double inputQ = m.values.toList()[2];
+            double inputB = m.values.toList()[3];
+
+            double ma = m.keys.toList()[0].getValue(inputM);
+            double v = m.keys.toList()[1].getValue(inputV);
+            double q = m.keys.toList()[2].getValue(inputQ);
+            double b = m.keys.toList()[3].getValue(inputB);
+
+            return (ma * v) / (q * b);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: MagnetCamp(),
+          char: 'B',
+          name: 'Campo Magnético',
+          svgRoute: 'assets/formulas/physics/Electricity/Campo.svg',
+          params: {
+            Param(name: 'Intensidad', med: EIntensity()): 1.0,
+            Param(name: 'Distancia', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputI = m.values.toList()[0];
+            double inputA = m.values.toList()[1];
+
+            double u = 4 * pi * 1e-7;
+            double i = m.keys.toList()[0].getValue(inputI);
+            double a = m.keys.toList()[1].getValue(inputA);
+
+            return (u * i) / (2 * pi * a);
+          },
+        ),
+        FormulaArguments(
+          resultUnit: MagnetCamp(),
+          char: 'B',
+          name: 'Campo Magnético (Espira)',
+          svgRoute: 'assets/formulas/physics/Electricity/Campo2.svg',
+          params: {
+            Param(name: 'Intensidad', med: EIntensity()): 1.0,
+            Param(name: 'Radio', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputI = m.values.toList()[0];
+            double inputR = m.values.toList()[1];
+
+            double u = 4 * pi * 1e-7;
+            double i = m.keys.toList()[0].getValue(inputI);
+            double r = m.keys.toList()[1].getValue(inputR);
+
+            return u * (i / (2 * r));
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Flux(),
+          char: 'ϕ',
+          name: 'Flujo Magnético (Espira)',
+          svgRoute: 'assets/formulas/physics/Electricity/Flujo.svg',
+          params: {
+            Param(name: 'Campo Magnético', med: MagnetCamp()): 1.0,
+            Param(name: 'Área de la Espira', med: Area()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputB = m.values.toList()[0];
+            double inputA = m.values.toList()[1];
+
+            double b = m.keys.toList()[0].getValue(inputB);
+            double a = m.keys.toList()[1].getValue(inputA);
+
+            return b * a;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Flux(),
+          char: 'ε',
+          name: 'Fuerza Electromotriz (Bobina)',
+          svgRoute: 'assets/formulas/physics/Electricity/Fem.svg',
+          params: {
+            Param(name: 'Número de Espiras'): 1.0,
+            Param(name: 'Variación Flujo Magnético', med: Flux()): 1.0,
+            Param(name: 'Variación Tiempo', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double n = m.values.toList()[0];
+            double inputF = m.values.toList()[1];
+            double inputT = m.values.toList()[2];
+
+            double f = m.keys.toList()[1].getValue(inputF);
+            double t = m.keys.toList()[2].getValue(inputT);
+
+            return -n * (f / t);
+          },
         ),
       ],
     ),
