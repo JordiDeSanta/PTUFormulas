@@ -87,6 +87,10 @@ flutter:
     - assets/formulas/math/2D/
     - assets/formulas/math/Circles/
     - assets/formulas/chemistry/Atom/
+    - assets/formulas/chemistry/Grupos/
+    - assets/formulas/chemistry/Hidrocarburos/
+    - assets/formulas/chemistry/Inorganica/
+    - assets/formulas/chemistry/Sustituyentes/
 
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

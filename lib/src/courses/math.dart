@@ -650,7 +650,7 @@ final math = CourseArguments(
         ),
         FormulaArguments(
           char: '◉',
-          name: 'Ángulo Inscrito y Central',
+          name: 'Ángulo del Centro',
           imgRoute: 'assets/formulas/math/Circles/AngInscrito.png',
         ),
         FormulaArguments(
