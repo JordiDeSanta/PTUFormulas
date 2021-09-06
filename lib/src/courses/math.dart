@@ -213,7 +213,7 @@ final math = CourseArguments(
         FormulaArguments(
           char: 'x',
           name: 'Fórmula General',
-          imgRoute: 'assets/formulas/math/Cuad/General.png',
+          imgRoute: 'assets/formulas/math/Cuad/Formula.png',
         ),
         FormulaArguments(
           char: '+',
@@ -599,6 +599,11 @@ final math = CourseArguments(
       formulas: [
         FormulaArguments(
           char: 'P',
+          name: 'Polígonos',
+          imgRoute: 'assets/formulas/math/2D/Poligonos.png',
+        ),
+        FormulaArguments(
+          char: 'P',
           name: 'Perímetros',
           imgRoute: 'assets/formulas/math/2D/Perimetros.png',
         ),
@@ -613,29 +618,100 @@ final math = CourseArguments(
           imgRoute: 'assets/formulas/math/2D/Cuadrilatero.png',
         ),
         FormulaArguments(
-          char: '/',
-          name: 'Paralelógramos (General)',
+          char: '❒',
+          name: 'Paralelógramos',
           imgRoute: 'assets/formulas/math/2D/Paralelogramos.png',
         ),
         FormulaArguments(
-          char: '❒',
-          name: 'Cuadrado',
-          imgRoute: 'assets/formulas/math/2D/Cuadrado.png',
-        ),
-        FormulaArguments(
-          char: '❒',
-          name: 'Rectángulo',
-          imgRoute: 'assets/formulas/math/2D/Rectangulo.png',
+          char: 'T',
+          name: 'Trapecios',
+          imgRoute: 'assets/formulas/math/2D/Trapecios.png',
         ),
         FormulaArguments(
           char: '⧫',
-          name: 'Rombo',
-          imgRoute: 'assets/formulas/math/2D/Rombo.png',
+          name: 'Deltoide',
+          imgRoute: 'assets/formulas/math/2D/Deltoide.png',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Círculo y Circunferencia',
+      text: '◉',
+      formulas: [
+        FormulaArguments(
+          char: '◉',
+          name: 'Área y Perímetro',
+          imgRoute: 'assets/formulas/math/Circles/AreaPerimetro.png',
         ),
         FormulaArguments(
-          char: '⧫',
-          name: 'Romboide',
-          imgRoute: 'assets/formulas/math/2D/Romboide.png',
+          char: '◉',
+          name: 'Sector Circular',
+          imgRoute: 'assets/formulas/math/Circles/Sector.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Ángulo Inscrito y Central',
+          imgRoute: 'assets/formulas/math/Circles/AngInscrito.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Paralelas',
+          imgRoute: 'assets/formulas/math/Circles/Paralelas.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Ángulos Inscritos',
+          imgRoute: 'assets/formulas/math/Circles/Inscritos.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Triángulo Inscrito',
+          imgRoute: 'assets/formulas/math/Circles/TrianguloInscrito.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Cuadrilátero Inscrito',
+          imgRoute: 'assets/formulas/math/Circles/CuadInscrito.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Tangente',
+          imgRoute: 'assets/formulas/math/Circles/Tangente.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Ángulo Semi-Inscrito',
+          imgRoute: 'assets/formulas/math/Circles/AngSemi.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Ángulo Interior',
+          imgRoute: 'assets/formulas/math/Circles/Interior.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Ángulo Exterior',
+          imgRoute: 'assets/formulas/math/Circles/Exterior.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Teorema de Cuerdas',
+          imgRoute: 'assets/formulas/math/Circles/Cuerdas.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Teorema de Secantes',
+          imgRoute: 'assets/formulas/math/Circles/Secantes.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Teorema de Tangente/Secante',
+          imgRoute: 'assets/formulas/math/Circles/TangenteSecante.png',
+        ),
+        FormulaArguments(
+          char: '◉',
+          name: 'Teoremas Extras',
+          imgRoute: 'assets/formulas/math/Circles/Extras.png',
         ),
       ],
     ),

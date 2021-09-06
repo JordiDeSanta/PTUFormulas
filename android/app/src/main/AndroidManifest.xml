@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jordidev.ptuformulas">
    <application
-        android:label="PTU Formulas"
+        android:label="EZFormulas"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"

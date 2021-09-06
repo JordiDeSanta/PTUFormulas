@@ -7,32 +7,12 @@ import 'package:ionicons/ionicons.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 
 final math = CourseArguments(
-  title: 'Matemáticas',
+  title: 'Química',
   contents: [
     ContentArguments(
-      title: 'Números',
+      title: 'Átomo',
       icon: FontAwesomeIcons.squareRootAlt,
       formulas: [
-        FormulaArguments(
-          char: '%',
-          name: 'Porcentaje',
-          svgRoute: 'assets/formulas/math/Numbers/Porcentaje.svg',
-        ),
-        FormulaArguments(
-          char: 'x\u00B2',
-          name: 'Potencias',
-          imgRoute: 'assets/formulas/math/Numbers/Potencias.png',
-        ),
-        FormulaArguments(
-          char: '√',
-          name: 'Raíces',
-          imgRoute: 'assets/formulas/math/Numbers/Raices.png',
-        ),
-        FormulaArguments(
-          char: 'log',
-          name: 'Logaritmos',
-          imgRoute: 'assets/formulas/math/Numbers/Logaritmos.png',
-        ),
         FormulaArguments(
           char: '|a|',
           name: 'Muy importante',

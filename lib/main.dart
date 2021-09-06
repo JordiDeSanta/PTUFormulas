@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'EZ Formulas',
+      title: 'EZFormulas',
       initialRoute: 'home',
       routes: {
         'home': (BuildContext context) => HomePage(),
