@@ -1,3 +1,4 @@
+import 'package:ezformulas/src/courses/chemistry.dart';
 import 'package:ezformulas/src/courses/math.dart';
 import 'package:ezformulas/src/courses/physics.dart';
 import 'package:ezformulas/src/providers/_provider.dart';
@@ -55,8 +56,8 @@ class _HomePageState extends State<HomePage> {
           Positioned(
             left: w * 0.12,
             top: h * 0.43,
-            child: _button(
-                math, context, LineIcons.flask, utils.colors['Química'], h),
+            child: _button(chemistry, context, LineIcons.flask,
+                utils.colors['Química'], h),
           ),
         ],
       ),

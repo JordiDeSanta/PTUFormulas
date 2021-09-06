@@ -16,6 +16,222 @@ final physics = CourseArguments(
       icon: Typicons.waves,
       formulas: [
         FormulaArguments(
+          char: 'L',
+          resultUnit: Length(),
+          name: 'Convertir',
+          params: {
+            Param(name: 'Longitud', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'L',
+          resultUnit: Length(),
+          name: 'Longitud',
+          params: {
+            Param(name: 'Longitud', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'T',
+          resultUnit: Time(),
+          name: 'Tiempo',
+          params: {
+            Param(name: 'Tiempo', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'V',
+          resultUnit: VelocityU(),
+          name: 'Velocidad',
+          params: {
+            Param(name: 'Velocidad', med: VelocityU()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'F',
+          resultUnit: Frecuency(),
+          name: 'Frecuencia',
+          params: {
+            Param(name: 'Frecuencia', med: Frecuency()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'A',
+          resultUnit: Aceleration(),
+          name: 'Aceleración',
+          params: {
+            Param(name: 'Aceleración', med: Aceleration()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'M',
+          resultUnit: Mass(),
+          name: 'Masa',
+          params: {
+            Param(name: 'Masa', med: Mass()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'F',
+          resultUnit: Force(),
+          name: 'Fuerza',
+          params: {
+            Param(name: 'Fuerza', med: Force()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'A',
+          resultUnit: Area(),
+          name: 'Área',
+          params: {
+            Param(name: 'Área', med: Area()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'V',
+          resultUnit: Volumen(),
+          name: 'Volumen',
+          params: {
+            Param(name: 'Volumen', med: Volumen()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'D',
+          resultUnit: Density(),
+          name: 'Densidad',
+          params: {
+            Param(name: 'Densidad', med: Density()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'P',
+          resultUnit: Pressure(),
+          name: 'Presión',
+          params: {
+            Param(name: 'Presión', med: Pressure()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'E',
+          resultUnit: Energy(),
+          name: 'Energía',
+          params: {
+            Param(name: 'Energía', med: Energy()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'P',
+          resultUnit: Power(),
+          name: 'Potencia',
+          params: {
+            Param(name: 'Potencia', med: Power()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+        FormulaArguments(
+          char: 'Q',
+          resultUnit: Charge(),
+          name: 'Carga',
+          params: {
+            Param(name: 'Carga', med: Charge()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double input = m.values.toList()[0];
+            double c = m.keys.toList()[0].getValue(input);
+
+            return c;
+          },
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Ondas',
+      icon: Typicons.waves,
+      formulas: [
+        FormulaArguments(
           resultUnit: Time(),
           char: 'T',
           name: 'Periódo',

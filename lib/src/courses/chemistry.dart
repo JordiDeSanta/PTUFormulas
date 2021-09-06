@@ -6,12 +6,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 
-final math = CourseArguments(
+final chemistry = CourseArguments(
   title: 'Química',
   contents: [
     ContentArguments(
       title: 'Átomo',
-      icon: FontAwesomeIcons.squareRootAlt,
+      icon: FontAwesomeIcons.atom,
       formulas: [
         FormulaArguments(
           char: '|a|',
