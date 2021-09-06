@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:ezformulas/src/providers/_provider.dart';
+import 'package:ezformulas/src/providers/units.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ionicons/ionicons.dart';
@@ -252,11 +253,29 @@ final chemistry = CourseArguments(
           char: 'n',
           name: 'N° de Moles I',
           svgRoute: 'assets/formulas/chemistry/Mol/Moles.svg',
+          params: <Param, double>{
+            Param(name: 'N° de Moléculas'): 0.0,
+          },
+          formula: (Map<Param, double> m) {
+            double n = m.values.toList()[0];
+
+            return n / 6.022e23;
+          },
         ),
         FormulaArguments(
           char: 'n',
           name: 'N° de Moles II',
           svgRoute: 'assets/formulas/chemistry/Mol/Moles2.svg',
+          params: <Param, double>{
+            Param(name: 'Masa (g)'): 0.0,
+            Param(name: 'Masa Molecular (g)'): 0.0,
+          },
+          formula: (Map<Param, double> m) {
+            double ma = m.values.toList()[0];
+            double mm = m.values.toList()[1];
+
+            return ma / mm;
+          },
         ),
       ],
     ),
@@ -265,9 +284,29 @@ final chemistry = CourseArguments(
       icon: FontAwesomeIcons.gasPump,
       formulas: [
         FormulaArguments(
-          char: 'MO',
-          name: 'Hidróxido',
-          imgRoute: 'assets/formulas/chemistry/Inorganica/Hidroxido.png',
+          char: 'B',
+          name: 'Ley de Boyle',
+          svgRoute: 'assets/formulas/chemistry/Gases/Boyle.svg',
+        ),
+        FormulaArguments(
+          char: 'G',
+          name: 'Ley de Gay-Lussac I',
+          svgRoute: 'assets/formulas/chemistry/Gases/GayLussac1.svg',
+        ),
+        FormulaArguments(
+          char: 'G',
+          name: 'Ley de Gay-Lussac II',
+          svgRoute: 'assets/formulas/chemistry/Gases/GayLussac2.svg',
+        ),
+        FormulaArguments(
+          char: 'C',
+          name: 'Leyes Combinadas',
+          svgRoute: 'assets/formulas/chemistry/Gases/Combinadas.svg',
+        ),
+        FormulaArguments(
+          char: 'I',
+          name: 'Ley de Gases Ideales',
+          svgRoute: 'assets/formulas/chemistry/Gases/Ideales.svg',
         ),
       ],
     ),
@@ -276,29 +315,80 @@ final chemistry = CourseArguments(
       icon: Ionicons.color_fill_outline,
       formulas: [
         FormulaArguments(
+          resultUnit: Density(),
           char: 'd',
           name: 'Densidad',
           svgRoute: 'assets/formulas/chemistry/Fisicas/Densidad.svg',
+          params: <Param, double>{
+            Param(name: 'Masa', med: Mass()): 0.0,
+            Param(name: 'Volumen', med: Volumen()): 0.0,
+          },
+          formula: (Map<Param, double> m) {
+            double ma = m.values.toList()[0];
+            double mm = m.values.toList()[1];
+
+            return ma / mm;
+          },
         ),
         FormulaArguments(
           char: '%',
           name: '%masa-masa',
           svgRoute: 'assets/formulas/chemistry/Fisicas/pmm.svg',
+          params: {
+            Param(name: 'gramos de sto'): 1.0,
+            Param(name: 'gramos de sln'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double msto = m.values.toList()[0];
+            double msln = m.values.toList()[1];
+
+            return (msto / msln) * 100;
+          },
         ),
         FormulaArguments(
           char: '%',
           name: '%masa-volumen',
           svgRoute: 'assets/formulas/chemistry/Fisicas/pmv.svg',
+          params: {
+            Param(name: 'gramos de sto'): 1.0,
+            Param(name: 'ml de sln'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double msto = m.values.toList()[0];
+            double vsln = m.values.toList()[1];
+
+            return (msto / vsln) * 100;
+          },
         ),
         FormulaArguments(
           char: '%',
           name: '%volumen-volumen',
           svgRoute: 'assets/formulas/chemistry/Fisicas/pvv.svg',
+          params: {
+            Param(name: 'ml de sto'): 1.0,
+            Param(name: 'ml de sln'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double vsto = m.values.toList()[0];
+            double vsln = m.values.toList()[1];
+
+            return (vsto / vsln) * 100;
+          },
         ),
         FormulaArguments(
           char: 'p',
           name: 'Partes por Millón',
           svgRoute: 'assets/formulas/chemistry/Fisicas/ppm.svg',
+          params: {
+            Param(name: 'mg de sto'): 1.0,
+            Param(name: 'kg de sln'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double msto = m.values.toList()[0];
+            double vsln = m.values.toList()[1];
+
+            return (msto / vsln) * 100;
+          },
         ),
       ],
     ),
