@@ -91,6 +91,10 @@ flutter:
     - assets/formulas/chemistry/Hidrocarburos/
     - assets/formulas/chemistry/Inorganica/
     - assets/formulas/chemistry/Sustituyentes/
+    - assets/formulas/chemistry/Mol/
+    - assets/formulas/chemistry/Gases/
+    - assets/formulas/chemistry/Quimicas/
+    - assets/formulas/chemistry/Fisicas/
 
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

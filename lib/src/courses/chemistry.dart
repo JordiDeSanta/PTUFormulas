@@ -68,7 +68,7 @@ final chemistry = CourseArguments(
     ),
     ContentArguments(
       title: 'Grupos Funcionales',
-      text: 'G',
+      icon: Ionicons.cube_outline,
       formulas: [
         FormulaArguments(
           char: 'O',
@@ -190,7 +190,7 @@ final chemistry = CourseArguments(
     ),
     ContentArguments(
       title: 'Inorgánica',
-      text: 'M',
+      icon: Ionicons.color_palette_outline,
       formulas: [
         FormulaArguments(
           char: 'OM',
@@ -236,6 +236,105 @@ final chemistry = CourseArguments(
           char: 'MO',
           name: 'Hidróxido',
           imgRoute: 'assets/formulas/chemistry/Inorganica/Hidroxido.png',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Mol',
+      text: 'n',
+      formulas: [
+        FormulaArguments(
+          char: 'A',
+          name: 'N° de Avogrado',
+          svgRoute: 'assets/formulas/chemistry/Mol/Avogadro.svg',
+        ),
+        FormulaArguments(
+          char: 'n',
+          name: 'N° de Moles I',
+          svgRoute: 'assets/formulas/chemistry/Mol/Moles.svg',
+        ),
+        FormulaArguments(
+          char: 'n',
+          name: 'N° de Moles II',
+          svgRoute: 'assets/formulas/chemistry/Mol/Moles2.svg',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Gases',
+      icon: FontAwesomeIcons.gasPump,
+      formulas: [
+        FormulaArguments(
+          char: 'MO',
+          name: 'Hidróxido',
+          imgRoute: 'assets/formulas/chemistry/Inorganica/Hidroxido.png',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Concentraciones Físicas',
+      icon: Ionicons.color_fill_outline,
+      formulas: [
+        FormulaArguments(
+          char: 'd',
+          name: 'Densidad',
+          svgRoute: 'assets/formulas/chemistry/Fisicas/Densidad.svg',
+        ),
+        FormulaArguments(
+          char: '%',
+          name: '%masa-masa',
+          svgRoute: 'assets/formulas/chemistry/Fisicas/pmm.svg',
+        ),
+        FormulaArguments(
+          char: '%',
+          name: '%masa-volumen',
+          svgRoute: 'assets/formulas/chemistry/Fisicas/pmv.svg',
+        ),
+        FormulaArguments(
+          char: '%',
+          name: '%volumen-volumen',
+          svgRoute: 'assets/formulas/chemistry/Fisicas/pvv.svg',
+        ),
+        FormulaArguments(
+          char: 'p',
+          name: 'Partes por Millón',
+          svgRoute: 'assets/formulas/chemistry/Fisicas/ppm.svg',
+        ),
+      ],
+    ),
+    ContentArguments(
+      title: 'Concentraciones Químicas',
+      icon: Ionicons.wine_outline,
+      formulas: [
+        FormulaArguments(
+          char: 'M',
+          name: 'Molaridad',
+          svgRoute: 'assets/formulas/chemistry/Quimicas/Molaridad.svg',
+        ),
+        FormulaArguments(
+          char: 'm',
+          name: 'Molalidad',
+          svgRoute: 'assets/formulas/chemistry/Quimicas/Molalidad.svg',
+        ),
+        FormulaArguments(
+          char: 'n',
+          name: 'Moles de Soluto',
+          svgRoute: 'assets/formulas/chemistry/Quimicas/MolesSto.svg',
+        ),
+        FormulaArguments(
+          char: 'X',
+          name: 'Fracción Molar',
+          svgRoute: 'assets/formulas/chemistry/Quimicas/FraccionMolars.svg',
+        ),
+        FormulaArguments(
+          char: 'd',
+          name: 'Dilución',
+          svgRoute: 'assets/formulas/chemistry/Quimicas/Dilucion.svg',
+        ),
+        FormulaArguments(
+          char: 'M',
+          name: 'Molaridad de Mezcla',
+          svgRoute: 'assets/formulas/chemistry/Quimicas/Mezcla.svg',
         ),
       ],
     ),
