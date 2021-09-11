@@ -12,8 +12,8 @@ final physics = CourseArguments(
   title: 'Física',
   contents: [
     ContentArguments(
-      title: 'Ondas',
-      icon: Typicons.waves,
+      title: 'Conversiones',
+      text: 'C',
       formulas: [
         FormulaArguments(
           char: 'L',

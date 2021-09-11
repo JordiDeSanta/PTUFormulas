@@ -301,7 +301,7 @@ final chemistry = CourseArguments(
         FormulaArguments(
           char: 'C',
           name: 'Leyes Combinadas',
-          svgRoute: 'assets/formulas/chemistry/Gases/Combinadas.svg',
+          svgRoute: 'assets/formulas/chemistry/Gases/Combinada.svg',
         ),
         FormulaArguments(
           char: 'I',
@@ -387,7 +387,7 @@ final chemistry = CourseArguments(
             double msto = m.values.toList()[0];
             double vsln = m.values.toList()[1];
 
-            return (msto / vsln) * 100;
+            return msto / vsln;
           },
         ),
       ],
@@ -400,21 +400,61 @@ final chemistry = CourseArguments(
           char: 'M',
           name: 'Molaridad',
           svgRoute: 'assets/formulas/chemistry/Quimicas/Molaridad.svg',
+          params: {
+            Param(name: 'Moles de sto'): 1.0,
+            Param(name: 'L de sln'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double nsto = m.values.toList()[0];
+            double lsln = m.values.toList()[1];
+
+            return nsto / lsln;
+          },
         ),
         FormulaArguments(
           char: 'm',
           name: 'Molalidad',
           svgRoute: 'assets/formulas/chemistry/Quimicas/Molalidad.svg',
+          params: {
+            Param(name: 'Moles de sto'): 1.0,
+            Param(name: 'Kg de ste'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double nsto = m.values.toList()[0];
+            double kgste = m.values.toList()[1];
+
+            return nsto / kgste;
+          },
         ),
         FormulaArguments(
           char: 'n',
           name: 'Moles de Soluto',
           svgRoute: 'assets/formulas/chemistry/Quimicas/MolesSto.svg',
+          params: {
+            Param(name: 'Molaridad'): 1.0,
+            Param(name: 'Volumen Sln (L)'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double ml = m.values.toList()[0];
+            double v = m.values.toList()[1];
+
+            return ml * v;
+          },
         ),
         FormulaArguments(
           char: 'X',
           name: 'Fracción Molar',
           svgRoute: 'assets/formulas/chemistry/Quimicas/FraccionMolars.svg',
+          params: {
+            Param(name: 'Moles del Componente'): 1.0,
+            Param(name: 'Moles de Sln'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double mc = m.values.toList()[0];
+            double mt = m.values.toList()[1];
+
+            return mc / mt;
+          },
         ),
         FormulaArguments(
           char: 'd',
@@ -425,6 +465,20 @@ final chemistry = CourseArguments(
           char: 'M',
           name: 'Molaridad de Mezcla',
           svgRoute: 'assets/formulas/chemistry/Quimicas/Mezcla.svg',
+          params: {
+            Param(name: 'Masa Inicial (g)'): 1.0,
+            Param(name: 'Masa Final (g)'): 1.0,
+            Param(name: 'Volumen Inicial (L)'): 1.0,
+            Param(name: 'Volumen Final (L)'): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double mi = m.values.toList()[0];
+            double mf = m.values.toList()[1];
+            double vi = m.values.toList()[2];
+            double vf = m.values.toList()[3];
+
+            return ((mi * vi) + (mf * vf)) / (vi + vf);
+          },
         ),
       ],
     ),
