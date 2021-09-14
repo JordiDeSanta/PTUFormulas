@@ -1586,6 +1586,208 @@ final physics = CourseArguments(
       ],
     ),
     ContentArguments(
+      title: 'Electricidad',
+      icon: FontAwesomeIcons.lightbulb,
+      formulas: [
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'F',
+          name: 'Ley de Coulomb',
+          svgRoute: 'assets/formulas/physics/Electricity/Coulomb.svg',
+          params: {
+            Param(name: 'Primera Carga', med: Charge()): 1.0,
+            Param(name: 'Segunda Carga', med: Charge()): 1.0,
+            Param(name: 'Distancia entre Cargas', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputQ1 = m.values.toList()[0];
+            double inputQ2 = m.values.toList()[1];
+            double inputR = m.values.toList()[2];
+
+            double q1 = m.keys.toList()[0].getValue(inputQ1);
+            double q2 = m.keys.toList()[1].getValue(inputQ2);
+            double r = m.keys.toList()[2].getValue(inputR);
+
+            return (9e+9) * ((q1 * q2).abs() / (pow(r, 2)));
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Force(),
+          char: 'F',
+          name: 'Fuerza Eléctrica',
+          svgRoute: 'assets/formulas/physics/Electricity/Electrica.svg',
+          params: {
+            Param(name: 'Campo Eléctrico'): 1.0,
+            Param(name: 'Carga', med: Charge()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputE = m.values.toList()[0];
+            double inputQ = m.values.toList()[1];
+
+            double e = m.keys.toList()[0].getValue(inputE);
+            double q = m.keys.toList()[1].getValue(inputQ);
+
+            return e * q;
+          },
+        ),
+        FormulaArguments(
+          char: 'E',
+          name: 'Campo Electrico I',
+          svgRoute: 'assets/formulas/physics/Electricity/Campo.svg',
+          params: {
+            Param(name: 'Fuerza Eléctrica', med: Force()): 1.0,
+            Param(name: 'Carga', med: Charge()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputF = m.values.toList()[0];
+            double inputQ = m.values.toList()[1];
+
+            double f = m.keys.toList()[0].getValue(inputF);
+            double q = m.keys.toList()[1].getValue(inputQ);
+
+            return f / q;
+          },
+        ),
+        FormulaArguments(
+          char: 'E',
+          name: 'Campo Electrico II',
+          svgRoute: 'assets/formulas/physics/Electricity/Campo2.svg',
+          params: {
+            Param(name: 'Carga', med: Charge()): 1.0,
+            Param(name: 'Distancia hacia el punto', med: Length()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputQ = m.values.toList()[0];
+            double inputR = m.values.toList()[1];
+
+            double q = m.keys.toList()[0].getValue(inputQ);
+            double r = m.keys.toList()[1].getValue(inputR);
+
+            return ((9 * pow(10, 9) * q) / (r * r));
+          },
+        ),
+        FormulaArguments(
+          char: 'O',
+          name: 'Ley de Ohm',
+          svgRoute: 'assets/formulas/physics/Electricity/Ohm.svg',
+        ),
+        FormulaArguments(
+          resultUnit: EPotential(),
+          char: 'V',
+          name: 'Voltaje',
+          svgRoute: 'assets/formulas/physics/Electricity/Voltaje.svg',
+          params: {
+            Param(name: 'Carga', med: Charge()): 1.0,
+            Param(
+              name: 'Distancia hacia el punto',
+              med: Length(),
+            ): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputQ = m.values.toList()[0];
+            double inputR = m.values.toList()[1];
+
+            double q = m.keys.toList()[0].getValue(inputQ);
+            double r = m.keys.toList()[1].getValue(inputR);
+
+            return ((9 * pow(10, 9)) * (q / r));
+          },
+        ),
+        FormulaArguments(
+          resultUnit: EIntensity(),
+          char: 'I',
+          name: 'Intensidad Eléctrica',
+          svgRoute: 'assets/formulas/physics/Electricity/Corriente.svg',
+          params: {
+            Param(name: 'Carga', med: Charge()): 1.0,
+            Param(name: 'Tiempo Transcurrido', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputQ = m.values.toList()[0];
+            double inputT = m.values.toList()[1];
+
+            double q = m.keys.toList()[0].getValue(inputQ);
+            double t = m.keys.toList()[1].getValue(inputT);
+
+            return q / t;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: EIntensity(),
+          char: 'R',
+          name: 'Resistencia',
+          svgRoute: 'assets/formulas/physics/Electricity/Resistencia.svg',
+          params: {
+            Param(name: 'Resistividad (=1 si usas Mat)', med: MatResistivity()):
+                1.0,
+            Param(name: 'Longitud del Cable', med: Length()): 1.0,
+            Param(
+              name: 'Area (círculo) del (cilíndro) Cable',
+              med: Area(),
+            ): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputL = m.values.toList()[1];
+            double inputA = m.values.toList()[2];
+
+            double r = m.values.toList()[0];
+            double l = m.keys.toList()[1].getValue(inputL);
+            double a = m.keys.toList()[2].getValue(inputA);
+
+            return r * l / a;
+          },
+        ),
+        FormulaArguments(
+          char: 'S',
+          name: 'Circuitos en Serie',
+          svgRoute: 'assets/formulas/physics/Electricity/Serie.svg',
+        ),
+        FormulaArguments(
+          char: 'P',
+          name: 'Circuitos en Paralelo',
+          svgRoute: 'assets/formulas/physics/Electricity/Paralelo.svg',
+        ),
+        FormulaArguments(
+          resultUnit: Power(),
+          char: 'P',
+          name: 'Potencia Eléctrica',
+          svgRoute: 'assets/formulas/physics/Electricity/Potencia.svg',
+          params: {
+            Param(name: 'Voltaje', med: EPotential()): 0.0,
+            Param(name: 'Intensidad Total', med: EIntensity()): 0.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputV = m.values.toList()[0];
+            double inputI = m.values.toList()[1];
+
+            double v = m.keys.toList()[0].getValue(inputV);
+            double i = m.keys.toList()[1].getValue(inputI);
+
+            return v * i;
+          },
+        ),
+        FormulaArguments(
+          resultUnit: Energy(),
+          char: 'E',
+          name: 'Energía Consumida',
+          svgRoute: 'assets/formulas/physics/Electricity/Energia.svg',
+          params: {
+            Param(name: 'Potencia Eléctrica', med: Power()): 1.0,
+            Param(name: 'Tiempo Activo', med: Time()): 1.0,
+          },
+          formula: (Map<Param, double> m) {
+            double inputP = m.values.toList()[0];
+            double inputT = m.values.toList()[1];
+
+            double p = m.keys.toList()[0].getValue(inputP);
+            double t = m.keys.toList()[1].getValue(inputT);
+
+            return p * t;
+          },
+        ),
+      ],
+    ),
+    ContentArguments(
       title: 'Magnetismo',
       icon: FontAwesomeIcons.magnet,
       formulas: [
